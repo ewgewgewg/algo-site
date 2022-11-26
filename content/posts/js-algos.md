@@ -15,7 +15,7 @@ color = "" #color from the theme settings
 
 # Summary
 
-A review of algorithms in JavaScript. Adapted from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/grind75?hours=19) and [LeetCode](https://www.leetcode.com).
+A review of algorithms in JavaScript. Adapted from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/grind75?hours=19) and the [LeetCode](https://www.leetcode.com) website.
 
 # Arrays
 
