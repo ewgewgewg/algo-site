@@ -63,10 +63,10 @@ paginate = 5
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
+        identifier = "arrays"
+        name = "Arrays"
+        url = "/posts/js-algos#Arrays"
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+        identifier = "stacks"
+        name = "Stacks"
+        url = "/posts/js-algos#Stacks"
