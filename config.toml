@@ -70,3 +70,7 @@ paginate = 5
         identifier = "stacks"
         name = "Stacks"
         url = "/posts/js-algos#Stacks"
+      [[languages.en.menu.main]]
+        identifier = "linked lists"
+        name = "Linked Lists"
+        url = "/posts/js-algos#Linked Lists"
