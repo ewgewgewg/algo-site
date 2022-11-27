@@ -15,14 +15,15 @@ color = "" #color from the theme settings
 
 # Summary
 
-An overview of JavaScript syntax. If you are a beginner, read this before the JS Algos file.
+An overview of JavaScript syntax. If you are a beginner, read this before the [JS Algos](/posts/js-algos) file.
 
-# Variables and Comments
+# Variables, Types, and Comments
 
-JavaScript stores information with `let` and `const` -- `const` cannot be changed, but `let` can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Typing on a line after `//` on lines between `/*` and `*/` creates notes.
+JavaScript stores information with `let` and `const` -- `const` cannot be changed, but `let` can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the `typeof` command. Typing on a line after `//` on lines between `/*` and `*/` creates notes.
 
 {{< code language="javascript" id="1" expand="Show" collapse="Hide" isCollapsed="false" >}}
 const test = true
+typeof test // this code results in "boolean"
 
 let secondTest = "word"
 // quotes in '' and `` are also allowed
@@ -151,7 +152,9 @@ console.log(map.get("tree")) // prints 4
 
 # Methods of Arrays
 
-Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return its former value, `shift` the value at 0 index off and return this value (meaning every other value in the array is downshifted one index), and `unshift` to move in a new 0 index value and rotate every other value up one index. Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes.
+Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index.
+
+Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
 
 {{< code language="javascript" id="5" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -183,5 +186,39 @@ console.log(array3) // copy starts at index 1 of the former array and prints [4,
 
 const array4 = array.slice(1, 2)
 console.log(array4) // copy starts at index 1 and ends just below index 3 of former array, printing [4]
+
+const allArrayValuesGreaterThanOneBoolean = array.every((value) => value > 1)
+console.log(allArrayValuesGreaterThanOneBoolean) // prints true
+
+{{< /code >}}
+
+# Methods of Strings
+
+Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` of their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
+
+{{< code language="javascript" id="6" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const string = "Hello"
+console.log(string.length) // prints 5
+
+const lowerCaseString = string.toLowerCase()
+console.log(lowerCaseString) // prints "hello"
+
+const upperCaseString = string.toUpperCase()
+console.log(upperCaseString) // prints "HELLO"
+
+const firstReplace = string.replace("l","a")
+console.log(firstReplace) // prints "Healo"
+
+const secondReplace = string.replace(/[0-9a-zA-Z]/g,'')
+console.log(secondReplace) // this regex replaces all numbers and letters with an empty string (note the g), printing ""
+
+const thirdReplace = string.replace(/[^0-9a-za-z]/g,'')
+console.log(thirdReplace) // this regex would replace any non-alphanumeric characters with an empty string (note the ^), but since there are none, "Hello" is printed
+
+const lowerCaseACharCode = firstReplace.charCodeAt(2)
+console.log(lowerCaseACharCode) // returns number 97 (for 'a')
+
+console.log(string) // prints "Hello" as the original string is unmodified
 
 {{< /code >}}

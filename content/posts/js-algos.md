@@ -15,7 +15,7 @@ color = "" #color from the theme settings
 
 # Summary
 
-A review of algorithm implementation in JavaScript. Adapted from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/grind75?hours=19) and the [LeetCode](https://www.leetcode.com) website. If you are a JavaScript beginner, read [JavaScript Algorithms](/posts/js-language) first.
+A review of algorithm implementation in JavaScript. Adapted from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/grind75?hours=19) and the [LeetCode](https://www.leetcode.com) website. If you are a JavaScript beginner, read [JS Language](/posts/js-language) first.
 
 # Arrays
 
@@ -166,6 +166,7 @@ Two strings are valid anagrams of each other if they have exactly the same lette
 const isAnagram = (s, t) => {
 
     const arr = new Array(26).fill(0)
+
     for (let i = 0; i < s.length; i++){
         arr[s.charCodeAt(i)-97]++
     }
@@ -186,11 +187,12 @@ LeetCode implements a binary tree node like this:
 
 function TreeNode(val, left, right) {
 
-      this.val = (val===undefined ? 0 : val)
+     this.val = (val===undefined ? 0 : val)
 
--     this.left = (left===undefined ? null : left)
--     this.right = (right===undefined ? null : right)
-  -}{{< /code >}}
+     this.left = (left===undefined ? null : left)
+     this.right = (right===undefined ? null : right)
+
+}{{< /code >}}
 
 Inverting a binary tree means to 'turn it over' as if it was a page in a book, creating what the original would look like from behind. This means swapping every pair of `left` and `right` references. A recrusive implementation step returns immediately on a `null` node, and otherwise returns after using a holding variable for one of the `left` or `right` references to help complete the second half of the swap.
 

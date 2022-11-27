@@ -91,9 +91,9 @@ paginate = 5
         name = "Binary Trees"
         url = "/posts/js-algos#Binary Trees"
       [[languages.en.menu.main]]
-        identifier = "variables and comments"
-        name = "Variables and Comments"
-        url = "/posts/js-language#Variables and Comments"
+        identifier = "variables, types, and comments"
+        name = "Variables, Types, and Comments"
+        url = "/posts/js-language#Variables, Types, and Comments"
       [[languages.en.menu.main]]
         identifier = "functions with math"
         name = "Functions With Math"
@@ -114,3 +114,7 @@ paginate = 5
         identifier = "methods of arrays"
         name = "Methods of Arrays"
         url = "/posts/js-language#Methods of Arrays"
+      [[languages.en.menu.main]]
+        identifier = "methods of strings"
+        name = "Methods of Strings"
+        url = "/posts/js-language#Methods of Strings"
