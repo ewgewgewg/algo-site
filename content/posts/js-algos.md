@@ -212,3 +212,33 @@ const invertTree = (root) => {
     return root
 
 }{{< /code >}}
+
+# Binary Search
+
+Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
+
+In a basic kind of binary search on an array, `start` and `end` variables point to the first and last filled indexes of the array. While `end` is not smaller than `start`, define a new `mid` as the midpoint between `start` and `end` (rounding allowed). `Mid` matching a target value allows immediate return of the value. If the target value is less than the mid index value, use `mid-1` as the new `end`, and if the target value is greater, use `mid+1` as the new `start`. Next, test if the new `end` is smaller than `start` to try another search step. If the search ends without finding the target value, returning -1 can indicate this (returning something else is better if negative targets are allowed).
+
+{{< code language="javascript" title="[Binary Search](https://leetcode.com/problems/binary-search/)" id="10" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof target === "number"
+
+const search = (nums, target) => {
+
+    let start = 0
+    let end = nums.length - 1
+
+    while(start <= end){
+        let mid = Math.floor((end-start)/2) + start
+        if (target === nums[mid]) return mid
+
+        if (nums[mid] > target){
+            end = mid - 1
+        } else {
+            start = mid + 1
+        }
+    }
+
+    return -1
+
+}{{< /code >}}

@@ -91,6 +91,10 @@ paginate = 5
         name = "Binary Trees"
         url = "/posts/js-algos#Binary Trees"
       [[languages.en.menu.main]]
+        identifier = "binary search"
+        name = "Binary Search"
+        url = "/posts/js-algos#Binary Search"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"
