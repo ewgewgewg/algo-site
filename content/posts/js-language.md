@@ -19,7 +19,7 @@ An overview of JavaScript syntax. If you are a beginner, read this before the [J
 
 # Variables, Types, and Comments
 
-JavaScript stores information (called values) within `let` and `const` variables -- `const` values cannot be changed, but `let` variables can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the `typeof` command. Typing on a line after `//` on lines between `/*` and `*/` creates notes.
+JavaScript stores information (called values) within `let` and `const` variables -- `const` variables cannot be changed, but `let` variables can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the `typeof` command. Typing on a line after `//` on lines between `/*` and `*/` creates notes.
 
 {{< code language="javascript" id="1" expand="Show" collapse="Hide" isCollapsed="false" >}}
 const test = true
@@ -40,7 +40,7 @@ let fourthTest
 
 # Functions With Math
 
-Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be defined as variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math.
+Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math.
 
 {{< code language="javascript" id="2" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
