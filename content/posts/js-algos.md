@@ -157,6 +157,27 @@ const isPalindrome = (s) => {
 
 }{{< /code >}}
 
+Two strings are valid anagrams of each other if they have exactly the same letter count. A test involves creating an array with zeroed indices for every letter. Loop over one string, incrementing at the appropriate array index as letters are read. Then loop over the second index decrementing at the appropriate array index as letters are read. If the strings are anagrams, the resulting array should be filled with zeroes.
+
+{{< code language="javascript" title="[Valid Anagram](https://leetcode.com/problems/valid-anagram/)" id="9" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+// typeof t === "string"
+
+const isAnagram = (s, t) => {
+
+    const arr = new Array(26).fill(0)
+    for (let i = 0; i < s.length; i++){
+        arr[s.charCodeAt(i)-97]++
+    }
+
+    for (let i = 0; i < t.length; i++){
+        arr[t.charCodeAt(i)-97]--
+    }
+
+    return arr.every(a=>!a)
+
+}{{< /code >}}
+
 # Binary Trees
 
 LeetCode implements a binary tree node like this:
