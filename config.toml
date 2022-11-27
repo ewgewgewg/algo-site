@@ -74,3 +74,7 @@ paginate = 5
         identifier = "linked lists"
         name = "Linked Lists"
         url = "/posts/js-algos#Linked Lists"
+      [[languages.en.menu.main]]
+        identifier = "strings"
+        name = "Strings"
+        url = "/posts/js-algos#Strings"
