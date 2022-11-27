@@ -156,3 +156,36 @@ const isPalindrome = (s) => {
     return true
 
 }{{< /code >}}
+
+# Binary Trees
+
+LeetCode implements a binary tree node like this:
+
+{{< code language="javascript" id="7" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+function TreeNode(val, left, right) {
+
+      this.val = (val===undefined ? 0 : val)
+
+-     this.left = (left===undefined ? null : left)
+-     this.right = (right===undefined ? null : right)
+  -}{{< /code >}}
+
+Inverting a binary tree means to 'turn it over' as if it was a page in a book, creating what the original would look like from behind. This means swapping every pair of `left` and `right` references. A recrusive implementation step returns immediately on a `null` node, and otherwise returns after using a holding variable for one of the `left` or `right` references to help complete the second half of the swap.
+
+{{< code language="javascript" title="[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)" id="8" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const invertTree = (root) => {
+
+    if(!root) return root
+    const hold = root.right
+    root.right = root.left
+    root.left = hold
+
+    invertTree(root.left)
+    invertTree(root.right)
+
+    return root
+
+}{{< /code >}}

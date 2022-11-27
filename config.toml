@@ -87,6 +87,10 @@ paginate = 5
         name = "Strings"
         url = "/posts/js-algos#Strings"
       [[languages.en.menu.main]]
+        identifier = "binary trees"
+        name = "Binary Trees"
+        url = "/posts/js-algos#Binary Trees"
+      [[languages.en.menu.main]]
         identifier = "variables and comments"
         name = "Variables and Comments"
         url = "/posts/js-language#Variables and Comments"
