@@ -1,5 +1,5 @@
 +++
-title = "Js Algos"
+title = "JS Algos"
 date = "2022-11-26T15:36:56-05:00"
 author = "EWG"
 authorTwitter = "" #do not include @
@@ -15,7 +15,7 @@ color = "" #color from the theme settings
 
 # Summary
 
-A review of algorithm implementation in JavaScript. Adapted from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/grind75?hours=19) and the [LeetCode](https://www.leetcode.com) website.
+A review of algorithm implementation in JavaScript. Adapted from the [Tech Interview Handbook](https://www.techinterviewhandbook.org/grind75?hours=19) and the [LeetCode](https://www.leetcode.com) website. If you are a JavaScript beginner, read [JavaScript Algorithms](/posts/js-language) first.
 
 # Arrays
 

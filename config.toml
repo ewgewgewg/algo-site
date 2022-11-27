@@ -63,6 +63,14 @@ paginate = 5
 
     [languages.en.menu]
       [[languages.en.menu.main]]
+        identifier = "js algorithms"
+        name = "JavaScript Algorithms"
+        url = "/posts/js-algos"
+      [[languages.en.menu.main]]
+        identifier = "js language"
+        name = "JavaScript Language"
+        url = "/posts/js-language"
+      [[languages.en.menu.main]]
         identifier = "arrays"
         name = "Arrays"
         url = "/posts/js-algos#Arrays"
@@ -78,3 +86,27 @@ paginate = 5
         identifier = "strings"
         name = "Strings"
         url = "/posts/js-algos#Strings"
+      [[languages.en.menu.main]]
+        identifier = "variables and comments"
+        name = "Variables and Comments"
+        url = "/posts/js-language#Variables and Comments"
+      [[languages.en.menu.main]]
+        identifier = "functions with math"
+        name = "Functions With Math"
+        url = "/posts/js-language#Functions With Math"
+      [[languages.en.menu.main]]
+        identifier = "conditionals and comparison operators"
+        name = "Conditionals and Comparison Operators"
+        url = "/posts/js-language#Conditionals and Comparison Operators"
+      [[languages.en.menu.main]]
+        identifier = "loops, increments, and decrements"
+        name = "Loops, Increments, and Decrements"
+        url = "/posts/js-language#Loops, Increments and Decrements"
+      [[languages.en.menu.main]]
+        identifier = "objects and logging"
+        name = "Objects and Logging"
+        url = "/posts/js-language#Objects and Logging"
+      [[languages.en.menu.main]]
+        identifier = "methods of arrays"
+        name = "Methods of Arrays"
+        url = "/posts/js-language#Methods of Arrays"
