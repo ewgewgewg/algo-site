@@ -19,7 +19,7 @@ An overview of JavaScript syntax. If you are a beginner, read this before the [J
 
 # Variables, Types, and Comments
 
-JavaScript stores information with `let` and `const` -- `const` cannot be changed, but `let` can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the `typeof` command. Typing on a line after `//` on lines between `/*` and `*/` creates notes.
+JavaScript stores information (called values) within `let` and `const` variables -- `const` values cannot be changed, but `let` variables can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the `typeof` command. Typing on a line after `//` on lines between `/*` and `*/` creates notes.
 
 {{< code language="javascript" id="1" expand="Show" collapse="Hide" isCollapsed="false" >}}
 const test = true
