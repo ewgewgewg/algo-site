@@ -93,19 +93,25 @@ Two basic types of repeating code blocks are `while` loops and `for` loops. A `w
 let i = 0
 
 while(i < 4){
-i++
+
+    i++
+
 }
 
 // i is 4 here
 
 do {
-i++
+
+    i++
+
 } while (i < 2)
 
 // i is 5 here because the do block runs once even though the condition is not met
 
 for (let j = 0; j < 3; j++){
-i--
+
+    i--
+
 }
 
 // i is 2 here
