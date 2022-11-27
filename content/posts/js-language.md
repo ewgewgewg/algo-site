@@ -40,7 +40,7 @@ let fourthTest
 
 # Functions With Math
 
-Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math.
+Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math. `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up.
 
 {{< code language="javascript" id="2" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -56,8 +56,15 @@ function addTwoThenMultiplyByThree (value) {
 
 }
 
+const roundDownThenUpThenAdd = (firstValue, secondValue) => {
+
+    return Math.floor(firstValue) + Math.ceil(secondValue)
+
+}
+
 square(4) // returns 16
 addTwoThenMultiplyByThree(1) // returns 9
+roundDownThenUpThenAdd(2.1, 4.9) // returns 10
 
 {{< /code >}}
 
