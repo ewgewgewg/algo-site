@@ -92,11 +92,32 @@ singleFizzBuzz(6) // returns "Fizz"
 
 {{< /code >}}
 
+# Boolean Operators
+
+`||` is or, and `&&` is and. `&&` has higher priority than `||` and will evaluate first. Most content can be used in place of true, while an empty string, zero, null, or undefined all can be used in boolean math as false. Using `!!` coerces a value to its boolean equivalant.
+
+{{< code language="javascript" id="4" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const andTrue = true && true // stored variable is true
+const falseFromOneFalse = false && true // stored variable is false
+const falseFromBoth = false && false // stored variable is false
+
+const orTrue = true || true // stored variable is true
+const trueFromOneTrue = true || false // stored variable is true
+const falseNeedsBoth = false || false // stored variable is false
+
+const orderOfOperations = false || true && false // stored variable is false because && operates first
+
+const typeChangeDemonstrationTruthy = !!("a" || 1) // stored variable is true
+const typeChangeDemonstrationFalsy = !!("" || 0 || null || undefined) // stored variable is false
+
+{{< /code >}}
+
 # Loops, Increments, and Decrements
 
 Two basic types of repeating code blocks are `while` loops and `for` loops. A `while` loop continues until a parenthetical condition is false, and may not even run once (`do...while` loops guarantee at least one cycle). Meanwhile, `for` loops have three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Behavior inside each loop is contained in `{}`, just like with functions. The operators `++` and `--` increase or decrease a number by 1, respectively.
 
-{{< code language="javascript" id="3" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" id="5" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 let i = 0
 
@@ -132,7 +153,7 @@ Data structures called objects are useful for manipulating data. Regular objects
 
 Dot notation is used to invoke methods, which are similar to functions--`set.add` with one parenthetical argument adds a value, and `map.set` with two arguments adds a key with its value, while `set.has` tests for presence of a parenthetical value, and `map.has` tests for presence of a parenthetical key. Meanwhile, `map.get` can take a key and return a value. Regular objects use dot or bracket notation to set and look up keys and values, while arrays use bracket notation only. Meanwhile, a special command, `console.log` prints data in parenthetical arguments to a nearby terminal (aka command line interface), which is usually what is used to run your program.
 
-{{< code language="javascript" id="4" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" id="6" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const regularObject = {"car": 2 }
 const map = new Map()
@@ -163,7 +184,7 @@ Arrays have `length`, can `push` new values to the lowest empty index, `pop` to 
 
 Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
 
-{{< code language="javascript" id="5" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" id="7" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const array = [2,4,6]
 console.log(array.length) // prints 3
@@ -203,7 +224,7 @@ console.log(allArrayValuesGreaterThanOneBoolean) // prints true
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` of their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
 
-{{< code language="javascript" id="6" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" id="8" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const string = "Hello"
 console.log(string.length) // prints 5

@@ -242,3 +242,30 @@ const search = (nums, target) => {
     return -1
 
 }{{< /code >}}
+
+# Graphs
+
+A two-dimensional array can represent a screen of pixels. To represent the 'flood fill' tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
+
+{{< code language="javascript" title="[Flood Fill](https://leetcode.com/problems/flood-fill/)" id="11" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof target === "number"
+
+const floodFill = (image, sr, sc, color) => {
+
+    const start = image[sr][sc]
+    if (start === color) return image
+
+    const go = (r,c) => {
+        if(r < 0 || c < 0 || r === image.length || c === image[0].length || image[r][c] !== start) return
+        image[r][c] = color
+        go(r+1,c)
+        go(r-1,c)
+        go(r,c-1)
+        go(r,c+1)
+    }
+
+    go(sr,sc)
+    return image
+
+}{{< /code >}}

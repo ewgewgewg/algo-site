@@ -95,6 +95,10 @@ paginate = 5
         name = "Binary Search"
         url = "/posts/js-algos#Binary Search"
       [[languages.en.menu.main]]
+        identifier = "graphs"
+        name = "Graphs"
+        url = "/posts/js-algos#Graphs"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"
@@ -106,6 +110,10 @@ paginate = 5
         identifier = "conditionals and comparison operators"
         name = "Conditionals and Comparison Operators"
         url = "/posts/js-language#Conditionals and Comparison Operators"
+      [[languages.en.menu.main]]
+        identifier = "boolean operators"
+        name = "Boolean Operators"
+        url = "/posts/js-language#Boolean Operators"
       [[languages.en.menu.main]]
         identifier = "loops, increments, and decrements"
         name = "Loops, Increments, and Decrements"
