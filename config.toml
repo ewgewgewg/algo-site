@@ -134,3 +134,7 @@ paginate = 5
         identifier = "methods of strings"
         name = "Methods of Strings"
         url = "/posts/js-language#Methods of Strings"
+      [[languages.en.menu.main]]
+        identifier = "advanced objects"
+        name = "Advanced Objects"
+        url = "/posts/js-language#Advanced Objects"

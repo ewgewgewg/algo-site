@@ -40,7 +40,7 @@ let fourthTest
 
 # Functions With Math
 
-Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math. `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input.
+Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math. `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value.
 
 {{< code language="javascript" id="2" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -63,6 +63,7 @@ Math.floor(2.1) // returns 2
 Math.ceil(4.9) // returns 5
 Math.max(1, 2, 3) // returns 3
 Math.min(1, 2, 3) // returns 1
+Math.abs(-1) // returns 1
 
 {{< /code >}}
 
@@ -246,5 +247,59 @@ const lowerCaseACharCode = firstReplace.charCodeAt(2)
 console.log(lowerCaseACharCode) // returns number 97 (for 'a')
 
 console.log(string) // prints "Hello" as the original string is unmodified
+
+{{< /code >}}
+
+# Advanced Objects
+
+Optional chaining with `?.` prevents an error and returns `undefined` if something the code is trying to look inside is `undefined` or `null`. This is useful if you want to stop a process gracefully if data shape is not as expected, instead of crashing the program.
+
+{{< code language="javascript" id="9" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const hasDepth = {
+
+    test: {
+        test2: true
+    }
+
+}
+
+const noDepth = {
+
+    test: {}
+
+}
+
+console.log(hasDepth?.test?.test2) // prints true
+console.log(noDepth?.test?.test2) // prints undefined
+
+{{< /code >}}
+
+Functions in JavaScript can be used as classes, creating objects with class-defined structures that can store independent data. Assigning a function labeled as `function` to a variable and defining substructures inside it under `this.` allows for these substructures to change independently in class instances while always starting the same. Using the `new` keyword in front of the function variable creates a class instance. Shared methods can be created by assinging them to the prototype of the class definition. These will behave the same across all class instances but reference data specific to the instance.
+
+{{< code language="javascript" id="10" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const test = function () {
+
+    this.store = []
+
+}
+
+const a = new test
+a.store.push(4)
+
+const b = new test
+
+console.log(a.store) // prints [4]
+
+console.log(b.store) // prints []
+
+test.prototype.lengthPlusOne = function () {
+return this.store.length + 1
+}
+
+console.log(a.lengthPlusOne()) prints 2
+
+console.log(b.lengthPlusOne()) prints 1
 
 {{< /code >}}
