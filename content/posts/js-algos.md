@@ -269,3 +269,27 @@ const floodFill = (image, sr, sc, color) => {
     return image
 
 }{{< /code >}}
+
+# Binary Search Tree
+
+Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
+
+{{< code language="javascript" title="[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)" id="12" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary search tree node)
+// typeof p === "object" (binary search tree node)
+// typeof q === "object" (binary search tree node)
+
+const lowestCommonAncestor = (root, p, q) => {
+
+    const large = Math.max(p.val,q.val)
+    const small = Math.min(p.val,q.val)
+
+    while(root.val > large || root.val < small){
+        if(root.val > large) root = root.left
+        else if (root.val < small) root = root.right
+
+    }
+
+    return root
+
+}{{< /code >}}
