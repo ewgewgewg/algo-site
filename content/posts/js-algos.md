@@ -87,6 +87,48 @@ const isValid = (s) => {
 
 }{{< /code >}}
 
+In JavaScript, a stack can be modeled by an array that only adds and removes values from one end, while a queue can be modeled by an array that only adds values on one end and removes them on the other end. To create `push`, `pop`, `peek`, and `empty` methods for a constructed queue, create a queue function and within, assign two arrays that will be treated as stacks under the `this` keywords. Implement the `push` method by adding a `push` method to the prototype of the `queue` function, which pushes to the first stack. Implement the `empty` method similarly by protoype, and by checking if both stacks are empty. The `peek` method, meanwhile, helps with `pop` -- in `peek`, check if the second stack is empty. If so, pop from the first stack (where new values are added) and push to the second stack until the first stack is empty. This naturally brings the first value added to the first stack to the top of the second stack. The `pop` method can simply pop this after a `peek`.
+
+{{< code language="javascript" title="[Implement Queue Using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)" id="16" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const MyQueue = function() {
+
+    this.stack1 = []
+    this.stack2 = []
+
+};
+
+MyQueue.prototype.push = function(x) {
+
+    this.stack1.push(x)
+
+};
+
+MyQueue.prototype.pop = function() {
+
+    this.peek()
+    return this.stack2.pop()
+
+}
+
+MyQueue.prototype.peek = function() {
+
+    if(!this.stack2.length){
+        while(this.stack1.length){
+            const test = this.stack1.pop()
+            this.stack2.push(test)
+        }
+    }
+    return this.stack2[this.stack2.length-1]
+
+}
+
+MyQueue.prototype.empty = function() {
+
+    return !this.stack1.length && !this.stack2.length
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
@@ -97,6 +139,18 @@ function ListNode(val, next) {
 
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
+
+}
+{{< /code >}}
+
+...or sometimes this:
+
+{{< code language="javascript" id="15" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+function ListNode(val) {
+
+    this.val = val
+    this.next = null
 
 }
 {{< /code >}}
@@ -133,6 +187,26 @@ const mergeTwoLists = (list1, list2) => {
 
 }
 {{< /code >}}
+
+Cycles in linked lists can be detected by setting a `slow` pointer to the `.next` of the head, if available, and setting a `fast` pointer to the `.next.next` of the head. At each step in a while loop attempt to advance the `slow` pointer by 1 step and the `fast` pointer by 2. Then check for equality of the pointers. If the pointers point to exactly the same reference, they will return `true`, which signals a cycle, and the `fast` pointer overtaking the `slow`. If the `fast` pointer reaches an empty reference before this happens, don't be ins the loop and return `false`.
+
+{{< code language="javascript" title="[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)" id="14" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const hasCycle = (head) => {
+
+    let slow = head?.next
+    let fast = head?.next?.next
+
+    while(fast){
+        if (slow === fast) return true
+        slow = slow?.next
+        fast = fast?.next?.next
+    }
+
+    return false
+
+}{{< /code >}}
 
 # Strings
 
@@ -210,6 +284,27 @@ const invertTree = (root) => {
     invertTree(root.right)
 
     return root
+
+}{{< /code >}}
+
+A height-balanced binary tree differs in depth by no more than one at each node. To test if a binary tree is height-balanced, do depth-first search from the root node, returning 0 on each base case of a `null` root, and otherwise check if the differences in return height values from the left or right nodes is not greater than 1. Because each hopeful step of the depth-first search then returns the maximum of the right or left depth plus 1, the full depth under any node will always bubble up. If a difference greater than one bubbles up, -1 can be returned preferentially as a signal for a non-height balanced tree.
+
+{{< code language="javascript" title="[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)" id="13" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const isBalanced = (root) => {
+
+    const height = (root) => {
+        if(!root) return 0
+        const left = height(root.left)
+        const right = height(root.right)
+
+        if(left === -1 || right === -1 || Math.abs(left - right) > 1) return -1
+
+        return 1 + Math.max(left,right)
+    }
+
+    return height(root) !== -1
 
 }{{< /code >}}
 
