@@ -21,7 +21,7 @@ An overview of JavaScript syntax. If you are a beginner, read this before the [J
 
 JavaScript stores information (called values) within `let` and `const` variables -- `const` variables cannot be changed, but `let` variables can be reassigned later. Variables can contain booleans (`true` or `false`), strings (of text), or numbers, or have `null` or `undefined` values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the `typeof` command. Typing on a line after `//` or on lines between `/*` and `*/` creates notes.
 
-{{< code language="javascript" id="1" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 const test = true
 typeof test // this code results in "boolean"
 
@@ -42,7 +42,7 @@ let fourthTest
 
 Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math. `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value.
 
-{{< code language="javascript" id="2" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const square = (value) => {
 
@@ -71,7 +71,7 @@ Math.abs(-1) // returns 1
 
 Code can be optional. Code written in brackets after an `if` condition in parentheses only runs if the condition is parentheses is `true`. An `if` condition can be immediately followed by one or more `else if`, also with parentetical activation conditions, and then an `else` which serves as a catch-all and thus has no explicit conditions. Typical conditions include `===` to check if two values are truly equal, `>=`, `<=`, `>`, and `<` as relative comparators, `!` as negation, and `%`, the modulo operator, which returns what would be the remainder of a division between numbers on either side.
 
-{{< code language="javascript" id="3" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const singleFizzBuzz = (value) => {
 
@@ -95,7 +95,7 @@ singleFizzBuzz(6) // returns "Fizz"
 
 `||` is or, and `&&` is and. `&&` has higher priority than `||` and will evaluate first. Most content can be used in place of true, while an empty string, zero, null, or undefined all can be used in boolean math as false. Using `!!` coerces a value to its boolean equivalant.
 
-{{< code language="javascript" id="4" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const andTrue = true && true // stored variable is true
 const falseFromOneFalse = false && true // stored variable is false
@@ -116,7 +116,7 @@ const typeChangeDemonstrationFalsy = !!("" || 0 || null || undefined) // stored 
 
 Two basic types of repeating code blocks are `while` loops and `for` loops. A `while` loop continues until a parenthetical condition is false, and may not even run once (`do...while` loops guarantee at least one cycle). Meanwhile, `for` loops have three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Behavior inside each loop is contained in `{}`, just like with functions. The operators `++` and `--` increase or decrease a number by 1, respectively.
 
-{{< code language="javascript" id="5" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 let i = 0
 
@@ -152,7 +152,7 @@ Data structures called objects are useful for manipulating data. Regular objects
 
 Dot notation is used to invoke methods, which are similar to functions--`set.add` with one parenthetical argument adds a value, and `map.set` with two arguments adds a key with its value, while `set.has` tests for presence of a parenthetical value, and `map.has` tests for presence of a parenthetical key. Meanwhile, `map.get` can take a key and return a value. Regular objects use dot or bracket notation to set and look up keys and values, while arrays use bracket notation only. Meanwhile, a special command, `console.log` prints data in parenthetical arguments to a nearby terminal (aka command line interface), which is usually what is used to run your program.
 
-{{< code language="javascript" id="6" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const regularObject = {"car": 2 }
 const map = new Map()
@@ -183,7 +183,7 @@ Arrays have `length`, can `push` new values to the lowest empty index, `pop` to 
 
 Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
 
-{{< code language="javascript" id="7" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const array = [2,4,6]
 console.log(array.length) // prints 3
@@ -223,7 +223,7 @@ console.log(allArrayValuesGreaterThanOneBoolean) // prints true
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` of their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
 
-{{< code language="javascript" id="8" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const string = "Hello"
 console.log(string.length) // prints 5
@@ -254,7 +254,7 @@ console.log(string) // prints "Hello" as the original string is unmodified
 
 Optional chaining with `?.` prevents an error and returns `undefined` if something the code is trying to look inside is `undefined` or `null`. This is useful if you want to stop a process gracefully if data shape is not as expected, instead of crashing the program.
 
-{{< code language="javascript" id="9" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const hasDepth = {
 
@@ -277,7 +277,7 @@ console.log(noDepth?.test?.test2) // prints undefined
 
 Functions in JavaScript can be used as classes, creating objects with class-defined structures that can store independent data. Assigning a function labeled as `function` to a variable and defining substructures inside it under `this.` allows for these substructures to change independently in class instances while always starting the same. Using the `new` keyword in front of the function variable creates a class instance. Shared methods can be created by assinging them to the prototype of the class definition. These will behave the same across all class instances but reference data specific to the instance.
 
-{{< code language="javascript" id="10" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const test = function () {
 

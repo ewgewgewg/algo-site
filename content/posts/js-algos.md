@@ -21,7 +21,7 @@ A review of algorithm implementation in JavaScript. Adapted from the [Tech Inter
 
 To efficiently find indexes of two array values that sum to a target, create a map, then iterate linearly. At every index, if `target - value` is a map key, return the current index, and the index under the map key. Otherwise, add `value` as a key to the map, pointing to the current index. Because of action order at each step, the map always contains all previous values for direct lookup.
 
-{{< code language="javascript" title="[Two Sum](https://leetcode.com/problems/two-sum/)" id="1" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Two Sum](https://leetcode.com/problems/two-sum/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
 // typeof target === "number"
 
@@ -41,7 +41,7 @@ const twoSum = (nums, target) => {
 
 To find 0 or the greatest positive difference between a number in an array and a number that appears earlier in the array, which can be analogized to buying and selling stock, initialize a `low` 'price' to the first number in the array, and the `best` difference to 0. Then loop through the array. At every step, replace `best` if appropriate with the `price` at the current index minus `low`, then update `low` if the current `price` is lower.
 
-{{< code language="javascript" title="[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)" id="5" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof prices === "object" (array of numbers)
 
 const maxProfit = (prices) => {
@@ -62,7 +62,7 @@ const maxProfit = (prices) => {
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
 
-{{< code language="javascript" title="[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)" id="2" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof s === "string"
 
 const isValid = (s) => {
@@ -89,7 +89,7 @@ const isValid = (s) => {
 
 In JavaScript, a stack can be modeled by an array that only adds and removes values from one end, while a queue can be modeled by an array that only adds values on one end and removes them on the other end. To create `push`, `pop`, `peek`, and `empty` methods for a constructed queue, create a queue function and within, assign two arrays that will be treated as stacks under the `this` keywords. Implement the `push` method by adding a `push` method to the prototype of the `queue` function, which pushes to the first stack. Implement the `empty` method similarly by protoype, and by checking if both stacks are empty. The `peek` method, meanwhile, helps with `pop` -- in `peek`, check if the second stack is empty. If so, pop from the first stack (where new values are added) and push to the second stack until the first stack is empty. This naturally brings the first value added to the first stack to the top of the second stack. The `pop` method can simply pop the top of the second stack after a `peek`.
 
-{{< code language="javascript" title="[Implement Queue Using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)" id="16" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Implement Queue Using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 const MyQueue = function() {
 
@@ -133,7 +133,7 @@ MyQueue.prototype.empty = function() {
 
 LeetCode implements a singly-linked list like this:
 
-{{< code language="javascript" id="3" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 function ListNode(val, next) {
 
@@ -145,7 +145,7 @@ function ListNode(val, next) {
 
 ...or sometimes this:
 
-{{< code language="javascript" id="15" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 function ListNode(val) {
 
@@ -157,7 +157,7 @@ function ListNode(val) {
 
 To merge two linked lists, declare an empty `link` node, and create an extra pointer to this node. While neither list is empty, select the minimum value from the heads of either list, append this to the pointer, then redefine both the pointer and the head of the list with that minimum value their respective `.next` values. Once one list is empty, append whichever list was not emptied to the pointer, and use `link.next` as the return value.
 
-{{< code language="javascript" title="[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)" id="4" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof list1 === "object" (linked list)
 // typeof list2 === "object" (linked list)
 
@@ -190,7 +190,7 @@ const mergeTwoLists = (list1, list2) => {
 
 Cycles in linked lists can be detected by setting a `slow` pointer to the `.next` of the head, if available, and setting a `fast` pointer to the `.next.next` of the head. At each step in a while loop attempt to advance the `slow` pointer by 1 step and the `fast` pointer by 2. Then check for equality of the pointers. If the pointers point to exactly the same reference, they will return `true`, which signals a cycle, and the `fast` pointer overtaking the `slow`. If the `fast` pointer reaches an empty reference before this happens, don't be ins the loop and return `false`.
 
-{{< code language="javascript" title="[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)" id="14" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof head === "object" (linked list)
 
 const hasCycle = (head) => {
@@ -212,7 +212,7 @@ const hasCycle = (head) => {
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
 
-{{< code language="javascript" title="[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)" id="6" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof s === "string"
 
 const isPalindrome = (s) => {
@@ -233,7 +233,7 @@ const isPalindrome = (s) => {
 
 Two strings are valid anagrams of each other if they have exactly the same letter count. A test involves creating an array with zeroed indices for every letter. Loop over one string, incrementing at the appropriate array index as letters are read. Then loop over the second index decrementing at the appropriate array index as letters are read. If the strings are anagrams, the resulting array should be filled with zeroes.
 
-{{< code language="javascript" title="[Valid Anagram](https://leetcode.com/problems/valid-anagram/)" id="9" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Valid Anagram](https://leetcode.com/problems/valid-anagram/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof s === "string"
 // typeof t === "string"
 
@@ -257,7 +257,7 @@ const isAnagram = (s, t) => {
 
 LeetCode implements a binary tree node like this:
 
-{{< code language="javascript" id="7" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 function TreeNode(val, left, right) {
 
@@ -270,7 +270,7 @@ function TreeNode(val, left, right) {
 
 Inverting a binary tree means to 'turn it over' as if it was a page in a book, creating what the original would look like from behind. This means swapping every pair of `left` and `right` references. A recrusive implementation step returns immediately on a `null` node, and otherwise returns after using a holding variable for one of the `left` or `right` references to help complete the second half of the swap.
 
-{{< code language="javascript" title="[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)" id="8" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary tree node)
 
 const invertTree = (root) => {
@@ -289,7 +289,7 @@ const invertTree = (root) => {
 
 A height-balanced binary tree differs in depth by no more than one at each node. To test if a binary tree is height-balanced, do depth-first search from the root node, returning 0 on each base case of a `null` root, and otherwise check if the differences in return height values from the left or right nodes is not greater than 1. Because each hopeful step of the depth-first search then returns the maximum of the right or left depth plus 1, the full depth under any node will always bubble up. If a difference greater than one bubbles up, -1 can be returned preferentially as a signal for a non-height balanced tree.
 
-{{< code language="javascript" title="[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)" id="13" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary tree node)
 
 const isBalanced = (root) => {
@@ -314,7 +314,7 @@ Sorted information can be investigated in logarithmic (log(n)) time. Binary sear
 
 In a basic kind of binary search on an array, `start` and `end` variables point to the first and last filled indexes of the array. While `end` is not smaller than `start`, define a new `mid` as the midpoint between `start` and `end` (rounding allowed). `Mid` matching a target value allows immediate return of the value. If the target value is less than the mid index value, use `mid-1` as the new `end`, and if the target value is greater, use `mid+1` as the new `start`. Next, test if the new `end` is smaller than `start` to try another search step. If the search ends without finding the target value, returning -1 can indicate this (returning something else is better if negative targets are allowed).
 
-{{< code language="javascript" title="[Binary Search](https://leetcode.com/problems/binary-search/)" id="10" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Binary Search](https://leetcode.com/problems/binary-search/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
 // typeof target === "number"
 
@@ -342,7 +342,7 @@ const search = (nums, target) => {
 
 A two-dimensional array can represent a screen of pixels. To represent the 'flood fill' tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
 
-{{< code language="javascript" title="[Flood Fill](https://leetcode.com/problems/flood-fill/)" id="11" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Flood Fill](https://leetcode.com/problems/flood-fill/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
 // typeof target === "number"
 
@@ -369,7 +369,7 @@ const floodFill = (image, sr, sc, color) => {
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
 
-{{< code language="javascript" title="[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)" id="12" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary search tree node)
 // typeof p === "object" (binary search tree node)
 // typeof q === "object" (binary search tree node)
