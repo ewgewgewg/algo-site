@@ -240,7 +240,7 @@ console.log(firstReplace) // prints "Healo"
 const secondReplace = string.replace(/[0-9a-zA-Z]/g,'')
 console.log(secondReplace) // this regex replaces all numbers and letters with an empty string (note the g), printing ""
 
-const thirdReplace = string.replace(/[^0-9a-za-z]/g,'')
+const thirdReplace = string.replace(/[^0-9a-zA-Z]/g,'')
 console.log(thirdReplace) // this regex would replace any non-alphanumeric characters with an empty string (note the ^), but since there are none, "Hello" is printed
 
 const lowerCaseACharCode = firstReplace.charCodeAt(2)

@@ -218,7 +218,7 @@ To detect if a string is a palindrome, sanitize the string as appropriate (for e
 const isPalindrome = (s) => {
 
     let start = 0
-    s = s.replace(/[^0-9a-za-z]/g,'').toLowerCase()
+    s = s.replace(/[^0-9a-zA-Z]/g,'').toLowerCase()
     let end = s.length - 1
 
     while(start < end){
