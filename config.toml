@@ -107,6 +107,10 @@ paginate = 5
         name = "Hash Tables"
         url = "/posts/js-algos#Hash Tables"
       [[languages.en.menu.main]]
+        identifier = "dynamic programming"
+        name = "Dynamic Programming"
+        url = "/posts/js-algos#Dynamic Programming"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"

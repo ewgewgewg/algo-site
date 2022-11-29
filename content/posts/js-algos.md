@@ -442,3 +442,27 @@ const canConstruct = function(ransomNote, magazine) {
     return true
 
 }{{< /code >}}
+
+# Dynamic Programming
+
+If someone can climb one or two steps at a time, how many ways can they get to the top? Dynamic programming helps recognize that the number of ways to reach any given step acts as a multiplier on the ways to reach steps further up. A linear solution involves noticing the one way of getting to the '0th' step, adding the number of ways to get to the '0th' step to the 1st and 2nd steps, then 'stepping' from the 1st step to the 2nd and 3rd steps, and adding counts so on and so on. Only three locations need to be available at a time.
+
+{{< code language="javascript" title="[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+
+const climbStairs = (n) => {
+
+    let steps = [1,0,0]
+    let count = 0
+
+    while(count < n){
+        let next0 = steps[1] + steps[0]
+        let next1 = steps[2] + steps[0]
+        
+        steps = [next0, next1, 0]
+        count++
+    }
+
+    return steps[0]
+
+}{{< /code >}}
