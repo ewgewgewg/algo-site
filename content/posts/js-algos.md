@@ -261,6 +261,25 @@ const reverseList = (head) => {
 
 }{{< /code >}}
 
+To find the middle node in a linked list (second of the two if the number of nodes is even), create `fast` and `slow` pointers and start them at `head`. While there is a `fast.next`, assign `slow` to the next node and `next` two nodes forward along the list. Once this loop resolves `slow` should point to the middle node by the problem definition.
+
+{{< code language="javascript" title="[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const middleNode = (head) => {
+    
+   let slow = head
+   let fast = head
+
+   while(fast?.next){
+         slow = slow.next
+         fast = fast.next?.next
+   }
+
+   return slow
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
