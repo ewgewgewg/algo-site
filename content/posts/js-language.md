@@ -40,7 +40,7 @@ let fourthTest
 
 # Functions With Math
 
-Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math. `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value.
+Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math and [precedence of operations is respected as described in the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 

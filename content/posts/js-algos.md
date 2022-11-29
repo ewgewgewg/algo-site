@@ -691,3 +691,43 @@ const addBinary = (a, b) => {
     return result.reverse().join('')
 
 }{{< /code >}}
+
+# Math
+
+One way of converting a Roman numeral to a number involves creating a lookup object that links Roman numeral keys to their numerical values. A separate lookup object indicates which Roman numeral keys can have negative values by coming just before specific Roman numerals of greater value. A `sum` variable is created, and then, in a loop reading the full Roman numeral from left to right, the numeral at the index is read into the `sum` variable as if it is positive. If the next index is filled and contains a valid greater numeral, add twice the negative of the numeral at the current index to `sum` to help reach the final true value.
+
+{{< code language="javascript" title="[Roman to Integer](https://leetcode.com/problems/roman-to-integer/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+var romanToInt = function(s) {
+
+    const look = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    }
+
+    const negs = {
+        'I': new Set(['V','X']),
+        'X': new Set(['L','C']),
+        'C': new Set(['D','M'])
+    }
+
+    let sum = 0
+
+    for (let i = 0; i < s.length; i++){
+        sum += look[s[i]]
+
+        if(negs[s[i]]?.has(s[i+1])){
+           sum -= 2 * look[s[i]] 
+        }
+
+    }
+
+    return sum
+
+}{{< /code >}}
