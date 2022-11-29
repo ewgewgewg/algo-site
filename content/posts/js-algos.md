@@ -89,6 +89,7 @@ const majorityElement = (nums) => {
 To see if a duplicate is in an array in linear time and linear space, loop the array, and at each step check to see if the value being processed is in a set. If it is, return `true`, else add the number to the set. Return `false` if no pairs are found in the array. Alternatively, sorting in n log(n) time allows an O(1) space solution by stepping through every adjacent pair in the sorted array and returning `true` if any pair matches.
 
 {{< code language="javascript" title="[Contains Duplicate -- O(n) time, O(n) space](https://leetcode.com/problems/contains-duplicate/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
 
 const containsDuplicate = (nums) => {
 
@@ -100,9 +101,11 @@ const containsDuplicate = (nums) => {
     }
 
     return false
+
 }{{< /code >}}
 
 {{< code language="javascript" title="[Contains Duplicate -- O(n log(n)) time, O(1) space](https://leetcode.com/problems/contains-duplicate/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
 
 const containsDuplicate = (nums) => {
 
@@ -113,6 +116,24 @@ const containsDuplicate = (nums) => {
     }
 
     return false
+
+}{{< /code >}}
+
+An array of objects which each contain `start` and `end` times for meetings can be sorted by starting times to check for overlapping times. After the sort by starting times, check if any ending time is less than an immediately previous starting time. This returns `false`. Else return `true`. It is not necessary to sort secondarily by ending times because if any indentical starting times are found, `false` will naturally be returned.
+
+{{< code language="javascript" title="[Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof intervals === "object" (array of objects with start and end numbers)
+
+const canAttendMeetings = (intervals) => 
+
+    intervals.sort((a,b)=>a.start-b.start)
+
+    for (let i = 1; i < intervals.length; i++){
+        if (intervals[i].start < intervals[i-1].end) return false
+    }
+
+    return true
+
 }{{< /code >}}
 
 # Stacks
