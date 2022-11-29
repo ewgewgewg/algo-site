@@ -86,6 +86,35 @@ const majorityElement = (nums) => {
 
 }{{< /code >}}
 
+To see if a duplicate is in an array in linear time and linear space, loop the array, and at each step check to see if the value being processed is in a set. If it is, return `true`, else add the number to the set. Return `false` if no pairs are found in the array. Alternatively, sorting in n log(n) time allows an O(1) space solution by stepping through every adjacent pair in the sorted array and returning `true` if any pair matches.
+
+{{< code language="javascript" title="[Contains Duplicate -- O(n) time, O(n) space](https://leetcode.com/problems/contains-duplicate/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const containsDuplicate = (nums) => {
+
+    const seen = new Set()
+
+    for (let num of nums){
+        if (seen.has(num)) return true
+        seen.add(num)
+    }
+
+    return false
+}{{< /code >}}
+
+{{< code language="javascript" title="[Contains Duplicate -- O(n log(n)) time, O(1) space](https://leetcode.com/problems/contains-duplicate/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const containsDuplicate = (nums) => {
+
+    nums.sort((a,b)=>a-b)
+
+    for (let i = 1; i < nums.length; i++){
+        if (nums[i] === nums[i-1]) return true
+    }
+
+    return false
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
