@@ -79,6 +79,20 @@ const aNumber = Number("1") // contains 1
 
 {{< /code >}}
 
+Assigment of a variable and math can happen at the same time, like so:
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+let transform = 2
+
+transform += 2 // transform now contains 4
+transform -= 3 // transform now contains 1
+transform *= 2 // transform now contains 2
+transform /= 2 // transform now contains 1
+
+{{< /code >}}
+
+
 # Conditionals and Comparison Operators
 
 Code can be optional. Code written in brackets after an `if` condition in parentheses only runs if the condition is parentheses is `true`. An `if` condition can be immediately followed by one or more `else if`, also with parentetical activation conditions, and then an `else` which serves as a catch-all and thus has no explicit conditions. Typical conditions include `===` to check if two values are truly equal, `>=`, `<=`, `>`, and `<` as relative comparators, `!` as negation, and `%`, the modulo operator, which returns what would be the remainder of a division between numbers on either side.
@@ -100,6 +114,16 @@ const singleFizzBuzz = (value) => {
 }
 
 singleFizzBuzz(6) // returns "Fizz"
+
+{{< /code >}}
+
+Ternaries are short boolean conditionals that help with assignment. A condition is followed by `?`, then a value to assign if the condition is true, then `:`, then a value to assign if the condition is false.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const value = "green"
+const isValueBlue = value === "blue" ? "blue" : "not blue" // stored variable is "not blue"
+const isValueGreen = value === "green" ? "green" : "not green" // stored variable is "green" 
 
 {{< /code >}}
 
@@ -126,7 +150,7 @@ const typeChangeDemonstrationFalsy = !!("" || 0 || null || undefined) // stored 
 
 # Loops, Increments, and Decrements
 
-Two basic types of repeating code blocks are `while` loops and `for` loops. A `while` loop continues until a parenthetical condition is false, and may not even run once (`do...while` loops guarantee at least one cycle). Meanwhile, `for` loops have three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Behavior inside each loop is contained in `{}`, just like with functions. The operators `++` and `--` increase or decrease a number by 1, respectively.
+Two basic types of repeating code blocks are `while` loops and `for` loops. A `while` loop continues until a parenthetical condition is false, and may not even run once (`do...while` loops guarantee at least one cycle). Meanwhile, `for` loops often three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Alternatively, `for` loops can use a `let item of [items]` format in their parenthetical, where `[items]` can actually be any predefined iterable object, and `item`, which can be named arbitrarily in the loop, increments over everything inside. Behavior inside each loop is contained in `{}`, just like with functions. The operators `++` and `--` increase or decrease a number by 1, respectively.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -155,6 +179,14 @@ for (let j = 0; j < 3; j++){
 }
 
 // i is 2 here
+
+const series = [3, 6, 9, 12]
+
+for (element of series){
+    i += element
+}
+
+// i is 32 here
 
 {{< /code >}}
 
