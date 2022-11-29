@@ -208,6 +208,31 @@ const hasCycle = (head) => {
 
 }{{< /code >}}
 
+To reverse a linked list, create a null `link`, then perform the following steps while the original linked list still has a filled `head` node:
+
+    (1) Save the `head` of the original linked list as `next'.
+    (2) Assign `link` to `head.next` (`link` builds the leading part of the original linked list in reversed order).
+    (3) Assign `head` to `link` (head now points through `.next` to the original `link`).
+    (4) Assigned the saved `next` to `head`.
+
+{{< code language="javascript" title="[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const reverseList = (head) => {
+    
+    let link = null
+
+    while(head){
+        const next = head.next
+        head.next = link
+        link = head
+        head = next
+    }
+
+    return link
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
@@ -250,6 +275,36 @@ const isAnagram = (s, t) => {
     }
 
     return arr.every(a=>!a)
+
+}{{< /code >}}
+
+The longest palindrome from a case-sensitive string of letters is equivalent to the number of matching pairs plus one, or the length of the string, whichever is shorter. In other versions of the problem, the string may need to be filtered or transformed.
+
+{{< code language="javascript" title="[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const longestPalindrome = (s) => {
+
+    const upper = new Array(26).fill(0)
+    const lower = new Array(26).fill(0)
+
+    for(let i = 0; i < s.length; i++){
+        if(s.charCodeAt(i) < 97){
+            upper[s.charCodeAt(i)-65]++
+        } else {
+            lower[s.charCodeAt(i)-97]++
+        }
+    }
+
+    let pairs = 0
+    for (let u of upper){
+        pairs += Math.floor(u/2)
+    }
+    for (let l of lower){
+        pairs += Math.floor(l/2)
+    }
+
+    return Math.min(pairs*2+1, s.length)
 
 }{{< /code >}}
 
