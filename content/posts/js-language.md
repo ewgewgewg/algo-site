@@ -179,9 +179,11 @@ console.log(map.get("tree")) // prints 4
 
 # Methods of Arrays
 
-Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index.
+Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index. These `push`, `pop`, `shift`, and `unshift` all act on the array they are run from and do not require assignment to a new array.
 
 Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
+
+The `fill` method takes an argument that can be used to fill whatever number of items is passed into a `new Array`, or an existing array. `fill` acts on the array it is run from and does not need to be assigned to a new variable. 
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -216,6 +218,12 @@ console.log(array4) // copy starts at index 1 and ends just below index 3 of for
 
 const allArrayValuesGreaterThanOneBoolean = array.every((value) => value > 1)
 console.log(allArrayValuesGreaterThanOneBoolean) // prints true
+
+array.fill(4)
+console.log(array) // prints [4, 4, 4]
+
+const array5 = new Array(5).fill(5)
+console.log(array5) // prints [5, 5, 5, 5, 5]
 
 {{< /code >}}
 

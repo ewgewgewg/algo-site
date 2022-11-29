@@ -99,9 +99,13 @@ paginate = 5
         name = "Graphs"
         url = "/posts/js-algos#Graphs"
       [[languages.en.menu.main]]
-        identifier = "binary search tree"
-        name = "Binary Search Tree"
-        url = "/posts/js-algos#Binary Search Tree"
+        identifier = "binary search trees"
+        name = "Binary Search Trees"
+        url = "/posts/js-algos#Binary Search Trees"
+      [[languages.en.menu.main]]
+        identifier = "hash tables"
+        name = "Hash Tables"
+        url = "/posts/js-algos#Hash Tables"
       [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"

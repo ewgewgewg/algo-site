@@ -324,7 +324,7 @@ const search = (nums, target) => {
     let end = nums.length - 1
 
     while(start <= end){
-        let mid = Math.floor((end-start)/2) + start
+        const mid = Math.floor((end-start)/2) + start
         if (target === nums[mid]) return mid
 
         if (nums[mid] > target){
@@ -336,6 +336,35 @@ const search = (nums, target) => {
 
     return -1
 
+}{{< /code >}}
+
+A version of binary search involves finding the first instance of a change in a series (such as first bad version). The `start` and `end` indices are initialized as before, as is `mid` within a while loop, and since there is a guarantee of a change the loop will end by finding an index. The test condition uses an externally-provided function to see if the mid index has the change -- if so, `end` is set to `mid` (as this is a candidate for the first change), and if this index is the only index remaining, `mid` can be returned. Else the mid index and everything lower cannot be the result, so `start` can be `mid+1` for the next loop.
+
+{{< code language="javascript" title="[First Bad Version](https://leetcode.com/problems/first-bad-version/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof isBadVersion === "function"
+// typeof n === "number"
+
+const solution = function(isBadVersion) {
+
+    return function(n) {
+        
+        let start = 1
+        let end = n
+
+        while(true){
+
+            const mid = start+Math.floor((end-start)/2)
+
+            if(isBadVersion(mid)){
+                end = mid
+                if(start === end) return mid
+            } else {
+                start = mid + 1
+            }
+
+        }
+        
+    }
 }{{< /code >}}
 
 # Graphs
@@ -365,7 +394,7 @@ const floodFill = (image, sr, sc, color) => {
 
 }{{< /code >}}
 
-# Binary Search Tree
+# Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
 
@@ -386,5 +415,30 @@ const lowestCommonAncestor = (root, p, q) => {
     }
 
     return root
+
+}{{< /code >}}
+
+# Hash Tables
+
+Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the 'magazine' string, and then what appears in the 'note' string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
+
+{{< code language="javascript" title="[Ransom Note](https://leetcode.com/problems/ransom-note/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof ransomNote === "string"
+// typeof magazine === "string"
+
+const canConstruct = function(ransomNote, magazine) {
+
+    const arr = new Array(26).fill(0)
+
+    for (let i = 0; i < magazine.length; i++){
+        arr[magazine.charCodeAt(i)-97]++
+    }
+
+    for (let i = 0; i < ransomNote.length; i++){
+        arr[ransomNote.charCodeAt(i)-97]--
+        if(arr[ransomNote.charCodeAt(i)-97] < 0) return false
+    }
+
+    return true
 
 }{{< /code >}}
