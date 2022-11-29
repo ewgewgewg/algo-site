@@ -58,6 +58,34 @@ const maxProfit = (prices) => {
 
 }{{< /code >}}
 
+The [Boyer-Moore majority vote algorithm](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm) finds a majority element in an array in linear time when a majority element is guaranteed. After initializing `count` as 1 and `val` as the value at the 0 index, the rest of the array is looped. If the value at the new index is the same as `val`, increase `count` by 1, otherwise decrease `count` by one. If `count` reaches 0, increment the index by 1, set `val` to the value at that index, and set `count` to 1. After as many pairs of different values are removed as possible, the `val` remanining is the majority element. 
+
+{{< code language="javascript" title="[Majority Element](https://leetcode.com/problems/majority-element/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof prices === "object" (array of numbers)
+
+const majorityElement = (nums) => {
+
+    let count = 1
+    let val = nums[0]
+
+    for (let i = 1; i < nums.length; i++){
+        if(nums[i] === val){
+            count++
+        } else {
+            count--
+        }
+
+        if(!count){
+            i++
+            val = nums[i]
+            count = 1
+        }
+    }
+
+    return val
+    
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
@@ -210,16 +238,16 @@ const hasCycle = (head) => {
 
 To reverse a linked list, create a null `link`, then perform the following steps while the original linked list still has a filled `head` node:
 
-    (1) Save the `head` of the original linked list as `next'.
-    (2) Assign `link` to `head.next` (`link` builds the leading part of the original linked list in reversed order).
-    (3) Assign `head` to `link` (head now points through `.next` to the original `link`).
-    (4) Assigned the saved `next` to `head`.
+    1) Save the `head` of the original linked list as `next`.
+    2) Assign `link` to `head.next` (`link` builds the leading part of the original linked list in reversed order).
+    3) Assign `head` to `link` (head now points through `.next` to the original `link`).
+    4) Assign the saved `next` to `head`.
 
 {{< code language="javascript" title="[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof head === "object" (linked list)
 
 const reverseList = (head) => {
-    
+
     let link = null
 
     while(head){
