@@ -61,7 +61,7 @@ const maxProfit = (prices) => {
 The [Boyer-Moore majority vote algorithm](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm) finds a majority element in an array in linear time when a majority element is guaranteed. After initializing `count` as 1 and `val` as the value at the 0 index, the rest of the array is looped. If the value at the new index is the same as `val`, increase `count` by 1, otherwise decrease `count` by one. If `count` reaches 0, increment the index by 1, set `val` to the value at that index, and set `count` to 1. After as many pairs of different values are removed as possible, the `val` remanining is the majority element. 
 
 {{< code language="javascript" title="[Majority Element](https://leetcode.com/problems/majority-element/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
-// typeof prices === "object" (array of numbers)
+// typeof nums === "object" (array of numbers)
 
 const majorityElement = (nums) => {
 
@@ -83,7 +83,7 @@ const majorityElement = (nums) => {
     }
 
     return val
-    
+
 }{{< /code >}}
 
 # Stacks
@@ -547,5 +547,38 @@ const climbStairs = (n) => {
     }
 
     return steps[0]
+
+}{{< /code >}}
+
+# Binary
+
+To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
+
+{{< code language="javascript" title="[Add Binary](https://leetcode.com/problems/add-binary/) -- influenced by [hi-malik's code and explanation](https://leetcode.com/problems/add-binary/solutions/1679423/well-detailed-explaination-java-c-python-easy-for-mind-to-accept-it/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const addBinary = (a, b) => {
+    const result = []
+    
+    let aIndex = a.length-1
+    let bIndex = b.length-1
+    let carry = 0
+
+    while(aIndex !== -1 || bIndex !== -1){
+        if(bIndex > -1){
+            carry += Number(b[bIndex])
+            bIndex--
+        }
+        if (aIndex > -1){
+            carry += Number(a[aIndex])
+            aIndex--
+        }
+
+        result.push(carry%2)
+        carry = Math.floor(carry/2)
+    }
+
+    if (carry) result.push(1)
+    
+    return result.reverse().join('')
 
 }{{< /code >}}

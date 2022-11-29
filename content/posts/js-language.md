@@ -67,6 +67,18 @@ Math.abs(-1) // returns 1
 
 {{< /code >}}
 
+Because JavaScript tries to change types when appropriate, adding a string to a number, or adding two strings, joins characters as a string. `String` and `Number` also can take a argument each and transform them as appropriate.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const elevenString = "1" + 1 // contains "11"
+const twelveString = "1" + "2" // contains "12"
+
+const aString = String(1) // contains "1"
+const aNumber = Number("1") // contains 1
+
+{{< /code >}}
+
 # Conditionals and Comparison Operators
 
 Code can be optional. Code written in brackets after an `if` condition in parentheses only runs if the condition is parentheses is `true`. An `if` condition can be immediately followed by one or more `else if`, also with parentetical activation conditions, and then an `else` which serves as a catch-all and thus has no explicit conditions. Typical conditions include `===` to check if two values are truly equal, `>=`, `<=`, `>`, and `<` as relative comparators, `!` as negation, and `%`, the modulo operator, which returns what would be the remainder of a division between numbers on either side.
@@ -183,7 +195,9 @@ Arrays have `length`, can `push` new values to the lowest empty index, `pop` to 
 
 Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
 
-The `fill` method takes an argument that can be used to fill whatever number of items is passed into a `new Array`, or an existing array. `fill` acts on the array it is run from and does not need to be assigned to a new variable. 
+The `fill` method takes an argument that can be used to fill whatever number of items is passed into a `new Array`, or an existing array. `fill` acts on the array it is run from and does not need to be assigned to a new variable.
+
+The `reverse` method reverses the elements in an array, and `join`, which takes an argument, merges the elements of the array and places the value of the argument between each, all in a single string. Array methods, like all methods, can be chained when the return of one has the method of the next.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -225,11 +239,13 @@ console.log(array) // prints [4, 4, 4]
 const array5 = new Array(5).fill(5)
 console.log(array5) // prints [5, 5, 5, 5, 5]
 
+const string = array2.reverse().join("") // prints "1252"
+
 {{< /code >}}
 
 # Methods of Strings
 
-Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` of their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
+Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` on their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 

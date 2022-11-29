@@ -111,6 +111,10 @@ paginate = 5
         name = "Dynamic Programming"
         url = "/posts/js-algos#Dynamic Programming"
       [[languages.en.menu.main]]
+        identifier = "binary"
+        name = "Binary"
+        url = "/posts/js-algos#Binary"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"
