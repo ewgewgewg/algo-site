@@ -767,6 +767,30 @@ const lowestCommonAncestor = (root, p, q) => {
 
 }{{< /code >}}
 
+Converting an array of numbers in ascending order into a height-balanced binary search tree can be handled by bisection and recursion. The height of the tree never has to be explictly measured. As long as there is at least one value in an examined range of the array, the central node of the segment of the array can become the head node of the segment of the binary search tree, and all numbers lower in the segment can be the subject of a recursive call to fill the `.left` node, while all numbers higher can fill `.right`. 
+
+{{< code language="javascript" title="[Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const sortedArrayToBST = (nums) => {
+    return recursion(0, nums.length - 1, nums)
+}
+
+const recursion = (left, right, nums) => {
+    
+    if(left > right) return null
+
+    const node = new TreeNode()
+    const mid = Math.floor((left+right)/2)
+
+    node.val = nums[mid]
+    node.left = recursion(left, mid - 1, nums)
+    node.right = recursion(mid + 1, right, nums)
+
+    return node
+
+}{{< /code >}}
+
 # Hash Tables
 
 Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the 'magazine' string, and then what appears in the 'note' string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
