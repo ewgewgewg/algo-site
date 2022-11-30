@@ -909,7 +909,7 @@ const missingNumber = (nums) => {
     }
 
     return result
-    
+
 };
 
 {{< /code >}}
@@ -951,5 +951,23 @@ const romanToInt = (s) => {
     }
 
     return sum
+
+}{{< /code >}}
+
+If a number is a palindrome, the reverse of the number is the same as the number. To reverse a number, create a `reverse` number set to 0, then loop through each digit of the original number. To do this, at every step, multiply the `reverse` by 10, and then add the lowest remaining digit of the original number to `reverse`. A way of finding the lowest remaining digit is by creating a copy of the original number, checking the ones place, and then dividing by 10 (rounding down) until the number is gone.
+
+{{< code language="javascript" title="[Palindrome Number](https://leetcode.com/problems/palindrome-number/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof x === "number"
+
+const isPalindrome = (x) => {
+
+  if (x < 0) return false
+
+  let reverse = 0
+  for(let i = x; i > 0; i = Math.floor(i/10)){
+      reverse = reverse * 10 + i%10
+  }
+
+  return reverse === x
 
 }{{< /code >}}
