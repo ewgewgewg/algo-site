@@ -326,7 +326,7 @@ const hasCycle = (head) => {
 
 }{{< /code >}}
 
-To reverse a linked list, create a null `link`, then perform the following steps while the original linked list still has a filled `head` node:
+{{< anchor "Reverse Linked List" >}}To reverse a linked list, create a null `link`, then perform the following steps while the original linked list still has a filled `head` node:
 
     1) Save the `head` of the original linked list as `next`.
     2) Assign `link` to `head.next` (`link` builds the leading part of the original linked list in reversed order).
@@ -351,7 +351,7 @@ const reverseList = (head) => {
 
 }{{< /code >}}
 
-To find the middle node in a linked list (second of the two if the number of nodes is even), create `fast` and `slow` pointers and start them at `head`. While there is a `fast.next`, assign `slow` to the next node and `next` two nodes forward along the list. Once this loop resolves `slow` should point to the middle node by the problem definition.
+{{< anchor "Middle of the Linked List" >}}To find the middle node in a linked list (second of the two if the number of nodes is even), create `fast` and `slow` pointers and start them at `head`. While there is a `fast.next`, assign `slow` to the next node and `next` two nodes forward along the list. Once this loop resolves `slow` should point to the middle node by the problem definition.
 
 {{< code language="javascript" title="[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof head === "object" (linked list)
@@ -369,6 +369,48 @@ const middleNode = (head) => {
    return slow
 
 }{{< /code >}}
+
+To find if a linked list contains a palindrome of values, it is necessary to compare values from either end of the list, stepping towards the middle. The head of the list is readily available, but to get to the other end effectively, a traversal is needed. Perform a traversal similar to [Middle of the Linked List](/posts/js-algos#middle-of-the-linked-list), just above, which should put a slow pointer at approximately the middle node. The suffix can the be reversed in a pattern similar to [Reverse Linked List](/posts/js-algos#reverse-linked-list). Finally, both the original head and the suffix can be stepped through together to see if each pair of numbers matches. Make sure your implementation accounts for the possibility of an odd number of nodes and does not check the middle node against anything.
+
+{{< code language="javascript" title="[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const isPalindrome = (head) => {  
+  if (!head.next) return true
+  
+  let slow = head
+  let fast = head
+  
+  while (fast) {
+    slow = slow.next
+    fast = fast.next?.next
+  }
+  
+  slow = reverse(slow)
+  
+  while (slow) {
+    if (slow.val !== head.val) return false
+    slow = slow.next
+    head = head.next
+  }
+  
+  return true
+};
+
+const reverse = (head) => {
+  let link = null
+  
+  while (head) {
+    const next = head.next
+    head.next = link
+    link = head
+    head = next
+  }
+  
+  return link
+}
+
+{{< /code >}}
 
 # Strings
 
