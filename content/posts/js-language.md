@@ -40,7 +40,7 @@ let fourthTest
 
 # Functions With Math
 
-Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). Parentheses also work as in regular math and [precedence of operations is respected as described in the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value.
+Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). These five operators can be coupled with assignment, like in `+=`. Parentheses also work as in regular math and [precedence of operations is respected as described in the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -56,8 +56,14 @@ function addTwoThenMultiplyByThree (value) {
 
 }
 
+const addThree = (value) => {
+    value += 3
+    return value
+}
+
 square(4) // returns 16
 addTwoThenMultiplyByThree(1) // returns 9
+addThree(5) // returns 8
 
 Math.floor(2.1) // returns 2
 Math.ceil(4.9) // returns 5
@@ -401,7 +407,7 @@ console.log(b.lengthPlusOne()) prints 1
 
 # Binary Operators
 
-In binary, or base 2 math, `&` is the bitwise AND, only keeping digits that match, while `|` is the bitwise OR, and `^` is XOR, placing a 1 in a digit in the combination of two XORed numbers when the parent elements mismatch. Meanwhile `<<` adds a number of binary 0 to the low end number on its left equal to the number on its right (`<< 1` multiplies by 2), and `>>` removes a number of binary digits from the low end of the number of its left equal to the number on its right.
+In binary, or base 2 math, `&` is the bitwise AND, only keeping digits that match, while `|` is the bitwise OR, and `^` is XOR, placing a 1 in a digit in the combination of two XORed numbers when the parent elements mismatch. Meanwhile `<<` adds a number of binary 0 to the low end number on its left equal to the number on its right (`<< 1` multiplies by 2), and `>>` removes a number of binary digits from the low end of the number of its left equal to the number on its right. All of these can be coupled with assignment, such as `&=`.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -419,5 +425,9 @@ console.log(binaryD) // prints 8
 
 const binaryE = 4 >> 1
 console.log(binaryE) // prints 2
+
+let binaryF = 1
+binaryF &= 1
+console.log(binaryF) // prints 1
 
 {{< /code >}}

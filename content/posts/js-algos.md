@@ -644,7 +644,7 @@ To detect if a binary tree is symmetric, first note that an empty tree is symmet
 const isSymmetric = (root) => {
 
     if (!root) return true
-    
+
     return equal(root.left,root.right)
 
 }
@@ -892,6 +892,25 @@ If in an array of numbers all numbers appear twice except a single number that a
 // typeof nums === "object" (array of numbers)
 
 const singleNumber = (nums) => nums.reduce((a,b)=>a^b)
+
+{{< /code >}}
+
+To find a missing number in an array of numbers that would otherwise include all values between 0 and a given n, XOR all values in the array together with all values from 0 to the n. With the XOR, all doubled values should cancel out, leaving the missing value.
+
+{{< code language="javascript" title="[Missing Number](https://leetcode.com/problems/missing-number/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const missingNumber = (nums) => {
+
+    let result = nums.length
+
+    for(let i = 0; i < nums.length; i++){
+        result ^= i ^ nums[i]
+    }
+
+    return result
+    
+};
 
 {{< /code >}}
 
