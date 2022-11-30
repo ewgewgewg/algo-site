@@ -777,7 +777,7 @@ const sortedArrayToBST = (nums) => {
 }
 
 const recursion = (left, right, nums) => {
-    
+
     if(left > right) return null
 
     const node = new TreeNode()
@@ -934,7 +934,26 @@ const missingNumber = (nums) => {
 
     return result
 
-};
+}{{< /code >}}
+
+In a 32-bit unsigned integer, what is the number represented by the reversal of the bits? In order to solve, start a `result` variable at 0, then loop all 32 digits of the binary version of the number to be reversed. At each step, double the `result` variable (a bitshift up by 1, but doubling with `*` in JavaScript as opposed to a direct bitshift prevents negative overflow). Then fill the new ones place on `result` with the presence or absence of the lowest digit remaining on the original number. Finally, for each step, bitshift down the number being read by 1.
+
+{{< code language="javascript" title="[Reverse Bits](https://leetcode.com/problems/reverse-bits/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+
+const reverseBits = (n) => {
+
+  let result = 0
+  let count = 32
+
+  while (count--) {
+    result *= 2
+    result += n & 1
+    n >>= 1
+  }
+
+  return result
+}
 
 {{< /code >}}
 
