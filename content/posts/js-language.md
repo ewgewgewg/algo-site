@@ -381,3 +381,26 @@ console.log(a.lengthPlusOne()) prints 2
 console.log(b.lengthPlusOne()) prints 1
 
 {{< /code >}}
+
+# Binary Operators
+
+In binary, or base 2 math, `&` is the bitwise AND, only keeping digits that match, while `|` is the bitwise OR, and `^` is XOR, placing a 1 in a digit in the combination of two XORed numbers when the parent elements mismatch. Meanwhile `<<` adds a number of binary 0 to the low end number on its left equal to the number on its right (`<< 1` multiplies by 2), and `>>` removes a number of binary digits from the low end of the number of its left equal to the number on its right.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const binaryA = 2 & 2
+console.log(binaryA) // prints 2
+
+const binaryB = 2 | 0
+console.log(binaryB) // prints 2
+
+const binaryC = 2 ^ 2
+console.log(binaryC) // prints 0
+
+const binaryD = 4 << 1
+console.log(binaryD) // prints 8
+
+const binaryE = 4 >> 1
+console.log(binaryE) // prints 2
+
+{{< /code >}}
