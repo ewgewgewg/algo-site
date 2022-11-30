@@ -297,6 +297,23 @@ const string = array2.reverse().join("") // prints "1252"
 
 {{< /code >}}
 
+A special array method, `reduce`, may be tricky. For every step along its parent array, it runs a callback function with two arguments, an accumulator and the current value at the given array position. The accumulator defaults to the first value in the array, or can be set in the second argument of the `reduce` method (the first argument is the callback function). The return value of the callback at each step turns into the accumulator for the next step, which is ultimately returned out of the function.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const array = [1, 2, 3]
+
+const arraySum = array.reduce((accumulator, value) => accumulator + value)
+console.log(arraySum) // prints 6
+
+const arraySumPlusOne = array.reduce((accumulator, value) => accumulator + value, 1)
+console.log(arraySumPlusOne) // prints 7
+
+const arraySumOnKey = array.reduce((accumulator, value) => {return { sum: accumulator.sum + value }}, { sum: 0 })
+console.log(arraySumOnKey) // prints { sum: 6 }
+
+{{< /code >}}
+
 # Methods of Strings
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` on their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.

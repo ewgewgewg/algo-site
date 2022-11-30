@@ -445,6 +445,27 @@ const longestPalindrome = (s) => {
 
 }{{< /code >}}
 
+To find the longest common prefix in an array of strings, any string can be chosen as the comparator, since the longest common prefix cannot be longer than any arbitrarily chosen string. Cycle through character locations from left to right for every string in the array, starting with the leftmost character in each string. Every time the comparator at a given index matches the character in every other string at that same index, add that character to the `prefix` result. As soon as there is a mismatch, or once the double loop ends with no mismatches, return `prefix`.
+
+{{< code language="javascript" title="[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof strs === "array of strings"
+
+const longestCommonPrefix = (strs) => {
+
+  let prefix = []
+
+  for (let i = 0; i < strs[0].length; i++) {
+    for (let j = 1; j < strs.length; j++) {
+      if (strs[0][i] !== strs[j][i]) return prefix.join("")
+    }
+
+    prefix.push(strs[0][i])
+  }
+
+  return prefix.join("")
+
+}{{< /code >}}
+
 # Binary Trees
 
 LeetCode implements a binary tree node like this:
@@ -781,6 +802,15 @@ const hammingWeight = (n) => {
     return weight
 
 }{{< /code >}}
+
+If in an array of numbers all numbers appear twice except a single number that appears once, a bitwise XOR trick can detect the lonely number in linear time. By XORing the entire series and returning the result, because XOR will return 0 on each digit for each matched digits, even identical numbers that are not adjacent will eventually cancel each other out.
+
+{{< code language="javascript" title="[Single Number](https://leetcode.com/problems/single-number/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const singleNumber = (nums) => nums.reduce((a,b)=>a^b)
+
+{{< /code >}}
 
 # Math
 
