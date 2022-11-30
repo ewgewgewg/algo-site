@@ -136,6 +136,26 @@ const canAttendMeetings = (intervals) =>
 
 }{{< /code >}}
 
+To move all zeros to the end of an array while preserving the order of nonzero elements, create a `nextNonzeroLocation` and assign the 0 index of the array, then iterate through the array with a different pointer. When this second pointer finds a nonzero, swap the value with the value at the `nextNonzeroLocation` and increment `nextNonzeroLocation` by 1. This will ensure that only 0 numbers will be 'behind' the leading pointer, so steadily adding nonzeroes to the `nextNonzeroLocation` will never displace a value that needs its relative order preserved.
+
+{{< code language="javascript" title="[Move Zeroes](https://leetcode.com/problems/move-zeroes/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const moveZeroes = (nums) => {
+
+        let nextNonZeroLocation = 0
+        
+		for(let i=0; i < nums.length; i++){
+			if(nums[i] != 0) {
+				[nums[i], nums[nextNonZeroLocation]] = [nums[nextNonZeroLocation], nums[i]]
+                nextNonZeroLocation++
+			}
+		}
+
+        return nums
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
