@@ -189,6 +189,29 @@ for (element of series){
 
 {{< /code >}}
 
+The keyword `break` stops the closest outer loop, while the keyword `continue` skips to the next step of the loop.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+let count = 0
+
+for (let i = 0; i < 6; i++){
+    count++
+    if(count === 3) continue
+    count++
+}
+
+// count is 11 here (would be 12 without continue)
+
+while(true){
+    count++
+    if (count === 20) break
+}
+
+//count is 20 here
+
+{{< /code >}}
+
 # Objects and Logging
 
 Data structures called objects are useful for manipulating data. Regular objects are made to store data pairs: keys that point to values. Special objects called maps and arrays also use keys and values. Maps keys can be any data type, including another object, while regular object keys can only be strings and array keys can only be numbers called indexes (array items always have an order). Sets, another type of object, contain unique values without keys.

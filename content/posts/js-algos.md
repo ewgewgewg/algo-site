@@ -207,6 +207,12 @@ MyQueue.prototype.empty = function() {
 
 }{{< /code >}}
 
+Backspace HERE
+
+{{< code language="javascript" title="[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
@@ -699,7 +705,7 @@ One way of converting a Roman numeral to a number involves creating a lookup obj
 {{< code language="javascript" title="[Roman to Integer](https://leetcode.com/problems/roman-to-integer/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof s === "string"
 
-var romanToInt = function(s) {
+const romanToInt = (s) => {
 
     const look = {
         'I': 1,
@@ -708,7 +714,7 @@ var romanToInt = function(s) {
         'L': 50,
         'C': 100,
         'D': 500,
-        'M': 1000,
+        'M': 1000
     }
 
     const negs = {
