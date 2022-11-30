@@ -144,7 +144,7 @@ To move all zeros to the end of an array while preserving the order of nonzero e
 const moveZeroes = (nums) => {
 
         let nextNonZeroLocation = 0
-        
+
 		for(let i=0; i < nums.length; i++){
 			if(nums[i] != 0) {
 				[nums[i], nums[nextNonZeroLocation]] = [nums[nextNonZeroLocation], nums[i]]
@@ -635,6 +635,27 @@ const isSameTree = (p, q) => {
         return isSameTree(p.left,q.left) && isSameTree(p.right,q.right)
 
 }{{< /code >}}
+
+To detect if a binary tree is symmetric, first note that an empty tree is symmetric. Next, generate two pointers, one to the `.left` node and the other to the `.right` node of the head, and put these in a recursive call. These `.left` and `.right` nodes are in locations that should be symmetric and identical. If both are empty, the base case can bubble up `true`, if they are different by presence/absence or value, the base case can bubble upp `false`, and otherwise, two more recrusive calls can be generated, comparing the outer two nodes that are children of the pair that were checked, and also comparing the inner two nodes. Any `false` in a base case should ultimately return `false` in the parent function, otherwise the function returns `true`.
+
+{{< code language="javascript" title="[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const isSymmetric = (root) => {
+
+    if (!root) return true
+    
+    return equal(root.left,root.right)
+
+}
+
+const equal = (l, r) => {
+    if (!l && !r) return true
+    if (!l || !r || l.val !== r.val) return false
+    return equal(l.right,r.left) && equal(l.left,r.right)
+}
+
+{{< /code >}}
 
 # Binary Search
 
