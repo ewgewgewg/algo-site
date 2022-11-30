@@ -538,6 +538,21 @@ const maxDepth = (root) => {
     
 }{{< /code >}}
 
+Two binary trees have the same structure and values if at every node, their values match, and their left and right subtrees match. This lends nicely to a recursive structure which can return `true` on matching empty nodes and bubble a `true` all the way up to the final return only if everything matches.
+
+{{< code language="javascript" title="[Same Tree](https://leetcode.com/problems/same-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof p === "object" (binary tree node)
+// typeof q === "object" (binary tree node)
+
+const isSameTree = (p, q) => {
+    
+        if(!p && !q) return true
+        if(p && !q || q && !p || q.val !== p.val) return false
+        
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right)
+
+}{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
