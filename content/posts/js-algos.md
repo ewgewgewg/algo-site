@@ -207,11 +207,45 @@ MyQueue.prototype.empty = function() {
 
 }{{< /code >}}
 
-Backspace HERE
+In two strings of lowercase letters and #, where # represents a backspace, are the strings equal once backspaces are considered? A solution involves parsing from the end of both strings, towards the front. At each step in the reverse traversal, a string that has not sucessfully reached its forward end checks for the presence of `#` at the location, and a `backspace` counter started at 0. If `#` is present, the `backspace` counter increments by 1, otherwise it decrements by 1, and in either case, the string pointer moves one step towards the front of the string. While the string has not reached its forward end, and the `backspace` counter is at least 1, or the string pointer is pointed at a `#`, the subloop continues. Once the subloop is completed for both strings, any value at the string indexes should match. If they do, both indices can decrement, otherwise the algorithm returns `false`. If the parent loop completes, return `true`. 
 
 {{< code language="javascript" title="[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+// typeof t === "string"
 
-{{< /code >}}
+const backspaceCompare = (s, t) => {
+
+    let sIndex = s.length-1
+    let tIndex = t.length-1
+
+    while(sIndex > -1 || tIndex > -1){
+        sIndex = backwards(s, sIndex)
+        tIndex = backwards(t, tIndex)
+        
+        if(s[sIndex] !== t[tIndex]){
+            return false
+        } else {
+            sIndex--
+            tIndex--
+        }
+    }
+
+    return true
+
+};
+
+const backwards = (string, index) => {
+
+    let backspace = 0
+    while(index > -1 && (string[index] === '#' || backspace > 0)){
+        backspace += (string[index] === '#' ? 1 : -1)
+        index--
+    }
+    return index
+
+}
+
+}{{< /code >}}
 
 # Linked Lists
 
