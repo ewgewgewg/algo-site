@@ -548,7 +548,7 @@ const isSameTree = (p, q) => {
     
         if(!p && !q) return true
         if(p && !q || q && !p || q.val !== p.val) return false
-        
+
         return isSameTree(p.left,q.left) && isSameTree(p.right,q.right)
 
 }{{< /code >}}
@@ -762,6 +762,24 @@ const countBits = (n) => {
 
     return results
        
+}{{< /code >}}
+
+A string's [Hamming weight](https://en.wikipedia.org/wiki/Hamming_weight) is the number of its nonzeros. In binary, Hamming weight is all of the 1s. From the target number, we can run a loop that increments a counter at every step, and also replaces the original number with the bitwise AND of itself and itself - 1. This guarantees that the number of loop steps while there is a number is the Hamming weight. Why minus 1 on an odd number removes 1 nonzero should be self-explanatory (the bitwise AND here does nothing), while the bitwise AND with an even original interacts with the minus 1 to create the same effect because the subtraction will cascade to be pullled from the lowest avaiable 1 on the original, and all 1s created by the process will be wiped out by the bitwise AND.
+
+{{< code language="javascript" title="[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+
+const hammingWeight = (n) => {
+
+    let weight = 0
+
+    while(n){
+        n &= n-1
+        weight++
+    }
+
+    return weight
+
 }{{< /code >}}
 
 # Math
