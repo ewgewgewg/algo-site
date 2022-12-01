@@ -156,6 +156,32 @@ const moveZeroes = (nums) => {
 
 }{{< /code >}}
 
+How to square the numbers in a non-decreasing array but keep them in sorted order? A linear time solution (as opposed to squaring each and sorting the whole list) is possible. An implementation with three pointers is relatively simple: the `low` pointer starts at the lowest index of the array, the `high` pointer starts at the highest, and an iterator `i` moves a loop from the last index of the base array to the first. At every step choose the larger in absolute value of the value at `low` and the `value` at high, then square it, place it at the `i` position, and increment `low` or decrement `high` depending on which pointer was chosen.
+
+{{< code language="javascript" title="[Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const sortedSquares = (nums) => {
+
+	const result = []
+
+	let low = 0
+    let high = nums.length - 1
+    
+	for (let i = nums.length - 1; i > -1; i--) {
+		if (Math.abs(nums[low]) >= Math.abs(nums[high])) {
+			result[i] = nums[low] ** 2
+			low++
+		} else {
+			result[i] = nums[high] ** 2
+			high--
+		}
+	}
+
+	return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
@@ -669,9 +695,7 @@ const stringBuilder = (node) => {
     if(!node) return '.'
     const s = `<${stringBuilder(node.left)} + ${node.val} + ${stringBuilder(node.right)}>`
     return s
-}
-
-{{< /code >}}
+}{{< /code >}}
 
 # Binary Search
 
