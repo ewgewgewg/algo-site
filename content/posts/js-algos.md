@@ -809,6 +809,47 @@ const floodFill = (image, sr, sc, color) => {
 
 }{{< /code >}}
 
+How to modify a binary matrix to return the closest 0 for each cell? This is a problem that can be solved with breadth-first search. After creating a `queue`, a triplet with `row`, `column`, and `distance` from a 0 can be pushed to the `queue` for every 0 found in the array (so all distances start as 0). Every other value can be set as Infinity to make it clear which cells have not yet been processed. Then, while the `queue` has a length, items can be shifted off the front, the cells they point to can be updated with a `distance`, and new items can be pushed to the `queue` and processed with distance + 1 and coordinates just up, down, left, and right (but not out of bounds). After shifting, do not further process a queue item if has a non-infinity value at the time it is shifted in.
+
+{{< code language="javascript" title="[01 Matrix](https://leetcode.com/problems/01-matrix/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof mat === "object" (array of arrays of numbers)
+
+const updateMatrix = (mat) => {
+        
+    const queue = []
+    
+    for(let row = 0; row < mat.length; row++) {
+        for(let column = 0; column < mat[0].length; column++) {
+
+            if(!mat[row][column]){
+                queue.push([row, column, 0])
+            }
+            mat[row][column] = Infinity
+        }
+    }
+
+    const directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
+    
+    while(queue.length) {
+        let [row, column, distance] = queue.shift()
+        if(mat[row][column] !== Infinity) continue
+        
+        mat[row][column] = distance
+        
+        for(let [x, y] of directions) {
+            let newRow = x + row;
+            let newColumn = y + column;
+            
+            if(newRow >= 0 && newRow < mat.length && newColumn >= 0 &&
+            newColumn < mat[0].length && mat[newRow][newColumn] === Infinity) {
+                    queue.push([newRow, newColumn, distance + 1])
+            }
+        }
+    }
+    return mat
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
