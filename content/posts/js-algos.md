@@ -1140,3 +1140,15 @@ const isPalindrome = (x) => {
   return reverse === x
 
 }{{< /code >}}
+
+# Heaps
+
+To find the k closest points to the origin, sort the points by the sum of the x distance squared and the y distance squared from the origin. No need to take square root because relative order will be the same either way. Return the k closest points. This algorithm can be done with a priority queue (which could always keep the lowest point on top based on its distance) but this is not a native data struture in JavaScript.
+
+{{< code language="javascript" title="[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof points === "object" (array of arrays with two numbers)
+// typeof k === "number"
+
+const kClosest=(points,k)=>points.map(p=>[...p,p[0]**2+p[1]**2]).sort((a,b)=>a[2]-b[2]).slice(0,k).map(p=>[p[0],p[1]])
+
+{{< /code >}}
