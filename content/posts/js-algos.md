@@ -580,6 +580,33 @@ const longestCommonPrefix = (strs) => {
 
 }{{< /code >}}
 
+To find the longest substring without repeating characters, you can use two pointers, a leading pointer and a `backPointer`, both of which can start at 0. Advance the leading pointer as in a loop, and at each location in the string add the character code of the character to an object of all character codes in the visited string. Then, while a duplicate character code is detected, subtract the character pointed to by the `backPointer` from the table, and increment the back pointer. Once the substring between the leading pointer and `backPointer` has no repeated characters, use its length to replace a `best` string length as needed.
+
+{{< code language="javascript" title="[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+//typeof s === "string"
+
+const lengthOfLongestSubstring = function(s) {
+
+    const charCount = new Array(127).fill(0)
+
+    let best = 0
+    let backPointer = 0
+
+    for(let i = 0; i < s.length; i++){
+        charCount[s.charCodeAt(i)]++
+        
+        while(charCount[s.charCodeAt(i)] === 2){
+            charCount[s.charCodeAt(backPointer)]--
+            backPointer++
+        }
+
+        best = Math.max(best,i+1-backPointer)
+    }
+
+    return best
+
+}{{< /code >}}
+
 # Binary Trees
 
 LeetCode implements a binary tree node like this:

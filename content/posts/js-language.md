@@ -352,6 +352,19 @@ console.log(arraySumOnKey) // prints { sum: 6 }
 
 {{< /code >}}
 
+The spread operator `...` takes an array and spreads its items as elements of the new array.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const primaryColors = ["red", "blue", "yellow"]
+
+const shapes = ["square", "circle", "triangle"]
+
+const primaryColorsAndShapes = [...primaryColors, ...shapes]
+console.log(primaryColorsAndShapes) // prints ["red", "blue", "yellow", "square", "circle", "triangle"]
+
+{{< /code >}}
+
 # Methods of Strings
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` on their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
