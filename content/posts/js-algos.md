@@ -657,6 +657,22 @@ const equal = (l, r) => {
 
 {{< /code >}}
 
+To find if a tree `subRoot` is truly a subroot of a tree `root`, one approach is to check if any node in or below `root` decends to a structure that matches `subRoot`. However, this approach is )O(`root`*`subRoot`). Constructing a `subRoot` serialization and then checking if this is a substring of `root` can be done with any string-matching algorithm to be used at the end, including the JavaScript-native `includes` method, which could theoretically have an implementation that is in O(`root` + `subRoot`) time at the cost of a precompute table, like the [Knuth-Morris-Pratt String Matching Algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm).
+
+{{< code language="javascript" title="[Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+// typeof subRoot === "object" (binary tree node)
+
+const isSubtree = (root, subRoot) => stringBuilder(root).includes(stringBuilder(subRoot))
+
+const stringBuilder = (node) => {
+    if(!node) return '.'
+    const s = `<${stringBuilder(node.left)} + ${node.val} + ${stringBuilder(node.right)}>`
+    return s
+}
+
+{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.

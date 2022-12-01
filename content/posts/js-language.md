@@ -351,6 +351,18 @@ console.log(string) // prints "Hello" as the original string is unmodified
 
 {{< /code >}}
 
+The `includes` method checks if a string is inside a parent string and returns a boolean.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const substring1 = "abc".includes("ab")
+console.log(substring1) // prints true
+
+const substring2 = "abc".includes("ac")
+console.log(substring2) // prints false
+
+{{< /code >}}
+
 # Advanced Objects
 
 Optional chaining with `?.` prevents an error and returns `undefined` if something the code is trying to look inside is `undefined` or `null`. This is useful if you want to stop a process gracefully if data shape is not as expected, instead of crashing the program.
