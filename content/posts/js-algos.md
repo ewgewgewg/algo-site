@@ -167,7 +167,7 @@ const sortedSquares = (nums) => {
 
 	let low = 0
     let high = nums.length - 1
-    
+
 	for (let i = nums.length - 1; i > -1; i--) {
 		if (Math.abs(nums[low]) >= Math.abs(nums[high])) {
 			result[i] = nums[low] ** 2
@@ -877,6 +877,25 @@ const climbStairs = (n) => {
     }
 
     return steps[0]
+
+}{{< /code >}}
+
+To find the maximum sum of a subarray (consecutive numbers) in an array with a length, you can initialize a `best` variable and a `currentMax` variable both to the value of the first number in the array. Then, looping the rest of the numbers, at every step you can first update `currentMax` to be the better of `currentMax` plus the pointed value, or just the pointed value (this will remove negative values of `currentMax`). As the second part of each array step, update `best` to be `currentMax` if `currentMax` is ever the greater of the two. At the end of the loop, return `best`. This is a version of [Kadane's algorithm](https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm).
+
+{{< code language="javascript" title="[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const maxSubArray = (nums) => {
+
+    let best = nums[0]
+    let currentMax = nums[0]
+
+    for (let i = 1; i < nums.length; i++){
+        currentMax = Math.max(currentMax+nums[i], nums[i])
+        best = Math.max(best,currentMax)
+    }
+    
+    return best
 
 }{{< /code >}}
 
