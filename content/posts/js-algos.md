@@ -182,6 +182,32 @@ const sortedSquares = (nums) => {
 
 }{{< /code >}}
 
+In an array of intervals that do not overlap, with the intervals themselves represented as arrays of [start, end] numbers, and sorted by start, how to add a new [start, end] by updating, merging, or inserting as appropriate? One method is to increment from the beginning of the array until the end is reached or the end value of the current array interval stops being less than the start value of the interval to be inserted. Then, again while there are array items to iterate, the interval to be inserted has its start and end values updated to be more mimumum and more maximum as appropriate, until the start of the array interval to be processed is larger than the end of the (modified or unmodifed) interval to be inserted.
+
+{{< code language="javascript" title="[Insert Interval](https://leetcode.com/problems/insert-interval/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof intervals === "object" (array of arrays with two numbers)
+// typeof newInterval === "object" (array with two numbers)
+
+const insert = (intervals, newInterval) => {
+
+    let i = 0
+
+    while (i < intervals.length && intervals[i][1] < newInterval[0]) {
+        i++
+    }
+
+    const sliceMark = i
+
+    while (i < intervals.length && newInterval[1] >= intervals[i][0]) {
+        newInterval[0] = Math.min(intervals[i][0], newInterval[0])
+        newInterval[1] = Math.max(intervals[i][1], newInterval[1])
+        i++
+    }
+
+    return intervals.slice(0, sliceMark).concat([newInterval]).concat(intervals.slice(i))
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
@@ -894,7 +920,7 @@ const maxSubArray = (nums) => {
         currentMax = Math.max(currentMax+nums[i], nums[i])
         best = Math.max(best,currentMax)
     }
-    
+
     return best
 
 }{{< /code >}}

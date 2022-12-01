@@ -303,7 +303,39 @@ const string = array2.reverse().join("") // prints "1252"
 
 {{< /code >}}
 
-A special array method, `reduce`, may be tricky. For every step along its parent array, it runs a callback function with two arguments, an accumulator and the current value at the given array position. The accumulator defaults to the first value in the array, or can be set in the second argument of the `reduce` method (the first argument is the callback function). The return value of the callback at each step turns into the accumulator for the next step, which is ultimately returned out of the function.
+The array method `concat` can to the parent array an array argument (flattened into one array), or push value arguments into the parent array. Combinations also possible.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const array = [1, 2, 3].concat([4, 5])
+console.log(array) // prints [1, 2, 3, 4, 5]
+
+const array2 = [1, 2, 3].concat(4, 5)
+console.log(array2) // prints [1, 2, 3, 4, 5]
+
+const array3 = [1, 2, 3].concat(4, 5, [6, 7, 8])
+console.log(array3) // prints [1, 2, 3, 4, 5, 6, 7, 8]
+
+{{< /code >}}
+
+The array method `splice` takes an insertion location, a deletion count, and any number of insertion items as arguments. It acts on the array it is run from and does not need to be part of direct assignment.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const array = [1, 2, 3]
+
+array.splice(1, 1)
+console.log(array) // prints [1, 3]
+
+array.splice(1, 0, 4)
+console.log(array) // prints [1, 4, 3]
+
+array.splice(2, 0, 5, 6)
+console.log(array) // prints [1, 4, 5, 6, 3]
+
+{{< /code >}}
+
+The array method `reduce` may be tricky. For every step along its parent array, it runs a callback function with two arguments, an accumulator and the current value at the given array position. The accumulator defaults to the first value in the array, or can be set in the second argument of the `reduce` method (the first argument is the callback function). The return value of the callback at each step turns into the accumulator for the next step, which is ultimately returned out of the function.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
