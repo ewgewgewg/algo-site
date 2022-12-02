@@ -208,6 +208,40 @@ const insert = (intervals, newInterval) => {
 
 }{{< /code >}}
 
+To find all unique triplets of numbers in an array that sum to 0, you can first sort the array in ascending order. A loop with three pointers can then help the problem. The `i` pointer in the definition of the loop will crawl from the 0 index to two less than the last index, while for every step in the loop, `left` and `right` pointers can be defined starting at the leftmost and rightmost extremes to the right of the `i` pointer. When the value at `i` is equal to the value at `i-1`, the step in the loop can be skipped (to guard against duplicate triplets), and if the value at `i` is ever positive, the loop can break (because the values at the three pointers will be positive). Otherwise, as long as `left < right`, check to see if the sum of the values at `i`, `left`, and `right` are 0. If the value is too low, increment `left` by 1, and if too high decrement `right` by 1. If the sum is 0, push the value, and increment past any duplicate values innerward from `left` and `right` so both pointers point to new values. Whether or not the sum is 0, check again if `left < right` to continue the inner loop.
+
+{{< code language="javascript" title="[3Sum](https://leetcode.com/problems/3sum/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const threeSum = (nums) => {
+
+    nums.sort((a,b)=>a-b)
+
+    const result = []
+    for (let i = 0; i < nums.length - 2; i++){
+        if (nums[i] > 0) break
+        if (i > 0 && nums[i] === nums[i-1]) continue
+        let left = i + 1
+        let right = nums.length - 1
+        
+        while(left < right){
+            const sum = nums[i] + nums[left] + nums[right]
+            if (sum < 0) left += 1
+            else if (sum > 0) right -= 1
+            else {
+                result.push([nums[i], nums[left], nums[right]])
+                while(left < right && nums[left] === nums[left+1]) left++
+                while(left < right && nums[right] === nums[right-1]) right--
+                left++
+                right--
+            }
+        }
+    }
+    
+    return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
@@ -585,7 +619,7 @@ To find the longest substring without repeating characters, you can use two poin
 {{< code language="javascript" title="[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 //typeof s === "string"
 
-const lengthOfLongestSubstring = function(s) {
+const lengthOfLongestSubstring = (s) => {
 
     const charCount = new Array(127).fill(0)
 
@@ -594,7 +628,7 @@ const lengthOfLongestSubstring = function(s) {
 
     for(let i = 0; i < s.length; i++){
         charCount[s.charCodeAt(i)]++
-        
+
         while(charCount[s.charCodeAt(i)] === 2){
             charCount[s.charCodeAt(backPointer)]--
             backPointer++
