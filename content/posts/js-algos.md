@@ -353,6 +353,39 @@ const backwards = (string, index) => {
 
 }{{< /code >}}
 
+[Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) involves  pushing numerical values to a stack, and otherwise running a detected operator on the two values found behind it in the stack. When values are used they can be popped, and the new value after operation is pushed to the stack as if it was in the original token series (this is a way the notation represents parentheticals).
+
+{{< code language="javascript" title="[Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof tokens === "object" (array of strings)
+
+const evalRPN = (tokens) => {
+
+    const stack = []
+
+    for (let token of tokens){
+        if(!'+-*/'.includes(token)) stack.push(Number(token))
+        else {
+            const b = stack.pop()
+            const a = stack.pop()
+            
+            if(token === '+'){
+                stack.push(a + b)
+            } else if (token === '-'){
+                stack.push(a - b)
+            } else if (token === '*'){
+                stack.push(a*b)
+            } else {
+                const test = a/b
+                if(test < 0) stack.push(Math.ceil(test))
+                else stack.push(Math.floor(test))
+            }
+        }
+    }
+
+    return stack[0]
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
