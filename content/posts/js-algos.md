@@ -223,7 +223,7 @@ const threeSum = (nums) => {
         if (i > 0 && nums[i] === nums[i-1]) continue
         let left = i + 1
         let right = nums.length - 1
-        
+
         while(left < right){
             const sum = nums[i] + nums[left] + nums[right]
             if (sum < 0) left += 1
@@ -782,6 +782,35 @@ const stringBuilder = (node) => {
     if(!node) return '.'
     const s = `<${stringBuilder(node.left)} + ${node.val} + ${stringBuilder(node.right)}>`
     return s
+}{{< /code >}}
+
+Returning a level order traversal of binary tree nodes (array of array of values for each level) can be done with three variables. Assuming there is a `root`, define `result` as an empty array inside an array, define a `level` array that contains `root`, and define a `nextLevel` array that is empty. The `level` array will be treated as a queue and repeatedly processed starting from the left, with each value pushed into the last inner array in `result`, and with each present `.left` and `.right` node being pushed in that order to the `nextLevel` array. When `level` is empty and `nextLevel` has length, push an empty array into `result` to represent the next level and replace `level` with `nextLevel`.
+
+{{< code language="javascript" title="[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const levelOrder = (root) => {
+
+    if(!root) return []
+    const result = [[]]
+    let level = [root]
+    let nextLevel = []
+
+    while(level.length){
+        const test = level.shift()
+        result[result.length-1].push(test.val)
+
+        if(test.left) nextLevel.push(test.left)
+        if(test.right) nextLevel.push(test.right)
+
+        if(!level.length && nextLevel.length){
+            result.push([])
+            level = nextLevel
+            nextLevel = []
+        }
+    }
+    return result
+
 }{{< /code >}}
 
 # Binary Search
