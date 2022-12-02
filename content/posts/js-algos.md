@@ -940,6 +940,35 @@ const updateMatrix = (mat) => {
 
 }{{< /code >}}
 
+To clone a graph of unique values without loops, if the graph exists, you can use recursion with a map. If any value is present in the map you can return whatever is stored there. Otherwise, make a copy of `currentNode`, set it by value in the map, and loop the reference to its children to recursively copy these. 
+
+{{< code language="javascript" title="[Clone Graph](https://leetcode.com/problems/clone-graph/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// function Node(val, neighbors) {
+//     this.val = val === undefined ? 0 : val;
+//     this.neighbors = neighbors === undefined ? [] : neighbors;
+//  }
+
+const cloneGraph = (node) => {
+    if (!node) return null
+    const seen = new Map()
+
+    const copy = (currentNode) => {
+        if(seen.has(currentNode.val)) return seen.get(currentNode.val)
+        const copyNode = new Node(currentNode.val, [])
+
+        seen.set(copyNode.val, copyNode)
+        for (let neighbor of currentNode.neighbors) {
+            copyNode.neighbors.push(copy(neighbor))
+        }
+
+        return copyNode
+
+    }
+
+    return copy(node)
+    
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
