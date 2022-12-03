@@ -1095,6 +1095,36 @@ const canFinish(numCourses, prerequisites) {
   
 }{{< /code >}}
 
+In order to count the number of islands in a grid (unique groups of '1's connected up, down, left, or right to other '1's), an approach involves iterating through all the values of the grid. When a '1' is found, increment a `count` variable, then run a `flood` function to check if the location is in bounds and a '1'. If so, 'sink' the space by assigning a '0', then do depth-first search and run `flood` up, down, left, and right. Every connected '1' should disappear the first time one is found in the looping.
+
+{{< code language="javascript" title="[Number of Islands](https://leetcode.com/problems/number-of-islands/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof grid === "object" (array of arrays of numbers)
+
+const numIslands = (grid) => {
+
+  let count = 0
+  
+  const flood = (i, j) => {
+      if (i < 0 || j < 0 || i === grid.length || 
+      j === grid[0].length || grid[i][j] === '0') return
+      grid[i][j] = '0'
+      const directions = [[0,1],[0,-1],[1,0],[-1,0]]
+      for (let [y, x] of directions) flood(i+y,j+x)
+  }
+  
+  for (let i = 0; i < grid.length; i++){
+      for (let j = 0; j < grid[0].length; j++){
+          if (grid[i][j] === '1') {
+              count++
+              flood(i,j)
+          }
+      }
+  }
+    
+    return count
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
