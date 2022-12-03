@@ -242,6 +242,29 @@ const threeSum = (nums) => {
 
 }{{< /code >}}
 
+To find the product at each array location of every value in the array except the value at that location, a linear time approach with two passes involves computing the rolling product forwards of every value up to that at a given index, and then rolling over the same array backwards, multiplying the value given in the first pass by a `backwardsRollingProduct` of every value above the given index. Make sure to update the `backwardsRollingProduct` only by multiplying from the original array (though it should be used at every step to update the target value in the final array).
+
+{{< code language="javascript" title="[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const productExceptSelf = (nums) => {
+
+    const result = []
+    result[0] = 1
+
+    for (let i = 1; i < nums.length; i++) {
+        result[i] = nums[i - 1] * result[i - 1]
+    }
+
+    let backwardsRollingProduct = 1
+    for (let i = nums.length - 1; i > -1; i--) {
+        result[i] *= backwardsRollingProduct
+        backwardsRollingProduct *= nums[i]
+    }
+
+    return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
