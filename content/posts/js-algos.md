@@ -409,6 +409,39 @@ const evalRPN = (tokens) => {
 
 }{{< /code >}}
 
+To create a stack that can push, pop, find the top value, and find the minimum value, all in constant time, you can seed two empty arrays in the starter function, `values` and `minimums`. To push values, you can always push a new value to the `values` array, but only push to the `minimums` array if that array is empty or the value is less than or equal to the previous minimum. To pop, you can always pop from the `values` array but only pop from the `minimums` array if the last value there matches the value popped from `values`. Top just checks the end of the `values` array, while getting the minimum just checks the end of the `minimums` array.
+
+{{< code language="javascript" title="[Min Stack](https://leetcode.com/problems/min-stack/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof val === "number"
+
+const MinStack = function() {
+    this.values = []
+    this.minimums = []
+}
+
+MinStack.prototype.push = function(val) {
+    if(!this.minimums.length || val <= this.minimums[this.minimums.length-1]){
+        this.minimums.push(val)
+    }
+    this.values.push(val)
+}
+
+MinStack.prototype.pop = function() {
+    const test = this.values.pop()
+    if(test === this.minimums[this.minimums.length-1]){
+        this.minimums.pop()
+    }
+    return test
+}
+
+MinStack.prototype.top = function() {
+    return this.values[this.values.length-1]
+}
+
+MinStack.prototype.getMin = function() {
+    return this.minimums[this.minimums.length-1]
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
