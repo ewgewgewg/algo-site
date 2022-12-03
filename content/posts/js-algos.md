@@ -1125,6 +1125,45 @@ const numIslands = (grid) => {
 
 }{{< /code >}}
 
+In a grid where `1` represents a fresh orange, `2` represents a rotten orange, `0` represents an empty space, and every minute every fresh orange next to a rotten orange beomes rotten, how many minutes, if possible, does it take for all oranges to turn rotten? This problem can be solved with breadth-first search. First, iterate the values in the grid to count the number of oranges into a `oranges` variable. In the same iteration, for all rotten oranges, push arrays of 3 numbers each into a `queue`-- the orange's coordinates, and and a `minutesToRotten` of 0. Temporarily assign rotten oranges in the grid as `1`s to make `queue` processing easier. For `queue` processing, as long as `queue` has a length, shift off the first item, make sure its coordinates are on the grid and point to a fresh `1` orange, then decrease the `oranges` counter by 1, assign the grid location as `2`, maximize a `depth` variable by comparing it with `minutesToRotten`, and push new `queue` triplets up, down, left, and right if those are the adjacencies allowed by the question, with the new `minutesToRotten` increased `+1` compared to the spawning item. When `queue` has no length, return `depth` if the `oranges` variable is 0, else return `-1` to show that all oranges will never become rotten under the constraints.
+
+{{< code language="javascript" title="[Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof grid === "object" (array of arrays of numbers)
+
+const orangesRotting = function(grid) {
+    
+    let oranges = 0
+    let depth = 0
+    const queue = []
+    for (let i = 0; i < grid.length; i++){
+        for (let j = 0; j < grid[0].length; j++){
+            if(grid[i][j]) oranges++
+            if(grid[i][j] === 2){
+                grid[i][j] = 1
+                queue.push([i,j,0])
+            }
+        }
+    }
+
+    const dirs = [[-1,0],[1,0],[0,1],[0,-1]]
+    while(queue.length){
+        const cur = queue.shift()
+        if(cur[0] < 0 || cur[1] < 0 || cur[0] === grid.length
+          || cur[1] === grid[0].length || grid[cur[0]][cur[1]] !== 1){
+            continue
+        }
+        depth = Math.max(depth,cur[2])
+        oranges--
+        grid[cur[0]][cur[1]] = 2
+        for (let dir of dirs){
+            queue.push([cur[0]+dir[0],cur[1]+dir[1],cur[2]+1])
+        }
+    }
+    
+    return oranges ? -1 : depth
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
