@@ -367,7 +367,7 @@ const evalRPN = (tokens) => {
         else {
             const b = stack.pop()
             const a = stack.pop()
-            
+
             if(token === '+'){
                 stack.push(a + b)
             } else if (token === '-'){
@@ -1000,6 +1000,43 @@ const cloneGraph = (node) => {
 
     return copy(node)
     
+}{{< /code >}}
+
+To detect if every course can be taken when prerequisites are given in an array of arrays of number pairs that look like `[course, prerequisite]`, an adjacency list can be created that lets all courses under a prerequisite be pointed to from that prerequisite. Then, every course can be investigated to see if any of its descendants (from the perspective of adjacency list lookups) contain its value. This would mean a circular dependency and be the case to return `false`. In the depth-first searches starting from each course, caching previously seen course values prevents duplicate work, and just before any course's descendants are investigated, it makes sense to store a `flag` with that course's number, so that lower calls can check their value against the set of flags to see if returning `false` is needed. On any level of the recursive process, once the lower-level calls are completed, the `flag` should be removed, since it would no longer represent a valid ancestor.
+
+{{< code language="javascript" title="[Course Schedule](https://leetcode.com/problems/course-schedule/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof numCourses === "number"
+// typeof prerequisites === "object" (array of arrays with two numbers)
+
+const canFinish(numCourses, prerequisites) {
+
+  const cache = new Set()
+  const flag = new Set()
+  const adjacencyList = Array(numCourses).fill().map(r => [])
+  
+  for (let [course, prerequisite] of prerequisites) {
+    adjacencyList[prerequisite].push(course)
+  }
+  
+  const dfs = (course) => {
+    if (cache.has(course)) return true
+    if (flag.has(course)) return false
+    
+    flag.add(course)
+    for (let nextCourse of adjacencyList[course]) {
+      if (!dfs(nextCourse)) return false
+    }
+    flag.delete(course)
+    cache.add(course)
+    return true
+  }
+
+  for (let i = 0; i < numCourses; i++) {
+    if (!dfs(i)) return false
+  }
+
+  return true
+  
 }{{< /code >}}
 
 # Binary Search Trees
