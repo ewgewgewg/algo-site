@@ -1155,6 +1155,28 @@ const maxSubArray = (nums) => {
 
 }{{< /code >}}
 
+To find the fewest number of coins that sum to a value, with an infinite amount of coins but specific coin types, a `dp` array can be used with length equal to `1 + amount` of the goal value. In this dynamic programming approach, seed the 0th location in `dp` with 0 to indicate it takes 0 coins (the value) to reach a partial amount of 0 (the index). Then, loop through the `dp` array for each available coin, and when a given value is noninfinite, update the value at the location a coin amount up from the index to be the minimum of itself or the source location plus 1. Each new coin can fill in new intervals from each available starting index. At the end, you can return a finite value at the last location in `dp`, or -1.
+
+{{< code language="javascript" title="[Coin Change](https://leetcode.com/problems/coin-change/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof coins === "object" (array of numbers)
+// typeof amount === "number"
+
+const coinChange = (coins, amount) => {
+
+    const dp = new Array(amount+1).fill(Infinity)
+    dp[0] = 0
+
+    for (let coin of coins){
+        for (let i = 0; i < dp.length-coin; i++){
+            dp[i+coin] = Math.min(dp[i+coin], dp[i]+1)
+        }
+    }
+
+    if(isFinite(dp[amount])) return dp[amount]
+    return -1
+
+}{{< /code >}}
+
 # Binary
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.

@@ -119,8 +119,12 @@ paginate = 5
         name = "Math"
         url = "/posts/js-algos#Math"
       [[languages.en.menu.main]]
+        identifier = "heaps"
+        name = "Heaps"
+        url = "/posts/js-algos#Heaps"
+      [[languages.en.menu.main]]
         identifier = "tries"
-        name = "tries"
+        name = "Tries"
         url = "/posts/js-algos#Tries"
       [[languages.en.menu.main]]
         identifier = "variables, types, and comments"

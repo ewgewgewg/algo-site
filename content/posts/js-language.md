@@ -98,6 +98,18 @@ transform /= 2 // transform now contains 1
 
 {{< /code >}}
 
+You can set variables to infinity and check if they are infinite.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const small = 0
+isFinite(small) // contains true
+
+const large = Infinity
+isFinite(large) / contains false
+
+{{< /code >}}
+
 # Conditionals and Comparison Operators
 
 Code can be optional. Code written in brackets after an `if` condition in parentheses only runs if the condition is parentheses is `true`. An `if` condition can be immediately followed by one or more `else if`, also with parentetical activation conditions, and then an `else` which serves as a catch-all and thus has no explicit conditions. Typical conditions include `===` to check if two values are truly equal, `>=`, `<=`, `>`, and `<` as relative comparators, `!` as negation, and `%`, the modulo operator, which returns what would be the remainder of a division between numbers on either side.
