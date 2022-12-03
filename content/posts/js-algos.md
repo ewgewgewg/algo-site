@@ -1341,3 +1341,42 @@ To find the k closest points to the origin, sort the points by the sum of the x 
 const kClosest=(points,k)=>points.map(p=>[...p,p[0]**2+p[1]**2]).sort((a,b)=>a[2]-b[2]).slice(0,k).map(p=>[p[0],p[1]])
 
 {{< /code >}}
+
+# Tries
+
+A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter's key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a `.end` key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a `.end` key is found. Checking if a prefix (`startsWith`) is available is a relaxed search from the top that doesn't care about `.end`.
+
+{{< code language="javascript" title="[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof word === "string"
+// typeof prefix === "string"
+
+const Trie = function() {
+    this.trie = {}
+}
+
+Trie.prototype.insert = function(word) {
+    let trie = this.trie
+    for (let letter of word) {
+        !trie[letter] && ( trie[letter] = {} )
+        trie = trie[letter]
+    }
+    trie.end = true
+}
+
+Trie.prototype.search = function(word) {
+    let trie = this.trie
+    for (let letter of word) {
+        if (!trie[letter]) return false
+        trie = trie[letter]
+    }
+    return !!trie.end
+}
+
+Trie.prototype.startsWith = function(prefix) {
+    let trie = this.trie
+    for (let letter of prefix) {
+        if (!trie[letter]) return false
+        trie = trie[letter]
+    }
+    return true
+}{{< /code >}}
