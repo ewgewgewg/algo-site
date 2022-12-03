@@ -110,6 +110,18 @@ isFinite(large) / contains false
 
 {{< /code >}}
 
+Default parameters provide values in functions if no values are passed in.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const add = (a = 1, b = 2) => a + b
+
+add() // returns 3
+add(2) // returns 4
+add(2,3) // returns 5
+
+{{< /code >}}
+
 # Conditionals and Comparison Operators
 
 Code can be optional. Code written in brackets after an `if` condition in parentheses only runs if the condition is parentheses is `true`. An `if` condition can be immediately followed by one or more `else if`, also with parentetical activation conditions, and then an `else` which serves as a catch-all and thus has no explicit conditions. Typical conditions include `===` to check if two values are truly equal, `>=`, `<=`, `>`, and `<` as relative comparators, `!` as negation, and `%`, the modulo operator, which returns what would be the remainder of a division between numbers on either side.
@@ -162,6 +174,22 @@ const orderOfOperations = false || true && false // stored variable is false bec
 
 const typeChangeDemonstrationTruthy = !!("a" || 1) // stored variable is true
 const typeChangeDemonstrationFalsy = !!("" || 0 || null || undefined) // stored variable is false
+
+{{< /code >}}
+
+Boolean operators can also do conditional assigment.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+let color = "blue"
+
+true && (color = "red")
+
+// color is "red"
+
+false && (color = "blue")
+
+// color is still "red"
 
 {{< /code >}}
 

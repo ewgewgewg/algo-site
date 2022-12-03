@@ -1143,6 +1143,19 @@ const recursion = (left, right, nums) => {
 
 }{{< /code >}}
 
+To check if a binary tree is a valid binary search tree, recursion is valuable. Set `left` and `right` default parameters of -Infinity and Infinity on the function, and run it so that an empty node returns `true`, while otherwise two recursive calls are spawned. One takes the `.left` node with a `left` of `left` and a `right` of `root.val`, while the other takes the `.right` node with a `right` of `right` and a `left` of `root.val`. Then return `true` only if the left node and the right node return `true`, and `root.val` is between `left` and `right`. 
+
+{{< code language="javascript" title="[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+//typeof root === "object" (binary search tree node)
+
+const isValidBST = (root, left = -Infinity, right = Infinity) => {
+    if (!root) return true
+    return (isValidBST(root.left, left, root.val)
+    && isValidBST(root.right,root.val, right)
+    && left < root.val && root.val < right)
+    
+}{{< /code >}}
+
 # Hash Tables
 
 Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the 'magazine' string, and then what appears in the 'note' string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
