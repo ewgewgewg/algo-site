@@ -1312,6 +1312,52 @@ const orangesRotting = function(grid) {
 
 }{{< /code >}}
 
+Given an array of `account` arrays where the item at each inner array's first index is a `name`, and every other index contains an `email`, how to merge `accounts` with shared emails? Two arrays might be connected by a third if that third shares emails on both other lists, and the chain can get even longer. In order to solve, first build a `nameLookup` and `adjacencyList` by looping through each starting `account`, extracting the `name` from the 0th index, and at each step looping through the emails associated with each starting `account`. Assign a `name` to each `email` in `nameLookup`, and use the `email` at the 1st index to create adjacency relationships -- adding each 2nd and further index email to an `adjacencyList` value array of the 1st index `email` key, and adding the 1st index `email` to the `adjacencyList` array of every other email in the `account`. Reorganization complete, `email` keys in the `adjacencyList` can then be looped. For any `email` that has not been `seen` in this phase of the algorithm, a depth-first search can be run, first adding the `email` to `seen`, then seeding a new `emails` array with the `email` key being processed, then looping items in the array associated with the `email` in the `adjacencyList`. For every next email on this list that has not been `seen`, an additional `dfs` can run, and the results can be pushed to the `emails` array before returning it. When `dfs` is done, the `emails` array returned to the outer `adjacencyList` loop is a `joinedAccount`. Sort as needed, and use `nameLookup` to add a `name` to the front of the array before pushing it to `result`.
+
+{{< code language="javascript" title="[Accounts Merge](https://leetcode.com/problems/accounts-merge/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof accounts === "object" (array of arrays of strings)
+
+const accountsMerge = (accounts) => {  
+    
+    const nameLookup = {}
+    const adjacencyList = {}
+    
+    for (let account of accounts) {
+        const name = account[0]
+        for (let i = 1; i < account.length; i++) {
+            nameLookup[account[i]] = name
+            if (!adjacencyList[account[i]]) adjacencyList[account[i]] = []
+
+            if (i != 1) {
+                adjacencyList[account[1]].push(account[i])
+                adjacencyList[account[i]].push(account[1])
+            }
+        }
+    }
+    
+    const result = []
+    const seen = new Set()
+    
+    const dfs = (email) => {
+        seen.add(email)
+        const emails = [email]
+        for (let nextEmail of adjacencyList[email]){
+            if(!seen.has(nextEmail)) emails.push(...dfs(nextEmail))
+        }        
+        return emails
+    }
+    
+    for (let email in adjacencyList) {
+        if (!seen.has(email)) {
+            const joinedAccount = dfs(email)
+            joinedAccount.sort()
+            result.push([nameLookup[joinedAccount[0]], ...joinedAccount])
+        }
+    }
+    
+    return result
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
