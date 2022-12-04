@@ -852,7 +852,7 @@ const longestPalindrome = (s) => {
             right++
         }
     }
-    
+
     return result
 
 }{{< /code >}}
@@ -1627,6 +1627,32 @@ canPartition = (nums) => {
     }
     
     return dp[sum/2]
+
+}{{< /code >}}
+
+How many ways are there for a robot in an array, that can only go to the right and down, to get from the upper-left to the lower-right? This problem can be solved with the help of a `dp` array. Create it as the length of a row, `n`, and fill all locations with 0, but update the 0th index with 1, to show there is 1 way for the robot to get to (be in) the upper-left. Then, loop for the number of rows `m`, and in each of those loops, create a `nextDP` array and loop each location in the row. For each location in the inner loop, update that location in `nextDP` as the sum of any values in locations just above (just above is represented by the `dp` array) and just to the left. At the end of each inner loop, replace `dp` with `nextDP`. Return the value at the rightmost index in `dp` at the end of the outer loop. Note that for the first inner loop, `dp` represents a theoretical `m-1` row that allows the 0th location in the 0th row to be seeded correctly.
+
+{{< code language="javascript" title="[Unique Paths](https://leetcode.com/problems/unique-paths/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof m === "number"
+// typeof n === "number"
+
+const uniquePaths = (m, n) => {
+
+    let dp = new Array(n).fill(0)
+    dp[0] = 1
+
+    for (let i = 0; i < m; i++){
+        let nextDP = []
+        for (let j = 0; j < n; j++){
+            let up = dp[j]
+            let left = j ? nextDP[j-1] : 0
+            nextDP[j] = up+left
+        }
+        dp = nextDP
+    }
+
+    return dp[dp.length-1]
+
 }{{< /code >}}
 
 # Binary
