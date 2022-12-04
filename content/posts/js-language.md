@@ -289,6 +289,27 @@ console.log(map.get("tree")) // prints 4
 
 {{< /code >}}
 
+`Keys`, `values`, and keys and values as `entries` can be extracted with methods of of prototype term `Object`, taking the source object as the argument passed into the method. Object keys can be looped by using `for` loops can use a `let key in [items]` format in their parenthetical, where `[items]` can actually be any predefined iterable object, and `key`, which can be named arbitrarily in the loop, increments over every `key` inside.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const sampleObject = {color1: "blue", color2: "red"}
+
+const keys = Object.keys(sampleObject)
+console.log(keys) // prints ["color1", "color2"]
+
+const values = Object.values(sampleObject)
+console.log(values) // prints ["blue", "red"]
+
+const entries = Object.entries(sampleObject)
+console.log(entries) // prints [["color1", "blue"], ["color2", "red"]]
+
+for (let key in sampleObject){
+    console.log(key) // prints "color1", then "color2"
+}
+
+{{< /code >}}
+
 # Methods of Arrays
 
 Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index. These `push`, `pop`, `shift`, and `unshift` all act on the array they are run from and do not require assignment to a new array.
