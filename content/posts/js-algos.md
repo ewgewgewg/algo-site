@@ -1516,7 +1516,7 @@ const maxSubArray = (nums) => {
 
 To find the fewest number of coins that sum to a value, with an infinite amount of coins but specific coin types, a `dp` array can be used with length equal to `1 + amount` of the goal value. In this dynamic programming approach, seed the 0th location in `dp` with 0 to indicate it takes 0 coins (the value) to reach a partial amount of 0 (the index). Then, loop through the `dp` array for each available coin, and when a given value is noninfinite, update the value at the location a coin amount up from the index to be the minimum of itself or the source location plus 1. Each new coin can fill in new intervals from each available starting index. At the end, you can return a finite value at the last location in `dp`, or -1.
 
-{{< code language="javascript" title="[Coin Change](https://leetcode.com/problems/coin-change/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Coin Change](https://leetcode.com/problems/coin-change/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof coins === "object" (array of numbers)
 // typeof amount === "number"
 
@@ -1534,6 +1534,28 @@ const coinChange = (coins, amount) => {
     if(isFinite(dp[amount])) return dp[amount]
     return -1
 
+}{{< /code >}}
+
+Can a non-empty array containing only positive integers be split into two subsets that are equal? To determine, you can collect the total `sum` and immediately retrun false if that `sum` is an odd number. Else, you can use dynamic programming to see if there is some combination of numbers that sums to half the total sum. Make a `dp` array equal to one more than the `sum`, seed the 0 location (representing a sum of 0) with `true`, and for each number in the original array, loop the `dp` array from right to left, checking if the current value location minus the value being considered is `true`, and if so, updating the current value location to `true`. Looping from left to right would reuse numbers. At the end, return the boolean status of the right end of the array.
+
+{{< code language="javascript" title="[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+canPartition = (nums) => {
+    
+    const sum = nums.reduce((a,b)=>a+b)
+
+    if(sum % 2) return false
+    const dp = new Array(sum/2 + 1).fill(false)
+    dp[0] = true
+    
+    for(let num of nums) {
+        for(let i = sum; i >= num; i--){
+            dp[i] = dp[i] || dp[i - num]
+        }
+    }
+    
+    return dp[sum/2]
 }{{< /code >}}
 
 # Binary
@@ -1789,7 +1811,7 @@ const wordBreak = (s, wordDict) => {
     }
 
     return go(s)
-    
+
 }{{< /code >}}
 
 # Recursion
