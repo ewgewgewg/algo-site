@@ -1861,6 +1861,27 @@ const permute = (nums) => {
 
 }{{< /code >}}
 
+How to find all subsets of an array? Create an array `results` and fill it with a single empty array. Then loop the array you wish to find all subsets for. For each value, create an empty `next` array, and loop the contents of `results`. The `results` array should have every possible subset up to but not including the currently reviewed element. Therefore, push the concatenation of every array in `results` with the currently reviewed element into `next`, and when the inner loop is done, concatenate `results` and `next`.
+
+{{< code language="javascript" title="[Subsets](https://leetcode.com/problems/subsets/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const subsets = (nums) => {
+
+    let results = [[]]
+
+    for(let num of nums){
+        const next = []
+        for(let array of results){
+            next.push(array.concat(num))
+        }
+        results = results.concat(next)
+    }
+
+    return results
+    
+}{{< /code >}}
+
 # Matricies
 
 How to return elements of a matrix in spiral order? (The top row left-to-right, continued by the left side going down, continued by the bottom row right-to-left, continued by the right side going up, continued by the second-to-top row left-to-right, etc.) If the matrix is empty, return an empty matrix. Then, create a `result` matrix, and start four pointers, `left`, `right`, `top`, and `bottom`, which indicate the edges of the matrix, inclusive, that still need to be investigated. While the size of the matrix has not been fully explored, step across, down, back, and up the array by using the pointers, pushing to `result`. Pull each pointer one step closer to the middle of the array after its fourth of the while loop is complete. Be careful not to move pointers in quarters where no elements are left to be pushed.
@@ -1907,5 +1928,5 @@ const spiralOrder = (matrix) => {
     }
     
     return result
-    
+
 }{{< /code >}}
