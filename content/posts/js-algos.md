@@ -1074,6 +1074,41 @@ const search = (nums, target) => {
 
 }{{< /code >}}
 
+To create a structure that can store multiple values at a `key` and return a given one based on `timestamp`, set the data structure variable to a `function () {}` that contains `this.map`. Adding `set` to the prototype of the data structure, involves checking if the `key` already exists on the `map`. If not, set the `key` to an empty array. Otherwise, push an object with the `timestamp` and `value` to the `key`. Adding `get` can involve binary search. If the key does not exist, you can return an empty string, else get the `timestamps` array to be searched off of the key, and set `left` and `right` to the edges of the array. While `left` is less than `right`, compute `mid`, and check if the `timestamp` at `mid` is less than the `timestamp` coming from the `set` argument. If so, set `left` to `mid+1`, else `right` can be `mid`. When the pointer cross, check if `timestamp` at `left` is less than or equal to the `timestamp` coming from the `set` argument. If so, return its `value`. Otherwise, do the same for `left-1`, and if a `timestamp` there also does not work, you can return an empty string.
+
+{{< code language="javascript" title="[Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof timestamp === "number"
+
+const TimeMap = function() {
+  this.map = new Map()
+}
+
+TimeMap.prototype.set = function(key, value, timestamp) {
+  if (!this.map.has(key)) this.map.set(key, [])
+  this.map.get(key).push({ timestamp, value })
+}
+
+TimeMap.prototype.get = function(key, timestamp) {
+    if (!this.map.has(key)) return ""
+    const timestamps = this.map.get(key)
+    let left = 0
+    let right = timestamps.length - 1
+    
+    while (left < right) {
+        const mid = left + Math.floor((right - left) / 2)
+        if (timestamps[mid].timestamp < timestamp) {
+            left = mid + 1
+        } else {
+            right = mid
+        }
+    }
+    
+    if (timestamps[left] && timestamps[left].timestamp <= timestamp) return timestamps[left].value
+    if (timestamps[left - 1] && timestamps[left - 1].timestamp <= timestamp) return timestamps[left - 1].value
+
+    return ""
+}{{< /code >}}
+
 # Graphs
 
 A two-dimensional array can represent a screen of pixels. To represent the 'flood fill' tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
