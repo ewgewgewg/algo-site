@@ -961,6 +961,40 @@ const solution = function(isBadVersion) {
     }
 }{{< /code >}}
 
+How to find a number in an array that was divided into two segments that were swapped and reattached, but was before that sorted? To solve this in logarithmic time, begin as if the array was sorted normally, and declare `left` and `right` pointers at either end of the array. While `left` is less than or equal to `right`, define a `mid` pointer between the two (round either way consistently). If `mid` is the value being searched for, you can return the index. Otherwise, notice that one of the section above and the section below the `mid` must be in sorted order. To detect which, check if the `left`-most value is less than the value at `mid` -- this means the left side is sorted. Otherwise the right side is sorted. If the left side is sorted, and the searched-for value is less than the value at `mid` but greater or equal to the `left`-most value, the left side is the side to investigate -- update the right pointer to `mid-1`. Otherwise, if the left side is sorted, the left pointer should go to `mid+1` by process of elimination. If instead it is the right side that is sorted, use similar code to check if the the searched-for value is on the sorted or non-sorted side. You can return `-1` if it is never found.
+
+{{< code language="javascript" title="[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof target === "number"
+
+const search = (nums, target) => {
+
+  let left = 0
+  let right = nums.length - 1
+
+  while (left <= right) {
+    const mid = left + Math.ceil((right - left) / 2)
+    if (nums[mid] === target) return mid
+
+    if (nums[left] < nums[mid]) {
+      if (nums[left] <= target && target < nums[mid]) {
+        right = mid - 1
+      } else {
+        left = mid + 1
+      }
+    } else {
+      if (nums[mid] < target && target <= nums[right]) {
+        left = mid + 1
+      } else {
+        right = mid - 1
+      }
+    }
+  }
+
+  return -1
+
+}{{< /code >}}
+
 # Graphs
 
 A two-dimensional array can represent a screen of pixels. To represent the 'flood fill' tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
@@ -1131,7 +1165,7 @@ In a grid where `1` represents a fresh orange, `2` represents a rotten orange, `
 // typeof grid === "object" (array of arrays of numbers)
 
 const orangesRotting = function(grid) {
-    
+
     let oranges = 0
     let depth = 0
     const queue = []
