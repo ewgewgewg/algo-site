@@ -301,7 +301,7 @@ const merge = (intervals) => {
     if(!intervals.length) return []
     intervals.sort((a,b)=> a[0] - b[0])
     const result = [intervals[0]]
-    
+
     for(let i = 1; i < intervals.length; i++){
         if(result[result.length-1][1] >= intervals[i][0]){
             result[result.length-1][1] = Math.max(intervals[i][1],result[result.length-1][1])
@@ -781,7 +781,7 @@ const lengthOfLongestSubstring = (s) => {
 
 # Binary Trees
 
-LeetCode implements a binary tree node like this:
+One of the ways LeetCode has implemented a binary tree node is like this:
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -947,6 +947,36 @@ const levelOrder = (root) => {
             nextLevel = []
         }
     }
+    return result
+
+}{{< /code >}}
+
+To find the lowest common ancestor of two uniquely-valued binary tree nodes, an implementation involves an inner function `go`. Run this function taking an argument of the `root` of the tree. When `go` runs, if there is no argument, return `0`, else create a `count` variable and add to it the results of running `go` on the `.left` and `.right` of the current node, as well as `1` if the `.val` of the current node if one of the two values being investigated. If `count` is then `2`, set a `result` variable outside of `go` to the current node, and return `0` so that no higher nodes will falsely be recorded as the lowest common ancestor. Otherwise return `count`.
+
+{{< code language="javascript" title="[Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+// typeof p === "object" (binary tree node)
+// typeof q === "object" (binary tree node)
+
+const lowestCommonAncestor = (root, p, q) => {
+
+    let result
+    
+    const go = (node) => {
+        if(!node) return 0
+        let count = 0
+        count += go(node.left)
+        count += go(node.right)
+        count += (node.val === p.val || node.val === q.val)
+        if(count === 2){
+            result = node
+            return 0
+        }
+        return count
+    }
+    
+    go(root)
+    
     return result
 
 }{{< /code >}}
