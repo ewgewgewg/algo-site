@@ -287,7 +287,6 @@ combinationSum = (candidates, target) => {
     }
     
     go(candidates,target,[])
-    
     return results
 
 }{{< /code >}}
@@ -826,6 +825,38 @@ const myAtoi = (str) => {
     }
 }{{< /code >}}
 
+To find the longest palindromic substring of a string, you can simply iterate the string, and for every location make new pointer pairs expand outwards in both directions, continuing if each pointer pair matches and updating the `result` string if appropriate. Each location on the string being looped needs two expansions, one that does not test the active index, using the index just before and just after as the first pair (checking odd length strings), and one that uses the active index with the next index as the first pair of the location, and expands outwards from there (checking even length strings). If any index is out of bounds, loops should end as needed.
+
+{{< code language="javascript" title="[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const longestPalindrome = (s) => {
+
+    let result = s[0]
+
+    for (let i = 0; i < s.length; i++){
+
+        let left = i - 1
+        let right = i + 1
+        while(left >= 0 && right < s.length && s[left] === s[right]){
+            if(right-left+1 > result.length) result = s.slice(left, right+1)
+            left--
+            right++
+        }
+
+        left = i
+        right = i + 1
+        while(left >= 0 && right < s.length && s[left] === s[right]){
+            if(right-left+1 > result.length) result = s.slice(left, right+1)
+            left--
+            right++
+        }
+    }
+    
+    return result
+
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
@@ -1039,8 +1070,8 @@ const rightSideView = (root) => {
     const go = (node, depth) => {
         if (!node) return
         result[depth] = node.val
-        dig(node.left, depth+1)
-        dig(node.right, depth+1)
+        go(node.left, depth+1)
+        go(node.right, depth+1)
     }
 
     go(root,0)
@@ -1876,7 +1907,6 @@ const permute = (nums) => {
     }
     
     go(nums,[])
-    
     return results
 
 }{{< /code >}}
