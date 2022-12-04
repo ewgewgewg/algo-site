@@ -1601,3 +1601,30 @@ Trie.prototype.startsWith = function(prefix) {
     }
     return true
 }{{< /code >}}
+
+# Recursion
+
+To find all possible permutations of an array of integers, you can use a helper function `go`. This takes two arguments: `remainingUnusedNumbers`,which starts as the input array, and `buildingPermutation`, which starts as an empty array. If `remainingUnusedNumbers` is empty, the recursive base case is reached -- push `buildingPermutation` to a `results` array outside `go` and return. Else loop `remainingUnusedNumbers`, at every step generating a new `go` function slicing out the highlighted number and adding that number to a consistant end of the `buildingPermutation` array.
+
+{{< code language="javascript" title="[Permutations](https://leetcode.com/problems/permutations/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const permute = (nums) => {
+
+    const results = []
+    
+    const go = (remainingUnusedNumbers,buildingPermutation) => {
+        if(!remainingUnusedNumbers.length){
+            results.push(buildingPermutation)
+            return
+        }
+        for (let i = 0; i < remainingUnusedNumbers.length; i++){
+            go(remainingUnusedNumbers.slice(0,i).concat(remainingUnusedNumbers.slice(i+1)),[remainingUnusedNumbers[i],...buildingPermutation])
+        }
+    }
+    
+    go(nums,[])
+    
+    return results
+
+}{{< /code >}}

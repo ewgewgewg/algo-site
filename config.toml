@@ -127,6 +127,10 @@ paginate = 5
         name = "Tries"
         url = "/posts/js-algos#Tries"
       [[languages.en.menu.main]]
+        identifier = "recursion"
+        name = "Recursion"
+        url = "/posts/js-algos#Recursion"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"
