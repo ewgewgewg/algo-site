@@ -265,6 +265,33 @@ const productExceptSelf = (nums) => {
 
 }{{< /code >}}
 
+From an array of integers, how to return all unique combinations to a given sum? After creating a `results` array, this problem can be solved in a exhaustive recursive manner. You can use helper function `go` with parameters of remaining array items (starting with all of them), a remaining `target` (starting with the original target), and an array with a possible valid combination summing to the `target` (starting as an empty array). Inside the helper function, if `target` is negative, return immediately, and if `target` is 0, push the third parameter's combination into the `results` array before returning. Else, loop the candidates in the first parameter, running a new `go` call at each step with the first parameter slicing the candidates at the index of the loop, the second parameter reducing `target` by the value at the index in the loop, and third parameter adding the current value to the possible valid combination. This method can use a given number as many times as is helpful.
+
+{{< code language="javascript" title="[Combination Sum](https://leetcode.com/problems/combination-sum/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof candidates === "object" (array of numbers)
+// typeof target === "number"
+
+combinationSum = (candidates, target) => {
+    
+    const results = []
+
+    const go = (remainingCandidates, remainingTarget, possibleCombination) => {
+        if (remainingTarget < 0) return
+        if (remainingTarget === 0){
+            results.push(possibleCombination)
+            return
+        }
+        for(let i = 0; i < remainingCandidates.length; i++){
+            go(remainingCandidates.slice(i),remainingTarget-remainingCandidates[i],[...possibleCombination,remainingCandidates[i]])
+        }
+    }
+    
+    go(candidates,target,[])
+    
+    return results
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
