@@ -1023,9 +1023,29 @@ const lowestCommonAncestor = (root, p, q) => {
     }
     
     go(root)
-    
     return result
 
+}{{< /code >}}
+
+To find an array of all the rightmost elements from top to bottom in a binary tree, run a helper function `go` with the `root` node and the current `depth` (starting at 0). In `go`, if there is no node, return immediately. Else place the `.val` of the current node at the `depth` index of `results` and call `go` twice, with the `.left` and then the `.right` nodes, each with `depth+1` as the second argument. Because rights are being called after lefts, each row will be viewed from left to right even though the depth-first search nature of the algorithm means that a row may not be finished before a call goes down to the next level.
+
+{{< code language="javascript" title="[Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const rightSideView = (root) => {
+
+    const result = []
+
+    const go = (node, depth) => {
+        if (!node) return
+        result[depth] = node.val
+        dig(node.left, depth+1)
+        dig(node.right, depth+1)
+    }
+
+    go(root,0)
+    return result
+    
 }{{< /code >}}
 
 # Binary Search
@@ -1879,7 +1899,7 @@ const subsets = (nums) => {
     }
 
     return results
-    
+
 }{{< /code >}}
 
 # Matricies
