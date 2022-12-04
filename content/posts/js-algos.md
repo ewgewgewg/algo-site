@@ -292,6 +292,28 @@ combinationSum = (candidates, target) => {
 
 }{{< /code >}}
 
+How to merge intervals with two numbers like `[start, end]` in a larger array of such pairs? If the array has a length, you can sort the array by each `start`. Next, you can seed a `result` array with the first item in the original array. A loop through the remaining items in the original array has two cases. If the end of the last item in the `result` array is greater or equal to the start of the item being processed in the loop, replace the end of the last item in the `result` array by the greater of itself or the end of the item being processed in the loop. If there is no overlap, just push the interval being processed by the loop.
+
+{{< code language="javascript" title="[Merge Intervals](https://leetcode.com/problems/merge-intervals/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof intervals === "object" (array of arrays with two numbers)
+const merge = (intervals) => {
+
+    if(!intervals.length) return []
+    intervals.sort((a,b)=> a[0] - b[0])
+    const result = [intervals[0]]
+    
+    for(let i = 1; i < intervals.length; i++){
+        if(result[result.length-1][1] >= intervals[i][0]){
+            result[result.length-1][1] = Math.max(intervals[i][1],result[result.length-1][1])
+        } else {
+            result.push(intervals[i])
+        } 
+    }
+
+    return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
