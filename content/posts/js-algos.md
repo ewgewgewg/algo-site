@@ -1762,6 +1762,36 @@ Trie.prototype.startsWith = function(prefix) {
     return true
 }{{< /code >}}
 
+How to determine if a string is composed of any combination (including repeats) of words in a `wordDict`? Create a `cache` map, and then run a helper function `go` which takes as an argument the string to be tested. If the string is empty, return `true`, and if the string in `go` is in the `cache`, return whatever boolean the cache has. Else, slice at every location in the string argument starting with the 1st index. When the string up to the index is in the `wordDict` and the remainder of the string returns `true` from `go`, set the `cache` for the string to `true` and return `true`. Else set the `cache` for the string to `false` and return `false`.
+
+{{< code language="javascript" title="[Word Break](https://leetcode.com/problems/word-break/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+// typeof wordDict === "object" (array of strings)
+
+const wordBreak = (s, wordDict) => {
+
+    const cache = new Map()
+
+    const go = (s) => {
+        if (cache.has(s)) return cache.get(s)
+        if (!s) return true
+        for (let i = 1; i <= s.length; i++) {
+            if (
+                wordDict.includes(s.slice(0,i)) &&
+                go(s.slice(i))
+            ){
+                cache.set(s, true)
+                return true
+            }
+        }
+        cache.set(s, false)
+        return false
+    }
+
+    return go(s)
+    
+}{{< /code >}}
+
 # Recursion
 
 To find all possible permutations of an array of integers, you can use a helper function `go`. This takes two arguments: `remainingUnusedNumbers`,which starts as the input array, and `buildingPermutation`, which starts as an empty array. If `remainingUnusedNumbers` is empty, the recursive base case is reached -- push `buildingPermutation` to a `results` array outside `go` and return. Else loop `remainingUnusedNumbers`, at every step generating a new `go` function slicing out the highlighted number and adding that number to a consistant end of the `buildingPermutation` array.

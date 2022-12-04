@@ -426,6 +426,14 @@ console.log(primaryColorsAndShapes) // prints ["red", "blue", "yellow", "square"
 
 {{< /code >}}
 
+You can also check if a specific value is in an array with the `includes` method.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+console.log(["red","blue"].includes("red")) // prints true
+
+{{< /code >}}
+
 # Methods of Strings
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` on their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
