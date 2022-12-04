@@ -1860,3 +1860,52 @@ const permute = (nums) => {
     return results
 
 }{{< /code >}}
+
+# Matricies
+
+How to return elements of a matrix in spiral order? (The top row left-to-right, continued by the left side going down, continued by the bottom row right-to-left, continued by the right side going up, continued by the second-to-top row left-to-right, etc.) If the matrix is empty, return an empty matrix. Then, create a `result` matrix, and start four pointers, `left`, `right`, `top`, and `bottom`, which indicate the edges of the matrix, inclusive, that still need to be investigated. While the size of the matrix has not been fully explored, step across, down, back, and up the array by using the pointers, pushing to `result`. Pull each pointer one step closer to the middle of the array after its fourth of the while loop is complete. Be careful not to move pointers in quarters where no elements are left to be pushed.
+
+{{< code language="javascript" title="[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof matrix === "object" (array of arrays of numbers)
+
+const spiralOrder = (matrix) => {
+    if (!matrix.length || !matrix[0].length) return [];
+    
+    const result = []
+    let left = 0
+    let right = matrix[0].length - 1
+    let top = 0
+    let bottom = matrix.length - 1
+    let count = matrix.length * matrix[0].length
+    
+    while (true) {
+        for (let i = left; i <= right; i++) {
+            result.push(matrix[top][i])
+            count--
+        }
+        top++
+
+        for (let i = top; i <= bottom; i++) {
+            result.push(matrix[i][right])
+            count--
+        }
+        if(!count) break
+        right--
+
+        for (let i = right; i >= left; i--) {
+            result.push(matrix[bottom][i])
+            count--
+        }
+        bottom--
+
+        for (let i = bottom; i >= top; i--) {
+            result.push(matrix[i][left])
+            count--
+        }
+        if(!count) break      
+        left++
+    }
+    
+    return result
+    
+}{{< /code >}}

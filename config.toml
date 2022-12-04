@@ -131,6 +131,10 @@ paginate = 5
         name = "Recursion"
         url = "/posts/js-algos#Recursion"
       [[languages.en.menu.main]]
+        identifier = "matricies"
+        name = "Matricies"
+        url = "/posts/js-language#Matricies"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"
@@ -170,7 +174,3 @@ paginate = 5
         identifier = "binary operators"
         name = "Binary Operators"
         url = "/posts/js-language#Binary Operators"
-      [[languages.en.menu.main]]
-        identifier = "heaps"
-        name = "Heaps"
-        url = "/posts/js-language#Heaps"
