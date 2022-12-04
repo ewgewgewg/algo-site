@@ -314,6 +314,33 @@ const merge = (intervals) => {
 
 }{{< /code >}}
 
+In an array where red objects are represented as `0`, white objects are represented as `1`, and blue objects are represented as `2`, how to sort in-place so that red comes before white which comes before blue? Declare a `nextRedLocation` pointing to the 0 index and a `nextBlueLocation` pointing to the last valid index. Then loop the array. While the loop index is less than or equal to `nextBlueLocation`, check if the value at the index is `0`. If so, swap the value at the current location with the value at the `nextRedLocation` and move up `nextRedLocation` by 1. Next, in the same space in the loop, check if the value at the index is `2`. If so, swap the value with that at the `nextBlueLocation`, decrease `nextBlueLocation` by 1, and decrease the loop index by 1 in case the value moved needs transport as a red.
+
+{{< code language="javascript" title="[Sort Colors](https://leetcode.com/problems/sort-colors/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const sortColors = (nums) => {
+
+    let nextRedLocation = 0
+    let nextBlueLocation = nums.length - 1
+
+    for (let i = 0; i <= nextBlueLocation; i++){
+
+        if (nums[i] === 0){
+            [nums[nextRedLocation], nums[i]] = [nums[i],nums[nextRedLocation]]
+            nextRedLocation++
+        }
+        if (nums[i] === 2){
+            [nums[nextBlueLocation], nums[i]] = [nums[i], nums[nextBlueLocation]]
+            nextBlueLocation--
+            i--
+        }
+        
+
+    }
+    
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
