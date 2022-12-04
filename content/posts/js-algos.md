@@ -806,6 +806,26 @@ const lengthOfLongestSubstring = (s) => {
 
 }{{< /code >}}
 
+To convert a stringified number to a 32-bit signed integer, you can remove whitespace, parse the number with base 10, return `0` if the result is not a number, and clamp the value to the available space if the number is too great or too small.
+
+{{< code language="javascript" title="[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof str === "string"
+
+const myAtoi = (str) => {
+    
+    const integer = parseInt(str.trim(), 10)
+
+    if (isNaN(integer)) {
+        return 0
+    } else if (integer >= Math.pow(2, 31)) {
+        return Math.pow(2, 31) - 1   
+    } else if (integer < Math.pow(-2, 31)) {
+        return Math.pow(-2, 31)
+    } else {
+        return integer
+    }
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
