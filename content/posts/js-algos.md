@@ -340,6 +340,29 @@ const sortColors = (nums) => {
     
 }{{< /code >}}
 
+With a series of container heights arranged along an axis, how can you choose a pair such that the minimum of the two, times the distance between them, is the maximum for all possible pairs? Notice that if you start candidate pairs as the leftmost and rightmost, the only way to increase the possible area contained between them is if an inner height is greater than an outer height. The specific algorithm involves defaulting the `best` area to the area provided by the outermost pairs, then repeatedly choosing the smaller of the edge heights, and moving that pointer one step inwards before checking to see if the `best` area should update. If the pointers meet, `best` can no longer be improved.
+
+{{< code language="javascript" title="[Container With Most Water](https://leetcode.com/problems/container-with-most-water/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof h === "object" (array of numbers)
+
+const maxArea = (h) => {
+
+    let best = 0
+    let left = 0
+    let right = h.length - 1
+    
+    while(left < right){
+        const candidate = Math.min(h[left], h[right], h[left]) * (right-left)
+        if (candidate > best) best = candidate
+
+        if(h[left] < h[right]) left++
+        else right--
+    }
+    
+    return best
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
