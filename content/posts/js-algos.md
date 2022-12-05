@@ -1079,6 +1079,37 @@ const rightSideView = (root) => {
     
 }{{< /code >}}
 
+How to construct a binary tree from arrays with unique values containing the `preorder` and `inorder` traversal? Note that in the `preorder` traversal, head nodes appear before children nodes. This means that the 0th location in the `preorder` array should be the root value of the binary tree. To construct the tree formally, return a helper function `construct` with four arguments -- the leftmost and rightmost indicies of the `preorder` and `inorder` arrays. If either left is greater than than their right, `construct` can immediately return a `null` node. Else, get the current root `node` `value` from the `value` of `preorder` at `preorderLeft`. Start a new `node` with the `value`, and find the `index` of that `value` in `inorder`. Count the number of `leftNodes` by subtracting the `inorderLeft` from `index`, then build out the `.left` and `.right` nodes by running two new `construct` invocations with updated bounds.
+
+{{< code language="javascript" title="[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/) -- influenced by [jeantimex's code and explanation](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/34553/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof preorder === "object" (array of numbers)
+// typeof inorder === "object" (array of numbers)
+
+const buildTree = (preorder, inorder) => {
+    
+    const construct = (preorderLeft, preorderRight, inorderLeft, inorderRight) => {
+        if (preorderRight < preorderLeft || inorderRight < inorderLeft) return null
+
+        const value = preorder[preorderLeft]
+        const node = new TreeNode(value)
+        const index = mapValueToInorderIndex.get(value)
+
+        const leftNodes = index - inorderLeft
+        node.left  = construct(preorderLeft + 1, preorderLeft + leftNodes, inorderLeft, index - 1)
+        node.right = construct(preorderLeft + leftNodes + 1, preorderRight, index + 1, inorderRight)
+
+        return node
+    }
+
+    const mapValueToInorderIndex = new Map()
+    for (let i = 0; i < inorder.length; i++){
+        mapValueToInorderIndex.set(inorder[i], i)
+    }
+    
+    return construct(0, preorder.length - 1, 0, inorder.length - 1)
+
+}{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
