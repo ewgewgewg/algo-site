@@ -2012,6 +2012,40 @@ const subsets = (nums) => {
 
 }{{< /code >}}
 
+To find all letter combinations of a phone number, you can return an empty array if there is no number, else seed a new `results` array with an empty string. Create a `letterLookup` mapping digits to the letters they might represent, then loop through each `digit` of the input number. For each digit, create a `next` array, and loop through each `possibleLetterCombination` stored in `results`. For each `letter` returned by the `letterLookup` for the `digit`, push `possibleLetterCombination + letter` to `next`. When the `results` array is looped through (one of every valid `letter` has been added to everything in `results`), replace `results` with `next`. When all `digits` are exhausted `results` should contain the answer.
+
+{{< code language="javascript" title="[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof digits === "string"
+
+const letterCombinations = (digits) => {
+
+    if (!digits) return []
+    let results = [""]
+    const letterLookup = {
+        "2":"abc",
+        "3":"def",
+        "4":"ghi",
+        "5":"jkl",
+        "6":"mno",
+        "7":"pqrs",
+        "8":"tuv",
+        "9":"wxyz"
+    }
+    for (let digit of digits){
+        const letters = letterLookup[digit]
+        const next = []
+        for (let possibleLetterCombination of results){
+            for (let letter of letters){
+                next.push(possibleLetterCombination + letter)
+            }
+        }
+        results = next
+    }
+
+    return results
+
+}{{< /code >}}
+
 # Matricies
 
 How to return elements of a matrix in spiral order? (The top row left-to-right, continued by the left side going down, continued by the bottom row right-to-left, continued by the right side going up, continued by the second-to-top row left-to-right, etc.) If the matrix is empty, return an empty matrix. Then, create a `result` matrix, and start four pointers, `left`, `right`, `top`, and `bottom`, which indicate the edges of the matrix, inclusive, that still need to be investigated. While the size of the matrix has not been fully explored, step across, down, back, and up the array by using the pointers, pushing to `result`. Pull each pointer one step closer to the middle of the array after its fourth of the while loop is complete. Be careful not to move pointers in quarters where no elements are left to be pushed.
