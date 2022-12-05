@@ -39,7 +39,7 @@ const twoSum = (nums, target) => {
 
 }{{< /code >}}
 
-To find 0 or the greatest positive difference between a number in an array and a number that appears earlier in the array, which can be analogized to buying and selling stock, initialize a `low` 'price' to the first number in the array, and the `best` difference to 0. Then loop through the array. At every step, replace `best` if appropriate with the `price` at the current index minus `low`, then update `low` if the current `price` is lower.
+To find 0 or the greatest positive difference between a number in an array and a number that appears earlier in the array, which can be analogized to buying and selling stock, initialize a `low` "price" to the first number in the array, and the `best` difference to 0. Then loop through the array. At every step, replace `best` if appropriate with the `price` at the current index minus `low`, then update `low` if the current `price` is lower.
 
 {{< code language="javascript" title="[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof prices === "object" (array of numbers)
@@ -136,7 +136,7 @@ const canAttendMeetings = (intervals) =>
 
 }{{< /code >}}
 
-To move all zeros to the end of an array while preserving the order of nonzero elements, create a `nextNonzeroLocation` and assign the 0 index of the array, then iterate through the array with a different pointer. When this second pointer finds a nonzero, swap the value with the value at the `nextNonzeroLocation` and increment `nextNonzeroLocation` by 1. This will ensure that only 0 numbers will be 'behind' the leading pointer, so steadily adding nonzeroes to the `nextNonzeroLocation` will never displace a value that needs its relative order preserved.
+To move all zeros to the end of an array while preserving the order of nonzero elements, create a `nextNonzeroLocation` and assign the 0 index of the array, then iterate through the array with a different pointer. When this second pointer finds a nonzero, swap the value with the value at the `nextNonzeroLocation` and increment `nextNonzeroLocation` by 1. This will ensure that only 0 numbers will be "behind" the leading pointer, so steadily adding nonzeroes to the `nextNonzeroLocation` will never displace a value that needs its relative order preserved.
 
 {{< code language="javascript" title="[Move Zeroes](https://leetcode.com/problems/move-zeroes/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
@@ -185,8 +185,8 @@ const sortedSquares = (nums) => {
 In an array of intervals that do not overlap, with the intervals themselves represented as arrays of [start, end] numbers, and sorted by start, how to add a new [start, end] by updating, merging, or inserting as appropriate? One method is to increment from the beginning of the array until the end is reached or the end value of the current array interval stops being less than the start value of the interval to be inserted. Then, again while there are array items to iterate, the interval to be inserted has its start and end values updated to be more mimumum and more maximum as appropriate, until the start of the array interval to be processed is larger than the end of the (modified or unmodifed) interval to be inserted.
 
 {{< code language="javascript" title="[Insert Interval](https://leetcode.com/problems/insert-interval/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
-// typeof intervals === "object" (array of arrays with two numbers)
-// typeof newInterval === "object" (array with two numbers)
+// typeof intervals === "object" (array of arrays with 2 numbers)
+// typeof newInterval === "object" (array with 2 numbers)
 
 const insert = (intervals, newInterval) => {
 
@@ -294,7 +294,7 @@ combinationSum = (candidates, target) => {
 How to merge intervals with two numbers like `[start, end]` in a larger array of such pairs? If the array has a length, you can sort the array by each `start`. Next, you can seed a `result` array with the first item in the original array. A loop through the remaining items in the original array has two cases. If the end of the last item in the `result` array is greater or equal to the start of the item being processed in the loop, replace the end of the last item in the `result` array by the greater of itself or the end of the item being processed in the loop. If there is no overlap, just push the interval being processed by the loop.
 
 {{< code language="javascript" title="[Merge Intervals](https://leetcode.com/problems/merge-intervals/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
-// typeof intervals === "object" (array of arrays with two numbers)
+// typeof intervals === "object" (array of arrays with 2 numbers)
 const merge = (intervals) => {
 
     if(!intervals.length) return []
@@ -936,7 +936,7 @@ function TreeNode(val, left, right) {
 
 }{{< /code >}}
 
-Inverting a binary tree means to 'turn it over' as if it was a page in a book, creating what the original would look like from behind. This means swapping every pair of `left` and `right` references. A recrusive implementation step returns immediately on a `null` node, and otherwise returns after using a holding variable for one of the `left` or `right` references to help complete the second half of the swap.
+Inverting a binary tree means to "turn it over" as if it was a page in a book, creating what the original would look like from behind. This means swapping every pair of `left` and `right` references. A recrusive implementation step returns immediately on a `null` node, and otherwise returns after using a holding variable for one of the `left` or `right` references to help complete the second half of the swap.
 
 {{< code language="javascript" title="[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary tree node)
@@ -1304,7 +1304,7 @@ TimeMap.prototype.get = function(key, timestamp) {
 
 # Graphs
 
-A two-dimensional array can represent a screen of pixels. To represent the 'flood fill' tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
+A two-dimensional array can represent a screen of pixels. To represent the "flood fill" tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
 
 {{< code language="javascript" title="[Flood Fill](https://leetcode.com/problems/flood-fill/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
@@ -1403,7 +1403,7 @@ To detect if every course can be taken when prerequisites are given in an array 
 
 {{< code language="javascript" title="[Course Schedule](https://leetcode.com/problems/course-schedule/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof numCourses === "number"
-// typeof prerequisites === "object" (array of arrays with two numbers)
+// typeof prerequisites === "object" (array of arrays with 2 numbers)
 
 const canFinish(numCourses, prerequisites) {
 
@@ -1436,7 +1436,7 @@ const canFinish(numCourses, prerequisites) {
   
 }{{< /code >}}
 
-In order to count the number of islands in a grid (unique groups of '1's connected up, down, left, or right to other '1's), an approach involves iterating through all the values of the grid. When a '1' is found, increment a `count` variable, then run a `flood` function to check if the location is in bounds and a '1'. If so, 'sink' the space by assigning a '0', then do depth-first search and run `flood` up, down, left, and right. Every connected '1' should disappear the first time one is found in the looping.
+In order to count the number of islands in a grid (unique groups of "1"s connected up, down, left, or right to other "1"s), an approach involves iterating through all the values of the grid. When a '1' is found, increment a `count` variable, then run a `flood` function to check if the location is in bounds and a "1". If so, "sink" the space by assigning a "0", then do depth-first search and run `flood` up, down, left, and right. Every connected "1" should disappear the first time one is found in the looping.
 
 {{< code language="javascript" title="[Number of Islands](https://leetcode.com/problems/number-of-islands/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof grid === "object" (array of arrays of numbers)
@@ -1551,7 +1551,7 @@ const accountsMerge = (accounts) => {
     return result
 }{{< /code >}}
 
-How to find if a word exists in a grid of characters when letters of the word can be connected up, down, left, or right? You can iterate through every space on the board. For every space, run a helper function `go` taking the coordinates and a `letterIndex` variable starting at `0` as arguments. The `letterIndex` represents the index of the next letter in the target word that must match. Inside `go`, return `false` if the letter at the coordinates does not match the letter at the `letterIndex` of the word. Then, if we have reached the end of the word, return `true`. Otherwise, temporarily overwrite the coordinates on the grid with a nonletter character, and run recrsive calls of `go` up, down, left, and right on valid coordinates and the next `letterIndex`. If any of these return `true` the parent `go` function can also return `true`. Else restore the letter at the current grid coordinates and return `false`. This is backtracking--you only need one `true` path to return true overall, otherwise you can 'pack up' the current path and try an adjacent path. If any `go` in the original grid iteration returns `true`, the overall function can return `true`, otherwise return `false`.
+How to find if a word exists in a grid of characters when letters of the word can be connected up, down, left, or right? You can iterate through every space on the board. For every space, run a helper function `go` taking the coordinates and a `letterIndex` variable starting at `0` as arguments. The `letterIndex` represents the index of the next letter in the target word that must match. Inside `go`, return `false` if the letter at the coordinates does not match the letter at the `letterIndex` of the word. Then, if we have reached the end of the word, return `true`. Otherwise, temporarily overwrite the coordinates on the grid with a nonletter character, and run recrsive calls of `go` up, down, left, and right on valid coordinates and the next `letterIndex`. If any of these return `true` the parent `go` function can also return `true`. Else restore the letter at the current grid coordinates and return `false`. This is backtracking--you only need one `true` path to return true overall, otherwise you can "pack up" the current path and try an adjacent path. If any `go` in the original grid iteration returns `true`, the overall function can return `true`, otherwise return `false`.
 
 {{< code language="javascript" title="[Word Search](https://leetcode.com/problems/word-search/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof board === "object" (array of arrays of strings of 1 character)
@@ -1584,6 +1584,56 @@ const exist = (board, word) => {
 
   return false
 
+}{{< /code >}}
+
+To find all roots of trees of minimum height from a connected components graph with consistant connections that may be "bent" to start from any node, notice that a list of responses will always be the most "central." To solve, run a number of rounds where each round removes nodes that only have one connection. The last round of pruning should contain valid root nodes. Notice than whenever there are less than 3 nodes, every node can be a root node. Otherwise, create a `connectionCounts` array with length equal to the number of nodes, filled to start with 0s, and a `connectionLists` array of the same length filled with empty arrays. For each edge pair connecting two nodes, increment each node index by 1 in  `connectionCounts`, and push the opposite to each node index in `connectionLists`. Now, create another array `seen` with length equal to the number of nodes, and fill it with false, create a `seenCount` starting as 0, and an empty array as a `queue`. For every `connectionCount` of 1, flip the `seen` boolean to true at that location, increment `seenCount` by 1, and push the index to the `queue`. For the final part of the algorithm, repeatedly process the `queue`. Create a `nextQueue` at the start of each processing round, and loop the nodes in the queue. For each node, loop the `adjacent` nodes. Ignore the `adjacent` node if it has been `seen`. Otherwise, decrease its `connectionCount` by 1, then check if this value is 1. If so, it is now a leaf at the edge of the graph, so mark it as `seen`, increment the `seenCount`, and push it to the `nextQueue`. Once the `queue` is processed, if `seenCount` equals the total number of nodes, return `nextQueue`, else replace `queue` with `nextQueue` and start the next round of `queue` processing.
+
+{{< code language="javascript" title="[Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+// typeof edges === "object" (array of arrays with 2 numbers)
+
+const findMinHeightTrees = (n, edges) => {
+
+    if (n < 3) return [...Array(n)].map((_,i)=> i)
+    
+    const connectionCounts = Array(n).fill(0)
+    const connectionLists = [...Array(n)].map(() => [])
+    
+    for(let [node1, node2] of edges) {
+        connectionCounts[node1]++
+        connectionLists[node1].push(node2)
+        connectionCounts[node2]++
+        connectionLists[node2].push(node1)
+    }
+    
+    const seen = Array(n).fill(false)
+    let seenCount = 0
+    let queue = []
+
+    for(let i = 0; i < n; i++) {
+        if(connectionCounts[i] === 1) {
+            seen[i] = true
+            seenCount++
+            queue.push(i)
+        }
+    }
+    
+    while(true) {
+        const nextQueue = []
+        
+        for(let node of queue) {
+            for(let adjacent of connectionLists[node]) {
+                if(seen[adjacent]) continue
+                if(--connectionCounts[adjacent] === 1) {
+                    seen[adjacent] = true
+                    seenCount++
+                    nextQueue.push(adjacent)
+                }
+            }
+        }
+        if(seenCount === n) return nextQueue       
+        queue = nextQueue
+    }
 }{{< /code >}}
 
 # Binary Search Trees
@@ -1649,7 +1699,7 @@ const isValidBST = (root, left = -Infinity, right = Infinity) => {
 
 # Hash Tables
 
-Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the 'magazine' string, and then what appears in the 'note' string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
+Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the "magazine" string, and then what appears in the "note" string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
 
 {{< code language="javascript" title="[Ransom Note](https://leetcode.com/problems/ransom-note/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof ransomNote === "string"
@@ -1674,7 +1724,7 @@ const canConstruct = function(ransomNote, magazine) {
 
 # Dynamic Programming
 
-If someone can climb one or two steps at a time, how many ways can they get to the top? Dynamic programming helps recognize that the number of ways to reach any given step acts as a multiplier on the ways to reach steps further up. A linear solution involves noticing the one way of getting to the '0th' step, adding the number of ways to get to the '0th' step to the 1st and 2nd steps, then 'stepping' from the 1st step to the 2nd and 3rd steps, and adding counts so on and so on. Only three locations need to be available at a time.
+If someone can climb one or two steps at a time, how many ways can they get to the top? Dynamic programming helps recognize that the number of ways to reach any given step acts as a multiplier on the ways to reach steps further up. A linear solution involves noticing the one way of getting to the 0th step, adding the number of ways to get to the 0th step to the 1st and 2nd steps, then "stepping" from the 1st step to the 2nd and 3rd steps, and adding counts so on and so on. Only three locations need to be available at a time.
 
 {{< code language="javascript" title="[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof n === "number"
@@ -1965,7 +2015,7 @@ const isPalindrome = (x) => {
 To find the k closest points to the origin, sort the points by the sum of the x distance squared and the y distance squared from the origin. No need to take square root because relative order will be the same either way. Return the k closest points. This algorithm can be done with a priority queue (which could always keep the lowest point on top based on its distance) but this is not a native data struture in JavaScript.
 
 {{< code language="javascript" title="[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
-// typeof points === "object" (array of arrays with two numbers)
+// typeof points === "object" (array of arrays with 2 numbers)
 // typeof k === "number"
 
 const kClosest=(points,k)=>points.map(p=>[...p,p[0]**2+p[1]**2]).sort((a,b)=>a[2]-b[2]).slice(0,k).map(p=>[p[0],p[1]])

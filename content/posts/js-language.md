@@ -213,7 +213,7 @@ false && (color = "blue")
 
 # Loops, Increments, and Decrements
 
-Two basic types of repeating code blocks are `while` loops and `for` loops. A `while` loop continues until a parenthetical condition is false, and may not even run once (`do...while` loops guarantee at least one cycle). Meanwhile, `for` loops often three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Alternatively, `for` loops can use a `let item of [items]` format in their parenthetical, where `[items]` can actually be any predefined iterable object, and `item`, which can be named arbitrarily in the loop, increments over everything inside. Behavior inside each loop is contained in `{}`, just like with functions. The operators `++` and `--` increase or decrease a number by 1, respectively.
+Two basic types of repeating code blocks are `while` loops and `for` loops. A `while` loop continues until a parenthetical condition is false, and may not even run once (`do...while` loops guarantee at least one cycle). Meanwhile, `for` loops often three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Alternatively, `for` loops can use a `let item of [items]` format in their parenthetical, where `[items]` can actually be any predefined iterable object, and `item`, which can be named arbitrarily in the loop, increments over everything inside. Behavior inside each loop is contained in `{}`, just like with functions. The operators `++` and `--` increase or decrease a number by 1, respectively. They can come before a number to run before a check.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -250,6 +250,10 @@ for (element of series){
 }
 
 // i is 32 here
+
+let num = 0
+const go = ++num || 0 // contains 1
+const stop = --num || 0 // contains 0
 
 {{< /code >}}
 
@@ -332,7 +336,7 @@ for (let key in sampleObject){
 
 Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index. These `push`, `pop`, `shift`, and `unshift` all act on the array they are run from and do not require assignment to a new array.
 
-Arrays can also transform or `map` their values into a new array, `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
+Arrays can also transform or `map` their values into a new array. The `map` callback function, a function used as a method argument, itself contains value and index arguments for every array location. Arrays can `sort` their values in place, and `slice` to return only the content between certain indexes. Arrays can also test `every` value for some condition and return a boolean (`true` or `false`) depending on if every test is passed.
 
 The `fill` method takes an argument that can be used to fill whatever number of items is passed into a `new Array`, or an existing array. `fill` acts on the array it is run from and does not need to be assigned to a new variable.
 
