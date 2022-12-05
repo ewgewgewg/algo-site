@@ -880,6 +880,47 @@ const longestPalindrome = (s) => {
 
 }{{< /code >}}
 
+How to return all start indicies of an anagram of one string in another string? First, if the parent string is shorter than the string that may appear inside as an anagram, you can immediately return an empty array. Then you can create a `countMap` of the string to be made into an anagram. Separately, create a count of the number of unique `letters` in the potential anagram. The final two variables needed are a `result` array and a count of `numberOfAnagramLettersFullySeen`. The remainder of the algorithm is a linear pass through the larger parent string. At every new location, if the letter being pointed to is in the `countMap`, decrease the value at the appropriate letter in the `countMap` by 1. If this `newCount` is `0`, that means you can increment `numberOfAnagramLettersFullySeen` by 1. In the same step in the loop through the parent string, check the location further left by the length of the anagram string, if available -- this location should no longer be part of the examined string. Increase `countMap` and decrease `numberOfAnagramLettersFullySeen` as needed based on what might have been in the location no longer being considered. As the third and final step for each location in the loop, push the index less the length of the anagram string plus 1 to the `results` array if the `numberOfAnagramLettersFullySeen` is the same as the number of unique `letters`. We can only ever consider strings of the required length.
+
+{{< code language="javascript" title="[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+// typeof p === "string"
+
+const findAnagrams = (s, p) => {
+
+    if (s.length < p.length) return []
+
+    const countMap = new Map()
+    let letters = 0
+    for (let character of p){
+        if (!countMap.has(character)){
+            letters++
+            countMap.set(character, 0)
+        } 
+        countMap.set(character, countMap.get(character) + 1)
+    }
+
+    const results = []
+    let numberOfAnagramLettersFullySeen = 0
+    
+    for (let i = 0; i < s.length; i++){
+        if (countMap.has(s[i])){
+            const newCount = countMap.get(s[i]) - 1
+            countMap.set(s[i], newCount)
+            if (newCount === 0) numberOfAnagramLettersFullySeen++
+        }
+        if (i >= p.length && countMap.has(s[i-p.length])){
+            const newCount = countMap.get(s[i-p.length]) + 1
+            countMap.set(s[i-p.length], newCount)
+            if (newCount === 1) numberOfAnagramLettersFullySeen--
+        }
+        if (numberOfAnagramLettersFullySeen === letters) results.push(i-p.length+1)
+    }
+    
+    return results
+    
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
