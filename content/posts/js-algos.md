@@ -1510,6 +1510,41 @@ const accountsMerge = (accounts) => {
     return result
 }{{< /code >}}
 
+How to find if a word exists in a grid of characters when letters of the word can be connected up, down, left, or right? You can iterate through every space on the board. For every space, run a helper function `go` taking the coordinates and a `letterIndex` variable starting at `0` as arguments. The `letterIndex` represents the index of the next letter in the target word that must match. Inside `go`, return `false` if the letter at the coordinates does not match the letter at the `letterIndex` of the word. Then, if we have reached the end of the word, return `true`. Otherwise, temporarily overwrite the coordinates on the grid with a nonletter character, and run recrsive calls of `go` up, down, left, and right on valid coordinates and the next `letterIndex`. If any of these return `true` the parent `go` function can also return `true`. Else restore the letter at the current grid coordinates and return `false`. This is backtracking--you only need one `true` path to return true overall, otherwise you can 'pack up' the current path and try an adjacent path. If any `go` in the original grid iteration returns `true`, the overall function can return `true`, otherwise return `false`.
+
+{{< code language="javascript" title="[Word Search](https://leetcode.com/problems/word-search/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof board === "object" (array of arrays of strings of 1 character)
+// typeof word === "string"
+
+const exist = (board, word) => {
+
+  const directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+  const go = (i, j, letterIndex) => {
+    if (board[i][j] !== word[letterIndex]) return false
+    if (letterIndex === word.length - 1) return true
+
+    board[i][j] = "."
+    for (const [x, y] of directions) {
+      const nextI = i + x
+      const nextJ = j + y
+      if (nextI >= 0 && nextI < board.length && nextJ >= 0 && nextJ < board[0].length) {
+        if (go(nextI, nextJ, letterIndex + 1)) return true
+      }
+    }
+    board[i][j] = word[letterIndex]
+    return false
+  }
+
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (go(i, j, 0)) return true
+    }
+  }
+
+  return false
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
@@ -2012,7 +2047,7 @@ const subsets = (nums) => {
 
 }{{< /code >}}
 
-To find all letter combinations of a phone number, you can return an empty array if there is no number, else seed a new `results` array with an empty string. Create a `letterLookup` mapping digits to the letters they might represent, then loop through each `digit` of the input number. For each digit, create a `next` array, and loop through each `possibleLetterCombination` stored in `results`. For each `letter` returned by the `letterLookup` for the `digit`, push `possibleLetterCombination + letter` to `next`. When the `results` array is looped through (one of every valid `letter` has been added to everything in `results`), replace `results` with `next`. When all `digits` are exhausted `results` should contain the answer.
+To find all letter combinations of a phone number, you can return an empty array if there is no number, else seed a new `results` array with an empty string. Create a `letterLookup` mapping digits to the letters they might represent, then loop through each `digit` of the input number. For each digit, create a `next` array, and loop through each `possibleLetterCombination` stored in `results`. Within each `possibleLetterCombination`, for each `newLetter` returned by the `letterLookup` for the `digit`, push `possibleLetterCombination + newLetter` to `next`. When the `results` array is looped through (one of every valid `newLetter` has been added to every `possibleLetterCombination` in `results`, so `next` should have about three times more combinations than `results`), replace `results` with `next`. When all `digits` are exhausted `results` should contain the answer.
 
 {{< code language="javascript" title="[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof digits === "string"
@@ -2035,8 +2070,8 @@ const letterCombinations = (digits) => {
         const letters = letterLookup[digit]
         const next = []
         for (let possibleLetterCombination of results){
-            for (let letter of letters){
-                next.push(possibleLetterCombination + letter)
+            for (let newLetter of letters){
+                next.push(possibleLetterCombination + newLetter)
             }
         }
         results = next
