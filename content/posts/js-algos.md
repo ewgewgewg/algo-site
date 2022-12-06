@@ -2022,6 +2022,24 @@ const kClosest=(points,k)=>points.map(p=>[...p,p[0]**2+p[1]**2]).sort((a,b)=>a[2
 
 {{< /code >}}
 
+If there are some number of tasks, assigned letters that can be duplicates, how long will it take to complete all tasks if tasks assigned the same letter must be separated by some `cooldown` number of spaces? To solve, you can fill a `letterCounts` array, sort this from greatest to least, and note the `countOfMaximumSizeTypes` (in other words, how many letters are in first place for maximum count). The remainder of the algorithm is just math. Note that the count of the most commmon letter minus 1 represents the number of full cooldown rounds that must take place, where the size of a cooldown round is `cooldown+1` (because the item being cooled down must be included. Added to the product, because the last instance of the most common letter must also be included in the time, is simply the `countOfMaximumSizeTypes`, which represents a final partial cooldown round. However, if the number of tasks is greater than the product plus sum, simply return the number of tasks.
+
+{{< code language="javascript" title="[Task Scheduler](https://leetcode.com/problems/task-scheduler/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof tasks === "object" (array of 1 character strings)
+// typeof cooldown === "number"
+
+const leastInterval = (tasks, cooldown) => {
+
+  const letterCounts = new Array(26).fill(0)
+  for (let task of tasks) {
+    letterCounts[task.charCodeAt(0) - 65]++
+  }
+  letterCounts.sort((a,b)=>b-a)
+  const countOfMaximumSizeTypes = letterCounts.filter((value ,index, array)=>value===array[0]).length
+
+  return Math.max((letterCounts[0] - 1) * (cooldown + 1) + countOfMaximumSizeTypes, tasks.length)
+}{{< /code >}}
+
 # Tries
 
 A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter's key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a `.end` key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a `.end` key is found. Checking if a prefix (`startsWith`) is available is a relaxed search from the top that doesn't care about `.end`.
