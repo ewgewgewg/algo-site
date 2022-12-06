@@ -456,6 +456,16 @@ console.log(["red","blue"].includes("red")) // prints true
 
 {{< /code >}}
 
+The `filter` method takes a callback as an argument that itself offers arguments for value, index, and the array itself as it runs its body on each location in the array it is run from. Any value that passes the test appears in a result array.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const filtered = [1, 2, 3].filter((value, index, array) => value > array[1] || index === 0)
+
+console.log(filtered) // prints [1, 3]
+
+{{< /code >}}
+
 # Methods of Strings
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` on their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.
@@ -482,6 +492,8 @@ console.log(thirdReplace) // this regex would replace any non-alphanumeric chara
 
 const lowerCaseACharCode = firstReplace.charCodeAt(2)
 console.log(lowerCaseACharCode) // returns number 97 (for 'a')
+const upperCaseACharCode = "A".charCodeAt(0)
+console.log(upperCaseACharCode) // returns number 65 (for 'A')
 
 console.log(string) // prints "Hello" as the original string is unmodified
 
