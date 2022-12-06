@@ -332,6 +332,27 @@ for (let key in sampleObject){
 
 {{< /code >}}
 
+Maps have additional methods. For example, they have `size`, and can `delete` values and also iterate through their keys.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const map = new Map()
+map.set(0,1)
+map.set(1,2)
+map.set(2,3)
+map.set(3,4)
+map.set(4,5)
+
+map.delete(4)
+map.delete(map.keys().next().value)
+
+console.log(map.size) // prints 3
+console.log(map.has(4)) // prints false
+console.log(map.has(0)) // prints false
+console.log(map.has(1)) // prints true
+
+{{< /code >}}
+
 # Methods of Arrays
 
 Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index. These `push`, `pop`, `shift`, and `unshift` all act on the array they are run from and do not require assignment to a new array.

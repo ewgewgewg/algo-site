@@ -705,6 +705,32 @@ const reverse = (head) => {
 
 {{< /code >}}
 
+To create a cache that evicts the least recent key when a new key is added that goes over a cache `capacity`, we can take advantage of the properties of the JavaScript Map object. One strategy involves declaring a function and assigning it to a variable. When this function is instanced, for example, with  `new LRUCache(4)`, assign the argument `capacity` to `this` (`capacity` is 4 in the example) and also assign a new Map under `this`. For `get`, if there is no key, you can return `-1`, else get, delete, and reset the key, and return the value. This makes it so that Map's internal ordering notes this key as most recent. The `set` method is similar -- simply `delete` the key if it already exists, `set` it again, and then use JavaScript map functions to `delete` the first key added to the Map. Note that this and many other solutions currently (December 2022) often time out on LeetCode but do periodically pass. The primary difference between this and [Cjamm's solution](https://leetcode.com/problems/lru-cache/solutions/1157689/javascript-map/) is that this code will always attempt to delete keys in either method.
+
+{{< code language="javascript" title="[LRU Cache](https://leetcode.com/problems/lru-cache/) -- closely adapted from [Cjamm's code](https://leetcode.com/problems/lru-cache/solutions/1157689/javascript-map/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof capacity === "number"
+
+const LRUCache = function(capacity) {
+    this.capacity = capacity
+    this.map = new Map()
+}
+
+LRUCache.prototype.get = function(key) {
+    if(!this.map.has(key)) return -1
+    const value = this.map.get(key)
+    this.map.delete(key)
+    this.map.set(key, value)
+    return value
+}
+
+LRUCache.prototype.put = function(key, value) {
+    this.map.delete(key)
+    this.map.set(key, value)
+    if (this.map.size > this.capacity) this.map.delete(this.map.keys().next().value)
+}
+
+{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
