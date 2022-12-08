@@ -540,13 +540,31 @@ MinStack.prototype.getMin = function() {
     return this.minimums[this.minimums.length-1]
 }{{< /code >}}
 
-***2
+To create an array that gives the distance between a given number in an input array and the next greater number, which can be understood as number of days until a greater temperature, you can create a `stack` and loop the input array. While the `stack` has length and the current value in the input array is greater than the value indicated at end of the stack, you can pop the index of the `dayWithTemperatureJustDefeated` from the end of the `stack`, assigning to that index in a `result` array the positive difference between the currrent loop index and the index of the `dayWithTemperatureJustDefeated`. Then you can push the current loop index to the stack. After the traversal of the input array, any indicies that could not be popped should be used to assign a value to the `result` array that indicates no later greater value could be found, which in the LeetCode version of the question is 0.
 
 {{< code language="javascript" title="[Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof temperatures === "object" (array of numbers)
 
+const dailyTemperatures = (temperatures) => {
 
-{{< /code >}}
+    const stack = []
+    const result = []
+
+    for (let i = 0; i < temperatures.length; i++) {
+        while (stack.length && temperatures[i] > temperatures[stack[stack.length - 1]]){
+            const dayWithTemperatureJustDefeated = stack.pop()
+            result[dayWithTemperatureJustDefeated] = i - dayWithTemperatureJustDefeated 
+        }
+        stack.push(i)
+    }
+
+    for (let index of stack){
+        result[index] = 0
+    }
+
+    return result
+
+}{{< /code >}}
 
 # Linked Lists
 
