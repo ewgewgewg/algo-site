@@ -363,6 +363,30 @@ const maxArea = (h) => {
 
 }{{< /code >}}
 
+Given two arrays of equal length, one that gives the amount of gas added to a car at a given index station, and the other that gives the cost to travel from that index's station to the next index, is it possible to travel to all stations if they lie on a circular route, and if so, from what index should one start? A foundation for a linear solution lies in noticing that at every index the travel cost of gas can be subtracted from added gas to give the `changeInGasAtIndex` after one leaves it. If the `sum` of all `changeInGasAtIndex` is negative, it will not be possible to complete a loop because there is not enough total gas available. Otherwise, to determine what station index to leave from, you can loop the stations and keep a running total of gas in `tank`. Start a `station` marker at the 0 index. if the `tank` every goes negative, set the `station` marker to the next index. Return the `station` indicated at the end of the loop. Backtracking is not necessary because every sucessful movement from index to index must at a minimum involve 0 gas remaining.
+
+{{< code language="javascript" title="[Gas Station](https://leetcode.com/problems/gas-station/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof gas === "object" (array of numbers)
+// typeof cost === "object" (array of numbers)
+
+const canCompleteCircuit = (gas, cost) => {
+    
+    let sum = 0
+    let tank = 0
+    let station = 0
+
+    for (let i = 0; i < gas.length; i++) {
+        const changeInGasAtIndex = gas[i] - cost[i]
+        tank += changeInGasAtIndex
+        sum += changeInGasAtIndex
+        if(tank < 0) {
+            tank = 0
+            station = i + 1
+        }
+    }
+    return sum > -1 ? station : -1
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
