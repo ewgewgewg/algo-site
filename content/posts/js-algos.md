@@ -1731,15 +1731,29 @@ const isValidBST = (root, left = -Infinity, right = Infinity) => {
     
 }{{< /code >}}
 
-***1
-
-To find the Kth smallest element in a binary search tree, you can search the tree from an inorder depth-first search from left to right, and find the Kth value.
+To find the Kth smallest element in a binary search tree, you can search the tree with an inorder depth-first search from left to right, and find the Kth value. Every time you reach a value, decrease by 1 a counter equal to `k`, and then, at the location where you decremented, check if `k` has reached 0. If so, return the value at the node, and use a nonallowed value to return otherwise, making sure that only the correct value bubbles up to the final return statement.
 
 {{< code language="javascript" title="[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary search tree node)
 // typeof k === "number"
 
-{{< /code >}}
+const kthSmallest = (root, k) => {
+    const dfs = (node) => {
+        if(!node) return -1
+
+        const leftResult = dfs(node.left)
+        if (leftResult > -1) return leftResult
+
+        if (--k === 0) return node.val
+
+        const rightResult = dfs(node.right)
+        if (rightResult > -1) return rightResult
+
+        return -1
+    }
+    return dfs(root)
+
+}{{< /code >}}
 
 # Hash Tables
 
