@@ -2309,6 +2309,27 @@ const letterCombinations = (digits) => {
 
 }{{< /code >}}
 
+How to modify an array of integers such that the number increases to its next greatest permutation, or moves to the lowest permutation if it is on the highest? Note that the `upperReplacedDigit` that needs to move is the first number from left to right that is lower than a number to its right. If there is no such number, the permutation is at a maximum and the next permutation is simply the reverse. Otherwise, start again from the right (the lowest digit) and find the first number that is greater than the `upperReplacedDigit` but a lower digit. If no such number is found, again, this a sign the array is at a maximum and the next permutation is the reverse. Otherwise, swap the `upperReplacedDigit` with its `update`, and then reverse every digit lower than the index of the original `upperReplacedDigit`. This is because those numbers were in increasing order and we want to move them to their lowest-value permutation.
+
+{{< code language="javascript" title="[Next Permutation](https://leetcode.com/problems/next-permutation/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const nextPermutation = (nums) => {
+
+    let upperReplacedDigit = nums.length - 1
+    while(upperReplacedDigit && nums[upperReplacedDigit] <= nums[--upperReplacedDigit]){}
+    
+    let update = nums.length - 1
+    while(nums[update] <= nums[upperReplacedDigit]){
+        if(update === upperReplacedDigit) return nums.reverse()
+        update--
+    }
+
+    [nums[upperReplacedDigit], nums[update]] = [nums[update], nums[upperReplacedDigit]]
+    const reverse = nums.splice(upperReplacedDigit+1).reverse()
+    nums.splice(upperReplacedDigit+1,0,...reverse)
+}{{< /code >}}
+
 # Matricies
 
 How to return elements of a matrix in spiral order? (The top row left-to-right, continued by the left side going down, continued by the bottom row right-to-left, continued by the right side going up, continued by the second-to-top row left-to-right, etc.) If the matrix is empty, return an empty matrix. Then, create a `result` matrix, and start four pointers, `left`, `right`, `top`, and `bottom`, which indicate the edges of the matrix, inclusive, that still need to be investigated. While the size of the matrix has not been fully explored, step across, down, back, and up the array by using the pointers, pushing to `result`. Pull each pointer one step closer to the middle of the array after its fourth of the while loop is complete. Be careful not to move pointers in quarters where no elements are left to be pushed.
