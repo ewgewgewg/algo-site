@@ -540,6 +540,14 @@ MinStack.prototype.getMin = function() {
     return this.minimums[this.minimums.length-1]
 }{{< /code >}}
 
+***2
+
+{{< code language="javascript" title="[Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof temperatures === "object" (array of numbers)
+
+
+{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
@@ -1723,6 +1731,16 @@ const isValidBST = (root, left = -Infinity, right = Infinity) => {
     
 }{{< /code >}}
 
+***1
+
+To find the Kth smallest element in a binary search tree, you can search the tree from an inorder depth-first search from left to right, and find the Kth value.
+
+{{< code language="javascript" title="[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary search tree node)
+// typeof k === "number"
+
+{{< /code >}}
+
 # Hash Tables
 
 Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the "magazine" string, and then what appears in the "note" string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
@@ -1858,6 +1876,25 @@ const uniquePaths = (m, n) => {
     }
 
     return dp[dp.length-1]
+
+}{{< /code >}}
+
+To find the best maximum sum of nonadjacent values in an array (which in LeetCode is themed stealing from nonadjacent houses), consider a linear approach that uses two helper variables, a `back1Best` and a `back2Best`. Initialize both to 0, and iterate through the array from left to right. At each step, save a copy of `back1Best`, update `back1Best` to be the max of itself or the current value plus `back2Best`, then update `back2Best` to be the saved copy of the old `back1Best`. At the end of the array iteration, `back1Best` will contain the maximum sum.
+
+{{< code language="javascript" title="[House Robber](https://leetcode.com/problems/house-robber/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+typeof nums === "object" (array of numbers)
+
+const rob = (nums) => {
+
+    let back1best = 0
+    let back2best = 0
+
+    for (let house of nums){
+        const temp = back1best
+        back1best = Math.max(house + back2best, back1best)
+        back2best = temp
+    }
+    return back1best
 
 }{{< /code >}}
 
