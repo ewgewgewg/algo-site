@@ -2268,6 +2268,42 @@ const wordBreak = (s, wordDict) => {
 
 }{{< /code >}}
 
+To create a trie that can search for words that include `.` characters that can match any letter, add words as in [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/description/) but modify the search. At the length of a detected word plus 1, as before return the boolean value of if there is a `.end`, but wrap this as a depth-first recursive search in a helper function. After the `.length` check, proceed down a level as normal if the character at that location in the input word is not a `.`, otherwise loop the characters at the trie location and recursively call `go` for every character, returning `true` if any return `true`, and making sure to gracefully fail if `end` becomes an argument for `go`. Return `false` if the pattern is never found.
+
+{{< code language="javascript" title="[Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const WordDictionary = function() {
+    this.trie = {}
+}
+
+WordDictionary.prototype.addWord = function(word) {
+    let trie = this.trie
+    for (let letter of word) {
+        !trie[letter] && ( trie[letter] = {} )
+        trie = trie[letter]
+    }
+    trie.end = true
+}
+
+WordDictionary.prototype.search = function(word) {
+    
+    const go = (trie, depth) => {
+        if (word.length === depth) return !!trie.end
+        if (word[depth] !== '.'){
+            return !!(trie[word[depth]] && go(trie[word[depth]], depth+1))
+        } else {
+            const characterSteps = Object.keys(trie)
+            for (let characterStep of characterSteps){
+                if (go(trie[characterStep], depth+1)) return true
+            }
+            return false
+        }
+    }
+    
+    return go(this.trie, 0)
+
+}{{< /code >}}
+
 # Recursion
 
 To find all possible permutations of an array of integers, you can use a helper function `go`. This takes two arguments: `remainingUnusedNumbers`,which starts as the input array, and `buildingPermutation`, which starts as an empty array. If `remainingUnusedNumbers` is empty, the recursive base case is reached -- push `buildingPermutation` to a `results` array outside `go` and return. Else loop `remainingUnusedNumbers`, at every step generating a new `go` function slicing out the highlighted number and adding that number to a consistant end of the `buildingPermutation` array.
