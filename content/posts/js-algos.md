@@ -1973,6 +1973,27 @@ const rob = (nums) => {
 
 }{{< /code >}}
 
+To find the maximum product in any subarray (contiguous series) of an array, you can use three helpers, a `minimum`, a `maximum`, and a `best`. Intialize each to the first value, then loop the remainder, at every step updating the `minimum` and `maximum` to be the new `maximum` or `minimum` of the current value in the loop, the value indicated in the loop times the `maximum`, or the value indicated in the loop times the `minimum`. Then update `best`. The `minimum` is saved because negative numbers multiplied turn positive.
+
+{{< code language="javascript" title="[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const maxProduct = (nums) => {
+    
+    let maximum = nums[0]
+    let minimum = nums[0]
+    let best = nums[0]
+    
+    for(let i = 1; i < nums.length; i++){
+        const maximumCopy = maximum
+        maximum = Math.max(nums[i], maximum*nums[i], minimum*nums[i])
+        minimum = Math.min(nums[i], maximumCopy*nums[i], minimum*nums[i])
+        best = Math.max(best, maximum)
+    }
+    return best
+
+}{{< /code >}}
+
 # Binary
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
@@ -2401,7 +2422,7 @@ const spiralOrder = (matrix) => {
 To determine is a Sudoku board is valid, you can loop the board, filling a `seen` set as you go. For every location with a number, check and then add three strings to the set: a `row` location with the `value`, a `column` location with the `value`, and a 3x3 `box` location to the `value`. If any duplicate is found, immmediately return `false`, else you can return `true`.
 
 {{< code language="javascript" title="[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
-// typeof board === "object" (array of arrays of numbers)
+// typeof board === "object" (array of arrays of 1 character strings)
 
 const isValidSudoku = (board) => {
 
@@ -2425,5 +2446,5 @@ const isValidSudoku = (board) => {
       }
     }
     return true
-    
+
 }{{< /code >}}
