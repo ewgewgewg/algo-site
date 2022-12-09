@@ -1013,6 +1013,7 @@ const groupAnagrams = (strs) => {
     }
     
     return Object.values(groups)
+
 }{{< /code >}}
 
 # Binary Trees
@@ -2397,9 +2398,32 @@ const spiralOrder = (matrix) => {
 
 }{{< /code >}}
 
-***1
+To determine is a Sudoku board is valid, you can loop the board, filling a `seen` set as you go. For every location with a number, check and then add three strings to the set: a `row` location with the `value`, a `column` location with the `value`, and a 3x3 `box` location to the `value`. If any duplicate is found, immmediately return `false`, else you can return `true`.
 
 {{< code language="javascript" title="[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof board === "object" (array of arrays of numbers)
 
-{{< /code >}}
+const isValidSudoku = (board) => {
+
+    const seen = new Set()
+
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        const value = board[i][j]
+        if(value != '.') {
+            const row = `row ${i} ${value}`
+            const column = `column ${j} ${value}`
+            const box = `box ${Math.floor(i/3)} ${Math.floor(j/3)} ${value}`
+        
+            if(seen.has(row) || seen.has(column) || seen.has(box)) return false
+
+            seen.add(row)
+            seen.add(column)
+            seen.add(box)
+
+          }
+      }
+    }
+    return true
+    
+}{{< /code >}}
