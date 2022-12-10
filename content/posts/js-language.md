@@ -353,6 +353,16 @@ console.log(map.has(1)) // prints true
 
 {{< /code >}}
 
+Sets also have `size`.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const set = new Set()
+
+console.log(set.size) // prints 0
+
+{{< /code >}}
+
 # Methods of Arrays
 
 Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index. These `push`, `pop`, `shift`, and `unshift` all act on the array they are run from and do not require assignment to a new array.

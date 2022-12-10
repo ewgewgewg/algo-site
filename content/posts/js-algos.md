@@ -1849,6 +1849,40 @@ const getFood = (grid) => {
 
 }{{< /code >}}
 
+Given a list of edges (connected node pairs), does the collection make up a valid tree? In order to determine this, you can turn the edge list into an `adjacencyList`, and then run a depth-first search on the `adjacencyList`, starting from an arbitrary node. Add each node to a `seen` set as you visit it, and make sure not to backtrack as you proceed along a depth-first search. If ever a duplicate node is detected, return `false`, and if at the end of the traversal, the number of nodes `seen` is not equal to the number of nodes detected (indicateing split graphs) return `false`. Else return `true`.
+
+{{< code language="javascript" title="[Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+// typeof edges === "object" (array of arrays with 2 numbers)
+
+const validTree = (n, edges) => {
+
+    const adjacencyList = [...Array(n)].map(() => [])
+    const seen = new Set()
+
+    for (let edge of edges){
+        const [node1, node2] = edge
+        adjacencyList[node1].push(node2)
+        adjacencyList[node2].push(node1)
+    }
+
+    const dfs = (current, last) => {
+        if(seen.has(current)) return false
+        seen.add(current)
+
+        for(let next of adjacencyList[current]){
+            if(next === last) continue
+            if(!dfs(next, current)) return false
+        }
+        return true
+    }
+
+    if (!dfs(0, -1)) return false
+
+    return n === seen.size
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
@@ -2135,7 +2169,7 @@ const lengthOfLIS = (nums) => {
     }
     
     return best
-    
+
 }{{< /code >}}
 
 # Binary
