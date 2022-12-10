@@ -2297,6 +2297,25 @@ const leastInterval = (tasks, cooldown) => {
   return Math.max((letterCounts[0] - 1) * (cooldown + 1) + countOfMaximumSizeTypes, tasks.length)
 }{{< /code >}}
 
+To find some number of most frequent strings in an array, sorted by frequency from most common and then by lexicographical order, you can start by creating a `counts` object that stores the count of a given word. Then you can sort the unique words first by their count from greatest to smallest, and then as a tiebreaker, by their lexicographical order (the default `sort`). Then return however many from the front of this list is desired.
+
+{{< code language="javascript" title="[Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof words === "object" (array of strings)
+// typeof k === "number"
+
+const topKFrequent = (words, k) => {
+    
+    const counts = {}
+    for (let word of words) {
+        counts[word] = counts[word] + 1 || 1
+    }
+
+    return Object.keys(counts).sort((a,b) => { 
+        return counts[b] === counts[a] ? ( a > b || -1 ) : counts[b] - counts[a]
+    }).slice(0, k)
+    
+}{{< /code >}}
+
 # Tries
 
 A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter's key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a `.end` key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a `.end` key is found. Checking if a prefix (`startsWith`) is available is a relaxed search from the top that doesn't care about `.end`.
