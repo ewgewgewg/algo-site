@@ -2182,9 +2182,32 @@ const reverseBits = (n) => {
   }
 
   return result
-}
 
-{{< /code >}}
+}{{< /code >}}
+
+To find the single duplicate number in an array of otherwise consecutive numbers starting at 1, you can use a `fast` and a `slow` pointer. Assign `slow` to start as the value of the 0th index (which itself is an index in the array), and `fast` to the value at the index equal to the value at the 0th index. Then, continue updating `fast` and `slow` at this pace until `fast` is equal to `slow`. This means `fast` has caught up to `slow` in the circular pattern. To figure out what number is repeated, or, in other words, what number is indicated from two other indicies, restart one of the pointers at 0 and move each pointer to the value indicated at the index in tandem until they point to the same number. This is the result. This math works because to get to the first match, the `slow` pointer had to travel to the location indicated by two values, then some further distance, while the `fast` pointer had to travel both of these, plus a distance equal to the distance from the start to the location indicated by two values, plus the "further" distance again. (The `fast` must travel twice as far as `slow`.) Restarting one pointer to the 0th index and then moving them both forward step by step until they match means that both will meet the location indicated by two values (because both pointers are at the start of the phase that will end at the desired value).
+
+{{< code language="javascript" title="[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const findDuplicate = (nums) => {
+
+    let fast = nums[nums[0]]
+    let slow = nums[0]
+    while (fast !== slow){
+        fast = nums[nums[fast]]
+        slow = nums[slow]
+    }
+     
+    fast = 0
+    while (fast !== slow) {
+        fast = nums[fast]
+        slow = nums[slow]
+    }
+    
+    return fast
+
+}{{< /code >}}
 
 # Math
 
