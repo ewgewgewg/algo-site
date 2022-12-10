@@ -387,6 +387,27 @@ const canCompleteCircuit = (gas, cost) => {
     return sum > -1 ? station : -1
 }{{< /code >}}
 
+To determine the number of longest consecutive elements in an array, notice that you can start a search at every number where the prior number in the array does not exist. To set up for this, create a set with all `numbers`, then loop the array. Whenever the original number does not have an immediate prior, step through `next` numbers consecutively until `next` cannot be found, then update the `best` length as appropriate.
+
+{{< code language="javascript" title="[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const longestConsecutive = (nums) => {
+
+    let best = 0
+    const numbers = new Set(nums)
+    
+    for (let number of nums){
+        if (numbers.has(number-1)) continue
+        let next = number + 1
+        while (numbers.has(next)) next++
+        best = Math.max(best, next-number)
+    }
+
+    return best
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
