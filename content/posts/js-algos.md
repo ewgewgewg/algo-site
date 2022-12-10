@@ -1731,6 +1731,51 @@ const findMinHeightTrees = (n, edges) => {
     }
 }{{< /code >}}
 
+To find a list of coordinates on a grid where a downwards slope (up, down, left, and right) can be found that reaches both the upper or left edges of the grid, as well as the lower or right (which can be thought of as water flowing to two oceans), consider depth-first search. Create two new grids the same shappe as the original grid, and fill both with `false`. Then loop the original array. At every location on the upper or left edge of the graph, begin a depth-first search process that places `true` at that location in one of the helper grids, and then continues planting `true` in every direction up, down, left, or right direction until an edge is reached, another `true` is reached, or a value in the given direction on the original grid is less than the original gird value at the location that is trying to be reached. (This would indicate the slope in the given direction is not sloping down towards the upper or left sides of the grid.) Fill the other helper grid by doing the indentical process spawning fom the bottom or the right side of the grid. Finally, add to a `results` array every location that is `true` on both helper grids, and return `results`.
+
+{{< code language="javascript" title="[Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof grid === "object" (array of arrays of numbers)
+
+const pacificAtlantic = (heights) => {
+
+    const Atlantic = [...Array(heights.length)].map(() => new Array(heights[0].length).fill(false))
+    const Pacific = [...Array(heights.length)].map(() => new Array(heights[0].length).fill(false))
+    const directions = [[1, 0], [-1, 0], [0, -1], [0, 1]]
+
+    const dfs = (i, j, seen) => {
+        seen[i][j] = true
+        for (let direction of directions) {
+            const newI = i + direction[0]
+            const newJ = j + direction[1]
+            if (newI < 0 || newJ < 0 || newI === heights.length || newJ === heights[0].length || seen[newI][newJ]) continue
+            if (heights[newI][newJ] >= heights[i][j]) {
+                dfs(newI, newJ, seen)
+            }
+        }
+    }
+    
+    for (let i = 0; i < heights.length; i++) {
+        for (let j = 0; j < heights[0].length; j++) {
+            if (i === 0 || j === 0) {
+                dfs(i, j, Pacific)
+            }
+            if (i === heights.length - 1 || j === heights[0].length - 1) {
+                dfs(i, j, Atlantic)
+            }
+        }
+    }
+    const results = []
+    for (let i = 0; i < heights.length; i++) {
+        for (let j = 0; j < heights[0].length; j++) {
+            if (Pacific[i][j] && Atlantic[i][j]) {
+                results.push([i, j])
+            }
+        }
+    }
+    return results
+    
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
