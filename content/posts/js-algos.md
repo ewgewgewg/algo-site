@@ -1806,6 +1806,49 @@ const pacificAtlantic = (heights) => {
 
 }{{< /code >}}
 
+In a grid that contains a start location, food, empty spaces, and obstacles, what is the shortest number of steps to any food cell? You can use breadth-first search starting at the start location and pushing new legal adjacent locations (not off the board or previously seen) until a food is seen. If you keep a counter of number of steps away from the origin, you can return this when you reach the food symbol. If you never do you can return `-1`.
+
+{{< code language="javascript" title="[Shortest Path to Get Food](https://leetcode.com/problems/shortest-path-to-get-food/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof grid === "object" (array of arrays of 1 character)
+
+const getFood = (grid) => {
+
+    const queue = []
+    
+    for(let row = 0; row < grid.length; row++) {
+        for(let column = 0; column < grid[0].length; column++) {
+            if(grid[row][column] === "*"){
+                queue.push([row, column, 0])
+                break
+            }
+        }
+    }
+
+    const directions = [[-1, 0], [0, -1], [1, 0], [0, 1]]
+    const seen = new Set()
+    
+    while(queue.length) {
+        let [row, column, distance] = queue.shift()
+        if(grid[row][column] === "#") return distance
+        const lookup =`${row}+${column}`
+        if(seen.has(lookup) continue
+        seen.add(lookup)
+                
+        for(let [x, y] of directions) {
+            let newRow = x + row;
+            let newColumn = y + column;
+            
+            if(newRow >= 0 && newRow < grid.length && newColumn >= 0 &&
+            newColumn < grid[0].length && grid[newRow][newColumn] !== "X") {
+                    queue.push([newRow, newColumn, distance + 1])
+            }
+        }
+    }
+
+    return -1
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
@@ -2313,7 +2356,7 @@ const topKFrequent = (words, k) => {
     return Object.keys(counts).sort((a,b) => { 
         return counts[b] === counts[a] ? ( a > b || -1 ) : counts[b] - counts[a]
     }).slice(0, k)
-    
+
 }{{< /code >}}
 
 # Tries
