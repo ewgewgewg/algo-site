@@ -1883,6 +1883,44 @@ const validTree = (n, edges) => {
 
 }{{< /code >}}
 
+How to finish all courses given an array of their prerequisites, if this is possible? You can first construct an `adjacencyList` using prerequisites as keys and all courses that are a direct requirement of that `prerequisite` pushed to an array that is the key value. As the `adjacencyList` is being constructed, build up an `indegrees` array the size of the number of nodes, increasing the indegree by 1 of any direct consequent `course` whenever a new `prerequisite` is detected. Then, take all courses with an indegree of 0 and add them to a `queue`. Process the `queue` in a breadth-first search manner, repeatedly shifting out the top `course` from the queue, subtracting one from the indegree of any course it points to, and then adding to the `queue` any courses that now have an indegree of zero (for a later step in the breadth-first search). Finally, push the `queue` course being processed to the `result`, and move on to the next `course` in the `queue`, if any. If at the end not all nodes are processed, you can return an empty array to indiate not all courses can be reached. Otherwise, return `result`.
+
+{{< code language="javascript" title="[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof numCourses === "number"
+// typeof prerequisites === "object" (array of arrays of 2 numbers)
+
+const findOrder = (numCourses, prerequisites) => {
+
+  const adjacencyList = new Map()
+  const indegrees = new Array(numCourses).fill(0)
+
+  for (const [course, prerequisite] of prerequisites) {
+    if (!adjacencyList.has(prerequisite)) adjacencyList.set(prerequisite, [])
+    adjacencyList.get(prerequisite).push(course)
+    indegrees[course]++
+  }
+
+  const queue = []
+  for (let i = 0; i < indegrees.length; i++) {
+    if (!indegrees[i]) queue.push(i)
+  }
+
+  const result = []
+  while (queue.length) {
+    const course = queue.shift()
+    if (adjacencyList.has(course)) {
+      for (const nextCourse of adjacencyList.get(course)) {
+        indegrees[nextCourse]--
+        if (!indegrees[nextCourse]) queue.push(nextCourse)
+      }
+    }
+    result.push(course)
+  }
+
+  return numCourses === result.length ? result : []
+  
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
