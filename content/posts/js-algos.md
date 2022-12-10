@@ -408,6 +408,19 @@ const longestConsecutive = (nums) => {
 
 }{{< /code >}}
 
+To rotate an array to the right by a certain number of steps, note that this means taking that number of elements from the right and adding them to the left of the array. You can do this in-place by determining how many elements must move. This value can be found by dividing the number of steps to right move the array by the length of the array and taking the remainder (modulo operation). Then simply splice off that number of elements from the back of the array and unshift them to the front.
+
+{{< code language="javascript" title="[Rotate Array](https://leetcode.com/problems/rotate-array/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof k === "number"
+
+const rotate = (nums, k) => {
+    k %= nums.length
+    nums.unshift(...nums.splice(-k))
+}
+
+{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
