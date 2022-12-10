@@ -781,6 +781,36 @@ LRUCache.prototype.put = function(key, value) {
 
 {{< /code >}}
 
+To remove the nth node from the end of a list, you can count the `length` of the list by iterating, then subtract from `length` the nth item to be removed to find the number of the item to be removed starting from the front. Finally, with a new pointer from the front of the list, iterate until one step before the item to be removed, and from that item, replace the `.next` with `.next.next` if available, otherwise `null`. If the item to be removed is at the `head` of the list, simply return the `.next` from the `head`.
+
+{{< code language="javascript" title="[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+// typeof n === "number"
+
+const removeNthFromEnd = (head, n) => {
+
+  let counterCopy = head
+
+  let length = 0
+  while (counterCopy) {
+    length++
+    counterCopy = counterCopy.next
+  }
+  
+  let countToRemove = length - n
+  if (!countToRemove) return head.next
+
+  let removerCopy = head
+  while (countToRemove > 1) {
+    countToRemove--
+    removerCopy = removerCopy.next
+  }
+
+  removerCopy.next = removerCopy.next?.next || null
+  return head
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
@@ -1773,7 +1803,7 @@ const pacificAtlantic = (heights) => {
         }
     }
     return results
-    
+
 }{{< /code >}}
 
 # Binary Search Trees
