@@ -817,7 +817,7 @@ How to swap every two adjacent nodes in a linked list? You can run a function re
 // typeof head === "object" (linked list)
 
 const swapPairs = (head) => {
-    
+
     if(head?.next){
         const nodeToBeMovedBack = head
         const recursiveCallArgument = head.next.next
@@ -1315,6 +1315,32 @@ const buildTree = (preorder, inorder) => {
     }
     
     return construct(0, preorder.length - 1, 0, inorder.length - 1)
+
+}{{< /code >}}
+
+To find all root-to-leaf paths in a binary tree that sum to a target value, you can create a `results` array and then use recursion with a helper function. Run the helper function with the `root`, set a `sum` of 0, and a `valsSoFar` as an empty array. No `root` is the base case so then you can just return. Otherwise, create a `currentVals` array out of `valsSoFar` and the value at the current node, and create a `newSum` by adding `sum` to the value at the current node. Then, if current node is a leaf node (has no descendents), and the `newSum` is the target sum, you can push `currentVals` to `results`. Else recurse on the `.left` and `.right` of the current node.
+
+{{< code language="javascript" title="[Path Sum II](https://leetcode.com/problems/path-sum-ii/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+// typeof targetSum === "number"
+
+const pathSum = (root, targetSum) => {
+
+    const results = []
+    
+    const go = (root, sum = 0, valsSoFar = []) => {
+        if(!root) return
+        const currentVals = [...valsSoFar, root.val]
+        const newSum = sum + root.val
+
+        if(!root.left && !root.right && targetSum === newSum) results.push(currentVals)
+        go(root.left, newSum, currentVals)
+        go(root.right, newSum, currentVals)
+    }
+    
+    go(root)
+    
+    return results
 
 }{{< /code >}}
 
