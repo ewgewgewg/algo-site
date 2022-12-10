@@ -2112,6 +2112,32 @@ const maxProduct = (nums) => {
 
 }{{< /code >}}
 
+To find the longest strictly increasing subsequence in an array (numbers have to be in order, but do not need to be adjacent), binary search can help insert the `lowestValueReachingCount` into a helper array. To do this, for every number in the input array, declare a `left` of 0 and a `right` equal to the current `best` length (starting at 0). Then, while `left` is not `right` create a while loop, generating a `mid` between `left` and `right` at every round. If the value at index `mid` in `lowestValueReachingCount` is less than the number being investigated in the outer loop, this means the longest strictly increasing subsequence ending at the original array number being investigated is at least equal to `mid+1`, so set the new `left` to `mid+1` and continue. Else, `right` can be `mid`. When the `left` and `right` pointers meet, update the location in `lowestValueReachingCount` with the number indicated in the outer loop (because if it were not the `lowestValueReachingCount`, the `mid+1` process would have moved the index up), and update `best` with the location index found in the binary search, plus 1, if appropriate.
+
+{{< code language="javascript" title="[Maximum Product Subarray](https://leetcode.com/problems/longest-increasing-subsequence/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const lengthOfLIS = (nums) => {
+
+    const lowestValueReachingCount = new Array(nums.length).fill(0)
+    let best = 0
+    
+    for (let num of nums){
+        let left = 0
+        let right = best
+        while(left !== right){
+            const mid = left + Math.floor((right-left)/2)
+            if (lowestValueReachingCount[mid] < num) left = mid + 1
+            else right = mid
+        }
+        lowestValueReachingCount[right] = num
+        best = Math.max(best,right+1)
+    }
+    
+    return best
+    
+}{{< /code >}}
+
 # Binary
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
