@@ -811,6 +811,25 @@ const removeNthFromEnd = (head, n) => {
 
 }{{< /code >}}
 
+How to swap every two adjacent nodes in a linked list? You can run a function recursively -- if there is no `.next` simply return `head`, otherwise save the head as `nodeToBeMovedBack`, save the `.next.next` as the `recursiveCallArgument`, move the `head` to `head.next`, and take the `nodeToBeMovedBack` as the new `head.next`. Finally, assign the recursive call to `head.next.next`.
+
+{{< code language="javascript" title="[Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const swapPairs = (head) => {
+    
+    if(head?.next){
+        const nodeToBeMovedBack = head
+        const recursiveCallArgument = head.next.next
+        head = head.next
+        head.next = nodeToBeMovedBack
+        head.next.next = swapPairs(recursiveCallArgument)
+    }
+
+    return head
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
@@ -1918,7 +1937,7 @@ const findOrder = (numCourses, prerequisites) => {
   }
 
   return numCourses === result.length ? result : []
-  
+
 }{{< /code >}}
 
 # Binary Search Trees
