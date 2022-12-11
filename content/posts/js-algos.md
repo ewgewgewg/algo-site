@@ -1179,6 +1179,35 @@ const groupAnagrams = (strs) => {
 
 }{{< /code >}}
 
+Given a string and a count of times you can change a character, what is the longest substring (aka contiguous string inside the parent) that contains all the same letter? One solution involves a `counts` object, setting a `startIndex` to 0, and a `greatestCountSeen` to 0. Loop the input string. At every step, update the `counts` object to include the count of the current character. Then for that character's count, udate `greatestCountSeen` if needed. Next, if the `greatestCountSeen` plus the number of times you can change a character is less than the range from the current index to the `startIndex`, inclusive, remove a count from the character at `startIndex` and increase `startIndex` by 1. Finally, update a `best` if the length of the substring between `startIndex` and the current index, inclusive, is better. Whenever `greatestCountSeen` is updated, you have reached a location with a candidate for the new `best`, so you increment `startIndex` until you have a valid possible result.
+
+{{< code language="javascript" title="[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+// typeof k === "number"
+
+const characterReplacement = (s, k) => {
+    
+    const counts = {}
+    let startIndex = 0
+    let greatestCountSeen = 0
+    let best = 0
+    for (let i = 0; i < s.length; i++){
+        counts[s[i]] = counts[s[i]] + 1 || 1
+
+        if(counts[s[i]] > greatestCountSeen) greatestCountSeen = counts[s[i]]
+
+        while(i - startIndex + 1 > k + greatestCountSeen){
+            counts[s[startIndex]]--
+            startIndex++
+        }
+
+        best = Math.max(best, i - startIndex + 1)
+
+    }
+    return best
+    
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
