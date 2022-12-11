@@ -417,9 +417,34 @@ To rotate an array to the right by a certain number of steps, note that this mea
 const rotate = (nums, k) => {
     k %= nums.length
     nums.unshift(...nums.splice(-k))
-}
+}{{< /code >}}
 
-{{< /code >}}
+To find the maximum length with equal `0` and `1` in an array that only contains `0` and `1`, you can solve the problem linearly by counting `extraOnes`. Set that variable to `0`, set a `best` to `0`, and create a `map` that indicates there are `0` `extraOnes` at the `-1` index. Then iterate the array. At every step, keep a running tally of `extraOnes` by incrementing if a `1` is found and decrementing if a `0` is found. Then, if that number has not yet been seen in the `map`, add it to the `map` with a value of the current index. Otherwise, update `best` if the index minus the first time that many `extraOnes` were found (use the `map`) is greater than `best`.
+
+{{< code language="javascript" title="[Contiguous Array](https://leetcode.com/problems/contiguous-array/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const findMaxLength = (nums) => {
+    
+    const map = new Map()
+    map.set(0, -1)
+
+    let best = 0
+    let extraOnes = 0
+    for (let i = 0; i < nums.length; i++){
+        extraOnes += nums[i] ? 1 : -1
+
+        if (!map.has(extraOnes)){
+            map.set(extraOnes, i)
+            continue
+        }
+
+        best = Math.max(best, i - map.get(extraOnes))
+    }
+    
+    return best
+
+}{{< /code >}}
 
 # Stacks
 
@@ -634,7 +659,7 @@ const decodeString = (s) => {
     const repeatStack = []
     const stringStack = [""]
     let latestRepeats = ""
-    
+
     for (let character of s){
         if (character === "["){
             repeatStack.push(Number(latestRepeats))
