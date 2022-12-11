@@ -974,6 +974,47 @@ const addTwoNumbers = (l1, l2) => {
 
 }{{< /code >}}
 
+How to return a linked list after sorting its nodes in ascending order? Recursion is a solution. The base case, where the input does not have a `.next`, involves returning the input. Else you can use `fast` and `slow` pointers to find a middle pointer with `slow`. Set a `breakpoint` at `slow` and assign its `.next` as the `second` half of the series, then make `breakpoint`'s own `.next` null, which separates out the `first` half. Make a recursive call for both halves to ensure they are sorted, and then compare the heads of each repeatedly, adding whichever is lower but present to a new series of nodes building off an empty `link`. When both heads are exhausted, return `link.next`.
+
+{{< code language="javascript" title="[Sort List](https://leetcode.com/problems/sort-list/) -- code adapted from [grs's code](https://leetcode.com/problems/sort-list/solutions/496007/javascript-merge-sort/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const sortList = (head) => {
+    if (!head?.next) return head
+    
+    let fast = head
+    let slow = head
+    while (fast.next?.next) {
+        fast = fast.next.next
+        slow = slow.next
+    }
+    
+    const first = head
+    const breakpoint = slow
+    const second = slow.next
+    breakpoint.next = null
+
+    let sortedFirst = sortList(first)
+    let sortedSecond = sortList(second)
+    
+    const link = new ListNode()
+    let pointer = link
+    while (sortedFirst || sortedSecond) {
+        if (!sortedSecond || sortedFirst?.val < sortedSecond?.val) {
+            pointer.next = sortedFirst
+            sortedFirst = sortedFirst.next
+        } else {
+            pointer.next = sortedSecond
+            sortedSecond = sortedSecond.next
+        }
+        pointer = pointer.next
+    }
+    pointer.next = null
+    
+    return link.next
+    
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
@@ -3001,7 +3042,7 @@ const generateParenthesis = (n) => {
     go(0, 0, "")
 
     return results
-    
+
 }{{< /code >}}
 
 # Matricies
