@@ -864,6 +864,31 @@ const swapPairs = (head) => {
 
 }{{< /code >}}
 
+To change a linked list so that all odd-indexed elements are followed by all even-indexed elements, if the linked list has a length, you can set three pointers. First, an `odd` starting at the `head`, second, an `even` starting at `head.next`, and third, an extra pointer staying at `headEven`. While there is an `even.next` (aka what should be the next `odd`), set the `.next` of both `odd` and `even` to their `.next.next` and then set `odd` and `even` themselves to their `.next`. Make sure to do `odd` first so the links for `even` are not broken. Once there is no more `even.next`, set `odd.next` to `headEven` and retun this.
+
+{{< code language="javascript" title="[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const oddEvenList = (head) => {
+
+    if (head === null) return head
+    
+    let odd = head
+    let even = head.next
+    const headEven = even
+
+    while (even?.next) {
+        odd.next = odd.next.next
+        odd = odd.next
+        even.next = even.next.next
+        even = even.next
+    }
+    odd.next = headEven
+
+    return head
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.

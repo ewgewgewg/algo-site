@@ -164,6 +164,15 @@ singleFizzBuzz(6) // returns "Fizz"
 
 {{< /code >}}
 
+The modulo operator can also be coupled with assignment, like `%=`.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+let number = 10
+number %= 3 // stored value in number after this operation is 1
+
+{{< /code >}}
+
 Ternaries are short boolean conditionals that help with assignment. A condition is followed by `?`, then a value to assign if the condition is true, then `:`, then a value to assign if the condition is false.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -435,7 +444,7 @@ console.log(array3) // prints [1, 2, 3, 4, 5, 6, 7, 8]
 
 {{< /code >}}
 
-The array method `splice` takes an insertion location, a deletion count, and any number of insertion items as arguments. It acts on the array it is run from and does not need to be part of direct assignment.
+The array method `splice` takes an insertion location, a deletion count, and any number of insertion items as arguments. It acts on the array it is run from and does not need to be part of direct assignment. It can also take negative numbers and count from the back. If no second argument is provided, all elements from the given index onwards are removed.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -449,6 +458,12 @@ console.log(array) // prints [1, 4, 3]
 
 array.splice(2, 0, 5, 6)
 console.log(array) // prints [1, 4, 5, 6, 3]
+
+array.splice(-2,1)
+console.log(array) // prints [1, 4, 5, 3]
+
+array.splice(-1)
+console.log(array) // prints [1, 4, 5]
 
 {{< /code >}}
 
