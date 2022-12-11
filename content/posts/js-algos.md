@@ -951,7 +951,7 @@ If two linked lists represent numbers in reversed order, how to add them into a 
 // typeof l2 === "object" (linked list)
 
 const addTwoNumbers = (l1, l2) => {
-    
+
     const link = new ListNode()
     let joined = link
 
@@ -2980,6 +2980,28 @@ const nextPermutation = (nums) => {
     [nums[upperReplacedDigit], nums[update]] = [nums[update], nums[upperReplacedDigit]]
     const reverse = nums.splice(upperReplacedDigit+1).reverse()
     nums.splice(upperReplacedDigit+1,0,...reverse)
+}{{< /code >}}
+
+To generate all strings of valid parentheses off of an input number, recursion can be used. One method involves running a helper function that keeps track of `openCount` and `closeCount` (both starting at 0), as well as a `builder` string (starting as empty). At each step in the helper function, immediately return if `openCount` is ever greater than the input number, and if both the `openCount` and `closeCount` are equal to the input number, push `builder` to `results` and return. Else run a recursive call of the helper function with one new `(` (noting this in the `openCount` and `builder` arguments), and if `closeCount` is less than `openCount`, run a recursive call of the helper function with one new `)` (noted by `closeCount` and `builder`).
+
+{{< code language="javascript" title="[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+
+const generateParenthesis = (n) => {
+
+    const results = []
+
+    const go = (openCount, closeCount, builder) => {
+        if (n < openCount) return
+        if (n === openCount && openCount === closeCount) return results.push(builder)
+        go(openCount + 1, closeCount, builder + "(")
+        if (closeCount < openCount) go(openCount, closeCount + 1, builder + ")")
+    }
+
+    go(0, 0, "")
+
+    return results
+    
 }{{< /code >}}
 
 # Matricies
