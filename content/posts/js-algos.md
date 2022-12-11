@@ -944,6 +944,36 @@ const oddEvenList = (head) => {
 
 }{{< /code >}}
 
+If two linked lists represent numbers in reversed order, how to add them into a new linked list? You can create a `link` pointer to help hold the eventual head, a copy `joined` pointer to iterate through the digits of the result, a `pointer1` and `pointer2` to point to the first node in each input list, and a `carry` variable starting at 0 to handle overflow. While `pointer1` or `pointer2` are not null, add the sum of the values at both, if any, plus `carry`, to a `sum`. The tens place of this value becomes `carry` for the next step, and the ones place is added as the value to the next `joined` node. Then `pointer1` and `pointer2` move to their `.next`, if available. At the end of the while loop, if there is still a value in `carry`, add it as one final node, and then return the `.next` of the original `link`.
+
+{{< code language="javascript" title="[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof l1 === "object" (linked list)
+// typeof l2 === "object" (linked list)
+
+const addTwoNumbers = (l1, l2) => {
+    
+    const link = new ListNode()
+    let joined = link
+
+    let carry  = 0
+    let pointer1 = l1
+    let pointer2 = l2
+
+    while(pointer1 || pointer2) {
+        const sum = carry + (pointer1?.val || 0) + (pointer2?.val || 0)
+        carry = Math.floor(sum / 10)
+        joined.next = new ListNode(sum % 10)
+        joined = joined.next
+        pointer1 = pointer1?.next || null
+        pointer2 = pointer2?.next || null
+    }
+
+    joined.next = carry ? new ListNode(carry) : null
+
+    return link.next
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
@@ -2471,7 +2501,7 @@ const canJump = (nums) => {
         range = Math.max(range, i + nums[i])
     }
     return true
-    
+
 }{{< /code >}}
 
 # Binary
