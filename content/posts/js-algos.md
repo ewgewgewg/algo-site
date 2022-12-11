@@ -1179,7 +1179,7 @@ const groupAnagrams = (strs) => {
 
 }{{< /code >}}
 
-Given a string and a count of times you can change a character, what is the longest substring (aka contiguous string inside the parent) that contains all the same letter? One solution involves a `counts` object, setting a `startIndex` to 0, and a `greatestCountSeen` to 0. Loop the input string. At every step, update the `counts` object to include the count of the current character. Then for that character's count, udate `greatestCountSeen` if needed. Next, if the `greatestCountSeen` plus the number of times you can change a character is less than the range from the current index to the `startIndex`, inclusive, remove a count from the character at `startIndex` and increase `startIndex` by 1. Finally, update a `best` if the length of the substring between `startIndex` and the current index, inclusive, is better. Whenever `greatestCountSeen` is updated, you have reached a location with a candidate for the new `best`, so you increment `startIndex` until you have a valid possible result.
+Given a string and a count of times you can change a character, what is the longest substring (aka contiguous string inside the parent) that contains all the same letter? One solution involves a `counts` object, setting a `startIndex` to 0, and a `greatestCountSeen` to 0. Loop the input string. At every step, update the `counts` object to include the count of the current character. Then for that character's count, udate `greatestCountSeen` if needed. Next, if the `greatestCountSeen` plus the number of times you can change a character is less than the range from the current index to the `startIndex`, inclusive, remove a count from the character at `startIndex` and increase `startIndex` by 1. Finally, update a `best` if the length of the substring between `startIndex` and the current index, inclusive, is better. Whenever `greatestCountSeen` is updated, you have reached a location with a candidate for the new `best`, so you increment `startIndex` until you have a valid possible length.
 
 {{< code language="javascript" title="[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof s === "string"
@@ -1205,7 +1205,7 @@ const characterReplacement = (s, k) => {
 
     }
     return best
-    
+
 }{{< /code >}}
 
 # Binary Trees
@@ -1432,7 +1432,7 @@ const rightSideView = (root) => {
 
 How to construct a binary tree from arrays with unique values containing the `preorder` and `inorder` traversal? Note that in the `preorder` traversal, head nodes appear before children nodes. This means that the 0th location in the `preorder` array should be the root value of the binary tree. To construct the tree formally, return a helper function `construct` with four arguments -- the leftmost and rightmost indicies of the `preorder` and `inorder` arrays. If either left is greater than than their right, `construct` can immediately return a `null` node. Else, get the current root `node` `value` from the `value` of `preorder` at `preorderLeft`. Start a new `node` with the `value`, and find the `index` of that `value` in `inorder`. Count the number of `leftNodes` by subtracting the `inorderLeft` from `index`, then build out the `.left` and `.right` nodes by running two new `construct` invocations with updated bounds.
 
-{{< code language="javascript" title="[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/) -- influenced by [jeantimex's code and explanation](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/34553/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/) -- code adapted from [jeantimex's code and explanation](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/34553/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof preorder === "object" (array of numbers)
 // typeof inorder === "object" (array of numbers)
 
@@ -1489,7 +1489,7 @@ const pathSum = (root, targetSum) => {
 
 How to find the maximum width of a binary tree? One solution involves depth-first search. Create an empty `leftmostLocations` array, then conduct a depth-first search starting with the `root` node, a `widthLocation` of 0, and a `depth` of 0. The base case is a null node, but otherwise, a helper function can update the `leftmostLocations` array with the current `widthLocation` at the `depth` index if the `depth` has never before been seen. You can then create an `indexNormalizedToLeftmost` but subtracting the leftmost location at the given depth from the `widthLocation` (which helps with large LeetCode test cases), update a `best` with `indexNormalizedToLeftmost+1` if appropriate, and run the helper on the `.left` and `.right` of the current `node`, also passing down the doubled `indexNormalizedToLeftmost` and the doubled `indexNormalizedToLeftmost` with a 1 added after the multiplication, respectively. The third argument for both depth-first search calls is simply `depth+1`.
 
-{{< code language="javascript" title="[Maximum Width of a Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) -- influenced by [linfongi's code](https://leetcode.com/problems/maximum-width-of-binary-tree/solutions/154200/javascript-dfs-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Maximum Width of a Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) -- code adapted from [linfongi's code](https://leetcode.com/problems/maximum-width-of-binary-tree/solutions/154200/javascript-dfs-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary tree node)
 
 const widthOfBinaryTree = (root) => {
@@ -2221,6 +2221,37 @@ const kthSmallest = (root, k) => {
 
 }{{< /code >}}
 
+To find the inorder successor of a node in a binary search tree, there are two basic cases. First, if the node for which the successor is being searched has a `.right`, the higher parts of the tree do not need to be considered, and the result is one `.right` followed by as many `.left` as are available. Otherwise, you can declare a `successor` variable and set it to null, then navigate through nodes starting at the root as long as the active node is not the node for which the successor is being considered. To do this, at every step in this section option for the algorithm, if the value at the current node is greater than the node for which the `successor` is trying to be found, set `successor` to the active node and then the active node to the `.left`. Otherwise, if a `.right` is available, you can go to the `.right` without moving the `successor` (because doing that would put the `successor` behind the node searched for, not ahead of it). In a case where there is no further `.right`, but the value is still less, not only do you not have to move the `successor`, but you can also `break`.
+
+{{< code language="javascript" title="[Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst/) -- code adapted from [chihungyu1116's code and explanation](https://github.com/chihungyu1116/leetcode-javascript/blob/master/285%20Inorder%20Successor%20in%20BST.js)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary search tree node)
+// typeof p === "object" (binary search tree node)
+
+const inorderSuccessor = (root, p) => {
+
+    if(p.right){
+        p = p.right
+        while(p.left) p = p.left
+        return p
+    }
+
+    const successor = null
+
+    while(root !== p){
+        if (root.val > p.val){
+            successor = root
+            root = root.left
+        } else if (root.right){
+            root = root.right
+        } else {
+            break
+        }
+    }
+
+    return successor
+
+}{{< /code >}}
+
 # Hash Tables
 
 Whether one group of characters in a string is completely included in a different string can be described as being able to cut letters out of a magazine for a ransom note. If the only characters that can appear are lower case letters, then these can be added by character code into an array from the "magazine" string, and then what appears in the "note" string can be subtracted. If any count in the array goes negative, the ransom note cannot be completed.  
@@ -2429,7 +2460,7 @@ const lengthOfLIS = (nums) => {
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
 
-{{< code language="javascript" title="[Add Binary](https://leetcode.com/problems/add-binary/) -- influenced by [hi-malik's code and explanation](https://leetcode.com/problems/add-binary/solutions/1679423/well-detailed-explaination-java-c-python-easy-for-mind-to-accept-it/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Add Binary](https://leetcode.com/problems/add-binary/) -- code adapted from [hi-malik's code and explanation](https://leetcode.com/problems/add-binary/solutions/1679423/well-detailed-explaination-java-c-python-easy-for-mind-to-accept-it/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof a === "string"
 // typeof b === "string"
 
