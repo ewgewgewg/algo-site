@@ -1162,7 +1162,7 @@ const findAnagrams = (s, p) => {
 
 To group an array's anagrams into arrays within a result array, one method starts with creating a container for the `groups`, then looping the strings in the input array. At every step find a `standardAnagram` key for the string by turning it into an array, sorting it, and joining it. Add this key to `groups` if it does not already exist, then add the original string as a value. Once the loop is complete, return all the array values in `groups`.
 
-{{< code language="javascript" title="[Group Anagrams](https://leetcode.com/problems/group-anagrams/") expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Group Anagrams](https://leetcode.com/problems/group-anagrams/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof strs === "object" (array of strings)
 
 const groupAnagrams = (strs) => {
