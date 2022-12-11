@@ -624,6 +624,36 @@ const dailyTemperatures = (temperatures) => {
 
 }{{< /code >}}
 
+If you have an encoded string where numbers followed by brackets multiply the contents of the brackets, how to return the decoded string? One way to solve this involves a `repeatStack` and a `stringStack`. Both are arrays, and `repeatStack` starts empty, while `stringStack` starts with an empty string. A `latestRepeats` is also declared as an empty string. As the encoded string is looped, the stacks are used to deode. Numbers are added as string characters to the `latestRepeats` variable. The character `[` requires the `latestRepeats` to be turned in to a number type and pushed to the `repeatStack`, while `latestRepeats` is reset to an empty string, and the `stringStack` also take an empty string. The character `]` requires both `repeatStack` and `stringStack` to pop, and the contents of the popped value from `stringStack` be added to new last value of `stringStack` a number of times equal to the value popped from `repeatStack`. For any other character processed from the enoded string, add it to the last element of `stringStack`. After the encoded string is fully processed, return what should be the only value in `stringStack`.
+
+{{< code language="javascript" title="[Decode String](https://leetcode.com/problems/decode-string/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const decodeString = (s) => {
+
+    const repeatStack = []
+    const stringStack = [""]
+    let latestRepeats = ""
+    
+    for (let character of s){
+        if (character === "["){
+            repeatStack.push(Number(latestRepeats))
+            latestRepeats = ""
+            stringStack.push("")
+        } else if (character === "]"){
+            const string = stringStack.pop()
+            const repeat = repeatStack.pop()
+            stringStack[stringStack.length-1] += string.repeat(repeat)
+        } else if (Number.isInteger(Number(character))) {
+            latestRepeats += character
+        } else {
+            stringStack[stringStack.length-1] += character
+        }
+    }
+    return stringStack[0]
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:

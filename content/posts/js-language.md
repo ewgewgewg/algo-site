@@ -74,7 +74,7 @@ Math.pow(2, 3) // returns 8
 
 {{< /code >}}
 
-Because JavaScript tries to change types when appropriate, adding a string to a number, or adding two strings, joins characters as a string. `String` and `Number` also can take a argument each and transform them as appropriate.
+Because JavaScript tries to change types when appropriate, adding a string to a number, or adding two strings, joins characters as a string. `String` and `Number` also can take a argument each and transform them as appropriate. You can also test if `Number.isInteger`.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -83,6 +83,9 @@ const twelveString = "1" + "2" // contains "12"
 
 const aString = String(1) // contains "1"
 const aNumber = Number("1") // contains 1
+
+const integerState = Number.isInteger(aNumber) // contains true
+const notAnIntegerState = Number.isInteger("a") // contains false
 
 {{< /code >}}
 
@@ -567,6 +570,14 @@ The `trim` method removes any whitespace on either side of the string.
 console.log("  a  ".trim()) // prints("a")
 console.log("    ".trim()) // prints("")
 console.log("a") // prints("a")
+
+{{< /code >}}
+
+The `repeat` method returns the string from which the method is called times the number in the first argument.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+console.log("abc".repeat(4)) // prints("abcabcabcabc")
 
 {{< /code >}}
 
