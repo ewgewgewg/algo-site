@@ -2643,6 +2643,30 @@ const topKFrequent = (words, k) => {
 
 }{{< /code >}}
 
+To find the `k` closest elements to a given value in a sorted array of numbers, with the smaller range being chosen for a tiebreaker, one solution method is binary search. Create `left` and `right` index pointers with `left` being `k-1` and `right` being the rightmost index of the array. Then, while `left` is less than `right`, create a floored `mid`, and check if the target value minus the value at `mid-k+1` is greater than the value at `mid+1` minus the target value. Because we are only interested in `k` values, not `k`, and given that the values are sorted, the result must be adjacent numbers, one of the two compared numbers must not be included in the result. We can set `left` to `mid+1` if the test passes because that means the value at the low end has a greater "delta" with the target value, else we can set `right` to `mid`, which meets the condition of the tiebreaker. When the binary search resolves, return the `k` points ending at `mid`. 
+
+{{< code language="javascript" title="[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof arr === "object" (array of numbers)
+// typeof k === "number"
+// typeof x === "number"
+
+const findClosestElements = (arr, k, x) => {
+    
+  let left = k - 1
+  let right = arr.length - 1
+
+  while (left < right) {
+    let mid = left + Math.floor((right-left)/2)
+    if (x - arr[mid-k+1] > arr[mid+1] - x) {
+      left = mid + 1
+    } else {
+      right = mid
+    }
+  }
+  return arr.slice(left - k + 1, left + 1)
+
+}{{< /code >}}
+
 # Tries
 
 A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter's key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a `.end` key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a `.end` key is found. Checking if a prefix (`startsWith`) is available is a relaxed search from the top that doesn't care about `.end`.
