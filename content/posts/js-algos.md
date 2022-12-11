@@ -2456,6 +2456,24 @@ const lengthOfLIS = (nums) => {
 
 }{{< /code >}}
 
+Given a starting position at the 0th index of an array, if the value at any position indicates the maximum range one can "hop" further to the right, can any series of hops reach the final value? In order to solve, you can linearly traverse the array starting at the 1st index, keeping track of a maximum `range`, which starts at the value at the 0th index. If at any point the index of the traversal is larger than the index given by the `range`, return `false`, otherwise update the `range` to be the best of itself or the index plus the value at the index. If the entire array loop is completed without returning `false`, you can return `true`.
+
+{{< code language="javascript" title="[Jump Game](https://leetcode.com/problems/jump-game/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const canJump = (nums) => {
+
+    let range = nums[0]
+    
+    for(let i = 1; i < nums.length; i++){
+        if(range < i) return false
+
+        range = Math.max(range, i + nums[i])
+    }
+    return true
+    
+}{{< /code >}}
+
 # Binary
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
