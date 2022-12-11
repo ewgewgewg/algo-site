@@ -1458,6 +1458,33 @@ const pathSum = (root, targetSum) => {
 
 }{{< /code >}}
 
+How to find the maximum width of a binary tree? One solution involves depth-first search. Create an empty `leftmostLocations` array, then conduct a depth-first search starting with the `root` node, a `widthLocation` of 0, and a `depth` of 0. The base case is a null node, but otherwise, a helper function can update the `leftmostLocations` array with the current `widthLocation` at the `depth` index if the `depth` has never before been seen. You can then create an `indexNormalizedToLeftmost` but subtracting the leftmost location at the given depth from the `widthLocation` (which helps with large LeetCode test cases), update a `best` with `indexNormalizedToLeftmost+1` if appropriate, and run the helper on the `.left` and `.right` of the current `node`, also passing down the doubled `indexNormalizedToLeftmost` and the doubled `indexNormalizedToLeftmost` with a 1 added after the multiplication, respectively. The third argument for both depth-first search calls is simply `depth+1`.
+
+{{< code language="javascript" title="[Maximum Width of a Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) -- influenced by [linfongi's code](https://leetcode.com/problems/maximum-width-of-binary-tree/solutions/154200/javascript-dfs-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const widthOfBinaryTree = (root) => {
+    
+  const leftmostLocations = []
+  let best = 0
+
+  const dfs = (node, widthLocation, depth) => {
+    if (!node) return
+    if (depth === leftmostLocations.length) {
+      leftmostLocations[depth] = widthLocation
+    }
+    
+    const indexNormalizedToLeftmost = widthLocation - leftmostLocations[depth]
+    best = Math.max(best, indexNormalizedToLeftmost + 1)
+    dfs(node.left, indexNormalizedToLeftmost*2, depth + 1)
+    dfs(node.right, indexNormalizedToLeftmost*2+1, depth + 1)
+  }
+  
+  dfs(root, 0, 0)
+  return best
+
+}{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
