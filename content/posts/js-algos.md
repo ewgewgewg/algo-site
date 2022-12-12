@@ -446,6 +446,27 @@ const findMaxLength = (nums) => {
 
 }{{< /code >}}
 
+Given an array of numbers, how can the number of subarrays that sum a given integer be found? (Subarrays are contiguous.) One linear method is to create a `map` to store the number of ways to sum to a given number already seen (starting it with a key of 0 pointing to a value of 1). Then iterate the array, keeping track of the `sum` of all numbers so far seen. At every step, if the `sum` counting the newly-seen number can be found in the `map`, the `result` can be increased by the number stored in the `map`. Then add a tally for the `sum` seen at the current location to the `map`.
+
+{{< code language="javascript" title="[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof k === "number"
+
+const subarraySum = (nums, k) => {
+
+  const map = new Map([[0,1]])
+
+  let sum = 0
+  let result = 0
+  for (number of nums) {
+    sum += number
+    if (map.has(sum - k)) result += map.get(sum - k)
+    map.set(sum, map.get(sum) + 1 || 1)
+  }
+  return result
+  
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.

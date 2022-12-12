@@ -344,12 +344,11 @@ for (let key in sampleObject){
 
 {{< /code >}}
 
-Maps have additional methods. For example, they have `size`, and can `delete` values and also iterate through their keys.
+Maps can be initialized with arrays of arrays of pairs, where each pair is converted into a key and value. They also have additional methods. For example, they have `size`, and can `delete` values and also iterate through their keys.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
-const map = new Map()
-map.set(0,1)
+const map = new Map([[0, 1]])
 map.set(1,2)
 map.set(2,3)
 map.set(3,4)
