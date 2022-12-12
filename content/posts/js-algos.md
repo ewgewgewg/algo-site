@@ -700,6 +700,44 @@ const decodeString = (s) => {
 
 }{{< /code >}}
 
+An array of integers where positive numbers head right, negative numbers head left, and 0 does not exist can be imagined as a field of asteroids. What is the state of the array after collisions, when in collisions smaller numbers are removed, and in cases of equal numbers both are removed? This problem can be solved with a `stack`. After the `stack` is created, loop the input array. Push every positive element to the array. In cases of negative elements, as long as there is a positive most recent (rightmost) item on the `stack`, pop `stack` elements until the absolute value of the negative element is smaller or equal to the most recent item on the `stack`. If the 'asteroid' moving left is smaller, continue to the next step in the outermost loop, and if the 'asteroids' are equal, pop the most recent item on the stack before continuing to the next step in the outermost loop. Otherwise, the asteroid moving to the left has cleared the rightwards 'asteroids' on the `stack`, and should be pushed to it.
+
+{{< code language="javascript" title="[Asteroid Collision](https://leetcode.com/problems/asteroid-collision/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof asteroids === "object" (array of numbers)
+
+const asteroidCollision = (asteroids) => {
+
+    const stack = []
+
+    for (let asteroid of asteroids){
+        if (asteroid > 0){
+            stack.push(asteroid)
+            continue
+        }
+
+        const absAsteroid = Math.abs(asteroid)
+        let addAsteroid = true
+        while(stack.length && stack[stack.length-1] > 0){
+            if(stack[stack.length-1] > absAsteroid){
+                addAsteroid = false
+                break
+            } else if (stack[stack.length-1] === absAsteroid){
+                addAsteroid = false
+                stack.pop()
+                break
+            }
+
+            stack.pop()
+        }
+
+        if (addAsteroid) stack.push(asteroid)
+
+    }
+
+    return stack
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
