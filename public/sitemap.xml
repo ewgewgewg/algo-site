@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/posts/js-language/</loc>
+    <lastmod>2022-11-27T00:42:50-05:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-11-27T00:42:50-05:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-11-27T00:42:50-05:00</lastmod>
+  </url><url>
+    <loc>/posts/js-algos/</loc>
+    <lastmod>2022-11-26T15:36:56-05:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url>
+</urlset>

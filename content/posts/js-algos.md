@@ -1012,7 +1012,7 @@ const sortList = (head) => {
     pointer.next = null
     
     return link.next
-    
+
 }{{< /code >}}
 
 # Strings
@@ -2204,6 +2204,81 @@ const findOrder = (numCourses, prerequisites) => {
   }
 
   return numCourses === result.length ? result : []
+
+}{{< /code >}}
+
+To count the number of connected components in a undirected graph, one method involves converting connections or edges into an `adjacencyList` that maps out every connection between two nodes. Then every node on the `adjacencyList` can be iterated. If the node has been `visited` it can be passed over, but if it has not yet been `visited`, a `result` counter starting at 0 can increase by 1. Then, if the `result` counter incremented, perform a depth-first search starting at the iterated node and continuing to each node that can be reached from it through any number of `adjacencyList` connections that has not yet been `visited`. Mark each as `visited` and only stop (base case) on a node that has already been `visited` to prevent infinite loops. The depth-first search will allow only the first visit to a new connected component to add to the `result` tally.
+
+{{< code language="javascript" title="[Number of Connected Components in a Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+// typeof edges === "object" (array of arrays with 2 numbers)
+
+const countComponents = (n, edges) => {
+
+  const adjacencyList = Array(n).fill().map(r => [])
+  const visited = new Set()
+  
+  for (let [node1, node2] of edges) {
+    adjacencyList[node1].push(node2)
+    adjacencyList[node2].push(node1)
+  }
+  
+  const dfs = (node) => {
+    if (visited.has(node)) return
+    visited.add(node)
+    for (let nextNode of adjacencyList[node]) {
+      dfs(nextNode)
+    }
+  }
+
+  let result = 0
+
+  for (let i = 0; i < n; i++) {
+    if (visited.has(i)) continue
+    result++
+    dfs(i)
+  }
+
+  return result
+
+}{{< /code >}}
+
+To determine how many moves to takes to get from position `0,0` to position `x,y` on an infinite chess board, first you can choose to investigate absolute value of both x and y to take advantage of the problem's symmetry. Then, create a `queue` seeded with the origin point, and perform breadth-first search with a `nextQueue`. For every item processed from the `queue`'s front, if it is at the desired end position, return a `moves` counter that starts at 0. Else, consider the eight directions a knight can move -- changing x or y coordinates 1 space or 2 spaces, and then changing whichever coordinate remains whichever of 1 or 2 was not already chosen. If a position has already been `seen` or is below -2, it can be ignored, otherwise add the coordinates to the `nextQueue`. Once the `queue` is emptied, replace it with `nextQueue`, make `nextQueue` empty, and increase the `moves` counter by 1.
+
+{{< code language="javascript" title="[Minimum Knight Moves](https://leetcode.com/problems/minimum-knight-moves/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof x === "number"
+// typeof y === "number"
+
+const minKnightMoves = (x, y) => {
+    const absX = Math.abs(x)
+    const absY = Math.abs(y)
+
+    const directions = [[1,2],[2,1],[-1,-2],[-2,-1],[-1,2],[2,-1],[1,-2],[-2,1]]
+    const seen = new Set()
+    seen.add(`0-0`)
+
+    let moves = 0
+    let queue = [[0,0]]
+    let nextQueue = []
+
+    while(queue.length){
+        const current = queue.shift()
+        if(absX === current[0] && absY === current[1]) return distance
+        for (let direction of directions){
+            const newX = current[0] + direction[0]
+            const newY = current[1] + direction[1]
+            if(newX < -2 || newY < -2 || seen.has(`${newX}+${newY}`)){
+              continue
+            }
+            seen.add(`${newX}+${newY}`)
+            nextQueue.push([newX, newY])
+        }
+        if(!queue.length){
+            moves++
+            queue = nextQueue
+            nextQueue = []
+        }
+    }
 
 }{{< /code >}}
 

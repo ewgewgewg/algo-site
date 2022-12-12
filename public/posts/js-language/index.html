@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>JS Language :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Summary An overview of JavaScript syntax. If you are a beginner, read this before the JS Algosfile.
+Variables, Types, and Comments JavaScript stores information (called values) within let and const variables &amp;ndash; const variables cannot be changed, but let variables can be reassigned later. Variables can contain booleans (true or false), strings (of text), or numbers, or have null or undefined values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the typeof command." />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/js-language/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/style.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/orange.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="JS Language">
+<meta property="og:description" content="Summary An overview of JavaScript syntax. If you are a beginner, read this before the JS Algosfile.
+Variables, Types, and Comments JavaScript stores information (called values) within let and const variables &amp;ndash; const variables cannot be changed, but let variables can be reassigned later. Variables can contain booleans (true or false), strings (of text), or numbers, or have null or undefined values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the typeof command." />
+<meta property="og:url" content="/posts/js-language/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-11-27 00:42:50 -0500 EST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container full headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/posts/js-language#advanced-objects">Advanced Objects</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#arrays">Arrays</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#binary">Binary</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#binary-operators">Binary Operators</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#binary-search">Binary Search</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#binary-search-trees">Binary Search Trees</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#binary-trees">Binary Trees</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#boolean-operators">Boolean Operators</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#conditionals-and-comparison-operators">Conditionals and Comparison Operators</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#dynamic-programming">Dynamic Programming</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#functions-with-math">Functions With Math</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#graphs">Graphs</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#hash-tables">Hash Tables</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#heaps">Heaps</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos">JavaScript Algorithms</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language">JavaScript Language</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#linked-lists">Linked Lists</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#loops-increments-and-decrements">Loops, Increments, and Decrements</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#math">Math</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#matricies">Matricies</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#methods-of-arrays">Methods of Arrays</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#methods-of-strings">Methods of Strings</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#objects-and-logging">Objects and Logging</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#recursion">Recursion</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#stacks">Stacks</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#strings">Strings</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#tries">Tries</a></li>
+        
+      
+        
+          <li><a href="/posts/js-language#variables-types-and-comments">Variables, Types, and Comments</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/posts/js-language#advanced-objects">Advanced Objects</a></li>
+        
+      
+        
+          <li><a href="/posts/js-algos#arrays">Arrays</a></li>
+        
+      
+      
+        <li>
+          <ul class="menu">
+            <li class="menu__trigger">Show more&nbsp;▾</li>
+            <li>
+              <ul class="menu__dropdown">
+                
+                  
+                    <li><a href="/posts/js-algos#binary">Binary</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#binary-operators">Binary Operators</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#binary-search">Binary Search</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#binary-search-trees">Binary Search Trees</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#binary-trees">Binary Trees</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#boolean-operators">Boolean Operators</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#conditionals-and-comparison-operators">Conditionals and Comparison Operators</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#dynamic-programming">Dynamic Programming</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#functions-with-math">Functions With Math</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#graphs">Graphs</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#hash-tables">Hash Tables</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#heaps">Heaps</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos">JavaScript Algorithms</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language">JavaScript Language</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#linked-lists">Linked Lists</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#loops-increments-and-decrements">Loops, Increments, and Decrements</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#math">Math</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#matricies">Matricies</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#methods-of-arrays">Methods of Arrays</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#methods-of-strings">Methods of Strings</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#objects-and-logging">Objects and Logging</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#recursion">Recursion</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#stacks">Stacks</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#strings">Strings</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-algos#tries">Tries</a></li>
+                  
+                
+                  
+                    <li><a href="/posts/js-language#variables-types-and-comments">Variables, Types, and Comments</a></li>
+                  
+                
+              </ul>
+            </li>
+          </ul>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/js-language/">JS Language</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2022-11-27 ::
+        
+      </time>
+    
+    
+      <span class="post-author">EWG</span>
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/"></a>&nbsp;
+      
+      #<a href="/tags/"></a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="summary">Summary<a href="#summary" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>An overview of JavaScript syntax. If you are a beginner, read this before the <a
+  href="/posts/js-algos"
+  
+  >JS Algos</a
+>
+ file.</p>
+<h1 id="variables-types-and-comments">Variables, Types, and Comments<a href="#variables-types-and-comments" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>JavaScript stores information (called values) within <code>let</code> and <code>const</code> variables &ndash; <code>const</code> variables cannot be changed, but <code>let</code> variables can be reassigned later. Variables can contain booleans (<code>true</code> or <code>false</code>), strings (of text), or numbers, or have <code>null</code> or <code>undefined</code> values. Booleans, strings, numbers, null, and undefined are called types, and can be detected by the <code>typeof</code> command. Typing on a line after <code>//</code> or on lines between <code>/*</code> and <code>*/</code> creates notes.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="432956187" type="checkbox"  />
+    <label for="432956187">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+const test = true
+typeof test // this code results in &#34;boolean&#34;
+
+let secondTest = &#34;word&#34;
+// quotes in &#39;&#39; and `` are also allowed
+
+secondTest = 8
+// secondTest was just redefined
+
+let thirdTest = null
+
+let fourthTest
+// fourthTest is undefined
+
+</code></pre>
+  </div>
+
+
+<h1 id="functions-with-math">Functions With Math<a href="#functions-with-math" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Functions process input parameters inside <code>()</code> and typically return results inside the <code>{}</code> of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding <code>()</code>, which can contain parameter values called arguments. Math can be done with <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> (as division), and <code>**</code> (to raise immediately previous number to an exponent after). These five operators can be coupled with assignment, like in <code>+=</code>. Parentheses also work as in regular math and <a
+  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence"
+  
+  target="_blank"
+  >precedence of operations is respected as described in the MDN Web Docs</a
+>
+. <code>Math.floor</code> can be used like a function to round down, while <code>Math.ceil</code> can be used to round up. <code>Math.max</code> and <code>Math.min</code> find maximums and minimums of input. <code>Math.abs</code> finds absolute value. <code>Math.pow</code> takes a base value and then an exponent and puts the first to the power of the second.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="173954826" type="checkbox"  />
+    <label for="173954826">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const square = (value) =&gt; {
+
+    return value  ** 2
+
+}
+
+function addTwoThenMultiplyByThree (value) {
+
+    return (value &#43; 2) * 3
+
+}
+
+const addThree = (value) =&gt; {
+    value &#43;= 3
+    return value
+}
+
+square(4) // returns 16
+addTwoThenMultiplyByThree(1) // returns 9
+addThree(5) // returns 8
+
+Math.floor(2.1) // returns 2
+Math.ceil(4.9) // returns 5
+Math.max(1, 2, 3) // returns 3
+Math.min(1, 2, 3) // returns 1
+Math.abs(-1) // returns 1
+Math.pow(2, 3) // returns 8
+
+</code></pre>
+  </div>
+
+
+<p>Because JavaScript tries to change types when appropriate, adding a string to a number, or adding two strings, joins characters as a string. <code>String</code> and <code>Number</code> also can take a argument each and transform them as appropriate. You can also test if <code>Number.isInteger</code>.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="814239765" type="checkbox"  />
+    <label for="814239765">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const elevenString = &#34;1&#34; &#43; 1 // contains &#34;11&#34;
+const twelveString = &#34;1&#34; &#43; &#34;2&#34; // contains &#34;12&#34;
+
+const aString = String(1) // contains &#34;1&#34;
+const aNumber = Number(&#34;1&#34;) // contains 1
+
+const integerState = Number.isInteger(aNumber) // contains true
+const notAnIntegerState = Number.isInteger(&#34;a&#34;) // contains false
+
+</code></pre>
+  </div>
+
+
+<p>Assigment of a variable and math can happen at the same time, like so:</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="163492875" type="checkbox"  />
+    <label for="163492875">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+let transform = 2
+
+transform &#43;= 2 // transform now contains 4
+transform -= 3 // transform now contains 1
+transform *= 2 // transform now contains 2
+transform /= 2 // transform now contains 1
+
+</code></pre>
+  </div>
+
+
+<p>You can set variables to infinity and check if they are infinite.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="467532189" type="checkbox"  />
+    <label for="467532189">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const small = 0
+isFinite(small) // contains true
+
+const large = Infinity
+isFinite(large) // contains false
+
+</code></pre>
+  </div>
+
+
+<p>You can also check if a value is not a number.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="592638471" type="checkbox"  />
+    <label for="592638471">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+isNaN(&#34;a&#34;) // contains true
+
+</code></pre>
+  </div>
+
+
+<p>You can convert a string to a number if you pass in the string and then the base.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="649213587" type="checkbox"  />
+    <label for="649213587">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+parseInt(&#34;4&#34;, 10) // contains 4
+parseInt(&#34;100&#34;, 2) // contains 4
+
+</code></pre>
+  </div>
+
+
+<p>Default parameters provide values in functions if no values are passed in.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="691843527" type="checkbox"  />
+    <label for="691843527">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const add = (a = 1, b = 2) =&gt; a &#43; b
+
+add() // returns 3
+add(2) // returns 4
+add(2,3) // returns 5
+
+</code></pre>
+  </div>
+
+
+<h1 id="conditionals-and-comparison-operators">Conditionals and Comparison Operators<a href="#conditionals-and-comparison-operators" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Code can be optional. Code written in brackets after an <code>if</code> condition in parentheses only runs if the condition is parentheses is <code>true</code>. An <code>if</code> condition can be immediately followed by one or more <code>else if</code>, also with parentetical activation conditions, and then an <code>else</code> which serves as a catch-all and thus has no explicit conditions. Typical conditions include <code>===</code> to check if two values are truly equal, <code>&gt;=</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&lt;</code> as relative comparators, <code>!</code> as negation, and <code>%</code>, the modulo operator, which returns what would be the remainder of a division between numbers on either side.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="659283714" type="checkbox"  />
+    <label for="659283714">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const singleFizzBuzz = (value) =&gt; {
+
+    if (!(value % 15)){
+        return &#34;FizzBuzz&#34;
+    } else if (!(value % 3){
+        return &#34;Fizz&#34;
+    } else if (!(value % 5)){
+        return &#34;Buzz
+    } else {
+        return value
+    }
+
+}
+
+singleFizzBuzz(6) // returns &#34;Fizz&#34;
+
+</code></pre>
+  </div>
+
+
+<p>The modulo operator can also be coupled with assignment, like <code>%=</code>.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="317596248" type="checkbox"  />
+    <label for="317596248">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+let number = 10
+number %= 3 // stored value in number after this operation is 1
+
+</code></pre>
+  </div>
+
+
+<p>Ternaries are short boolean conditionals that help with assignment. A condition is followed by <code>?</code>, then a value to assign if the condition is true, then <code>:</code>, then a value to assign if the condition is false.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="249876531" type="checkbox"  />
+    <label for="249876531">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const value = &#34;green&#34;
+const isValueBlue = value === &#34;blue&#34; ? &#34;blue&#34; : &#34;not blue&#34; // stored variable is &#34;not blue&#34;
+const isValueGreen = value === &#34;green&#34; ? &#34;green&#34; : &#34;not green&#34; // stored variable is &#34;green&#34; 
+
+</code></pre>
+  </div>
+
+
+<h1 id="boolean-operators">Boolean Operators<a href="#boolean-operators" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p><code>||</code> is or, and <code>&amp;&amp;</code> is and. <code>&amp;&amp;</code> has higher priority than <code>||</code> and will evaluate first. Most content can be used in place of true, while an empty string, zero, null, or undefined all can be used in boolean math as false. Using <code>!!</code> coerces a value to its boolean equivalant.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="385169742" type="checkbox"  />
+    <label for="385169742">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const andTrue = true &amp;&amp; true // stored variable is true
+const falseFromOneFalse = false &amp;&amp; true // stored variable is false
+const falseFromBoth = false &amp;&amp; false // stored variable is false
+
+const orTrue = true || true // stored variable is true
+const trueFromOneTrue = true || false // stored variable is true
+const falseNeedsBoth = false || false // stored variable is false
+
+const orderOfOperations = false || true &amp;&amp; false // stored variable is false because &amp;&amp; operates first
+
+const typeChangeDemonstrationTruthy = !!(&#34;a&#34; || 1) // stored variable is true
+const typeChangeDemonstrationFalsy = !!(&#34;&#34; || 0 || null || undefined) // stored variable is false
+
+</code></pre>
+  </div>
+
+
+<p>Boolean operators can also do conditional assigment.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="419378562" type="checkbox"  />
+    <label for="419378562">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+let color = &#34;blue&#34;
+
+true &amp;&amp; (color = &#34;red&#34;)
+
+// color is &#34;red&#34;
+
+false &amp;&amp; (color = &#34;blue&#34;)
+
+// color is still &#34;red&#34;
+
+</code></pre>
+  </div>
+
+
+<h1 id="loops-increments-and-decrements">Loops, Increments, and Decrements<a href="#loops-increments-and-decrements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Two basic types of repeating code blocks are <code>while</code> loops and <code>for</code> loops. A <code>while</code> loop continues until a parenthetical condition is false, and may not even run once (<code>do...while</code> loops guarantee at least one cycle). Meanwhile, <code>for</code> loops often three parts in their parenthetical, an initialized variable, a check condition that stops the loop if met, and a step condition that is expected to modify the initalized variable at the end of each loop. Alternatively, <code>for</code> loops can use a <code>let item of [items]</code> format in their parenthetical, where <code>[items]</code> can actually be any predefined iterable object, and <code>item</code>, which can be named arbitrarily in the loop, increments over everything inside. Behavior inside each loop is contained in <code>{}</code>, just like with functions. The operators <code>++</code> and <code>--</code> increase or decrease a number by 1, respectively. They can come before a number to run before a check.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="586214973" type="checkbox"  />
+    <label for="586214973">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+let i = 0
+
+while(i &lt; 4){
+
+    i&#43;&#43;
+
+}
+
+// i is 4 here
+
+do {
+
+    i&#43;&#43;
+
+} while (i &lt; 2)
+
+// i is 5 here because the do block runs once even though the condition is not met
+
+for (let j = 0; j &lt; 3; j&#43;&#43;){
+
+    i--
+
+}
+
+// i is 2 here
+
+const series = [3, 6, 9, 12]
+
+for (element of series){
+    i &#43;= element
+}
+
+// i is 32 here
+
+let num = 0
+const go = &#43;&#43;num || 0 // contains 1
+const stop = --num || 0 // contains 0
+
+</code></pre>
+  </div>
+
+
+<p>The keyword <code>break</code> stops the closest outer loop, while the keyword <code>continue</code> skips to the next step of the loop.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="465832197" type="checkbox"  />
+    <label for="465832197">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+let count = 0
+
+for (let i = 0; i &lt; 6; i&#43;&#43;){
+    count&#43;&#43;
+    if(count === 3) continue
+    count&#43;&#43;
+}
+
+// count is 11 here (would be 12 without continue)
+
+while(true){
+    count&#43;&#43;
+    if (count === 20) break
+}
+
+//count is 20 here
+
+</code></pre>
+  </div>
+
+
+<h1 id="objects-and-logging">Objects and Logging<a href="#objects-and-logging" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Data structures called objects are useful for manipulating data. Regular objects are made to store data pairs: keys that point to values. Special objects called maps and arrays also use keys and values. Maps keys can be any data type, including another object, while regular object keys can only be strings and array keys can only be numbers called indexes (array items always have an order). Sets, another type of object, contain unique values without keys.</p>
+<p>Dot notation is used to invoke methods, which are similar to functions&ndash;<code>set.add</code> with one parenthetical argument adds a value, and <code>map.set</code> with two arguments adds a key with its value, while <code>set.has</code> tests for presence of a parenthetical value, and <code>map.has</code> tests for presence of a parenthetical key. Meanwhile, <code>map.get</code> can take a key and return a value. Regular objects use dot or bracket notation to set and look up keys and values, while arrays use bracket notation only. Meanwhile, a special command, <code>console.log</code> prints data in parenthetical arguments to a nearby terminal (aka command line interface), which is usually what is used to run your program.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="984751362" type="checkbox"  />
+    <label for="984751362">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const regularObject = {&#34;car&#34;: 2 }
+const map = new Map()
+const array = [1,2]
+const set = new Set([5,6])
+
+regularObject.tree = 4
+set.add(4)
+array[2] = 4
+map.set(&#34;tree&#34;, 4)
+
+console.log(regularObject.car) // prints 2
+console.log(regularObject.tree) // prints 4
+console.log(regularObject[&#34;tree&#34;]) // prints 4
+console.log(set.has(4)) // prints true
+console.log(set.has(5)) // prints true
+console.log(array[0]) // prints 1 -- the leftmost location in an array is known as the 0 index
+console.log(array[1]) // prints 2
+console.log(array[2]) // prints 4
+console.log(map.has(&#34;tree&#34;)) // prints true
+console.log(map.get(&#34;tree&#34;)) // prints 4
+
+</code></pre>
+  </div>
+
+
+<p><code>Keys</code>, <code>values</code>, and keys and values as <code>entries</code> can be extracted with methods of of prototype term <code>Object</code>, taking the source object as the argument passed into the method. Object keys can be looped by using <code>for</code> loops can use a <code>let key in [items]</code> format in their parenthetical, where <code>[items]</code> can actually be any predefined iterable object, and <code>key</code>, which can be named arbitrarily in the loop, increments over every <code>key</code> inside.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="597241638" type="checkbox"  />
+    <label for="597241638">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const sampleObject = {color1: &#34;blue&#34;, color2: &#34;red&#34;}
+
+const keys = Object.keys(sampleObject)
+console.log(keys) // prints [&#34;color1&#34;, &#34;color2&#34;]
+
+const values = Object.values(sampleObject)
+console.log(values) // prints [&#34;blue&#34;, &#34;red&#34;]
+
+const entries = Object.entries(sampleObject)
+console.log(entries) // prints [[&#34;color1&#34;, &#34;blue&#34;], [&#34;color2&#34;, &#34;red&#34;]]
+
+for (let key in sampleObject){
+    console.log(key) // prints &#34;color1&#34;, then &#34;color2&#34;
+}
+
+</code></pre>
+  </div>
+
+
+<p>Maps have additional methods. For example, they have <code>size</code>, and can <code>delete</code> values and also iterate through their keys.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="849217563" type="checkbox"  />
+    <label for="849217563">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const map = new Map()
+map.set(0,1)
+map.set(1,2)
+map.set(2,3)
+map.set(3,4)
+map.set(4,5)
+
+map.delete(4)
+map.delete(map.keys().next().value)
+
+console.log(map.size) // prints 3
+console.log(map.has(4)) // prints false
+console.log(map.has(0)) // prints false
+console.log(map.has(1)) // prints true
+
+</code></pre>
+  </div>
+
+
+<p>Sets also have <code>size</code>.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="687342951" type="checkbox"  />
+    <label for="687342951">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const set = new Set()
+
+console.log(set.size) // prints 0
+
+</code></pre>
+  </div>
+
+
+<p>Template literal syntax &ndash; strings created with ` marks that contain variables surrounded by <code>${</code> and <code>}</code> &ndash; is useful for generating patterns of strings, which can enhance logging or the creation of objects or functions.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="873612549" type="checkbox"  />
+    <label for="873612549">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const variable1 = &#34;A&#34;
+const variable2 = &#34;B&#34;
+console.log(\`variable1: ${variable1}, variable2: ${variable2}\`) // prints \`variable1: A, variable2: B\`
+
+</code></pre>
+  </div>
+
+
+<h1 id="methods-of-arrays">Methods of Arrays<a href="#methods-of-arrays" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Arrays have <code>length</code>, can <code>push</code> new values to the lowest empty index, <code>pop</code> to unfill the greatest filled index and return the popped value, <code>shift</code> the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or <code>unshift</code> to move in a new 0 index value and rotate every other value up one index. These <code>push</code>, <code>pop</code>, <code>shift</code>, and <code>unshift</code> all act on the array they are run from and do not require assignment to a new array.</p>
+<p>Arrays can also transform or <code>map</code> their values into a new array. The <code>map</code> callback function, a function used as a method argument, itself contains value and index arguments for every array location. Arrays can <code>sort</code> their values in place. Explicitly comparing two arguments in a callback lets you <code>sort</code> numbers, and if the return of the callback is positive the second argument will return first, while if the return of the callback is negative the first argument will return first. A tie leaves original order. Otherwise the default is to sort even numbers as strings. Arrays can also <code>slice</code> to return only the content between certain indexes. Arrays can also test <code>every</code> value for some condition and return a boolean (<code>true</code> or <code>false</code>) depending on if every test is passed.</p>
+<p>The <code>fill</code> method takes an argument that can be used to fill whatever number of items is passed into a <code>new Array</code>, or an existing array. <code>fill</code> acts on the array it is run from and does not need to be assigned to a new variable.</p>
+<p>The <code>reverse</code> method reverses the elements in an array, and <code>join</code>, which takes an argument, merges the elements of the array and places the value of the argument between each, all in a single string. Array methods, like all methods, can be chained when the return of one has the method of the next.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="926475183" type="checkbox"  />
+    <label for="926475183">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const array = [2,4,6]
+console.log(array.length) // prints 3
+
+const popped = array.pop()
+console.log(popped) // prints 6
+
+array.push(10)
+console.log(array[2]) // prints 10
+
+array.shift()
+console.log(array[0]) // prints 4
+
+array.unshift(2)
+console.log(array[0]) // prints 2
+
+const array2 = array.map((value, index) =&gt; value &#43; index )
+console.log(array2) // prints [2, 5, 12]
+
+array.sort((a, b) =&gt; b - a)
+console.log(array) // prints [10, 4, 2]
+array.sort((a,b) =&gt; a - b)
+console.log(array) // prints [2, 4, 10]
+array.sort()
+console.log(array) // prints [10, 2, 4] because it alphabetizes numbers this way
+console.log([&#34;a&#34;,&#34;c&#34;,&#34;b&#34;].sort()) // prints [&#34;a&#34;, &#34;b&#34;, &#34;c&#34;]
+
+const array3 = array.slice(1)
+console.log(array3) // copy starts at index 1 of the former array and prints [4, 10]
+
+const array4 = array.slice(1, 2)
+console.log(array4) // copy starts at index 1 and ends just below index 3 of former array, printing [4]
+
+const allArrayValuesGreaterThanOneBoolean = array.every((value) =&gt; value &gt; 1)
+console.log(allArrayValuesGreaterThanOneBoolean) // prints true
+
+array.fill(4)
+console.log(array) // prints [4, 4, 4]
+
+const array5 = new Array(5).fill(5)
+console.log(array5) // prints [5, 5, 5, 5, 5]
+
+const string = array2.reverse().join(&#34;&#34;) // prints &#34;1252&#34;
+
+</code></pre>
+  </div>
+
+
+<p>The array method <code>concat</code> can to the parent array an array argument (flattened into one array), or push value arguments into the parent array. Combinations also possible.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="263598174" type="checkbox"  />
+    <label for="263598174">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const array = [1, 2, 3].concat([4, 5])
+console.log(array) // prints [1, 2, 3, 4, 5]
+
+const array2 = [1, 2, 3].concat(4, 5)
+console.log(array2) // prints [1, 2, 3, 4, 5]
+
+const array3 = [1, 2, 3].concat(4, 5, [6, 7, 8])
+console.log(array3) // prints [1, 2, 3, 4, 5, 6, 7, 8]
+
+</code></pre>
+  </div>
+
+
+<p>The array method <code>splice</code> takes an insertion location, a deletion count, and any number of insertion items as arguments. It acts on the array it is run from and does not need to be part of direct assignment. It can also take negative numbers and count from the back. If no second argument is provided, all elements from the given index onwards are removed.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="163724589" type="checkbox"  />
+    <label for="163724589">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const array = [1, 2, 3]
+
+array.splice(1, 1)
+console.log(array) // prints [1, 3]
+
+array.splice(1, 0, 4)
+console.log(array) // prints [1, 4, 3]
+
+array.splice(2, 0, 5, 6)
+console.log(array) // prints [1, 4, 5, 6, 3]
+
+array.splice(-2,1)
+console.log(array) // prints [1, 4, 5, 3]
+
+array.splice(-1)
+console.log(array) // prints [1, 4, 5]
+
+</code></pre>
+  </div>
+
+
+<p>The array method <code>reduce</code> may be tricky. For every step along its parent array, it runs a callback function with two arguments, an accumulator and the current value at the given array position. The accumulator defaults to the first value in the array, or can be set in the second argument of the <code>reduce</code> method (the first argument is the callback function). The return value of the callback at each step turns into the accumulator for the next step, which is ultimately returned out of the function.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="836574192" type="checkbox"  />
+    <label for="836574192">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const array = [1, 2, 3]
+
+const arraySum = array.reduce((accumulator, value) =&gt; accumulator &#43; value)
+console.log(arraySum) // prints 6
+
+const arraySumPlusOne = array.reduce((accumulator, value) =&gt; accumulator &#43; value, 1)
+console.log(arraySumPlusOne) // prints 7
+
+const arraySumOnKey = array.reduce((accumulator, value) =&gt; {return { sum: accumulator.sum &#43; value }}, { sum: 0 })
+console.log(arraySumOnKey) // prints { sum: 6 }
+
+</code></pre>
+  </div>
+
+
+<p>The spread operator <code>...</code> takes an array and spreads its items as elements of the new array.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="892531746" type="checkbox"  />
+    <label for="892531746">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const primaryColors = [&#34;red&#34;, &#34;blue&#34;, &#34;yellow&#34;]
+
+const shapes = [&#34;square&#34;, &#34;circle&#34;, &#34;triangle&#34;]
+
+const primaryColorsAndShapes = [...primaryColors, ...shapes]
+console.log(primaryColorsAndShapes) // prints [&#34;red&#34;, &#34;blue&#34;, &#34;yellow&#34;, &#34;square&#34;, &#34;circle&#34;, &#34;triangle&#34;]
+
+</code></pre>
+  </div>
+
+
+<p>You can also check if a specific value is in an array with the <code>includes</code> method.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="869572314" type="checkbox"  />
+    <label for="869572314">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+console.log([&#34;red&#34;,&#34;blue&#34;].includes(&#34;red&#34;)) // prints true
+
+</code></pre>
+  </div>
+
+
+<p>The <code>filter</code> method takes a callback as an argument that itself offers arguments for value, index, and the array itself as it runs its body on each location in the array it is run from. Any value that passes the test appears in a result array.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="891724653" type="checkbox"  />
+    <label for="891724653">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const filtered = [1, 2, 3].filter((value, index, array) =&gt; value &gt; array[1] || index === 0)
+
+console.log(filtered) // prints [1, 3]
+
+</code></pre>
+  </div>
+
+
+<h1 id="methods-of-strings">Methods of Strings<a href="#methods-of-strings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Strings also have <code>length</code>, and can return new strings <code>toLowerCase</code>, <code>toUpperCase</code>, or after running <code>replace</code> on their own values. Strings can also find <code>charCodeAt</code> at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like &lsquo;a&rsquo;, or &lsquo;.&rsquo;.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="287569413" type="checkbox"  />
+    <label for="287569413">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const string = &#34;Hello&#34;
+console.log(string.length) // prints 5
+
+const lowerCaseString = string.toLowerCase()
+console.log(lowerCaseString) // prints &#34;hello&#34;
+
+const upperCaseString = string.toUpperCase()
+console.log(upperCaseString) // prints &#34;HELLO&#34;
+
+const firstReplace = string.replace(&#34;l&#34;,&#34;a&#34;)
+console.log(firstReplace) // prints &#34;Healo&#34;
+
+const secondReplace = string.replace(/[0-9a-zA-Z]/g,&#39;&#39;)
+console.log(secondReplace) // this regex replaces all numbers and letters with an empty string (note the g), printing &#34;&#34;
+
+const thirdReplace = string.replace(/[^0-9a-zA-Z]/g,&#39;&#39;)
+console.log(thirdReplace) // this regex would replace any non-alphanumeric characters with an empty string (note the ^), but since there are none, &#34;Hello&#34; is printed
+
+const lowerCaseACharCode = firstReplace.charCodeAt(2)
+console.log(lowerCaseACharCode) // returns number 97 (for &#39;a&#39;)
+const upperCaseACharCode = &#34;A&#34;.charCodeAt(0)
+console.log(upperCaseACharCode) // returns number 65 (for &#39;A&#39;)
+
+console.log(string) // prints &#34;Hello&#34; as the original string is unmodified
+
+</code></pre>
+  </div>
+
+
+<p>The <code>includes</code> method checks if a string is inside a parent string and returns a boolean.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="318752964" type="checkbox"  />
+    <label for="318752964">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const substring1 = &#34;abc&#34;.includes(&#34;ab&#34;)
+console.log(substring1) // prints true
+
+const substring2 = &#34;abc&#34;.includes(&#34;ac&#34;)
+console.log(substring2) // prints false
+
+</code></pre>
+  </div>
+
+
+<p>The <code>trim</code> method removes any whitespace on either side of the string.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="693718524" type="checkbox"  />
+    <label for="693718524">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+console.log(&#34;  a  &#34;.trim()) // prints(&#34;a&#34;)
+console.log(&#34;    &#34;.trim()) // prints(&#34;&#34;)
+console.log(&#34;a&#34;) // prints(&#34;a&#34;)
+
+</code></pre>
+  </div>
+
+
+<p>The <code>repeat</code> method returns the string from which the method is called times the number in the first argument.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="196478523" type="checkbox"  />
+    <label for="196478523">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+console.log(&#34;abc&#34;.repeat(4)) // prints(&#34;abcabcabcabc&#34;)
+
+</code></pre>
+  </div>
+
+
+<h1 id="advanced-objects">Advanced Objects<a href="#advanced-objects" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Optional chaining with <code>?.</code> prevents an error and returns <code>undefined</code> if something the code is trying to look inside is <code>undefined</code> or <code>null</code>. This is useful if you want to stop a process gracefully if data shape is not as expected, instead of crashing the program.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="549621837" type="checkbox"  />
+    <label for="549621837">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const hasDepth = {
+
+    test: {
+        test2: true
+    }
+
+}
+
+const noDepth = {
+
+    test: {}
+
+}
+
+console.log(hasDepth?.test?.test2) // prints true
+console.log(noDepth?.test?.test2) // prints undefined
+
+</code></pre>
+  </div>
+
+
+<p>Functions in JavaScript can be used as classes, creating objects with class-defined structures that can store independent data. Assigning a function labeled as <code>function</code> to a variable and defining substructures inside it under <code>this.</code> allows for these substructures to change independently in class instances while always starting the same. Using the <code>new</code> keyword in front of the function variable creates a class instance. Shared methods can be created by assinging them to the prototype of the class definition. These will behave the same across all class instances but reference data specific to the instance.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="456823917" type="checkbox"  />
+    <label for="456823917">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const test = function () {
+
+    this.store = []
+
+}
+
+const a = new test
+a.store.push(4)
+
+const b = new test
+
+console.log(a.store) // prints [4]
+
+console.log(b.store) // prints []
+
+test.prototype.lengthPlusOne = function () {
+return this.store.length &#43; 1
+}
+
+console.log(a.lengthPlusOne()) prints 2
+
+console.log(b.lengthPlusOne()) prints 1
+
+</code></pre>
+  </div>
+
+
+<h1 id="binary-operators">Binary Operators<a href="#binary-operators" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>In binary, or base 2 math, <code>&amp;</code> is the bitwise AND, only keeping digits that match, while <code>|</code> is the bitwise OR, and <code>^</code> is XOR, placing a 1 in a digit in the combination of two XORed numbers when the parent elements mismatch. Meanwhile <code>&lt;&lt;</code> adds a number of binary 0 to the low end number on its left equal to the number on its right (<code>&lt;&lt; 1</code> multiplies by 2), and <code>&gt;&gt;</code> removes a number of binary digits from the low end of the number of its left equal to the number on its right. All of these can be coupled with assignment, such as <code>&amp;=</code>.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="786245913" type="checkbox"  />
+    <label for="786245913">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const binaryA = 2 &amp; 2
+console.log(binaryA) // prints 2
+
+const binaryB = 2 | 0
+console.log(binaryB) // prints 2
+
+const binaryC = 2 ^ 2
+console.log(binaryC) // prints 0
+
+const binaryD = 4 &lt;&lt; 1
+console.log(binaryD) // prints 8
+
+const binaryE = 4 &gt;&gt; 1
+console.log(binaryE) // prints 2
+
+let binaryF = 1
+binaryF &amp;= 1
+console.log(binaryF) // prints 1
+
+</code></pre>
+  </div>
+
+
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/js-algos/">
+                <span class="button__text">JS Algos</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

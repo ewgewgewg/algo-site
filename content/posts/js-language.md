@@ -375,6 +375,16 @@ console.log(set.size) // prints 0
 
 {{< /code >}}
 
+Template literal syntax -- strings created with \` marks that contain variables surrounded by `${` and `}` -- is useful for generating patterns of strings, which can enhance logging or the creation of objects or functions.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const variable1 = "A"
+const variable2 = "B"
+console.log(`variable1: ${variable1}, variable2: ${variable2}`) // prints `variable1: A, variable2: B`
+
+{{< /code >}}
+
 # Methods of Arrays
 
 Arrays have `length`, can `push` new values to the lowest empty index, `pop` to unfill the greatest filled index and return the popped value, `shift` the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or `unshift` to move in a new 0 index value and rotate every other value up one index. These `push`, `pop`, `shift`, and `unshift` all act on the array they are run from and do not require assignment to a new array.
