@@ -2877,6 +2877,35 @@ const isPalindrome = (x) => {
 
 }{{< /code >}}
 
+To pick a random index from an input array, weighted by the integer values in the indicies (indicies with greater values have proportionally more share), you can save a pair of variables to `this`: the `total` of input array, and a `runningTotals` array of equal length to the input array. Fill each index of `runningTotals` with the sum of every value from that position to the left in the input array. In the selection method, generate a `random` integer from 0 up to but not including the `total`, then conduct binary search, with a floored `mid` index, moving the `left` pointer to `mid+1` each time the `random` value is greater than the value at `mid`.  Else you can move `right` to `mid`.
+
+{{< code language="javascript" title="[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof w === "object" (array of numbers)
+
+const Solution = function(w) {
+    this.total = 0
+    this.runningTotals = []
+    for(let value of w) {
+        this.total += value
+        this.runningTotals.push(this.total)
+    }
+}
+
+Solution.prototype.pickIndex = function() {
+    const random = Math.random() * this.total
+    let left = 0
+    let right = this.runningTotals.length-1
+    while(left < right){
+        const mid = left + Math.floor((right-left)/2)
+        if(random > this.runningTotals[mid]){
+            left = mid + 1
+        } else {
+            right = mid
+        }
+    }
+    return left
+}{{< /code >}}
+
 # Heaps
 
 To find the k closest points to the origin, sort the points by the sum of the x distance squared and the y distance squared from the origin. No need to take square root because relative order will be the same either way. Return the k closest points. This algorithm can be done with a priority queue (which could always keep the lowest point on top based on its distance) but this is not a native data struture in JavaScript.
