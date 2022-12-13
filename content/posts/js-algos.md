@@ -1644,6 +1644,38 @@ const widthOfBinaryTree = (root) => {
 
 }{{< /code >}}
 
+To return the values of the nodes of a binary tree in zigzag order, that is, a first row left-to-right, followed by a second row right-to-left, and third row left-to-right, etc., you can perform a level-order traversal and keep track of the row number to reverse the values of every other row. If there is input, create a `results` array, fill a `row` array with the starting node, and declare an empty `nextRow` array. While `row` has a length, create a `values` array and loop the nodes in `row`, pushing every value seen to `values`, and pushing every `.left` and `.right` node seen, in that order, to `nextRow`. If the `results` array is an odd length, reverse the `values` array, and in either case, next push it to the `results` array. Then set `row` as `nextRow` and set `nextRow` as an empty array. This is the last part of the outer cycle. It continues if the new `row` contains any values.
+
+{{< code language="javascript" title="[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const zigzagLevelOrder = (root) => {
+    if (!root) return []
+
+    const results = []
+    let row = [root]
+    let nextRow = []
+
+    while(row.length){
+
+        let values = []
+        
+        for (let node of row){
+            values.push(node.val)
+            if (node.left) nextRow.push(node.left)
+            if (node.right) nextRow.push(node.right)
+        }
+        if (results.length % 2) values = values.reverse()
+
+        results.push(values)
+        row = nextRow
+        nextRow = []
+    }
+
+    return results
+    
+}{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
