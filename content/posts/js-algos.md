@@ -2679,7 +2679,7 @@ const canJump = (nums) => {
 
 }{{< /code >}}
 
-To find the maximum area of a square all of "1" inside a 2-D input array, you can create a 2-D array for dynamic programming with length and width both equal to that of the input array plus 1. Fill all locations with 0. Then loop through the input matrix, and every time you find a "1", replace the equivalent location in the dynamic programming array (which should be 1 ahead in both the x and y dimensions) with the minimum of its left, upper, and upper-left location plus 1. This is a candidate for the `best` square, so update a `best` variable with the value assigned to the dynamic programming array location, if appropriate. At the end of reviewing the input matrix, return the square of `best`. 
+To find the maximum area of a square all of "1" inside a 2D input array, you can create a 2D array for dynamic programming with length and width both equal to that of the input array plus 1. Fill all locations with 0. Then loop through the input matrix, and every time you find a "1", replace the equivalent location in the dynamic programming array (which should be 1 ahead in both the x and y dimensions) with the minimum of its left, upper, and upper-left location plus 1. This is a candidate for the `best` square, so update a `best` variable with the value assigned to the dynamic programming array location, if appropriate. At the end of reviewing the input matrix, return the square of `best`. 
 
 {{< code language="javascript" title="[Maximal Square](https://leetcode.com/problems/maximal-square/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof matrix === "object" (array of arrays of numbers)
@@ -2699,7 +2699,7 @@ const maximalSquare = (matrix) => {
     }
     
     return best ** 2
-    
+
 }{{< /code >}}
 
 # Binary
@@ -3307,5 +3307,30 @@ const isValidSudoku = (board) => {
       }
     }
     return true
+
+}{{< /code >}}
+
+To rotate a 2D square array in-place, 90 degrees to the right, you can notice that points can be moved in sets of four, which means that once a "triangle-like" quarter of the array starts cycles from all its points, the transformation is complete. To find the "triangle-like" array, create and inner an outer loop. The outer loop descends through every row of the input matrix (in a standard way), while the inner loop crosses rows by starting at the column index, and ending at 1 less than the column index, minus an additional value equal to the row. To understand why the inner loop starts and ends where it does, consider that the inner loop must end at least one step before the end of row because otherwise there would not be room for the start of the next clockwise side to start at a corner. The `-1` to both sides for each step into the matrix then makes sense because each step into the matrix removes the leftmost and the rightmost columns. Finally, for the rotation itself, save the value you find at the given location. Move into this position the value found at the `[sideLength-1-column][row]` of itself, and continue this pattern all four-step cycles are completed starting from every place the "triangle" has. Used the saved value to fill the last of the four positions.
+
+{{< code language="javascript" title="[Rotate Image](https://leetcode.com/problems/rotate-image/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof matrix === "object" (array of arrays of numbers)
+
+const rotate = (matrix) => {
+
+    const sideLength = matrix.length
+    for(let row = 0; row < sideLength; row++){ 
+        for(let column = row; column < sideLength - 1 - row; column++){
+
+            const startValue = matrix[row][column]
+
+            matrix[row][column] = matrix[sideLength-1-column][row]
+            matrix[sideLength-1-column][row] = matrix[sideLength-1-row][sideLength-1-column]
+            matrix[sideLength-1-row][sideLength-1-column] = matrix[column][sideLength-1-row]
+            matrix[column][sideLength-1-row] = startValue
+
+        }  
+    }
+    
+    return matrix
 
 }{{< /code >}}
