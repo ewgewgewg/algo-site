@@ -2679,6 +2679,29 @@ const canJump = (nums) => {
 
 }{{< /code >}}
 
+To find the maximum area of a square all of "1" inside a 2-D input array, you can create a 2-D array for dynamic programming with length and width both equal to that of the input array plus 1. Fill all locations with 0. Then loop through the input matrix, and every time you find a "1", replace the equivalent location in the dynamic programming array (which should be 1 ahead in both the x and y dimensions) with the minimum of its left, upper, and upper-left location plus 1. This is a candidate for the `best` square, so update a `best` variable with the value assigned to the dynamic programming array location, if appropriate. At the end of reviewing the input matrix, return the square of `best`. 
+
+{{< code language="javascript" title="[Maximal Square](https://leetcode.com/problems/maximal-square/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof matrix === "object" (array of arrays of numbers)
+
+const maximalSquare = (matrix) => {
+    const dp = [...Array(matrix.length+1)].map(_ => [...Array(matrix[0].length+1)].fill(0))
+    
+    let best = 0
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[0].length; j++) {
+            if (matrix[i][j] === "1") {
+                const last = Math.min(dp[i][j], dp[i][j+1], dp[i+1][j])
+                dp[i+1][j+1] = last + 1
+                best = Math.max(best, dp[i+1][j+1])
+            }
+        }
+    }
+    
+    return best ** 2
+    
+}{{< /code >}}
+
 # Binary
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
