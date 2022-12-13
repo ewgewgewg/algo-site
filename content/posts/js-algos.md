@@ -1676,6 +1676,29 @@ const zigzagLevelOrder = (root) => {
     
 }{{< /code >}}
 
+To find all possible ways a binary tree sums to a given number on a downwards path (no bending at a node), you can run a recursive call with default parameters for `sumsToHere`, which starts as an empty array, as well as a `result` count that starts at 0. If there is no node, return `result`, else push a 0 value to `sumsToHere` and loop the `sumsToHere` array. At every step, add the value at the current node, and then check if the new value at the `sumsToHere` location is equal to target value. If so, add 1 to the result. Next, run the parent recursively on the `.left` and `.right` of the current node, and add their values to `result`. Make sure to copy the `sumsToHere` array, rather than put it in directly. Finally, return `result`. 
+
+{{< code language="javascript" title="[Path Sum III](https://leetcode.com/problems/path-sum-iii/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+// targetSum === "number"
+
+const pathSum = (root, targetSum, sumsToHere = [], result = 0) => {
+
+        if(!root) return result
+
+        sumsToHere.push(0)
+        for(let i = 0; i < sumsToHere.length; i++){
+            sumsToHere[i] += root.val
+            if(sumsToHere[i] === targetSum) result++
+        }
+
+        result += pathSum(root.left, targetSum, sumsToHere.slice(), 0)
+        result += pathSum(root.right, targetSum, sumsToHere.slice(), 0)
+
+        return result
+        
+}{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
