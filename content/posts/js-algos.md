@@ -1338,6 +1338,23 @@ const characterReplacement = (s, k) => {
 
 }{{< /code >}}
 
+To find the largest number that can be made out of non-negative integers in an array, you can stringify the numbers and sort them by paired concatenations, such that numbers that when leading the pair make for larger joined numbers, end up on the left.
+
+{{< code language="javascript" title="[Largest Number](https://leetcode.com/problems/largest-number/) -- code adapted from [eddyhdzg's code and explanation](https://leetcode.com/problems/largest-number/solutions/864518/javascript-typescript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const largestNumber = (nums) => {
+    const result = nums
+    .map(value => String(value))
+    .sort((a, b) =>  a.concat(b) > b.concat(a) ? -1 : 1)
+    .join('')
+
+    if(result[0] === "0") return "0"
+
+    return result
+    
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
@@ -2991,7 +3008,7 @@ To write a function that raises a number to a power, you can use a recursive alg
 // typeof n === "number"
 
 const myPow = (x, n) => {
-    
+
     if (n===0) return 1
     
     let result = 1
