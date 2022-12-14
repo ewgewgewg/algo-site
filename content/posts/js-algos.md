@@ -1879,7 +1879,7 @@ const searchMatrix = (matrix, target) => {
     }
 
     return matrix[yLeft][xLeft] === target
-    
+
 }{{< /code >}}
 
 # Graphs
@@ -3495,4 +3495,33 @@ const rotate = (matrix) => {
     
     return matrix
 
+}{{< /code >}}
+
+# Queues
+
+To design a hit counter that counts hits in the last 300 seconds, you can assign a function to a variable that contains a `map` under `this`. To add a hit, add a count to the second provided in the `map`, creating a new entry if that time has not before been seen. To look up hits, check 300 values starting at the second being checked and working backwards.
+
+{{< code language="javascript" title="[Design Hit Counter](https://leetcode.com/problems/design-hit-counter/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const HitCounter = function () {
+  this.map = new Map()
+}
+
+HitCounter.prototype.hit = function (timestamp) {
+  if (!this.map.has(timestamp)){
+    this.map.set(timestamp,1)
+  } else {
+    this.map.set(timestamp, this.map.get(timestamp)+1)
+  }
+}
+
+HitCounter.prototype.getHits = function (timestamp) {
+  let result = 0
+  for (let i = 0; i < 300; i++) {
+    if (this.map.has(timestamp-i)){
+      result += this.map.get(timestamp-i)
+    }
+  }
+  return result
+  
 }{{< /code >}}

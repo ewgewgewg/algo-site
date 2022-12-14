@@ -135,6 +135,10 @@ paginate = 5
         name = "Matricies"
         url = "/posts/js-language#Matricies"
       [[languages.en.menu.main]]
+        identifier = "queues"
+        name = "Queues"
+        url = "/posts/js-language#Queues"
+      [[languages.en.menu.main]]
         identifier = "variables, types, and comments"
         name = "Variables, Types, and Comments"
         url = "/posts/js-language#Variables, Types, and Comments"
