@@ -1844,6 +1844,44 @@ TimeMap.prototype.get = function(key, timestamp) {
     return ""
 }{{< /code >}}
 
+To find if a number exists in a matrix of ordered numbers such that each row is sorted in ascending order and rows that have greater indicies contain greater values, two rounds of binary search can be conducted. First, find the row that would contain the number by using the maximum and minimum row indicies as `yRight` and `yLeft`. Test if the value at the end of the row of a floored `mid` is less than the target to increase `yLeft` to `mid+1`, else `yRight` becomes `mid`. Once the candidate row has been determined, you can return `false` immediately if the target value is outside the bounds of the row. Else, conduct a second binary search on the row. If the search is narrowed down the a single candidate that is not the target value, return `false`, else return `true`.
+
+{{< code language="javascript" title="[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof matrix === "object" (array of arrays of numbers)
+// typeof target === "number"
+
+const searchMatrix = (matrix, target) => {
+
+    let yLeft = 0
+    let yRight = matrix.length - 1
+
+    while (yLeft < yRight){
+        const mid = yLeft + Math.floor((yRight-yLeft)/2)
+        if (matrix[mid][matrix[0].length-1] < target){
+            yLeft = mid + 1
+        } else {
+            yRight = mid
+        }
+    }
+    
+    if (target > matrix[yLeft][matrix[0].length-1] || target < matrix[yLeft][0]) return false
+    
+    let xLeft = 0
+    let xRight = matrix[0].length - 1
+
+    while(xLeft < xRight){
+        const mid = xLeft + Math.floor((xRight-xLeft)/2)
+        if (matrix[yLeft][mid] < target){
+            xLeft = mid + 1
+        } else {
+            xRight = mid
+        }
+    }
+
+    return matrix[yLeft][xLeft] === target
+    
+}{{< /code >}}
+
 # Graphs
 
 A two-dimensional array can represent a screen of pixels. To represent the "flood fill" tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
