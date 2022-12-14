@@ -2984,6 +2984,31 @@ Solution.prototype.pickIndex = function() {
     return left
 }{{< /code >}}
 
+To write a function that raises a number to a power, you can use a recursive algorithm. Notice that any power of 0 returns a 1. Declare a temporary `result` as 1 and and an `absPower` as the absolute value of the power. If `absPower` is odd you can multiply the `result` by the number being raised, and reduce the `absPower` by 1. Then multiply `result` by a recusive call of the function that squares the number being raised and uses half the `absPower` as the power. Finally, if the original power was negative, return 1 over the `result`, else return the `result`. 
+
+{{< code language="javascript" title="[Pow(x, n)](https://leetcode.com/problems/powx-n/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof x === "number"
+// typeof n === "number"
+
+const myPow = (x, n) => {
+    
+    if (n===0) return 1
+    
+    let result = 1
+    let absPower = Math.abs(n)
+
+    if(absPower%2){
+        result *= x
+        absPower--
+    }
+
+    result *= myPow(x**2, absPower/2)
+    
+    if (n < 0) return 1/result
+    return result
+
+}{{< /code >}}
+
 # Heaps
 
 To find the k closest points to the origin, sort the points by the sum of the x distance squared and the y distance squared from the origin. No need to take square root because relative order will be the same either way. Return the k closest points. This algorithm can be done with a priority queue (which could always keep the lowest point on top based on its distance) but this is not a native data struture in JavaScript.
