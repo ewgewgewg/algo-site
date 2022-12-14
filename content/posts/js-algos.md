@@ -1340,19 +1340,19 @@ const characterReplacement = (s, k) => {
 
 To find the largest number that can be made out of non-negative integers in an array, you can stringify the numbers and sort them by paired concatenations, such that numbers that when leading the pair make for larger joined numbers, end up on the left.
 
-{{< code language="javascript" title="[Largest Number](https://leetcode.com/problems/largest-number/) -- code adapted from [eddyhdzg's code and explanation](https://leetcode.com/problems/largest-number/solutions/864518/javascript-typescript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Largest Number](https://leetcode.com/problems/largest-number/) -- code slightly modified from [eddyhdzg's code and explanation](https://leetcode.com/problems/largest-number/solutions/864518/javascript-typescript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
 
 const largestNumber = (nums) => {
     const result = nums
     .map(value => String(value))
     .sort((a, b) =>  a.concat(b) > b.concat(a) ? -1 : 1)
-    .join('')
+    .join("")
 
     if(result[0] === "0") return "0"
 
     return result
-    
+
 }{{< /code >}}
 
 # Binary Trees
@@ -2771,6 +2771,33 @@ const maximalSquare = (matrix) => {
     }
     
     return best ** 2
+
+}{{< /code >}}
+
+To determine the number of ways a string of numbers can be decoded as letters, where "A" is "1" and so on until "Z" is "26", you can notice that if the string has no length or the first digit is "0", there are 0 possible mappings. Otherwise, you can create a small `dp` array with length 2, and both digits initially filled with 1. The first 1 gives a hypothetical number of ways for the -1 digit of the string to be decoded (useful for a later loop), while the second 1 gives the number of ways for the 0 index digit of the string to be decoded (since we know it is not 0). Next, loop the string, starting at the 1st index. At every step, create a `next` variable starting at 0, and add the value of the 0 index of the `dp` array to `next` if the last and current indicies of the input array together range from "10" to "26". Because only a single 2-digit number is possible, this means you can add to `next` the value/number of combinations from two indicies ago (this is how the hypothetical 1 makes sense). Then, if the current index of the input array is not "0", you can add to `next` the value/number of combinations from one index ago -- "0" does not add anything because it is the only digit that must combine with the previous digit to count, so does not add any possibilities that rely on the previous digit being an ending digit. At the end of each step of the loop, change the 0 index of the `dp` array to the value in the 1 index, and then use `next` to update the 1 index. At the end of the loop, return the value in the 1 index.
+
+{{< code language="javascript" title="[Decode Ways](https://leetcode.com/problems/decode-ways/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const numDecodings =(s)=> {
+
+  if (!s.length || s[0] === "0") return 0
+
+  const dp = [1, 1]
+    
+  for (let i = 1; i < s.length; i++) {
+      let next = 0
+    if (s[i-1] === '1' || s[i-1] === '2' && s[i] <= '6') {
+      next += dp[0]
+    }
+    if (s[i] !== '0') {
+      next += dp[1]
+    }
+    dp[0] = dp[1]
+    dp[1] = next
+  }
+
+  return dp[1]
 
 }{{< /code >}}
 
