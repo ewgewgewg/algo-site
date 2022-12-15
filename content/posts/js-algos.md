@@ -1074,6 +1074,48 @@ const sortList = (head) => {
 
 }{{< /code >}}
 
+To reorder a linked list in-place such that the second value would become the old last value, and the fourth value would become the old second-to-last value, you can find the `endOfFrontPart` value with fast and slow pointers, then assign its `.next` as the leading part of the back half, the first `inorderBackNode`. Then you can make `endOfFrontPart`'s `.next` null to pinch off the front of the linked list from the back. The linked list starting with `inorderBackNode` can then be `reversed`. In the final part of the algorithm, create an empty `link` node and a copy of the original linked list head as `forward`. While `reversed` exists, assign the `.next` of `link` to `forward`, advance both `link` and `forward` to their `.next`, then assign the `.next` of `link` to `reversed` and advance both `link` and `reversed` to their `.next`. Finally, to account for a possible odd number of nodes, assign `link.next` to `forward`.
+
+{{< code language="javascript" title="[Reorder List](https://leetcode.com/problems/reorder-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+
+const reorderList = (head) => {
+
+    let fast = head
+    let slow = head
+    while(fast?.next){
+        fast = fast.next.next
+        slow = slow.next
+    }
+
+    let endOfFrontPart = slow
+    let inorderBackNode = endOfFrontPart.next
+    endOfFrontPart.next = null
+
+    let reversed = null
+    while (inorderBackNode){
+        const next = inorderBackNode.next
+        inorderBackNode.next = reversed
+        reversed = inorderBackNode
+        inorderBackNode = next
+    }
+
+    let link = new ListNode()
+    let forward = head
+    while (reversed){
+            link.next = forward
+            forward = forward.next
+            link = link.next
+
+            link.next = reversed
+            reversed = reversed.next
+            link = link.next
+    }
+
+    link.next = forward
+
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
@@ -3091,6 +3133,28 @@ const myPow = (x, n) => {
 
 }{{< /code >}}
 
+To reverse an integer as if it is a signed 32-bit value, you can start a `reverse` variable at 0. Declare a `clamp` at 2 to the 31 power. Then, while the input value still exists, multiply reverse by 10, add the value of the 0s place of the input value to `reverse`, and check if the `reverse` value is less than negative `clamp` or greater than `clamp-1`. Finally, divide the input value by 10 and remove any decimal. Once the input value no longer exists, return `reverse`.
+
+{{< code language="javascript" title="[Reverse Integer](https://leetcode.com/problems/reverse-integer/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof x === "number"
+
+const reverse = (x) => {
+
+  let reverse = 0
+  const clamp = Math.pow(2, 31)
+
+  while (x) {
+    reverse *= 10
+    reverse += x % 10
+    if ( reverse < -clamp || reverse > clamp - 1) return 0
+    if (x > 0) x = Math.floor(x/10)
+    else x = Math.ceil(x/10)
+  }
+
+  return reverse
+
+}{{< /code >}}
+
 # Heaps
 
 To find the k closest points to the origin, sort the points by the sum of the x distance squared and the y distance squared from the origin. No need to take square root because relative order will be the same either way. Return the k closest points. This algorithm can be done with a priority queue (which could always keep the lowest point on top based on its distance) but this is not a native data struture in JavaScript.
@@ -3523,5 +3587,5 @@ HitCounter.prototype.getHits = function (timestamp) {
     }
   }
   return result
-  
+
 }{{< /code >}}
