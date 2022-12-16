@@ -467,6 +467,34 @@ const subarraySum = (nums, k) => {
   
 }{{< /code >}}
 
+Given an array containing arrays with paired starting and ending times for meetings, how many meeting rooms are needed? A key to understanding this question is realizing that the number of meeting roms needed is the maximum number of overlapping meetings at any time. To solve, you can first handle the edge case where there are no meetings and return `0`. Else, split the input array into two sorted arrays, one that sorts the times of the `starts` from earliest to latest, and the other that sorts the times of the `ends` from earliest to latest. Set a `startPointer` and an `endPointer` both to 0, then loop as long as `startPointer` is less than the length of the input array. Each round, if the `starts` value at `startPointer` is less than the `ends` value at `endPointer`, this means a meeting is starting before the active one is ending. In this case, you can increase a `result` counter, starting at 0, by 1, and then increment the `startPointer` by 1 before the next round of the loop (since the meeting that just started has just been processed). In the other case, if the `startPointer` is pointing to a time greater or equal to the `endPointer`, this means there is no overlap between whatever meeting is starting and ending, and you can increment both pointers. The reason `result` ends at the correct value is because when `result` increments, the `startPointer` runs ahead by one step, meaning that overlaps of the same degree will not be double-counted, and only if the `startPointer` needs to run ahead even further will a new meeting room result be tallied.
+
+{{< code language="javascript" title="[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) -- code adapted from [svalak's Python code and explanation](https://svalaks.medium.com/leetcode-253-meeting-rooms-ii-ed40f55663a5)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof intervals === "object" (array of arrays with 2 numbers)
+
+const minMeetingRooms = (intervals) => {
+  
+  if (!intervals?.length) return 0
+
+  const starts = intervals.sort((a,b) => a[0] - b[0]).map(a => a[0])
+  const ends = intervals.sort((a,b) => a[1] - b[1]).map(a => a[1])
+  let startPointer = 0
+  let endPointer = 0
+
+  let result = 0
+  while (startPointer < intervals.length){
+      if (starts[startPointer] < ends[endPointer]){
+        result++
+      } else {
+        endPointer++
+      }
+      startPointer++
+  }
+  
+  return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
@@ -1400,6 +1428,8 @@ const largestNumber = (nums) => {
 How can you encode and decode an array of strings into and out of a single string? To encode, you can prefix each string with its length and a separator symbol, and then join them. To decode, you can read numbers until you get to the separator symbol, slice the number of characters after the separator symbol equal to the number just read, and add it to a `result` array. Then as long as the string being decoded still has length, read the next characters for numbers until a separator symbol is reached, etc.
 
 {{< code language="javascript" title="[Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) -- code adapted from [Mini Chang's Python code and explanation](https://medium.com/@miniChang8/leetcode-encode-and-decode-strings-4dde7e0efa1c)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof strs === "object" (array of strings)
+// typeof s === "string"
 
 const encode = (strs) => {
 
@@ -1409,7 +1439,7 @@ const encode = (strs) => {
     result.push(encoded)
   }
   return result.join("")
-  
+
 }
 
 const decode = (s) => {
