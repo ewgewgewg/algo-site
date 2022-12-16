@@ -1758,6 +1758,43 @@ const pathSum = (root, targetSum, sumsToHere = [], result = 0) => {
         
 }{{< /code >}}
 
+To return an array of nodes that all are a certain distance from a target node in a binary tree, first note that an empty root returns an empty array. Otherwise, you can traverse the array from the root until you find the `targetNode`, adding reverse `.parent` links at every step. Then you can run reursion from the `targetNode`, branching in the `.left`, `.right`, and `.parent` directions until either an end of the tree is reached, or a node of the desired distance from the `targetNode` is found. When such a node is found, you can push it to `results`.
+
+{{< code language="javascript" title="[All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) -- code adapted from [fbecker11's code](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/solutions/843575/javascript-dfs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const distanceK = (root, target, k) => {
+  if(!root) return []
+
+  const addReverseLinksAndReturnTargetNode  = (root, parent) => {
+        if(!root) return null
+        root.parent = parent
+        if(root === target){    
+        return root 
+        }    
+        return addReverseLinksAndReturnTargetNode(root.left, root) ||
+         addReverseLinksAndReturnTargetNode(root.right, root)    
+  }
+
+  const targetNode = addReverseLinksAndReturnTargetNode(root, null)  
+  const results = []
+
+  const getResults = (node, distance) => {
+    if(!node || node.visited) return
+    if(!distance){
+        results.push(node.val)
+        return
+    }   
+    node.visited = true
+    getResults(node.left, distance-1)
+    getResults(node.right, distance-1)
+    getResults(node.parent, distance-1)
+  }
+
+  getResults(targetNode, k)
+  return results
+  
+}{{< /code >}}
+
 # Binary Search
 
 Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half--much faster than a linear search.
@@ -3603,7 +3640,7 @@ const setZeroes = (matrix) => {
     }
     
     return matrix
-    
+
 }{{< /code >}}
 
 # Queues
