@@ -3561,6 +3561,51 @@ const rotate = (matrix) => {
 
 }{{< /code >}}
 
+To set 0 to all rows and columns in a matrix that contain at least one 0, in-place, parse through every row or column and if a 0 is noted, mark every nonzero element in the row or column with an intermediate value like a "c". Then parse though whichever you did not first check, row or column, and if a 0 is noted, mark every nonzero element in the row or column with a 0. Then go through the matrix one final time and update every intermediate value to a 0 (it can no longer confuse the second scan).
+
+{{< code language="javascript" title="[Rotate Image](https://leetcode.com/problems/rotate-image/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof matrix === "object" (array of arrays of numbers)
+
+const setZeroes = (matrix) => {
+    for (let i = 0; i < matrix.length; i++){
+        let clear = false
+        for(let j = 0; j < matrix[0].length; j++){
+            if (!matrix[i][j]){
+                clear = true
+                break
+            }
+        }
+        if (!clear) continue
+        for(let j = 0; j < matrix[0].length; j++){
+           if(typeof matrix[i][j] === "number" && matrix[i][j]) matrix[i][j] = "c" 
+        }
+    }
+    
+    for (let j = 0; j < matrix[0].length; j++){
+        let clear = false
+        for(let i = 0; i < matrix.length; i++){
+            if (!matrix[i][j]){
+                clear = true
+                break
+            }        
+        }
+        if (!clear) continue
+        for(let i = 0; i < matrix.length; i++){
+           matrix[i][j] = 0
+        }
+    }
+    
+    
+    for (let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[0].length; j++){
+            if(matrix[i][j] === "c") matrix[i][j] = 0
+        }
+    }
+    
+    return matrix
+    
+}{{< /code >}}
+
 # Queues
 
 To design a hit counter that counts hits in the last 300 seconds, you can assign a function to a variable that contains a `map` under `this`. To add a hit, add a count to the second provided in the `map`, creating a new entry if that time has not before been seen. To look up hits, check 300 values starting at the second being checked and working backwards.
