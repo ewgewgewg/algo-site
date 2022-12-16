@@ -1397,6 +1397,40 @@ const largestNumber = (nums) => {
 
 }{{< /code >}}
 
+How can you encode and decode an array of strings into and out of a single string? To encode, you can prefix each string with its length and a separator symbol, and then join them. To decode, you can read numbers until you get to the separator symbol, slice the number of characters after the separator symbol equal to the number just read, and add it to a `result` array. Then as long as the string being decoded still has length, read the next characters for numbers until a separator symbol is reached, etc.
+
+{{< code language="javascript" title="[Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) -- code adapted from [Mini Chang's Python code and explanation](https://medium.com/@miniChang8/leetcode-encode-and-decode-strings-4dde7e0efa1c)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const encode = (strs) => {
+
+  const result = []
+  for (let string of strs){
+    const encoded = String(string.length) + '/' + string
+    result.push(encoded)
+  }
+  return result.join("")
+  
+}
+
+const decode = (s) => {
+
+  const result = []
+  let i = 0
+  while (i < s.length){
+      let numberIndex = i
+      while (s[numberIndex] !== '/'){
+        numberIndex++
+      }
+      let size = Number(s.slice(i,numberIndex))
+      const word = s.slice(numberIndex + 1, numberIndex + 1 + size)
+      i = numberIndex + 1 + size
+      result.push(word)
+  }
+
+  return result
+
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
@@ -1792,7 +1826,7 @@ const distanceK = (root, target, k) => {
 
   getResults(targetNode, k)
   return results
-  
+
 }{{< /code >}}
 
 # Binary Search
