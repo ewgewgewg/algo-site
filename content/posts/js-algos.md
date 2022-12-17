@@ -497,7 +497,7 @@ const minMeetingRooms = (intervals) => {
 
 To find three numbers that sum closest to a target number in an array, one solution involves first sorting the array from least to greatest. Then, you can set a `best` to `Infinity`, and create a loop that takes a `firstPointer` from the 0 index to two less than the final index. At every step, the `secondPointer` starts in each loop as `firstPointer+1`, while the `thirdPointer` starts at the last index of the array. At this space in the outer loop, while `secondPointer` is less than `thirdPointer`, find the `sum` of the values at the three indices. Return the `sum` directly if it matches the target, or update `best` if the absolute value of the target less the `sum` is a smaller value than the target less `best`. Otherwise, move the `secondPointer` forwards until it points to a new value or crosses the `thirdPointer`, and pull the `thirdPointer` back until it does the same. Then check again if `secondPointer` is less than `thirdPointer`, and if so, go back to the step where you find the sum again. If the outer loop finishes, return `best`.
 
-{{< code language="javascript" title="[3 Sum Closest](https://leetcode.com/problems/3sum-closest/) -- code adapted from [casmith1987 code and explanation](https://leetcode.com/problems/3sum-closest/solutions/1467590/javascript-99/5)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[3Sum Closest](https://leetcode.com/problems/3sum-closest/) -- code adapted from [casmith1987 code and explanation](https://leetcode.com/problems/3sum-closest/solutions/1467590/javascript-99/5)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
 // typeof target === "number"
 
@@ -1183,6 +1183,8 @@ const reorderList = (head) => {
 To rotate a linked list to the right by a certain number of places, you can note that an empty list returns itself. Otherwise, a next step is to count the `length` of the list. Update the rotation count to its remainder after dividing by the `length`. If the new rotation count is `0` or the `length`, you can return the original linked list. Otherwise, you can save the `last` node, and with the new rotation count, iterate a pointer from the beginning of the list until you are the rotation count of spaces away from the `last` node. Save this location as the `result`, set the previous node's `.next` to `null`, and set the `last`'s `.next` to the original head. Then return `result`.
 
 {{< code language="javascript" title="[Rotate List](https://leetcode.com/problems/rotate-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+// typeof k === "number"
 
 const rotateRight = (head, k) => {
   if (!head) return head
@@ -1208,7 +1210,7 @@ const rotateRight = (head, k) => {
   last.next = head
 
   return result
-  
+
 }{{< /code >}}
 
 # Strings
@@ -2090,6 +2092,29 @@ const searchMatrix = (matrix, target) => {
 
     return matrix[yLeft][xLeft] === target
 
+}{{< /code >}}
+
+To find the minimum in a rotated sorted array of unique values, you can start by noticing that if you divide the array repeatedly into halves, if the value at `mid` in a binary search is ever greater than the value at `right`, the left side of the search space is sorted and the right side is not. This means that you can move the `left` to `mid+1`. Otherwise, you can move the `right` to `mid`. When the `left` and `right` pointers intersect the value at either pointer is the lowest.
+
+{{< code language="javascript" title="[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const findMin = (nums) => {
+
+  let left = 0
+  let right = nums.length - 1
+
+  while (left < right) {
+    const mid = left + Math.floor((right-left)/2)
+    if (nums[mid] > nums[right]){
+        left = mid + 1
+    } else {
+        right = mid
+    }
+  }
+
+  return nums[left]
+  
 }{{< /code >}}
 
 # Graphs
