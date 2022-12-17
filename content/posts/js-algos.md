@@ -495,6 +495,42 @@ const minMeetingRooms = (intervals) => {
 
 }{{< /code >}}
 
+To find three numbers that sum closest to a target number in an array, one solution involves first sorting the array from least to greatest. Then, you can set a `best` to `Infinity`, and create a loop that takes a `firstPointer` from the 0 index to two less than the final index. At every step, the `secondPointer` starts in each loop as `firstPointer+1`, while the `thirdPointer` starts at the last index of the array. At this space in the outer loop, while `secondPointer` is less than `thirdPointer`, find the `sum` of the values at the three indices. Return the `sum` directly if it matches the target, or update `best` if the absolute value of the target less the `sum` is a smaller value than the target less `best`. Otherwise, move the `secondPointer` forwards until it points to a new value or crosses the `thirdPointer`, and pull the `thirdPointer` back until it does the same. Then check again if `secondPointer` is less than `thirdPointer`, and if so, go back to the step where you find the sum again. If the outer loop finishes, return `best`.
+
+{{< code language="javascript" title="[3 Sum Closest](https://leetcode.com/problems/3sum-closest/) -- code adapted from [casmith1987 code and explanation](https://leetcode.com/problems/3sum-closest/solutions/1467590/javascript-99/5)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof target === "number"
+
+const threeSumClosest = (nums, target) => {
+    
+  nums.sort((a,b) => a-b)
+  let best = Infinity
+  
+  for (let firstPointer = 0; firstPointer < nums.length - 2; firstPointer++) {
+    if (firstPointer > 0 && nums[firstPointer] === nums[firstPointer - 1]) continue
+
+    let secondPointer = firstPointer + 1
+    let thirdPointer = nums.length - 1
+    while (secondPointer < thirdPointer) {
+      const sum = nums[firstPointer] + nums[secondPointer] + nums[thirdPointer]
+	  
+      if (sum === target) return sum
+      if (Math.abs(target - best) > Math.abs(target - sum)) best = sum
+	  
+      if (sum < target) {
+        secondPointer++
+        while(secondPointer < thirdPointer && nums[firstPointer] === nums[firstPointer - 1]) secondPointer++
+      } else {
+        thirdPointer--
+        while (secondPointer < thirdPointer && nums[thirdPointer] === nums[thirdPointer + 1]) thirdPointer--
+      }
+    }
+  }
+
+  return best
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
