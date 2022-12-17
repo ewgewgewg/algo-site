@@ -802,6 +802,48 @@ const asteroidCollision = (asteroids) => {
 
 }{{< /code >}}
 
+To build a string calculator of non-negative integers that handles blank spaces, `+`,`-`,`*`, and `/`, while truncating any `/` operations towards 0, you can note that two operators will act immediately -- `*` and `/`. Meanwhile, `+` and `-` may not act immediately depending on whether they are surrounded by higher-priority operators. In order to calculate, an empty `stack` can be created, as well as a `value` array to collect an active number. A `sign` variable can also be started at `+`, and the input string can be iterated. In the iteration, empty spaces can be skipped, and numbers can be pushed to the `value` array. If a sign is detected at the location in the string, this means it is time for the previous `sign` to be processed. If the saved `sign` is `+`, push the number form of the joined `value` to the `stack`, and if the saved `sign` is `-`, push the negative of the numerified joined form of the `value` to the `stack`. If the saved sign is `*`, this means the top item in the `stack` can also be processed. Pop it, multiply by the numerified joined form of the `value`, and push the result back to the `stack`. The process for division is similar -- the difference is to divide and truncate towards 0 before pushing back to the `stack`. Finally at the location, if a `sign` was detected, update the `sign` variable to store the `sign` at the current location, and replace `value` with an empty array. At the end of the string, evaluate the last `sign` and `value` per the above rules, then sum all the entries in `stack` and return this. (There may be multiple entries left at the end in the `stack` because `+` and `-` signs do not consolidate items in the `stack`.)
+
+{{< code language="javascript" title="[Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) -- adapted from [haleyysz's code](https://leetcode.com/problems/basic-calculator-ii/solutions/345603/JavaScript-stack/) by way of [fbecker11's code and explanation](https://leetcode.com/problems/basic-calculator-ii/solutions/597084/javascript-stack-o-n/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const calculate = (s) => {
+
+  const stack = []
+  let value = []
+  let sign = "+"
+  for(let i = 0; i <= s.length; i++){    
+    const viewing = s[i]
+
+    if(viewing === " "){
+        continue
+    }
+
+    if(!isNaN(viewing)){
+        value.push(viewing)
+        continue
+    }
+    const valueAsNumber = Number(value.join(""))
+
+    if (sign === "+"){
+        stack.push(valueAsNumber)
+    } else if (sign === "-"){
+        stack.push(-valueAsNumber)
+    } else if (sign === "*"){
+        stack.push(stack.pop()*valueAsNumber)
+    } else if (sign ==="/"){
+        const untruncatedDivision = stack.pop()/valueAsNumber
+        const step = untruncatedDivision > 0 ? Math.floor(untruncatedDivision) : Math.ceil(untruncatedDivision)
+        stack.push(step)
+    }
+
+      sign = viewing
+      value = []
+  }
+  return stack.reduce((a,b)=> a + b)
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:

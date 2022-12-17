@@ -114,11 +114,13 @@ isFinite(large) // contains false
 
 {{< /code >}}
 
-You can also check if a value is not a number.
+You can also check if a value is not a number. The function will recognize valid numbers in strings.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
 isNaN("a") // contains true
+isNaN("-5") // contains false
+isNaN(-5) // contains false
 
 {{< /code >}}
 
