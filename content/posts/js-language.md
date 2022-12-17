@@ -40,7 +40,7 @@ let fourthTest
 
 # Functions With Math
 
-Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). These five operators can be coupled with assignment, like in `+=`. Parentheses also work as in regular math and [precedence of operations is respected as described in the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value. `Math.pow` takes a base value and then an exponent and puts the first to the power of the second.
+Functions process input parameters inside `()` and typically return results inside the `{}` of the function body. Functions can be assigned to variables or explicitly named as functions. Defined functions can be invoked by naming them and adding `()`, which can contain parameter values called arguments. Math can be done with `+`, `-`, `*`, `/` (as division), and `**` (to raise immediately previous number to an exponent after). These five operators can be coupled with assignment, like in `+=`. Parentheses also work as in regular math and [precedence of operations is respected as described in the MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence). `Math.floor` can be used like a function to round down, while `Math.ceil` can be used to round up. `Math.max` and `Math.min` find maximums and minimums of input. `Math.abs` finds absolute value. `Math.pow` takes a base value and then an exponent and puts the first to the power of the second. `Math.random` creates an approximately random floating point (decimal) number from 0 to just less than 0 with a uniform distribution.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -71,6 +71,7 @@ Math.max(1, 2, 3) // returns 3
 Math.min(1, 2, 3) // returns 1
 Math.abs(-1) // returns 1
 Math.pow(2, 3) // returns 8
+Math.random() // returns some random floating point number
 
 {{< /code >}}
 
@@ -343,6 +344,18 @@ console.log(entries) // prints [["color1", "blue"], ["color2", "red"]]
 for (let key in sampleObject){
     console.log(key) // prints "color1", then "color2"
 }
+
+{{< /code >}}
+
+You can `delete` keys in objects.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const sampleObject = {color1: "blue", color2: "red"}
+
+delete sampleObject.color1
+
+console.log(sampleObject) // prints {color2: "red"}
 
 {{< /code >}}
 

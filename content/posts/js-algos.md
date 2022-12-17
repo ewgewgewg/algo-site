@@ -2869,6 +2869,36 @@ const canConstruct = function(ransomNote, magazine) {
 
 }{{< /code >}}
 
+To create a data struture such that elements can be inserted (returning a boolean, `true` if the element is not already present), removed (returning a boolean, `true`, if the element is already present), or randomly selected with equal probability, a function set to a variable can instantiate an empty `array` and an empty `object`, both set under `this`. To insert, at a `prototype` method, if the input is already found by direct lookup in the `object`, return `false`. Else, push the input to the `array`, note its `index`, and set a key-value pair in the `object` such that the key is the input being set and the value is the `index` in the array. Then return `true`. To remove, at a `prototype` method, if the input cannot be found by `object` lookup, return `false`. Else, pop the `last` item in the `array`, then used the popped item as a key lookup in the `object` and replace its index value with the index value of the input to be removed. Next, delete the index lookup in the `object` of the input being removed, but use its former index location, already stored in the `object` under the item being moved, to assign the `last` item to that location. Then return `true`. Finally, to get a random value on the `prototype`, floor a random value to the length of the `array` and return whatever item is at that `index`.
+
+{{< code language="javascript" title="[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) -- code slightly modified from [stevenkinouye's code](https://leetcode.com/problems/insert-delete-getrandom-o1/solutions/532747/javascript/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const RandomizedSet = function() {
+    this.array = []
+    this.object = {}
+}
+
+RandomizedSet.prototype.insert = function(val) {
+    if(this.object[val] !== undefined) return false
+    this.array.push(val)
+    const index = this.array.length - 1
+    this.object[val] = index
+    return true
+}
+RandomizedSet.prototype.remove = function(val) {
+    if(this.object[val] === undefined) return false
+    const last = this.array.pop()
+    this.object[last] = this.object[val]
+    delete this.object[val]
+    this.array[this.object[last]] = last
+    return true
+}
+
+RandomizedSet.prototype.getRandom = function() {
+    const index = Math.floor(Math.random()*this.array.length)
+    return this.array[index]
+}{{< /code >}}
+
 # Dynamic Programming
 
 If someone can climb one or two steps at a time, how many ways can they get to the top? Dynamic programming helps recognize that the number of ways to reach any given step acts as a multiplier on the ways to reach steps further up. A linear solution involves noticing the one way of getting to the 0th step, adding the number of ways to get to the 0th step to the 1st and 2nd steps, then "stepping" from the 1st step to the 2nd and 3rd steps, and adding counts so on and so on. Only three locations need to be available at a time.
