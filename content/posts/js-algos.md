@@ -3116,6 +3116,30 @@ const numDecodings =(s)=> {
 
 }{{< /code >}}
 
+To count the number of ways to sum to a target in an array of unique integers, you can create a `dp` array, sort the input array from least to greatest, and fill the `dp` array with a single count at every location equal to a value in the input array. Then, you can use dynamic programming to loop to every integer from `1` to the target value. At each, declare a `count` variable started at 0. Then, for each integer being targeted, loop the sorted input array until the loop runs out or the value at the input array location meets or exceeds the integer being targeted in the outer loop. For each of these inner loop steps, add to the `count` any value in `dp` at an index equal to the target integer less the value indicated at the inner loop. At the end of the inner loop, set `dp` at the index pointed to by the outer array equal to its current value, if any, plus `count`. At the end of the looping, return the value at the location of the target in `dp`.
+
+{{< code language="javascript" title="[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/) -- code slightly modified from [gnay's code](https://leetcode.com/problems/combination-sum-iv/solutions/264274/javascript/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof target === "number"
+
+const combinationSum4 = (nums, target) => {
+
+    const dp = []
+    nums.sort((a,b) => a-b)
+    for (let num of nums){
+        dp[num] = 1
+    }
+    for(let i = 1; i <= target; i++){
+        let count = 0
+        for(let j = 0; j < nums.length && nums[j] < i; j++){
+            count += dp[i - nums[j]]
+        }
+        dp[i] = dp[i] + count || count
+    }
+    return dp[target]
+
+}{{< /code >}}
+
 # Binary
 
 To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a `carry` variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to `carry` (ignoring any index that is less than 0). Next, and also in each loop, push `carry%2` to a `result` array, and reset `carry` to its own base 2 overflow. Once both strings have been looped, add any final value in `carry` to the `result` array, if a final value exists, then reverse the array and join it into the result string.
