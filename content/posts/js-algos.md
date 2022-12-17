@@ -502,7 +502,7 @@ To find three numbers that sum closest to a target number in an array, one solut
 // typeof target === "number"
 
 const threeSumClosest = (nums, target) => {
-    
+
   nums.sort((a,b) => a-b)
   let best = Infinity
   
@@ -1178,6 +1178,37 @@ const reorderList = (head) => {
 
     link.next = forward
 
+}{{< /code >}}
+
+To rotate a linked list to the right by a certain number of places, you can note that an empty list returns itself. Otherwise, a next step is to count the `length` of the list. Update the rotation count to its remainder after dividing by the `length`. If the new rotation count is `0` or the `length`, you can return the original linked list. Otherwise, you can save the `last` node, and with the new rotation count, iterate a pointer from the beginning of the list until you are the rotation count of spaces away from the `last` node. Save this location as the `result`, set the previous node's `.next` to `null`, and set the `last`'s `.next` to the original head. Then return `result`.
+
+{{< code language="javascript" title="[Rotate List](https://leetcode.com/problems/rotate-list/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const rotateRight = (head, k) => {
+  if (!head) return head
+  let length = 1
+  let pointer = head
+  while (pointer.next) {
+    length++
+    pointer = pointer.next
+  }
+
+  k %= length
+  if (!k || k === length) return head
+
+  const last = pointer
+  let pointer2 = head
+
+  for (let i = 0; i < length-k-1; i++){
+      pointer2 = pointer2.next
+  }
+
+  const result = pointer2.next
+  pointer2.next = null
+  last.next = head
+
+  return result
+  
 }{{< /code >}}
 
 # Strings
