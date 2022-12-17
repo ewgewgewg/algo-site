@@ -1622,6 +1622,65 @@ const decode = (s) => {
 
 }{{< /code >}}
 
+To find the minimum length substring (adjacent characters) in a parent input string such that every character if a different string is present, you can begin by constructing a `characterCountMap` from the string that has the requirements for the result string. Then you can loop the parent string. At every location, check if the `characterCountMap` has the location's `character`. If not, you can skip to the next `character`. Else, reduce the count at the appropriate `characterCountMap` by 1. If this `newCount` is 0, increment a `zeroCounter` declared outside the loop. While the `zeroCounter` is the same size as the `characterCountMap`, indicating that all characters in the requirements string are in the currently viewed string up to their count, find the `startCharacter` at a `startIndex` seeded outside the first loop at 0. If this character is an entry in the `characterCountMap` (indicating that its removal will be significant), add 1 to the character's location in the `characterCountMap`. If this `increasedCount` is 1, meaning that when it is added back the `characterCountMap` no longer meets the result requirements, decrement the `zeroCounter`. If the `increasedCount` is 1 and the length between the index in the outermost loop and the `startIndex` is less than a `mininimim` started outside the loops at Infinity, update `minimum` and `bestResultStartIndex` and `bestResultEndIndex`. As the last step in the loop checking if `zeroCounter` matches the size of the `characterCountMap`, increase `startIndex` by 1. At the end of the loop of the parent string, use the `bestResultStartIndex` and `bestResultEndIndex` to return the result from the parent string, unless `minimum` is still infinite. In that case you can return an empty string.
+
+{{< code language="javascript" title="[Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) -- code adapted from [art1991's code](https://leetcode.com/problems/minimum-window-substring/solutions/465059/javascript/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+// typeof t === "string"
+
+const minWindow = (s, t) => {
+    
+  const characterCountMap = new Map()
+  for (const char of t) {
+    characterCountMap.set(char, (characterCountMap.get(char) || 0) + 1)
+  }
+
+  let zeroCounter = 0
+  let startIndex = 0
+
+  let minimum = Infinity
+  let bestResultStartIndex = 0
+  let bestResultEndIndex = 0
+
+  for (let i = 0; i < s.length; i++) {
+    const character = s[i]
+    if (!characterCountMap.has(character)) continue
+
+    const newCount = characterCountMap.get(character) - 1
+    characterCountMap.set(character, newCount)
+
+    if (newCount) continue
+
+    zeroCounter++
+
+    while (zeroCounter === characterCountMap.size) {
+
+        const startCharacter = s[startIndex]
+
+        if (characterCountMap.has(startCharacter)) {
+            const increasedCount = characterCountMap.get(startCharacter) + 1
+            characterCountMap.set(startCharacter, increasedCount)
+            if (increasedCount === 1) {
+                zeroCounter--
+                if (i - startIndex < minimum) {
+                    minimum = i - startIndex + 1
+                    bestResultStartIndex = startIndex
+                    bestResultEndIndex = i
+                }
+            }
+            
+        }
+
+        startIndex++
+        
+    }
+
+
+  }
+  return isFinite(minimum) ? s.slice(bestResultStartIndex, bestResultEndIndex + 1) : ""
+
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
