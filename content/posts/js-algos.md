@@ -531,6 +531,32 @@ const threeSumClosest = (nums, target) => {
 
 }{{< /code >}}
 
+Given intervals with starting and ending values, how to find the minimum count of intervals to remove so that the remaining do not overlap? First, you can sort the input array by the ending values. Next, set the `previous` interval to the first interval in the input array, and set a `result` counter to `0`. Then, loop every other interval in the input array. If the ending value of `previous` is ever greater than the starting value of the interval being reviewed, increase `result` by 1, else update `previous` to be the interval being reviewed in the loop. This way, you are minimizing the ending value of `previous`.
+
+***
+
+{{< code language="javascript" title="[Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/description/) -- code modified from [junhouse's code](https://leetcode.com/problems/non-overlapping-intervals/solutions/334377/javascript-es6/) close to TORO21's in the comments" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof intervals === "object" (array of arrays with 2 numbers)
+
+const eraseOverlapIntervals = (intervals) => {
+    
+	intervals.sort((a,b) => a[1] - b[1])
+	let previous = intervals[0]
+	let result = 0
+
+    for (let i = 1; i < intervals.length; i++){
+
+			if (previous[1] > intervals[i][0]){
+                result++
+            } else {
+                previous = intervals[i]
+            }
+    }
+
+	return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
