@@ -456,6 +456,16 @@ const string = array2.reverse().join("") // prints "1252"
 
 {{< /code >}}
 
+The array method `indexOf` finds the first index of a given value, or returns `-1`.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const array = [1, 1]
+console.log(array.indexOf(1)) // prints 0
+console.log(array.indexOf(2)) // prints -1
+
+{{< /code >}}
+
 The array method `concat` can to the parent array an array argument (flattened into one array), or push value arguments into the parent array. Combinations also possible.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}

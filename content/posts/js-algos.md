@@ -533,13 +533,11 @@ const threeSumClosest = (nums, target) => {
 
 Given intervals with starting and ending values, how to find the minimum count of intervals to remove so that the remaining do not overlap? First, you can sort the input array by the ending values. Next, set the `previous` interval to the first interval in the input array, and set a `result` counter to `0`. Then, loop every other interval in the input array. If the ending value of `previous` is ever greater than the starting value of the interval being reviewed, increase `result` by 1, else update `previous` to be the interval being reviewed in the loop. This way, you are minimizing the ending value of `previous`.
 
-***
-
 {{< code language="javascript" title="[Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/description/) -- code modified from [junhouse's code](https://leetcode.com/problems/non-overlapping-intervals/solutions/334377/javascript-es6/) close to TORO21's in the comments" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof intervals === "object" (array of arrays with 2 numbers)
 
 const eraseOverlapIntervals = (intervals) => {
-    
+
 	intervals.sort((a,b) => a[1] - b[1])
 	let previous = intervals[0]
 	let result = 0
@@ -867,6 +865,32 @@ const calculate = (s) => {
       value = []
   }
   return stack.reduce((a,b)=> a + b)
+
+}{{< /code >}}
+
+Given an array of heights that can be thought to exist at the indicies given in the array, what is the volume of "rain water" falling straight down that can fill this structure without spilling? To solve this problem, you can first compute a `peakIndex` of any maximum value in the array. The amount of "water" added in any index location can never be greater than the value at the `peakIndex`. Next, start a `result` counter at `0`, and a `leftHeight` at `0`, and move through the input array until you reach the `peakIndex`. At every location, if the height at the location is less than `leftHeight`, add the positive difference to `result`. Else, update the `leftHeight` to the value at the current location. Once `peakIndex` is reached, repeat this process from the other end of the array with a `rightHeight`.
+
+{{< code language="javascript" title="[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)" expand="Show" collapse="Hide" isCollapsed="false" >}
+// typeof height === "object" (array of numbers)
+
+const trap = (height) => {
+
+    const peakIndex = height.indexOf(Math.max(...height))
+    let result = 0
+
+    let leftHeight = 0
+    for(let i = 0; i < peakIndex; i++){
+        if(height[i] < leftHeight) result += leftHeight - height[i]
+        else leftHeight = height[i]
+    }
+
+    let rightHeight = 0
+    for(let i = height.length-1; i > peakIndex; i--){
+        if(height[i] < rightHeight) result += rightHeight - height[i]
+        else rightHeight = height[i]   
+    }
+
+    return result
 
 }{{< /code >}}
 
