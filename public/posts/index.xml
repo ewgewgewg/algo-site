@@ -28,8 +28,8 @@ Variables, Types, and Comments JavaScript stores information (called values) wit
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;432956187&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;432956187&#34;&gt;
+    &lt;input id=&#34;675142938&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;675142938&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -60,13 +60,13 @@ let fourthTest
   target=&#34;_blank&#34;
   &gt;precedence of operations is respected as described in the MDN Web Docs&lt;/a
 &gt;
-. &lt;code&gt;Math.floor&lt;/code&gt; can be used like a function to round down, while &lt;code&gt;Math.ceil&lt;/code&gt; can be used to round up. &lt;code&gt;Math.max&lt;/code&gt; and &lt;code&gt;Math.min&lt;/code&gt; find maximums and minimums of input. &lt;code&gt;Math.abs&lt;/code&gt; finds absolute value. &lt;code&gt;Math.pow&lt;/code&gt; takes a base value and then an exponent and puts the first to the power of the second.&lt;/p&gt;
+. &lt;code&gt;Math.floor&lt;/code&gt; can be used like a function to round down, while &lt;code&gt;Math.ceil&lt;/code&gt; can be used to round up. &lt;code&gt;Math.max&lt;/code&gt; and &lt;code&gt;Math.min&lt;/code&gt; find maximums and minimums of input. &lt;code&gt;Math.abs&lt;/code&gt; finds absolute value. &lt;code&gt;Math.pow&lt;/code&gt; takes a base value and then an exponent and puts the first to the power of the second. &lt;code&gt;Math.random&lt;/code&gt; creates an approximately random floating point (decimal) number from 0 to just less than 0 with a uniform distribution.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;173954826&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;173954826&#34;&gt;
+    &lt;input id=&#34;467315289&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;467315289&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -100,6 +100,7 @@ Math.max(1, 2, 3) // returns 3
 Math.min(1, 2, 3) // returns 1
 Math.abs(-1) // returns 1
 Math.pow(2, 3) // returns 8
+Math.random() // returns some random floating point number
 
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
@@ -110,8 +111,8 @@ Math.pow(2, 3) // returns 8
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;814239765&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;814239765&#34;&gt;
+    &lt;input id=&#34;127543698&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;127543698&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -136,8 +137,8 @@ const notAnIntegerState = Number.isInteger(&amp;#34;a&amp;#34;) // contains fals
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;163492875&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;163492875&#34;&gt;
+    &lt;input id=&#34;651832479&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;651832479&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -160,8 +161,8 @@ transform /= 2 // transform now contains 1
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;467532189&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;467532189&#34;&gt;
+    &lt;input id=&#34;451863972&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;451863972&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -178,13 +179,13 @@ isFinite(large) // contains false
   &lt;/div&gt;
 
 
-&lt;p&gt;You can also check if a value is not a number.&lt;/p&gt;
+&lt;p&gt;You can also check if a value is not a number. The function will recognize valid numbers in strings.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;592638471&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;592638471&#34;&gt;
+    &lt;input id=&#34;531742968&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;531742968&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -192,6 +193,8 @@ isFinite(large) // contains false
     &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
 
 isNaN(&amp;#34;a&amp;#34;) // contains true
+isNaN(&amp;#34;-5&amp;#34;) // contains false
+isNaN(-5) // contains false
 
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
@@ -202,8 +205,8 @@ isNaN(&amp;#34;a&amp;#34;) // contains true
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;649213587&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;649213587&#34;&gt;
+    &lt;input id=&#34;918362457&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;918362457&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -222,8 +225,8 @@ parseInt(&amp;#34;100&amp;#34;, 2) // contains 4
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;691843527&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;691843527&#34;&gt;
+    &lt;input id=&#34;837124965&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;837124965&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -246,8 +249,8 @@ add(2,3) // returns 5
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;659283714&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;659283714&#34;&gt;
+    &lt;input id=&#34;891254367&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;891254367&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -279,8 +282,8 @@ singleFizzBuzz(6) // returns &amp;#34;Fizz&amp;#34;
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;317596248&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;317596248&#34;&gt;
+    &lt;input id=&#34;712435968&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;712435968&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -299,8 +302,8 @@ number %= 3 // stored value in number after this operation is 1
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;249876531&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;249876531&#34;&gt;
+    &lt;input id=&#34;935714268&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;935714268&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -321,8 +324,8 @@ const isValueGreen = value === &amp;#34;green&amp;#34; ? &amp;#34;green&amp;#34;
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;385169742&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;385169742&#34;&gt;
+    &lt;input id=&#34;986213547&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;986213547&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -351,8 +354,8 @@ const typeChangeDemonstrationFalsy = !!(&amp;#34;&amp;#34; || 0 || null || undef
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;419378562&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;419378562&#34;&gt;
+    &lt;input id=&#34;831924756&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;831924756&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -379,8 +382,8 @@ false &amp;amp;&amp;amp; (color = &amp;#34;blue&amp;#34;)
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;586214973&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;586214973&#34;&gt;
+    &lt;input id=&#34;342178569&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;342178569&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -434,8 +437,8 @@ const stop = --num || 0 // contains 0
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;465832197&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;465832197&#34;&gt;
+    &lt;input id=&#34;954386271&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;954386271&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -470,8 +473,8 @@ while(true){
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;984751362&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;984751362&#34;&gt;
+    &lt;input id=&#34;893572614&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;893572614&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -508,8 +511,8 @@ console.log(map.get(&amp;#34;tree&amp;#34;)) // prints 4
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;597241638&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;597241638&#34;&gt;
+    &lt;input id=&#34;512487639&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;512487639&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -535,21 +538,43 @@ for (let key in sampleObject){
   &lt;/div&gt;
 
 
-&lt;p&gt;Maps have additional methods. For example, they have &lt;code&gt;size&lt;/code&gt;, and can &lt;code&gt;delete&lt;/code&gt; values and also iterate through their keys.&lt;/p&gt;
+&lt;p&gt;You can &lt;code&gt;delete&lt;/code&gt; keys in objects.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;849217563&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;849217563&#34;&gt;
+    &lt;input id=&#34;746832159&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;746832159&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
     &lt;/label&gt;
     &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
 
-const map = new Map()
-map.set(0,1)
+const sampleObject = {color1: &amp;#34;blue&amp;#34;, color2: &amp;#34;red&amp;#34;}
+
+delete sampleObject.color1
+
+console.log(sampleObject) // prints {color2: &amp;#34;red&amp;#34;}
+
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;Maps can be initialized with arrays of arrays of pairs, where each pair is converted into a key and value. They also have additional methods. For example, they have &lt;code&gt;size&lt;/code&gt;, and can &lt;code&gt;delete&lt;/code&gt; values and also iterate through their keys.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;721986354&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;721986354&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+const map = new Map([[0, 1]])
 map.set(1,2)
 map.set(2,3)
 map.set(3,4)
@@ -572,8 +597,8 @@ console.log(map.has(1)) // prints true
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;687342951&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;687342951&#34;&gt;
+    &lt;input id=&#34;534872691&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;534872691&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -593,8 +618,8 @@ console.log(set.size) // prints 0
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;873612549&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;873612549&#34;&gt;
+    &lt;input id=&#34;845623197&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;845623197&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -603,7 +628,7 @@ console.log(set.size) // prints 0
 
 const variable1 = &amp;#34;A&amp;#34;
 const variable2 = &amp;#34;B&amp;#34;
-console.log(\`variable1: ${variable1}, variable2: ${variable2}\`) // prints \`variable1: A, variable2: B\`
+console.log(`variable1: ${variable1}, variable2: ${variable2}`) // prints `variable1: A, variable2: B`
 
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
@@ -611,15 +636,15 @@ console.log(\`variable1: ${variable1}, variable2: ${variable2}\`) // prints \`va
 
 &lt;h1 id=&#34;methods-of-arrays&#34;&gt;Methods of Arrays&lt;/h1&gt;
 &lt;p&gt;Arrays have &lt;code&gt;length&lt;/code&gt;, can &lt;code&gt;push&lt;/code&gt; new values to the lowest empty index, &lt;code&gt;pop&lt;/code&gt; to unfill the greatest filled index and return the popped value, &lt;code&gt;shift&lt;/code&gt; the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or &lt;code&gt;unshift&lt;/code&gt; to move in a new 0 index value and rotate every other value up one index. These &lt;code&gt;push&lt;/code&gt;, &lt;code&gt;pop&lt;/code&gt;, &lt;code&gt;shift&lt;/code&gt;, and &lt;code&gt;unshift&lt;/code&gt; all act on the array they are run from and do not require assignment to a new array.&lt;/p&gt;
-&lt;p&gt;Arrays can also transform or &lt;code&gt;map&lt;/code&gt; their values into a new array. The &lt;code&gt;map&lt;/code&gt; callback function, a function used as a method argument, itself contains value and index arguments for every array location. Arrays can &lt;code&gt;sort&lt;/code&gt; their values in place. Explicitly comparing two arguments in a callback lets you &lt;code&gt;sort&lt;/code&gt; numbers, and if the return of the callback is positive the second argument will return first, while if the return of the callback is negative the first argument will return first. A tie leaves original order. Otherwise the default is to sort even numbers as strings. Arrays can also &lt;code&gt;slice&lt;/code&gt; to return only the content between certain indexes. Arrays can also test &lt;code&gt;every&lt;/code&gt; value for some condition and return a boolean (&lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;) depending on if every test is passed.&lt;/p&gt;
+&lt;p&gt;Arrays can also transform or &lt;code&gt;map&lt;/code&gt; their values into a new array. The &lt;code&gt;map&lt;/code&gt; callback function, a function used as a method argument, itself contains value and index arguments for every array location. Arrays can &lt;code&gt;sort&lt;/code&gt; their values in place. Explicitly comparing two arguments in a callback lets you &lt;code&gt;sort&lt;/code&gt; numbers, and if the return of the callback is positive the second argument will return first, while if the return of the callback is negative the first argument will return first. A tie leaves original order. Otherwise the default is to sort even numbers as strings. Arrays can also &lt;code&gt;slice&lt;/code&gt; to return only the content starting at the index matching the first argument and continuing to the end of the array, or just before the index matching the second argument. The &lt;code&gt;slice&lt;/code&gt; method will always return a copy even if you slice at the 0 index. Arrays can also test &lt;code&gt;every&lt;/code&gt; value for some condition and return a boolean (&lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;) depending on if every test is passed.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;fill&lt;/code&gt; method takes an argument that can be used to fill whatever number of items is passed into a &lt;code&gt;new Array&lt;/code&gt;, or an existing array. &lt;code&gt;fill&lt;/code&gt; acts on the array it is run from and does not need to be assigned to a new variable.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;reverse&lt;/code&gt; method reverses the elements in an array, and &lt;code&gt;join&lt;/code&gt;, which takes an argument, merges the elements of the array and places the value of the argument between each, all in a single string. Array methods, like all methods, can be chained when the return of one has the method of the next.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;926475183&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;926475183&#34;&gt;
+    &lt;input id=&#34;964251738&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;964251738&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -673,13 +698,34 @@ const string = array2.reverse().join(&amp;#34;&amp;#34;) // prints &amp;#34;1252
   &lt;/div&gt;
 
 
+&lt;p&gt;The array method &lt;code&gt;indexOf&lt;/code&gt; finds the first index of a given value, or returns &lt;code&gt;-1&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;548263791&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;548263791&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+const array = [1, 1]
+console.log(array.indexOf(1)) // prints 0
+console.log(array.indexOf(2)) // prints -1
+
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;p&gt;The array method &lt;code&gt;concat&lt;/code&gt; can to the parent array an array argument (flattened into one array), or push value arguments into the parent array. Combinations also possible.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;263598174&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;263598174&#34;&gt;
+    &lt;input id=&#34;953784162&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;953784162&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -704,8 +750,8 @@ console.log(array3) // prints [1, 2, 3, 4, 5, 6, 7, 8]
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;163724589&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;163724589&#34;&gt;
+    &lt;input id=&#34;648591327&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;648591327&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -738,8 +784,8 @@ console.log(array) // prints [1, 4, 5]
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;836574192&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;836574192&#34;&gt;
+    &lt;input id=&#34;516724389&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;516724389&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -766,8 +812,8 @@ console.log(arraySumOnKey) // prints { sum: 6 }
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;892531746&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;892531746&#34;&gt;
+    &lt;input id=&#34;912734658&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;912734658&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -790,8 +836,8 @@ console.log(primaryColorsAndShapes) // prints [&amp;#34;red&amp;#34;, &amp;#34;b
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;869572314&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;869572314&#34;&gt;
+    &lt;input id=&#34;692137845&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;692137845&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -809,8 +855,8 @@ console.log([&amp;#34;red&amp;#34;,&amp;#34;blue&amp;#34;].includes(&amp;#34;red
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;891724653&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;891724653&#34;&gt;
+    &lt;input id=&#34;715638492&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;715638492&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -825,14 +871,33 @@ console.log(filtered) // prints [1, 3]
   &lt;/div&gt;
 
 
+&lt;p&gt;The &lt;code&gt;toString&lt;/code&gt; method turns an array into a string.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;293674185&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;293674185&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+console.log([1, 2].toString()) // prints &amp;#34;1,2&amp;#34;
+
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;methods-of-strings&#34;&gt;Methods of Strings&lt;/h1&gt;
 &lt;p&gt;Strings also have &lt;code&gt;length&lt;/code&gt;, and can return new strings &lt;code&gt;toLowerCase&lt;/code&gt;, &lt;code&gt;toUpperCase&lt;/code&gt;, or after running &lt;code&gt;replace&lt;/code&gt; on their own values. Strings can also find &lt;code&gt;charCodeAt&lt;/code&gt; at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like &amp;lsquo;a&amp;rsquo;, or &amp;lsquo;.&amp;rsquo;.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;287569413&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;287569413&#34;&gt;
+    &lt;input id=&#34;638475129&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;638475129&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -873,8 +938,8 @@ console.log(string) // prints &amp;#34;Hello&amp;#34; as the original string is 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;318752964&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;318752964&#34;&gt;
+    &lt;input id=&#34;726498135&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;726498135&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -896,17 +961,17 @@ console.log(substring2) // prints false
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;693718524&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;693718524&#34;&gt;
+    &lt;input id=&#34;962315487&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;962315487&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
     &lt;/label&gt;
     &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
 
-console.log(&amp;#34;  a  &amp;#34;.trim()) // prints(&amp;#34;a&amp;#34;)
-console.log(&amp;#34;    &amp;#34;.trim()) // prints(&amp;#34;&amp;#34;)
-console.log(&amp;#34;a&amp;#34;) // prints(&amp;#34;a&amp;#34;)
+console.log(&amp;#34;  a  &amp;#34;.trim()) // prints &amp;#34;a&amp;#34;
+console.log(&amp;#34;    &amp;#34;.trim()) // prints &amp;#34;&amp;#34;
+console.log(&amp;#34;a&amp;#34;) // prints &amp;#34;a&amp;#34;
 
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
@@ -917,15 +982,34 @@ console.log(&amp;#34;a&amp;#34;) // prints(&amp;#34;a&amp;#34;)
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;196478523&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;196478523&#34;&gt;
+    &lt;input id=&#34;271938645&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;271938645&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
     &lt;/label&gt;
     &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
 
-console.log(&amp;#34;abc&amp;#34;.repeat(4)) // prints(&amp;#34;abcabcabcabc&amp;#34;)
+console.log(&amp;#34;abc&amp;#34;.repeat(4)) // prints &amp;#34;abcabcabcabc&amp;#34;
+
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;String&lt;/code&gt; itself has a &lt;code&gt;fromCharCode&lt;/code&gt; method where &amp;ldquo;a&amp;rdquo; starts at 97, and the other lowercase letters go from there.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;815936724&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;815936724&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+console.log(String.fromCharCode(97)) // prints &amp;#34;a&amp;#34;
 
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;
@@ -937,8 +1021,8 @@ console.log(&amp;#34;abc&amp;#34;.repeat(4)) // prints(&amp;#34;abcabcabcabc&amp
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;549621837&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;549621837&#34;&gt;
+    &lt;input id=&#34;512897436&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;512897436&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -971,8 +1055,8 @@ console.log(noDepth?.test?.test2) // prints undefined
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;456823917&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;456823917&#34;&gt;
+    &lt;input id=&#34;759168342&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;759168342&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -1012,8 +1096,8 @@ console.log(b.lengthPlusOne()) prints 1
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;786245913&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;786245913&#34;&gt;
+    &lt;input id=&#34;278691435&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;278691435&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -1079,8 +1163,8 @@ Arrays To efficiently find indexes of two array values that sum to a target, cre
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;352891746&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;352891746&#34;&gt;
+    &lt;input id=&#34;564893712&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;564893712&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/two-sum/&#34;
@@ -1115,8 +1199,8 @@ const twoSum = (nums, target) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;825149736&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;825149736&#34;&gt;
+    &lt;input id=&#34;872465193&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;872465193&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&#34;
@@ -1156,8 +1240,8 @@ const maxProfit = (prices) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;435612789&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;435612789&#34;&gt;
+    &lt;input id=&#34;423765819&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;423765819&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/majority-element/&#34;
@@ -1200,8 +1284,8 @@ const majorityElement = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;247168395&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;247168395&#34;&gt;
+    &lt;input id=&#34;531962784&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;531962784&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/contains-duplicate/&#34;
@@ -1233,8 +1317,8 @@ const containsDuplicate = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;268395741&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;268395741&#34;&gt;
+    &lt;input id=&#34;954763182&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;954763182&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/contains-duplicate/&#34;
@@ -1266,8 +1350,8 @@ const containsDuplicate = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;712639485&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;712639485&#34;&gt;
+    &lt;input id=&#34;357981426&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;357981426&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/meeting-rooms/&#34;
@@ -1299,8 +1383,8 @@ const canAttendMeetings = (intervals) =&amp;gt;
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;638297514&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;638297514&#34;&gt;
+    &lt;input id=&#34;367195284&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;367195284&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/move-zeroes/&#34;
@@ -1335,8 +1419,8 @@ const moveZeroes = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;195328764&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;195328764&#34;&gt;
+    &lt;input id=&#34;381267459&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;381267459&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/squares-of-a-sorted-array/&#34;
@@ -1377,8 +1461,8 @@ const sortedSquares = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;257384916&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;257384916&#34;&gt;
+    &lt;input id=&#34;975632481&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;975632481&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/insert-interval/&#34;
@@ -1419,8 +1503,8 @@ const insert = (intervals, newInterval) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;167859432&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;167859432&#34;&gt;
+    &lt;input id=&#34;835197246&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;835197246&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/3sum/&#34;
@@ -1469,8 +1553,8 @@ const threeSum = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;152894376&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;152894376&#34;&gt;
+    &lt;input id=&#34;764153829&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;764153829&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/product-of-array-except-self/&#34;
@@ -1508,8 +1592,8 @@ const productExceptSelf = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;479162358&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;479162358&#34;&gt;
+    &lt;input id=&#34;421956387&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;421956387&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/combination-sum/&#34;
@@ -1550,8 +1634,8 @@ combinationSum = (candidates, target) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;491362785&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;491362785&#34;&gt;
+    &lt;input id=&#34;385276491&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;385276491&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/merge-intervals/&#34;
@@ -1588,8 +1672,8 @@ const merge = (intervals) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;365798412&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;365798412&#34;&gt;
+    &lt;input id=&#34;674192385&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;674192385&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/sort-colors/&#34;
@@ -1631,8 +1715,8 @@ const sortColors = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;397284615&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;397284615&#34;&gt;
+    &lt;input id=&#34;319827465&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;319827465&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/container-with-most-water/&#34;
@@ -1670,8 +1754,8 @@ const maxArea = (h) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;459182763&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;459182763&#34;&gt;
+    &lt;input id=&#34;697245318&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;697245318&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/gas-station/&#34;
@@ -1710,8 +1794,8 @@ const canCompleteCircuit = (gas, cost) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;572148963&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;572148963&#34;&gt;
+    &lt;input id=&#34;149728365&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;149728365&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-consecutive-sequence/description/&#34;
@@ -1747,8 +1831,8 @@ const longestConsecutive = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;834729165&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;834729165&#34;&gt;
+    &lt;input id=&#34;438571269&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;438571269&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/rotate-array/&#34;
@@ -1774,8 +1858,8 @@ const rotate = (nums, k) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;158926473&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;158926473&#34;&gt;
+    &lt;input id=&#34;962814735&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;962814735&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/contiguous-array/&#34;
@@ -1812,14 +1896,206 @@ const findMaxLength = (nums) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;Given an array of numbers, how can the number of subarrays that sum a given integer be found? (Subarrays are contiguous.) One linear method is to create a &lt;code&gt;map&lt;/code&gt; to store the number of ways to sum to a given number already seen (starting it with a key of 0 pointing to a value of 1). Then iterate the array, keeping track of the &lt;code&gt;sum&lt;/code&gt; of all numbers so far seen. At every step, if the &lt;code&gt;sum&lt;/code&gt; counting the newly-seen number can be found in the &lt;code&gt;map&lt;/code&gt;, the &lt;code&gt;result&lt;/code&gt; can be increased by the number stored in the &lt;code&gt;map&lt;/code&gt;. Then add a tally for the &lt;code&gt;sum&lt;/code&gt; seen at the current location to the &lt;code&gt;map&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;415637928&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;415637928&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/subarray-sum-equals-k/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Subarray Sum Equals K&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof nums === &amp;#34;object&amp;#34; (array of numbers)
+// typeof k === &amp;#34;number&amp;#34;
+
+const subarraySum = (nums, k) =&amp;gt; {
+
+  const map = new Map([[0,1]])
+
+  let sum = 0
+  let result = 0
+  for (number of nums) {
+    sum &amp;#43;= number
+    if (map.has(sum - k)) result &amp;#43;= map.get(sum - k)
+    map.set(sum, map.get(sum) &amp;#43; 1 || 1)
+  }
+  return result
+  
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;Given an array containing arrays with paired starting and ending times for meetings, how many meeting rooms are needed? A key to understanding this question is realizing that the number of meeting roms needed is the maximum number of overlapping meetings at any time. To solve, you can first handle the edge case where there are no meetings and return &lt;code&gt;0&lt;/code&gt;. Else, split the input array into two sorted arrays, one that sorts the times of the &lt;code&gt;starts&lt;/code&gt; from earliest to latest, and the other that sorts the times of the &lt;code&gt;ends&lt;/code&gt; from earliest to latest. Set a &lt;code&gt;startPointer&lt;/code&gt; and an &lt;code&gt;endPointer&lt;/code&gt; both to 0, then loop as long as &lt;code&gt;startPointer&lt;/code&gt; is less than the length of the input array. Each round, if the &lt;code&gt;starts&lt;/code&gt; value at &lt;code&gt;startPointer&lt;/code&gt; is less than the &lt;code&gt;ends&lt;/code&gt; value at &lt;code&gt;endPointer&lt;/code&gt;, this means a meeting is starting before the active one is ending. In this case, you can increase a &lt;code&gt;result&lt;/code&gt; counter, starting at 0, by 1, and then increment the &lt;code&gt;startPointer&lt;/code&gt; by 1 before the next round of the loop (since the meeting that just started has just been processed). In the other case, if the &lt;code&gt;startPointer&lt;/code&gt; is pointing to a time greater or equal to the &lt;code&gt;endPointer&lt;/code&gt;, this means there is no overlap between whatever meeting is starting and ending, and you can increment both pointers. The reason &lt;code&gt;result&lt;/code&gt; ends at the correct value is because when &lt;code&gt;result&lt;/code&gt; increments, the &lt;code&gt;startPointer&lt;/code&gt; runs ahead by one step, meaning that overlaps of the same degree will not be double-counted, and only if the &lt;code&gt;startPointer&lt;/code&gt; needs to run ahead even further will a new meeting room result be tallied.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;738412659&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;738412659&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/meeting-rooms-ii/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Meeting Rooms II&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://svalaks.medium.com/leetcode-253-meeting-rooms-ii-ed40f55663a5&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;svalak&amp;rsquo;s Python code and explanation&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof intervals === &amp;#34;object&amp;#34; (array of arrays with 2 numbers)
+
+const minMeetingRooms = (intervals) =&amp;gt; {
+  
+  if (!intervals?.length) return 0
+
+  const starts = intervals.sort((a,b) =&amp;gt; a[0] - b[0]).map(a =&amp;gt; a[0])
+  const ends = intervals.sort((a,b) =&amp;gt; a[1] - b[1]).map(a =&amp;gt; a[1])
+  let startPointer = 0
+  let endPointer = 0
+
+  let result = 0
+  while (startPointer &amp;lt; intervals.length){
+      if (starts[startPointer] &amp;lt; ends[endPointer]){
+        result&amp;#43;&amp;#43;
+      } else {
+        endPointer&amp;#43;&amp;#43;
+      }
+      startPointer&amp;#43;&amp;#43;
+  }
+  
+  return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To find three numbers that sum closest to a target number in an array, one solution involves first sorting the array from least to greatest. Then, you can set a &lt;code&gt;best&lt;/code&gt; to &lt;code&gt;Infinity&lt;/code&gt;, and create a loop that takes a &lt;code&gt;firstPointer&lt;/code&gt; from the 0 index to two less than the final index. At every step, the &lt;code&gt;secondPointer&lt;/code&gt; starts in each loop as &lt;code&gt;firstPointer+1&lt;/code&gt;, while the &lt;code&gt;thirdPointer&lt;/code&gt; starts at the last index of the array. At this space in the outer loop, while &lt;code&gt;secondPointer&lt;/code&gt; is less than &lt;code&gt;thirdPointer&lt;/code&gt;, find the &lt;code&gt;sum&lt;/code&gt; of the values at the three indices. Return the &lt;code&gt;sum&lt;/code&gt; directly if it matches the target, or update &lt;code&gt;best&lt;/code&gt; if the absolute value of the target less the &lt;code&gt;sum&lt;/code&gt; is a smaller value than the target less &lt;code&gt;best&lt;/code&gt;. Otherwise, move the &lt;code&gt;secondPointer&lt;/code&gt; forwards until it points to a new value or crosses the &lt;code&gt;thirdPointer&lt;/code&gt;, and pull the &lt;code&gt;thirdPointer&lt;/code&gt; back until it does the same. Then check again if &lt;code&gt;secondPointer&lt;/code&gt; is less than &lt;code&gt;thirdPointer&lt;/code&gt;, and if so, go back to the step where you find the sum again. If the outer loop finishes, return &lt;code&gt;best&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;815639427&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;815639427&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/3sum-closest/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;3Sum Closest&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://leetcode.com/problems/3sum-closest/solutions/1467590/javascript-99/5&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;casmith1987 code and explanation&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof nums === &amp;#34;object&amp;#34; (array of numbers)
+// typeof target === &amp;#34;number&amp;#34;
+
+const threeSumClosest = (nums, target) =&amp;gt; {
+
+  nums.sort((a,b) =&amp;gt; a-b)
+  let best = Infinity
+  
+  for (let firstPointer = 0; firstPointer &amp;lt; nums.length - 2; firstPointer&amp;#43;&amp;#43;) {
+    if (firstPointer &amp;gt; 0 &amp;amp;&amp;amp; nums[firstPointer] === nums[firstPointer - 1]) continue
+
+    let secondPointer = firstPointer &amp;#43; 1
+    let thirdPointer = nums.length - 1
+    while (secondPointer &amp;lt; thirdPointer) {
+      const sum = nums[firstPointer] &amp;#43; nums[secondPointer] &amp;#43; nums[thirdPointer]
+	  
+      if (sum === target) return sum
+      if (Math.abs(target - best) &amp;gt; Math.abs(target - sum)) best = sum
+	  
+      if (sum &amp;lt; target) {
+        secondPointer&amp;#43;&amp;#43;
+        while(secondPointer &amp;lt; thirdPointer &amp;amp;&amp;amp; nums[firstPointer] === nums[firstPointer - 1]) secondPointer&amp;#43;&amp;#43;
+      } else {
+        thirdPointer--
+        while (secondPointer &amp;lt; thirdPointer &amp;amp;&amp;amp; nums[thirdPointer] === nums[thirdPointer &amp;#43; 1]) thirdPointer--
+      }
+    }
+  }
+
+  return best
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;Given intervals with starting and ending values, how to find the minimum count of intervals to remove so that the remaining do not overlap? First, you can sort the input array by the ending values. Next, set the &lt;code&gt;previous&lt;/code&gt; interval to the first interval in the input array, and set a &lt;code&gt;result&lt;/code&gt; counter to &lt;code&gt;0&lt;/code&gt;. Then, loop every other interval in the input array. If the ending value of &lt;code&gt;previous&lt;/code&gt; is ever greater than the starting value of the interval being reviewed, increase &lt;code&gt;result&lt;/code&gt; by 1, else update &lt;code&gt;previous&lt;/code&gt; to be the interval being reviewed in the loop. This way, you are minimizing the ending value of &lt;code&gt;previous&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;816935427&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;816935427&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/non-overlapping-intervals/description/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Non-overlapping Intervals&lt;/a
+&gt;
+ &amp;ndash; code modified from &lt;a
+  href=&#34;https://leetcode.com/problems/non-overlapping-intervals/solutions/334377/javascript-es6/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;junhouse&amp;rsquo;s code&lt;/a
+&gt;
+ close to TORO21&amp;rsquo;s in the comments&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof intervals === &amp;#34;object&amp;#34; (array of arrays with 2 numbers)
+
+const eraseOverlapIntervals = (intervals) =&amp;gt; {
+
+	intervals.sort((a,b) =&amp;gt; a[1] - b[1])
+	let previous = intervals[0]
+	let result = 0
+
+    for (let i = 1; i &amp;lt; intervals.length; i&amp;#43;&amp;#43;){
+
+			if (previous[1] &amp;gt; intervals[i][0]){
+                result&amp;#43;&amp;#43;
+            } else {
+                previous = intervals[i]
+            }
+    }
+
+	return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;stacks&#34;&gt;Stacks&lt;/h1&gt;
 &lt;p&gt;To see if a string containing only &lt;code&gt;(){}[]&lt;/code&gt; characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack&amp;rsquo;s top item. If a closing bracket is found that does not close the stack&amp;rsquo;s top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return &lt;code&gt;false&lt;/code&gt; &amp;ndash; otherwise &lt;code&gt;true&lt;/code&gt; should be returned.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;812637945&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;812637945&#34;&gt;
+    &lt;input id=&#34;741526983&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;741526983&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/valid-parentheses/&#34;
@@ -1861,8 +2137,8 @@ const isValid = (s) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;278936145&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;278936145&#34;&gt;
+    &lt;input id=&#34;547921368&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;547921368&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/implement-queue-using-stacks/&#34;
@@ -1919,8 +2195,8 @@ MyQueue.prototype.empty = function() {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;723859146&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;723859146&#34;&gt;
+    &lt;input id=&#34;196754382&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;196754382&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/backspace-string-compare/&#34;
@@ -1981,8 +2257,8 @@ const backwards = (string, index) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;586193274&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;586193274&#34;&gt;
+    &lt;input id=&#34;132758496&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;132758496&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/evaluate-reverse-polish-notation/&#34;
@@ -2030,8 +2306,8 @@ const evalRPN = (tokens) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;923871654&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;923871654&#34;&gt;
+    &lt;input id=&#34;437892156&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;437892156&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/min-stack/description/&#34;
@@ -2079,8 +2355,8 @@ MinStack.prototype.getMin = function() {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;294617358&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;294617358&#34;&gt;
+    &lt;input id=&#34;256371894&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;256371894&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/daily-temperatures/&#34;
@@ -2121,8 +2397,8 @@ const dailyTemperatures = (temperatures) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;856941273&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;856941273&#34;&gt;
+    &lt;input id=&#34;758136492&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;758136492&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/decode-string/&#34;
@@ -2162,14 +2438,255 @@ const decodeString = (s) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;An array of integers where positive numbers head right, negative numbers head left, and 0 does not exist can be imagined as a field of asteroids. What is the state of the array after collisions, when in collisions smaller numbers are removed, and in cases of equal numbers both are removed? This problem can be solved with a &lt;code&gt;stack&lt;/code&gt;. After the &lt;code&gt;stack&lt;/code&gt; is created, loop the input array. Push every positive element to the array. In cases of negative elements, as long as there is a positive most recent (rightmost) item on the &lt;code&gt;stack&lt;/code&gt;, pop &lt;code&gt;stack&lt;/code&gt; elements until the absolute value of the negative element is smaller or equal to the most recent item on the &lt;code&gt;stack&lt;/code&gt;. If the &amp;lsquo;asteroid&amp;rsquo; moving left is smaller, continue to the next step in the outermost loop, and if the &amp;lsquo;asteroids&amp;rsquo; are equal, pop the most recent item on the stack before continuing to the next step in the outermost loop. Otherwise, the asteroid moving to the left has cleared the rightwards &amp;lsquo;asteroids&amp;rsquo; on the &lt;code&gt;stack&lt;/code&gt;, and should be pushed to it.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;791583642&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;791583642&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/asteroid-collision/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Asteroid Collision&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof asteroids === &amp;#34;object&amp;#34; (array of numbers)
+
+const asteroidCollision = (asteroids) =&amp;gt; {
+
+    const stack = []
+
+    for (let asteroid of asteroids){
+        if (asteroid &amp;gt; 0){
+            stack.push(asteroid)
+            continue
+        }
+
+        const absAsteroid = Math.abs(asteroid)
+        let addAsteroid = true
+        while(stack.length &amp;amp;&amp;amp; stack[stack.length-1] &amp;gt; 0){
+            if(stack[stack.length-1] &amp;gt; absAsteroid){
+                addAsteroid = false
+                break
+            } else if (stack[stack.length-1] === absAsteroid){
+                addAsteroid = false
+                stack.pop()
+                break
+            }
+
+            stack.pop()
+        }
+
+        if (addAsteroid) stack.push(asteroid)
+
+    }
+
+    return stack
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To build a string calculator of non-negative integers that handles blank spaces, &lt;code&gt;+&lt;/code&gt;,&lt;code&gt;-&lt;/code&gt;,&lt;code&gt;*&lt;/code&gt;, and &lt;code&gt;/&lt;/code&gt;, while truncating any &lt;code&gt;/&lt;/code&gt; operations towards 0, you can note that two operators will act immediately &amp;ndash; &lt;code&gt;*&lt;/code&gt; and &lt;code&gt;/&lt;/code&gt;. Meanwhile, &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;-&lt;/code&gt; may not act immediately depending on whether they are surrounded by higher-priority operators. In order to calculate, an empty &lt;code&gt;stack&lt;/code&gt; can be created, as well as a &lt;code&gt;value&lt;/code&gt; array to collect an active number. A &lt;code&gt;sign&lt;/code&gt; variable can also be started at &lt;code&gt;+&lt;/code&gt;, and the input string can be iterated. In the iteration, empty spaces can be skipped, and numbers can be pushed to the &lt;code&gt;value&lt;/code&gt; array. If a sign is detected at the location in the string, this means it is time for the previous &lt;code&gt;sign&lt;/code&gt; to be processed. If the saved &lt;code&gt;sign&lt;/code&gt; is &lt;code&gt;+&lt;/code&gt;, push the number form of the joined &lt;code&gt;value&lt;/code&gt; to the &lt;code&gt;stack&lt;/code&gt;, and if the saved &lt;code&gt;sign&lt;/code&gt; is &lt;code&gt;-&lt;/code&gt;, push the negative of the numerified joined form of the &lt;code&gt;value&lt;/code&gt; to the &lt;code&gt;stack&lt;/code&gt;. If the saved sign is &lt;code&gt;*&lt;/code&gt;, this means the top item in the &lt;code&gt;stack&lt;/code&gt; can also be processed. Pop it, multiply by the numerified joined form of the &lt;code&gt;value&lt;/code&gt;, and push the result back to the &lt;code&gt;stack&lt;/code&gt;. The process for division is similar &amp;ndash; the difference is to divide and truncate towards 0 before pushing back to the &lt;code&gt;stack&lt;/code&gt;. Finally at the location, if a &lt;code&gt;sign&lt;/code&gt; was detected, update the &lt;code&gt;sign&lt;/code&gt; variable to store the &lt;code&gt;sign&lt;/code&gt; at the current location, and replace &lt;code&gt;value&lt;/code&gt; with an empty array. At the end of the string, evaluate the last &lt;code&gt;sign&lt;/code&gt; and &lt;code&gt;value&lt;/code&gt; per the above rules, then sum all the entries in &lt;code&gt;stack&lt;/code&gt; and return this. (There may be multiple entries left at the end in the &lt;code&gt;stack&lt;/code&gt; because &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;-&lt;/code&gt; signs do not consolidate items in the &lt;code&gt;stack&lt;/code&gt;.)&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;247385619&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;247385619&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/basic-calculator-ii/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Basic Calculator II&lt;/a
+&gt;
+ &amp;ndash; adapted from &lt;a
+  href=&#34;https://leetcode.com/problems/basic-calculator-ii/solutions/345603/JavaScript-stack/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;haleyysz&amp;rsquo;s code&lt;/a
+&gt;
+ by way of &lt;a
+  href=&#34;https://leetcode.com/problems/basic-calculator-ii/solutions/597084/javascript-stack-o-n/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;fbecker11&amp;rsquo;s code and explanation&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof s === &amp;#34;string&amp;#34;
+
+const calculate = (s) =&amp;gt; {
+
+  const stack = []
+  let value = []
+  let sign = &amp;#34;&amp;#43;&amp;#34;
+  for(let i = 0; i &amp;lt;= s.length; i&amp;#43;&amp;#43;){    
+    const viewing = s[i]
+
+    if(viewing === &amp;#34; &amp;#34;){
+        continue
+    }
+
+    if(!isNaN(viewing)){
+        value.push(viewing)
+        continue
+    }
+    const valueAsNumber = Number(value.join(&amp;#34;&amp;#34;))
+
+    if (sign === &amp;#34;&amp;#43;&amp;#34;){
+        stack.push(valueAsNumber)
+    } else if (sign === &amp;#34;-&amp;#34;){
+        stack.push(-valueAsNumber)
+    } else if (sign === &amp;#34;*&amp;#34;){
+        stack.push(stack.pop()*valueAsNumber)
+    } else if (sign ===&amp;#34;/&amp;#34;){
+        const untruncatedDivision = stack.pop()/valueAsNumber
+        const step = untruncatedDivision &amp;gt; 0 ? Math.floor(untruncatedDivision) : Math.ceil(untruncatedDivision)
+        stack.push(step)
+    }
+
+      sign = viewing
+      value = []
+  }
+  return stack.reduce((a,b)=&amp;gt; a &amp;#43; b)
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;Given an array of heights that can be thought to exist at the indicies given in the array, what is the volume of &amp;ldquo;rain water&amp;rdquo; falling straight down that can fill this structure without spilling? To solve this problem, you can first compute a &lt;code&gt;peakIndex&lt;/code&gt; of any maximum value in the array. The amount of &amp;ldquo;water&amp;rdquo; added in any index location can never be greater than the value at the &lt;code&gt;peakIndex&lt;/code&gt;. Next, start a &lt;code&gt;result&lt;/code&gt; counter at &lt;code&gt;0&lt;/code&gt;, and a &lt;code&gt;leftHeight&lt;/code&gt; at &lt;code&gt;0&lt;/code&gt;, and move through the input array until you reach the &lt;code&gt;peakIndex&lt;/code&gt;. At every location, if the height at the location is less than &lt;code&gt;leftHeight&lt;/code&gt;, add the positive difference to &lt;code&gt;result&lt;/code&gt;. Else, update the &lt;code&gt;leftHeight&lt;/code&gt; to the value at the current location. Once &lt;code&gt;peakIndex&lt;/code&gt; is reached, repeat this process from the other end of the array with a &lt;code&gt;rightHeight&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;658431297&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;658431297&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/trapping-rain-water/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Trapping Rain Water&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof height === &amp;#34;object&amp;#34; (array of numbers)
+
+const trap = (height) =&amp;gt; {
+
+    const peakIndex = height.indexOf(Math.max(...height))
+    let result = 0
+
+    let leftHeight = 0
+    for(let i = 0; i &amp;lt; peakIndex; i&amp;#43;&amp;#43;){
+        if(height[i] &amp;lt; leftHeight) result &amp;#43;= leftHeight - height[i]
+        else leftHeight = height[i]
+    }
+
+    let rightHeight = 0
+    for(let i = height.length-1; i &amp;gt; peakIndex; i--){
+        if(height[i] &amp;lt; rightHeight) result &amp;#43;= rightHeight - height[i]
+        else rightHeight = height[i]   
+    }
+
+    return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To create a calculator from a string that handles &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, and parentheses, you can use recursion. On the outermost call of the main function, create an &lt;code&gt;endParenthesisLookupFromStart&lt;/code&gt; that gives keys for open parentheses indices, each paired with the value of the linked close parentheis index. This and the input string are passed to every layer, along with &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; indices that begin in the outermost call as the first and last indices of characters in the input string. Within the body of the main function, create an empty &lt;code&gt;nums&lt;/code&gt; array, and a &lt;code&gt;sign&lt;/code&gt; variable intially set to &lt;code&gt;1&lt;/code&gt;. Then move along characters in the input string from the given &lt;code&gt;start&lt;/code&gt; index to the &lt;code&gt;end&lt;/code&gt;. Skip any place spaces. If a &lt;code&gt;(&lt;/code&gt; is found, run the parent function recursively on the part of the string within that parenthesis and its pair, then push the &lt;code&gt;sectionResult&lt;/code&gt; times the &lt;code&gt;sign&lt;/code&gt; to &lt;code&gt;nums&lt;/code&gt;. If a &lt;code&gt;+&lt;/code&gt; is found, update the &lt;code&gt;sign&lt;/code&gt; to the number &lt;code&gt;1&lt;/code&gt;, and if a &lt;code&gt;-&lt;/code&gt; is found, update the sign to the number &lt;code&gt;-1&lt;/code&gt;. If the character being iterated in the loop itself is a number, collect all numbers immediately to the left to get the full number, and then push this &lt;code&gt;sectionResult&lt;/code&gt; to &lt;code&gt;nums&lt;/code&gt;. Make sure to update the iterating index. When the loop is done, return the sum of all values in &lt;code&gt;nums&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;839275461&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;839275461&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/basic-calculator/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Basic Calculator&lt;/a
+&gt;
+ &amp;ndash; code modified from &lt;a
+  href=&#34;https://leetcode.com/problems/basic-calculator/solutions/321991/javascript-solution/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;bobwei&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof s === &amp;#34;string&amp;#34;
+
+const calculate = (s, start = 0, end = s.length - 1, endParenthesisLookupFromStart = findParentheses(s)) =&amp;gt; {
+  const nums = []
+  let sign = 1
+  for (let i = start; i &amp;lt;= end; i&amp;#43;&amp;#43;) {
+    if (s[i] === &amp;#34; &amp;#34;) continue
+
+    if (s[i] === &amp;#34;(&amp;#34;) {
+      const sectionResult = calculate(s, i &amp;#43; 1, endParenthesisLookupFromStart[i] - 1, endParenthesisLookupFromStart)
+      nums.push(sign * sectionResult)
+      i = endParenthesisLookupFromStart[i]
+    } else if (s[i] === &amp;#34;&amp;#43;&amp;#34;) {
+      sign = 1;
+    } else if (s[i] === &amp;#34;-&amp;#34;) {
+      sign = -1;
+    } else if (!isNaN(s[i])) {
+      const str = parseNum(s, i)
+      const sectionResult = Number(str)
+      nums.push(sign * sectionResult)
+      i &amp;#43;= str.length - 1
+    }
+  }
+  return nums.reduce((a, b) =&amp;gt; a &amp;#43; b)
+}
+
+const findParentheses = (s) =&amp;gt; {
+  const endParenthesisLookupFromStart = {}
+  const stack = []
+  for (let i = 0; i &amp;lt; s.length; i&amp;#43;&amp;#43;) {
+    if (s[i] === &amp;#34;(&amp;#34;) {
+      stack.push(i)
+    } else if (s[i] === &amp;#39;)&amp;#39;) {
+      const left = stack.pop()
+      endParenthesisLookupFromStart[left] = i
+    }
+  }
+  return endParenthesisLookupFromStart
+}
+
+const parseNum = (s, start) =&amp;gt; {
+  let i = start;
+  let numberAsString = &amp;#34;&amp;#34;
+  while (!isNaN(s[i])) {
+    numberAsString &amp;#43;= s[i]
+    i &amp;#43;= 1
+  }
+  return numberAsString
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;linked-lists&#34;&gt;Linked Lists&lt;/h1&gt;
 &lt;p&gt;LeetCode implements a singly-linked list like this:&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;762931584&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;762931584&#34;&gt;
+    &lt;input id=&#34;341567289&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;341567289&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -2191,8 +2708,8 @@ function ListNode(val, next) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;546729318&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;546729318&#34;&gt;
+    &lt;input id=&#34;198267354&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;198267354&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -2214,8 +2731,8 @@ function ListNode(val) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;853742691&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;853742691&#34;&gt;
+    &lt;input id=&#34;714896352&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;714896352&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/merge-two-sorted-lists/&#34;
@@ -2263,8 +2780,8 @@ const mergeTwoLists = (list1, list2) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;135724968&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;135724968&#34;&gt;
+    &lt;input id=&#34;348759621&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;348759621&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/linked-list-cycle/&#34;
@@ -2305,8 +2822,8 @@ To reverse a linked list, create a null &lt;code&gt;link&lt;/code&gt;, then perf
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;127345869&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;127345869&#34;&gt;
+    &lt;input id=&#34;384269571&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;384269571&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/reverse-linked-list/&#34;
@@ -2342,8 +2859,8 @@ To find the middle node in a linked list (second of the two if the number of nod
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;632594817&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;632594817&#34;&gt;
+    &lt;input id=&#34;925437168&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;925437168&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/middle-of-the-linked-list/&#34;
@@ -2387,8 +2904,8 @@ const middleNode = (head) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;162879453&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;162879453&#34;&gt;
+    &lt;input id=&#34;749813562&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;749813562&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/palindrome-linked-list/&#34;
@@ -2451,8 +2968,8 @@ const reverse = (head) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;148592736&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;148592736&#34;&gt;
+    &lt;input id=&#34;937124685&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;937124685&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/lru-cache/&#34;
@@ -2499,8 +3016,8 @@ LRUCache.prototype.put = function(key, value) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;637952184&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;637952184&#34;&gt;
+    &lt;input id=&#34;879236514&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;879236514&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/remove-nth-node-from-end-of-list/&#34;
@@ -2545,8 +3062,8 @@ const removeNthFromEnd = (head, n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;972583164&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;972583164&#34;&gt;
+    &lt;input id=&#34;143568729&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;143568729&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/swap-nodes-in-pairs/&#34;
@@ -2580,8 +3097,8 @@ const swapPairs = (head) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;921875643&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;921875643&#34;&gt;
+    &lt;input id=&#34;196245387&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;196245387&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/odd-even-linked-list/&#34;
@@ -2621,8 +3138,8 @@ const oddEvenList = (head) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;475826391&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;475826391&#34;&gt;
+    &lt;input id=&#34;237918546&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;237918546&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/add-two-numbers/&#34;
@@ -2667,8 +3184,8 @@ const addTwoNumbers = (l1, l2) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;719523468&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;719523468&#34;&gt;
+    &lt;input id=&#34;527681943&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;527681943&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/sort-list/&#34;
@@ -2725,14 +3242,121 @@ const sortList = (head) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;To reorder a linked list in-place such that the second value would become the old last value, and the fourth value would become the old second-to-last value, you can find the &lt;code&gt;endOfFrontPart&lt;/code&gt; value with fast and slow pointers, then assign its &lt;code&gt;.next&lt;/code&gt; as the leading part of the back half, the first &lt;code&gt;inorderBackNode&lt;/code&gt;. Then you can make &lt;code&gt;endOfFrontPart&lt;/code&gt;&amp;rsquo;s &lt;code&gt;.next&lt;/code&gt; null to pinch off the front of the linked list from the back. The linked list starting with &lt;code&gt;inorderBackNode&lt;/code&gt; can then be &lt;code&gt;reversed&lt;/code&gt;. In the final part of the algorithm, create an empty &lt;code&gt;link&lt;/code&gt; node and a copy of the original linked list head as &lt;code&gt;forward&lt;/code&gt;. While &lt;code&gt;reversed&lt;/code&gt; exists, assign the &lt;code&gt;.next&lt;/code&gt; of &lt;code&gt;link&lt;/code&gt; to &lt;code&gt;forward&lt;/code&gt;, advance both &lt;code&gt;link&lt;/code&gt; and &lt;code&gt;forward&lt;/code&gt; to their &lt;code&gt;.next&lt;/code&gt;, then assign the &lt;code&gt;.next&lt;/code&gt; of &lt;code&gt;link&lt;/code&gt; to &lt;code&gt;reversed&lt;/code&gt; and advance both &lt;code&gt;link&lt;/code&gt; and &lt;code&gt;reversed&lt;/code&gt; to their &lt;code&gt;.next&lt;/code&gt;. Finally, to account for a possible odd number of nodes, assign &lt;code&gt;link.next&lt;/code&gt; to &lt;code&gt;forward&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;178653492&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;178653492&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/reorder-list/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Reorder List&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof head === &amp;#34;object&amp;#34; (linked list)
+
+const reorderList = (head) =&amp;gt; {
+
+    let fast = head
+    let slow = head
+    while(fast?.next){
+        fast = fast.next.next
+        slow = slow.next
+    }
+
+    let endOfFrontPart = slow
+    let inorderBackNode = endOfFrontPart.next
+    endOfFrontPart.next = null
+
+    let reversed = null
+    while (inorderBackNode){
+        const next = inorderBackNode.next
+        inorderBackNode.next = reversed
+        reversed = inorderBackNode
+        inorderBackNode = next
+    }
+
+    let link = new ListNode()
+    let forward = head
+    while (reversed){
+            link.next = forward
+            forward = forward.next
+            link = link.next
+
+            link.next = reversed
+            reversed = reversed.next
+            link = link.next
+    }
+
+    link.next = forward
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To rotate a linked list to the right by a certain number of places, you can note that an empty list returns itself. Otherwise, a next step is to count the &lt;code&gt;length&lt;/code&gt; of the list. Update the rotation count to its remainder after dividing by the &lt;code&gt;length&lt;/code&gt;. If the new rotation count is &lt;code&gt;0&lt;/code&gt; or the &lt;code&gt;length&lt;/code&gt;, you can return the original linked list. Otherwise, you can save the &lt;code&gt;last&lt;/code&gt; node, and with the new rotation count, iterate a pointer from the beginning of the list until you are the rotation count of spaces away from the &lt;code&gt;last&lt;/code&gt; node. Save this location as the &lt;code&gt;result&lt;/code&gt;, set the previous node&amp;rsquo;s &lt;code&gt;.next&lt;/code&gt; to &lt;code&gt;null&lt;/code&gt;, and set the &lt;code&gt;last&lt;/code&gt;&amp;rsquo;s &lt;code&gt;.next&lt;/code&gt; to the original head. Then return &lt;code&gt;result&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;837195642&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;837195642&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/rotate-list/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Rotate List&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof head === &amp;#34;object&amp;#34; (linked list)
+// typeof k === &amp;#34;number&amp;#34;
+
+const rotateRight = (head, k) =&amp;gt; {
+  if (!head) return head
+  let length = 1
+  let pointer = head
+  while (pointer.next) {
+    length&amp;#43;&amp;#43;
+    pointer = pointer.next
+  }
+
+  k %= length
+  if (!k || k === length) return head
+
+  const last = pointer
+  let pointer2 = head
+
+  for (let i = 0; i &amp;lt; length-k-1; i&amp;#43;&amp;#43;){
+      pointer2 = pointer2.next
+  }
+
+  const result = pointer2.next
+  pointer2.next = null
+  last.next = head
+
+  return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;strings&#34;&gt;Strings&lt;/h1&gt;
 &lt;p&gt;To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; pointers. While &lt;code&gt;start&lt;/code&gt; is at a lower index than &lt;code&gt;end&lt;/code&gt; check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return &lt;code&gt;false&lt;/code&gt; while otherwise &lt;code&gt;true&lt;/code&gt; should be the return.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;729356418&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;729356418&#34;&gt;
+    &lt;input id=&#34;428759361&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;428759361&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/valid-palindrome/&#34;
@@ -2768,8 +3392,8 @@ const isPalindrome = (s) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;486531972&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;486531972&#34;&gt;
+    &lt;input id=&#34;895246173&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;895246173&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/valid-anagram/&#34;
@@ -2806,8 +3430,8 @@ const isAnagram = (s, t) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;237196548&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;237196548&#34;&gt;
+    &lt;input id=&#34;978546312&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;978546312&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-palindrome/&#34;
@@ -2852,8 +3476,8 @@ const longestPalindrome = (s) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;921685437&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;921685437&#34;&gt;
+    &lt;input id=&#34;259647813&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;259647813&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-common-prefix/&#34;
@@ -2889,8 +3513,8 @@ const longestCommonPrefix = (strs) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;819742635&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;819742635&#34;&gt;
+    &lt;input id=&#34;782345619&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;782345619&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-substring-without-repeating-characters/&#34;
@@ -2932,8 +3556,8 @@ const lengthOfLongestSubstring = (s) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;627948315&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;627948315&#34;&gt;
+    &lt;input id=&#34;261389574&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;261389574&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/string-to-integer-atoi/&#34;
@@ -2968,8 +3592,8 @@ const myAtoi = (str) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;135264789&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;135264789&#34;&gt;
+    &lt;input id=&#34;586791234&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;586791234&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-palindromic-substring/&#34;
@@ -3016,8 +3640,8 @@ const longestPalindrome = (s) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;153984762&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;153984762&#34;&gt;
+    &lt;input id=&#34;941235867&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;941235867&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/find-all-anagrams-in-a-string/&#34;
@@ -3073,8 +3697,8 @@ const findAnagrams = (s, p) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;239651487&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;239651487&#34;&gt;
+    &lt;input id=&#34;849237156&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;849237156&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/group-anagrams/&#34;
@@ -3108,8 +3732,8 @@ const groupAnagrams = (strs) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;643251987&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;643251987&#34;&gt;
+    &lt;input id=&#34;381795462&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;381795462&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-repeating-character-replacement/&#34;
@@ -3148,14 +3772,192 @@ const characterReplacement = (s, k) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;To find the largest number that can be made out of non-negative integers in an array, you can stringify the numbers and sort them by paired concatenations, such that numbers that when leading the pair make for larger joined numbers, end up on the left.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;713862549&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;713862549&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/largest-number/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Largest Number&lt;/a
+&gt;
+ &amp;ndash; code slightly modified from &lt;a
+  href=&#34;https://leetcode.com/problems/largest-number/solutions/864518/javascript-typescript-solution/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;eddyhdzg&amp;rsquo;s code and explanation&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof nums === &amp;#34;object&amp;#34; (array of numbers)
+
+const largestNumber = (nums) =&amp;gt; {
+    const result = nums
+    .map(value =&amp;gt; String(value))
+    .sort((a, b) =&amp;gt;  a.concat(b) &amp;gt; b.concat(a) ? -1 : 1)
+    .join(&amp;#34;&amp;#34;)
+
+    if(result[0] === &amp;#34;0&amp;#34;) return &amp;#34;0&amp;#34;
+
+    return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;How can you encode and decode an array of strings into and out of a single string? To encode, you can prefix each string with its length and a separator symbol, and then join them. To decode, you can read numbers until you get to the separator symbol, slice the number of characters after the separator symbol equal to the number just read, and add it to a &lt;code&gt;result&lt;/code&gt; array. Then as long as the string being decoded still has length, read the next characters for numbers until a separator symbol is reached, etc.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;967421835&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;967421835&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/encode-and-decode-strings/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Encode and Decode Strings&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://medium.com/@miniChang8/leetcode-encode-and-decode-strings-4dde7e0efa1c&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Mini Chang&amp;rsquo;s Python code and explanation&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof strs === &amp;#34;object&amp;#34; (array of strings)
+// typeof s === &amp;#34;string&amp;#34;
+
+const encode = (strs) =&amp;gt; {
+
+  const result = []
+  for (let string of strs){
+    const encoded = String(string.length) &amp;#43; &amp;#39;/&amp;#39; &amp;#43; string
+    result.push(encoded)
+  }
+  return result.join(&amp;#34;&amp;#34;)
+
+}
+
+const decode = (s) =&amp;gt; {
+
+  const result = []
+  let i = 0
+  while (i &amp;lt; s.length){
+      let numberIndex = i
+      while (s[numberIndex] !== &amp;#39;/&amp;#39;){
+        numberIndex&amp;#43;&amp;#43;
+      }
+      let size = Number(s.slice(i,numberIndex))
+      const word = s.slice(numberIndex &amp;#43; 1, numberIndex &amp;#43; 1 &amp;#43; size)
+      i = numberIndex &amp;#43; 1 &amp;#43; size
+      result.push(word)
+  }
+
+  return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To find the minimum length substring (adjacent characters) in a parent input string such that every character if a different string is present, you can begin by constructing a &lt;code&gt;characterCountMap&lt;/code&gt; from the string that has the requirements for the result string. Then you can loop the parent string. At every location, check if the &lt;code&gt;characterCountMap&lt;/code&gt; has the location&amp;rsquo;s &lt;code&gt;character&lt;/code&gt;. If not, you can skip to the next &lt;code&gt;character&lt;/code&gt;. Else, reduce the count at the appropriate &lt;code&gt;characterCountMap&lt;/code&gt; by 1. If this &lt;code&gt;newCount&lt;/code&gt; is 0, increment a &lt;code&gt;zeroCounter&lt;/code&gt; declared outside the loop. While the &lt;code&gt;zeroCounter&lt;/code&gt; is the same size as the &lt;code&gt;characterCountMap&lt;/code&gt;, indicating that all characters in the requirements string are in the currently viewed string up to their count, find the &lt;code&gt;startCharacter&lt;/code&gt; at a &lt;code&gt;startIndex&lt;/code&gt; seeded outside the first loop at 0. If this character is an entry in the &lt;code&gt;characterCountMap&lt;/code&gt; (indicating that its removal will be significant), add 1 to the character&amp;rsquo;s location in the &lt;code&gt;characterCountMap&lt;/code&gt;. If this &lt;code&gt;increasedCount&lt;/code&gt; is 1, meaning that when it is added back the &lt;code&gt;characterCountMap&lt;/code&gt; no longer meets the result requirements, decrement the &lt;code&gt;zeroCounter&lt;/code&gt;. If the &lt;code&gt;increasedCount&lt;/code&gt; is 1 and the length between the index in the outermost loop and the &lt;code&gt;startIndex&lt;/code&gt; is less than a &lt;code&gt;mininimim&lt;/code&gt; started outside the loops at Infinity, update &lt;code&gt;minimum&lt;/code&gt; and &lt;code&gt;bestResultStartIndex&lt;/code&gt; and &lt;code&gt;bestResultEndIndex&lt;/code&gt;. As the last step in the loop checking if &lt;code&gt;zeroCounter&lt;/code&gt; matches the size of the &lt;code&gt;characterCountMap&lt;/code&gt;, increase &lt;code&gt;startIndex&lt;/code&gt; by 1. At the end of the loop of the parent string, use the &lt;code&gt;bestResultStartIndex&lt;/code&gt; and &lt;code&gt;bestResultEndIndex&lt;/code&gt; to return the result from the parent string, unless &lt;code&gt;minimum&lt;/code&gt; is still infinite. In that case you can return an empty string.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;541697832&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;541697832&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/minimum-window-substring/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Minimum Window Substring&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://leetcode.com/problems/minimum-window-substring/solutions/465059/javascript/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;art1991&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof s === &amp;#34;string&amp;#34;
+// typeof t === &amp;#34;string&amp;#34;
+
+const minWindow = (s, t) =&amp;gt; {
+    
+  const characterCountMap = new Map()
+  for (const char of t) {
+    characterCountMap.set(char, (characterCountMap.get(char) || 0) &amp;#43; 1)
+  }
+
+  let zeroCounter = 0
+  let startIndex = 0
+
+  let minimum = Infinity
+  let bestResultStartIndex = 0
+  let bestResultEndIndex = 0
+
+  for (let i = 0; i &amp;lt; s.length; i&amp;#43;&amp;#43;) {
+    const character = s[i]
+    if (!characterCountMap.has(character)) continue
+
+    const newCount = characterCountMap.get(character) - 1
+    characterCountMap.set(character, newCount)
+
+    if (newCount) continue
+
+    zeroCounter&amp;#43;&amp;#43;
+
+    while (zeroCounter === characterCountMap.size) {
+
+        const startCharacter = s[startIndex]
+
+        if (characterCountMap.has(startCharacter)) {
+            const increasedCount = characterCountMap.get(startCharacter) &amp;#43; 1
+            characterCountMap.set(startCharacter, increasedCount)
+            if (increasedCount === 1) {
+                zeroCounter--
+                if (i - startIndex &amp;lt; minimum) {
+                    minimum = i - startIndex &amp;#43; 1
+                    bestResultStartIndex = startIndex
+                    bestResultEndIndex = i
+                }
+            }
+            
+        }
+
+        startIndex&amp;#43;&amp;#43;
+        
+    }
+
+
+  }
+  return isFinite(minimum) ? s.slice(bestResultStartIndex, bestResultEndIndex &amp;#43; 1) : &amp;#34;&amp;#34;
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;binary-trees&#34;&gt;Binary Trees&lt;/h1&gt;
 &lt;p&gt;One of the ways LeetCode has implemented a binary tree node is like this:&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;753269184&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;753269184&#34;&gt;
+    &lt;input id=&#34;467931528&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;467931528&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       
       &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
@@ -3178,8 +3980,8 @@ function TreeNode(val, left, right) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;918427365&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;918427365&#34;&gt;
+    &lt;input id=&#34;381456279&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;381456279&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/invert-binary-tree/&#34;
@@ -3213,8 +4015,8 @@ const invertTree = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;398472561&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;398472561&#34;&gt;
+    &lt;input id=&#34;786214935&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;786214935&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/balanced-binary-tree/&#34;
@@ -3250,8 +4052,8 @@ const isBalanced = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;842156793&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;842156793&#34;&gt;
+    &lt;input id=&#34;317286954&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;317286954&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/diameter-of-binary-tree/&#34;
@@ -3291,8 +4093,8 @@ const diameterOfBinaryTree = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;436295178&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;436295178&#34;&gt;
+    &lt;input id=&#34;183742956&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;183742956&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/maximum-depth-of-binary-tree/&#34;
@@ -3320,8 +4122,8 @@ const maxDepth = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;634528197&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;634528197&#34;&gt;
+    &lt;input id=&#34;583479612&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;583479612&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/same-tree/&#34;
@@ -3351,8 +4153,8 @@ const isSameTree = (p, q) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;256497381&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;256497381&#34;&gt;
+    &lt;input id=&#34;378241596&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;378241596&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/symmetric-tree/&#34;
@@ -3394,8 +4196,8 @@ const equal = (l, r) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;578649132&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;578649132&#34;&gt;
+    &lt;input id=&#34;321487965&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;321487965&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/subtree-of-another-tree/&#34;
@@ -3424,8 +4226,8 @@ const stringBuilder = (node) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;617258439&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;617258439&#34;&gt;
+    &lt;input id=&#34;271368549&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;271368549&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/binary-tree-level-order-traversal/&#34;
@@ -3469,8 +4271,8 @@ const levelOrder = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;392846715&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;392846715&#34;&gt;
+    &lt;input id=&#34;653982741&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;653982741&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/&#34;
@@ -3514,8 +4316,8 @@ const lowestCommonAncestor = (root, p, q) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;169328457&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;169328457&#34;&gt;
+    &lt;input id=&#34;917345628&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;917345628&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/binary-tree-right-side-view/&#34;
@@ -3551,8 +4353,8 @@ const rightSideView = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;921473685&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;921473685&#34;&gt;
+    &lt;input id=&#34;218497365&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;218497365&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/&#34;
@@ -3604,8 +4406,8 @@ const buildTree = (preorder, inorder) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;581642397&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;581642397&#34;&gt;
+    &lt;input id=&#34;412753689&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;412753689&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/path-sum-ii/&#34;
@@ -3646,8 +4448,8 @@ const pathSum = (root, targetSum) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;352976184&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;352976184&#34;&gt;
+    &lt;input id=&#34;519643872&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;519643872&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/maximum-width-of-binary-tree/&#34;
@@ -3690,6 +4492,213 @@ const widthOfBinaryTree = (root) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;To return the values of the nodes of a binary tree in zigzag order, that is, a first row left-to-right, followed by a second row right-to-left, and third row left-to-right, etc., you can perform a level-order traversal and keep track of the row number to reverse the values of every other row. If there is input, create a &lt;code&gt;results&lt;/code&gt; array, fill a &lt;code&gt;row&lt;/code&gt; array with the starting node, and declare an empty &lt;code&gt;nextRow&lt;/code&gt; array. While &lt;code&gt;row&lt;/code&gt; has a length, create a &lt;code&gt;values&lt;/code&gt; array and loop the nodes in &lt;code&gt;row&lt;/code&gt;, pushing every value seen to &lt;code&gt;values&lt;/code&gt;, and pushing every &lt;code&gt;.left&lt;/code&gt; and &lt;code&gt;.right&lt;/code&gt; node seen, in that order, to &lt;code&gt;nextRow&lt;/code&gt;. If the &lt;code&gt;results&lt;/code&gt; array is an odd length, reverse the &lt;code&gt;values&lt;/code&gt; array, and in either case, next push it to the &lt;code&gt;results&lt;/code&gt; array. Then set &lt;code&gt;row&lt;/code&gt; as &lt;code&gt;nextRow&lt;/code&gt; and set &lt;code&gt;nextRow&lt;/code&gt; as an empty array. This is the last part of the outer cycle. It continues if the new &lt;code&gt;row&lt;/code&gt; contains any values.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;541892673&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;541892673&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Binary Tree Zigzag Level Order Traversal&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof root === &amp;#34;object&amp;#34; (binary tree node)
+
+const zigzagLevelOrder = (root) =&amp;gt; {
+    if (!root) return []
+
+    const results = []
+    let row = [root]
+    let nextRow = []
+
+    while(row.length){
+
+        let values = []
+        
+        for (let node of row){
+            values.push(node.val)
+            if (node.left) nextRow.push(node.left)
+            if (node.right) nextRow.push(node.right)
+        }
+        if (results.length % 2) values = values.reverse()
+
+        results.push(values)
+        row = nextRow
+        nextRow = []
+    }
+
+    return results
+    
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To find all possible ways a binary tree sums to a given number on a downwards path (no bending at a node), you can run a recursive call with default parameters for &lt;code&gt;sumsToHere&lt;/code&gt;, which starts as an empty array, as well as a &lt;code&gt;result&lt;/code&gt; count that starts at 0. If there is no node, return &lt;code&gt;result&lt;/code&gt;, else push a 0 value to &lt;code&gt;sumsToHere&lt;/code&gt; and loop the &lt;code&gt;sumsToHere&lt;/code&gt; array. At every step, add the value at the current node, and then check if the new value at the &lt;code&gt;sumsToHere&lt;/code&gt; location is equal to target value. If so, add 1 to the result. Next, run the parent recursively on the &lt;code&gt;.left&lt;/code&gt; and &lt;code&gt;.right&lt;/code&gt; of the current node, and add their values to &lt;code&gt;result&lt;/code&gt;. Make sure to copy the &lt;code&gt;sumsToHere&lt;/code&gt; array, rather than put it in directly. Finally, return &lt;code&gt;result&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;856179432&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;856179432&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/path-sum-iii/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Path Sum III&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof root === &amp;#34;object&amp;#34; (binary tree node)
+// targetSum === &amp;#34;number&amp;#34;
+
+const pathSum = (root, targetSum, sumsToHere = [], result = 0) =&amp;gt; {
+
+        if(!root) return result
+
+        sumsToHere.push(0)
+        for(let i = 0; i &amp;lt; sumsToHere.length; i&amp;#43;&amp;#43;){
+            sumsToHere[i] &amp;#43;= root.val
+            if(sumsToHere[i] === targetSum) result&amp;#43;&amp;#43;
+        }
+
+        result &amp;#43;= pathSum(root.left, targetSum, sumsToHere.slice(), 0)
+        result &amp;#43;= pathSum(root.right, targetSum, sumsToHere.slice(), 0)
+
+        return result
+        
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To return an array of nodes that all are a certain distance from a target node in a binary tree, first note that an empty root returns an empty array. Otherwise, you can traverse the array from the root until you find the &lt;code&gt;targetNode&lt;/code&gt;, adding reverse &lt;code&gt;.parent&lt;/code&gt; links at every step. Then you can run reursion from the &lt;code&gt;targetNode&lt;/code&gt;, branching in the &lt;code&gt;.left&lt;/code&gt;, &lt;code&gt;.right&lt;/code&gt;, and &lt;code&gt;.parent&lt;/code&gt; directions until either an end of the tree is reached, or a node of the desired distance from the &lt;code&gt;targetNode&lt;/code&gt; is found. When such a node is found, you can push it to &lt;code&gt;results&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;349217568&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;349217568&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;All Nodes Distance K in Binary Tree&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/solutions/843575/javascript-dfs/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;fbecker11&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof root === &amp;#34;object&amp;#34; (binary tree node)
+// typeof target === &amp;#34;object&amp;#34; (binary tree node)
+// typeof k === &amp;#34;number&amp;#34;
+
+const distanceK = (root, target, k) =&amp;gt; {
+  if(!root) return []
+
+  const addReverseLinksAndReturnTargetNode  = (root, parent) =&amp;gt; {
+        if(!root) return null
+        root.parent = parent
+        if(root === target){    
+        return root 
+        }    
+        return addReverseLinksAndReturnTargetNode(root.left, root) ||
+         addReverseLinksAndReturnTargetNode(root.right, root)    
+  }
+
+  const targetNode = addReverseLinksAndReturnTargetNode(root, null)  
+  const results = []
+
+  const getResults = (node, distance) =&amp;gt; {
+    if(!node || node.visited) return
+    if(!distance){
+        results.push(node.val)
+        return
+    }   
+    node.visited = true
+    getResults(node.left, distance-1)
+    getResults(node.right, distance-1)
+    getResults(node.parent, distance-1)
+  }
+
+  getResults(targetNode, k)
+  return results
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To serialize and deserialize a binary tree into and out of a string, you can use helper functions. In the serialize function, you can create a collection &lt;code&gt;array&lt;/code&gt; and run it with the root of the tree in a recursive helper. In this helper, if given &lt;code&gt;node&lt;/code&gt; is empty, push a symbol like &lt;code&gt;#&lt;/code&gt; to the &lt;code&gt;array&lt;/code&gt; and return, otherwise push the &lt;code&gt;.val&lt;/code&gt; to the &lt;code&gt;array&lt;/code&gt; and run the helper on the &lt;code&gt;.left&lt;/code&gt; and &lt;code&gt;.right&lt;/code&gt; of the &lt;code&gt;node&lt;/code&gt;, in that order. Once all helpers resolve, turn the &lt;code&gt;array&lt;/code&gt; into a string with commas separating the values. To deserialize, you can return &lt;code&gt;null&lt;/code&gt; if there is no data length, otherwise split the input by &lt;code&gt;,&lt;/code&gt; and run a helper function. In the helper, whenever there is no &lt;code&gt;array&lt;/code&gt; length, you can return &lt;code&gt;null&lt;/code&gt;, and after splicing off the first entry in the array, if this is the &lt;code&gt;null&lt;/code&gt; symbol &lt;code&gt;#&lt;/code&gt;, you can also return &lt;code&gt;null&lt;/code&gt;. Otherwise turn the spliced &lt;code&gt;value&lt;/code&gt; into a number and add it as the &lt;code&gt;.val&lt;/code&gt; of a new &lt;code&gt;node&lt;/code&gt;, and then run the function recursively on the &lt;code&gt;array&lt;/code&gt;, first assigning its results to &lt;code&gt;.left&lt;/code&gt; of the &lt;code&gt;node&lt;/code&gt; and then to &lt;code&gt;.right&lt;/code&gt;. This works because the splicing means that &lt;code&gt;.right&lt;/code&gt; will receive the correct array input. At the end of the helper, return the &lt;code&gt;node&lt;/code&gt; and at the end of all recursive calls return the first helper function.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;653241978&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;653241978&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/serialize-and-deserialize-binary-tree/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Serialize and Deserialize Binary Tree&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/74398/javascript-solution/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;ein3108&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof root === &amp;#34;object&amp;#34; (binary tree node)
+// typeof data === &amp;#34;string&amp;#34;
+
+const serializeHelper = (node, array) =&amp;gt; {
+    if (!node) return array.push(&amp;#34;#&amp;#34;)
+
+    array.push(node.val)
+    serializeHelper(node.left, array)
+    serializeHelper(node.right, array)
+}
+
+const serialize = (root) =&amp;gt; {
+    const array = []
+    serializeHelper(root, array)
+    return array.toString()
+}
+
+const deserializeHelper = (array) =&amp;gt; {
+    if (!array.length) return null
+    const value = array.splice(0,1)
+    if (value[0] === &amp;#34;#&amp;#34;) return null
+
+    const node = new TreeNode(Number(value))
+    node.left = deserializeHelper(array)
+    node.right = deserializeHelper(array)
+    return node
+}
+
+const deserialize = (data) =&amp;gt; {
+    if(!data?.length) return null
+    return deserializeHelper(data.split(&amp;#34;,&amp;#34;))
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;binary-search&#34;&gt;Binary Search&lt;/h1&gt;
 &lt;p&gt;Sorted information can be investigated in logarithmic (log(n)) time. Binary search is logarithmic. Each step divides searchable space in half&amp;ndash;much faster than a linear search.&lt;/p&gt;
 &lt;p&gt;In a basic kind of binary search on an array, &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; variables point to the first and last filled indexes of the array. While &lt;code&gt;end&lt;/code&gt; is not smaller than &lt;code&gt;start&lt;/code&gt;, define a new &lt;code&gt;mid&lt;/code&gt; as the midpoint between &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;end&lt;/code&gt; (rounding allowed). &lt;code&gt;Mid&lt;/code&gt; matching a target value allows immediate return of the value. If the target value is less than the mid index value, use &lt;code&gt;mid-1&lt;/code&gt; as the new &lt;code&gt;end&lt;/code&gt;, and if the target value is greater, use &lt;code&gt;mid+1&lt;/code&gt; as the new &lt;code&gt;start&lt;/code&gt;. Next, test if the new &lt;code&gt;end&lt;/code&gt; is smaller than &lt;code&gt;start&lt;/code&gt; to try another search step. If the search ends without finding the target value, returning -1 can indicate this (returning something else is better if negative targets are allowed).&lt;/p&gt;
@@ -3697,8 +4706,8 @@ const widthOfBinaryTree = (root) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;427315689&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;427315689&#34;&gt;
+    &lt;input id=&#34;297815463&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;297815463&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/binary-search/&#34;
@@ -3739,8 +4748,8 @@ const search = (nums, target) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;786541932&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;786541932&#34;&gt;
+    &lt;input id=&#34;564782193&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;564782193&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/first-bad-version/&#34;
@@ -3784,8 +4793,8 @@ const solution = function(isBadVersion) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;568431279&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;568431279&#34;&gt;
+    &lt;input id=&#34;463978215&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;463978215&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/search-in-rotated-sorted-array/&#34;
@@ -3834,8 +4843,8 @@ const search = (nums, target) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;751942386&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;751942386&#34;&gt;
+    &lt;input id=&#34;685349127&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;685349127&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/time-based-key-value-store/&#34;
@@ -3880,14 +4889,163 @@ TimeMap.prototype.get = function(key, timestamp) {
   &lt;/div&gt;
 
 
+&lt;p&gt;To find if a number exists in a matrix of ordered numbers such that each row is sorted in ascending order and rows that have greater indicies contain greater values, two rounds of binary search can be conducted. First, find the row that would contain the number by using the maximum and minimum row indicies as &lt;code&gt;yRight&lt;/code&gt; and &lt;code&gt;yLeft&lt;/code&gt;. Test if the value at the end of the row of a floored &lt;code&gt;mid&lt;/code&gt; is less than the target to increase &lt;code&gt;yLeft&lt;/code&gt; to &lt;code&gt;mid+1&lt;/code&gt;, else &lt;code&gt;yRight&lt;/code&gt; becomes &lt;code&gt;mid&lt;/code&gt;. Once the candidate row has been determined, you can return &lt;code&gt;false&lt;/code&gt; immediately if the target value is outside the bounds of the row. Else, conduct a second binary search on the row. If the search is narrowed down the a single candidate that is not the target value, return &lt;code&gt;false&lt;/code&gt;, else return &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;247598361&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;247598361&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/search-a-2d-matrix/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Search a 2D Matrix&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof matrix === &amp;#34;object&amp;#34; (array of arrays of numbers)
+// typeof target === &amp;#34;number&amp;#34;
+
+const searchMatrix = (matrix, target) =&amp;gt; {
+
+    let yLeft = 0
+    let yRight = matrix.length - 1
+
+    while (yLeft &amp;lt; yRight){
+        const mid = yLeft &amp;#43; Math.floor((yRight-yLeft)/2)
+        if (matrix[mid][matrix[0].length-1] &amp;lt; target){
+            yLeft = mid &amp;#43; 1
+        } else {
+            yRight = mid
+        }
+    }
+    
+    if (target &amp;gt; matrix[yLeft][matrix[0].length-1] || target &amp;lt; matrix[yLeft][0]) return false
+    
+    let xLeft = 0
+    let xRight = matrix[0].length - 1
+
+    while(xLeft &amp;lt; xRight){
+        const mid = xLeft &amp;#43; Math.floor((xRight-xLeft)/2)
+        if (matrix[yLeft][mid] &amp;lt; target){
+            xLeft = mid &amp;#43; 1
+        } else {
+            xRight = mid
+        }
+    }
+
+    return matrix[yLeft][xLeft] === target
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To find the minimum in a rotated sorted array of unique values, you can start by noticing that if you divide the array repeatedly into halves, if the value at &lt;code&gt;mid&lt;/code&gt; in a binary search is ever greater than the value at &lt;code&gt;right&lt;/code&gt;, the left side of the search space is sorted and the right side is not. This means that you can move the &lt;code&gt;left&lt;/code&gt; to &lt;code&gt;mid+1&lt;/code&gt;. Otherwise, you can move the &lt;code&gt;right&lt;/code&gt; to &lt;code&gt;mid&lt;/code&gt;. When the &lt;code&gt;left&lt;/code&gt; and &lt;code&gt;right&lt;/code&gt; pointers intersect the value at either pointer is the lowest.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;924563187&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;924563187&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Find Minimum in Rotated Sorted Array&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof nums === &amp;#34;object&amp;#34; (array of numbers)
+
+const findMin = (nums) =&amp;gt; {
+
+  let left = 0
+  let right = nums.length - 1
+
+  while (left &amp;lt; right) {
+    const mid = left &amp;#43; Math.floor((right-left)/2)
+    if (nums[mid] &amp;gt; nums[right]){
+        left = mid &amp;#43; 1
+    } else {
+        right = mid
+    }
+  }
+
+  return nums[left]
+  
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To find the maximum profit when given job start times, end times, and the profit for each, one way to start is to organize all of these inputs into an array of arrays with three numbers, and then sort this &lt;code&gt;jobs&lt;/code&gt; array by end time from least to greatest. Next, a &lt;code&gt;dp&lt;/code&gt; array can be started as an array with a single value, the profit of the job sorted to end first. Every other location in the &lt;code&gt;jobs&lt;/code&gt; array can then be iterated. For each step in this loop, first save the &lt;code&gt;profit&lt;/code&gt; at the current location. Then use binary search on the portion of the &lt;code&gt;jobs&lt;/code&gt; array to the left of the current location in the iteration. You can stop the binary search when the pointers cross, setting &lt;code&gt;left&lt;/code&gt; to &lt;code&gt;mid+1&lt;/code&gt; whenever the end of the job at &lt;code&gt;mid&lt;/code&gt; is less than or equal to the start of the job being pointed to in the outer loop, and setting &lt;code&gt;right&lt;/code&gt; to &lt;code&gt;mid-1&lt;/code&gt; otherwise. This means that the &lt;code&gt;left&lt;/code&gt; pointer might point to a job that overlaps with the one in the outer iteration, so when the binary search is done, the &lt;code&gt;right&lt;/code&gt; pointer will be pointing to the leftmost job that does not overlap with the one indicated in the iteration. After the binary search, if &lt;code&gt;right&lt;/code&gt; is not -1, you can update &lt;code&gt;profit&lt;/code&gt; by the value in the &lt;code&gt;dp&lt;/code&gt; location indicated by &lt;code&gt;right&lt;/code&gt; (the greatest profit counted previously that does not overlap with the profit in the current location). Finally for this step in the loop, update the &lt;code&gt;dp&lt;/code&gt; location being iterated to the best of either the &lt;code&gt;profit&lt;/code&gt; or the value in &lt;code&gt;dp&lt;/code&gt; one index lower. At the end of the iteration, return the rightmost value in &lt;code&gt;dp&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;925817463&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;925817463&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/maximum-profit-in-job-scheduling/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Maximum Profit in Job Scheduling&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof startTime === &amp;#34;object&amp;#34; (array of numbers)
+// typeof endTime === &amp;#34;object&amp;#34; (array of numbers)
+// typeof profit === &amp;#34;object&amp;#34; (array of numbers)
+
+const jobScheduling = (startTime, endTime, profit) =&amp;gt; {
+
+    const jobs = []
+    for (let i = 0; i &amp;lt; startTime.length; i&amp;#43;&amp;#43;) {
+        jobs.push([startTime[i], endTime[i], profit[i]])
+    }
+    jobs.sort((a,b)=&amp;gt;a[1]-b[1])
+
+    const dp = [jobs[0][2]]
+
+    for (let i = 1; i &amp;lt; jobs.length; i&amp;#43;&amp;#43;) {
+        let profit = jobs[i][2]
+    
+        let left = 0
+        let right = i - 1
+        let mid = left &amp;#43; Math.floor(right-left)
+        while(left &amp;lt;= right){
+            mid = left &amp;#43; Math.floor(right-left)
+            if(jobs[mid][1] &amp;lt;= jobs[i][0]){
+                left = mid &amp;#43; 1
+            } else {
+                right = mid - 1
+            }
+        }
+
+        if (right != -1) profit &amp;#43;= dp[right]
+        dp[i] = Math.max(profit, dp[i-1])
+    }
+    
+    return dp[jobs.length-1]
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;graphs&#34;&gt;Graphs&lt;/h1&gt;
 &lt;p&gt;A two-dimensional array can represent a screen of pixels. To represent the &amp;ldquo;flood fill&amp;rdquo; tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;127358469&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;127358469&#34;&gt;
+    &lt;input id=&#34;684927531&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;684927531&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/flood-fill/&#34;
@@ -3927,8 +5085,8 @@ const floodFill = (image, sr, sc, color) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;857124639&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;857124639&#34;&gt;
+    &lt;input id=&#34;316945728&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;316945728&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/01-matrix/&#34;
@@ -3984,8 +5142,8 @@ const updateMatrix = (mat) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;312965487&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;312965487&#34;&gt;
+    &lt;input id=&#34;468395271&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;468395271&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/clone-graph/&#34;
@@ -4029,8 +5187,8 @@ const cloneGraph = (node) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;249718356&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;249718356&#34;&gt;
+    &lt;input id=&#34;918645327&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;918645327&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/course-schedule/&#34;
@@ -4082,8 +5240,8 @@ const canFinish(numCourses, prerequisites) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;687953214&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;687953214&#34;&gt;
+    &lt;input id=&#34;943761528&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;943761528&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/number-of-islands/&#34;
@@ -4128,8 +5286,8 @@ const numIslands = (grid) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;593174286&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;593174286&#34;&gt;
+    &lt;input id=&#34;732841596&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;732841596&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/rotting-oranges/&#34;
@@ -4183,8 +5341,8 @@ const orangesRotting = function(grid) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;683971254&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;683971254&#34;&gt;
+    &lt;input id=&#34;742513698&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;742513698&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/accounts-merge/&#34;
@@ -4245,8 +5403,8 @@ const accountsMerge = (accounts) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;721538649&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;721538649&#34;&gt;
+    &lt;input id=&#34;819457632&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;819457632&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/word-search/description/&#34;
@@ -4296,8 +5454,8 @@ const exist = (board, word) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;712634958&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;712634958&#34;&gt;
+    &lt;input id=&#34;417892563&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;417892563&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/minimum-height-trees/&#34;
@@ -4362,8 +5520,8 @@ const findMinHeightTrees = (n, edges) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;254967381&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;254967381&#34;&gt;
+    &lt;input id=&#34;132986547&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;132986547&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/pacific-atlantic-water-flow/&#34;
@@ -4423,8 +5581,8 @@ const pacificAtlantic = (heights) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;964817352&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;964817352&#34;&gt;
+    &lt;input id=&#34;149652783&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;149652783&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/shortest-path-to-get-food/&#34;
@@ -4482,8 +5640,8 @@ const getFood = (grid) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;246581739&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;246581739&#34;&gt;
+    &lt;input id=&#34;156734892&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;156734892&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/graph-valid-tree/&#34;
@@ -4532,8 +5690,8 @@ const validTree = (n, edges) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;569372418&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;569372418&#34;&gt;
+    &lt;input id=&#34;396178452&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;396178452&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/course-schedule-ii/&#34;
@@ -4586,8 +5744,8 @@ const findOrder = (numCourses, prerequisites) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;786519423&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;786519423&#34;&gt;
+    &lt;input id=&#34;674258139&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;674258139&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/&#34;
@@ -4638,8 +5796,8 @@ const countComponents = (n, edges) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;176849523&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;176849523&#34;&gt;
+    &lt;input id=&#34;281376945&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;281376945&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/minimum-knight-moves/&#34;
@@ -4688,14 +5846,79 @@ const minKnightMoves = (x, y) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;*** Cheapest Flights Within K Stops goes here ***&lt;/p&gt;
+&lt;p&gt;To count how many steps it takes to transform one word into a different word of equal length, given a list of valid intermediate words, you can set a &lt;code&gt;changes&lt;/code&gt; variable to &lt;code&gt;1&lt;/code&gt;, a &lt;code&gt;queue&lt;/code&gt; array to contain the starting word, a &lt;code&gt;visited&lt;/code&gt; set to contain the starting word, and a &lt;code&gt;dictionary&lt;/code&gt; to contain all legal intermediates. While &lt;code&gt;queue&lt;/code&gt; has a length, loop each &lt;code&gt;word&lt;/code&gt; in the &lt;code&gt;queue&lt;/code&gt;. For each, if any is the intended end word, return &lt;code&gt;changes&lt;/code&gt; immediately. Else, for that &lt;code&gt;word&lt;/code&gt; in the &lt;code&gt;queue&lt;/code&gt;, test replacing all one-character-changes: every letter with every possible letter. If the new word is already in &lt;code&gt;visited&lt;/code&gt; or is not in the &lt;code&gt;dictionary&lt;/code&gt; you can ignore it, else push to a &lt;code&gt;nextQueue&lt;/code&gt;. If every &lt;code&gt;word&lt;/code&gt; in the &lt;code&gt;queue&lt;/code&gt; finishes, replace the &lt;code&gt;queue&lt;/code&gt; with &lt;code&gt;nextQueue&lt;/code&gt; and start the next round. If the &lt;code&gt;queue&lt;/code&gt; is empty without finding a solution you can return &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;469283715&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;469283715&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/word-ladder/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Word Ladder&lt;/a
+&gt;
+ &amp;ndash; code slightly modified from &lt;a
+  href=&#34;https://leetcode.com/problems/word-ladder/solutions/152214/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;linfongi&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof beginWord === &amp;#34;string&amp;#34;
+// typeof endWord === &amp;#34;string&amp;#34;
+// typeof wordList === &amp;#34;object&amp;#34; (array of strings)
+
+const ladderLength = (beginWord, endWord, wordList) =&amp;gt; {
+
+  let changes = 1
+  let queue = [beginWord]
+  const visited = new Set(queue)
+  const dictionary = new Set(wordList)
+  
+  while (queue.length) {
+    const nextQueue = []
+    for (let word of queue) {
+      if (word === endWord) {
+        return changes
+      }
+      
+      const wordArrayForChanges = word.split(&amp;#39;&amp;#39;)
+      for (let i = 0; i &amp;lt; wordArrayForChanges.length; i&amp;#43;&amp;#43;) {
+        for (let replacementLetter of &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) {
+          wordArrayForChanges[i] = replacementLetter
+          const newWord = wordArrayForChanges.join(&amp;#39;&amp;#39;)
+          if (!visited.has(newWord) &amp;amp;&amp;amp; dictionary.has(newWord)) {
+            nextQueue.push(newWord)
+            visited.add(newWord)
+          }
+          wordArrayForChanges[i] = word[i]
+        }
+      }
+    }
+    queue = nextQueue
+    changes&amp;#43;&amp;#43;
+  }
+  
+  return 0
+  
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;binary-search-trees&#34;&gt;Binary Search Trees&lt;/h1&gt;
 &lt;p&gt;Binary search trees are binary trees that have the property that every node bisects the search space &amp;ndash; you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;265834179&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;265834179&#34;&gt;
+    &lt;input id=&#34;568412937&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;568412937&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/&#34;
@@ -4732,8 +5955,8 @@ const lowestCommonAncestor = (root, p, q) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;924786351&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;924786351&#34;&gt;
+    &lt;input id=&#34;347259681&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;347259681&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/&#34;
@@ -4772,8 +5995,8 @@ const recursion = (left, right, nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;217649385&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;217649385&#34;&gt;
+    &lt;input id=&#34;694731285&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;694731285&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/validate-binary-search-tree/description/&#34;
@@ -4801,8 +6024,8 @@ const isValidBST = (root, left = -Infinity, right = Infinity) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;953264871&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;953264871&#34;&gt;
+    &lt;input id=&#34;426758391&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;426758391&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/kth-smallest-element-in-a-bst/&#34;
@@ -4841,8 +6064,8 @@ const kthSmallest = (root, k) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;673245189&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;673245189&#34;&gt;
+    &lt;input id=&#34;365782914&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;365782914&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/inorder-successor-in-bst/&#34;
@@ -4895,8 +6118,8 @@ const inorderSuccessor = (root, p) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;948537126&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;948537126&#34;&gt;
+    &lt;input id=&#34;567489123&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;567489123&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/ransom-note/&#34;
@@ -4929,14 +6152,66 @@ const canConstruct = function(ransomNote, magazine) {
   &lt;/div&gt;
 
 
+&lt;p&gt;To create a data struture such that elements can be inserted (returning a boolean, &lt;code&gt;true&lt;/code&gt; if the element is not already present), removed (returning a boolean, &lt;code&gt;true&lt;/code&gt;, if the element is already present), or randomly selected with equal probability, a function set to a variable can instantiate an empty &lt;code&gt;array&lt;/code&gt; and an empty &lt;code&gt;object&lt;/code&gt;, both set under &lt;code&gt;this&lt;/code&gt;. To insert, at a &lt;code&gt;prototype&lt;/code&gt; method, if the input is already found by direct lookup in the &lt;code&gt;object&lt;/code&gt;, return &lt;code&gt;false&lt;/code&gt;. Else, push the input to the &lt;code&gt;array&lt;/code&gt;, note its &lt;code&gt;index&lt;/code&gt;, and set a key-value pair in the &lt;code&gt;object&lt;/code&gt; such that the key is the input being set and the value is the &lt;code&gt;index&lt;/code&gt; in the array. Then return &lt;code&gt;true&lt;/code&gt;. To remove, at a &lt;code&gt;prototype&lt;/code&gt; method, if the input cannot be found by &lt;code&gt;object&lt;/code&gt; lookup, return &lt;code&gt;false&lt;/code&gt;. Else, pop the &lt;code&gt;last&lt;/code&gt; item in the &lt;code&gt;array&lt;/code&gt;, then used the popped item as a key lookup in the &lt;code&gt;object&lt;/code&gt; and replace its index value with the index value of the input to be removed. Next, delete the index lookup in the &lt;code&gt;object&lt;/code&gt; of the input being removed, but use its former index location, already stored in the &lt;code&gt;object&lt;/code&gt; under the item being moved, to assign the &lt;code&gt;last&lt;/code&gt; item to that location. Then return &lt;code&gt;true&lt;/code&gt;. Finally, to get a random value on the &lt;code&gt;prototype&lt;/code&gt;, floor a random value to the length of the &lt;code&gt;array&lt;/code&gt; and return whatever item is at that &lt;code&gt;index&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;289613475&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;289613475&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/insert-delete-getrandom-o1/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Insert Delete GetRandom O(1)&lt;/a
+&gt;
+ &amp;ndash; code slightly modified from &lt;a
+  href=&#34;https://leetcode.com/problems/insert-delete-getrandom-o1/solutions/532747/javascript/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;stevenkinouye&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+const RandomizedSet = function() {
+    this.array = []
+    this.object = {}
+}
+
+RandomizedSet.prototype.insert = function(val) {
+    if(this.object[val] !== undefined) return false
+    this.array.push(val)
+    const index = this.array.length - 1
+    this.object[val] = index
+    return true
+}
+RandomizedSet.prototype.remove = function(val) {
+    if(this.object[val] === undefined) return false
+    const last = this.array.pop()
+    this.object[last] = this.object[val]
+    delete this.object[val]
+    this.array[this.object[last]] = last
+    return true
+}
+
+RandomizedSet.prototype.getRandom = function() {
+    const index = Math.floor(Math.random()*this.array.length)
+    return this.array[index]
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;dynamic-programming&#34;&gt;Dynamic Programming&lt;/h1&gt;
 &lt;p&gt;If someone can climb one or two steps at a time, how many ways can they get to the top? Dynamic programming helps recognize that the number of ways to reach any given step acts as a multiplier on the ways to reach steps further up. A linear solution involves noticing the one way of getting to the 0th step, adding the number of ways to get to the 0th step to the 1st and 2nd steps, then &amp;ldquo;stepping&amp;rdquo; from the 1st step to the 2nd and 3rd steps, and adding counts so on and so on. Only three locations need to be available at a time.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;827364951&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;827364951&#34;&gt;
+    &lt;input id=&#34;185342976&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;185342976&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/climbing-stairs/&#34;
@@ -4979,8 +6254,8 @@ const climbStairs = (n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;237468195&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;237468195&#34;&gt;
+    &lt;input id=&#34;346528719&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;346528719&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/maximum-subarray/&#34;
@@ -5014,8 +6289,8 @@ const maxSubArray = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;913756284&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;913756284&#34;&gt;
+    &lt;input id=&#34;139567482&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;139567482&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/coin-change/&#34;
@@ -5052,8 +6327,8 @@ const coinChange = (coins, amount) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;253871649&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;253871649&#34;&gt;
+    &lt;input id=&#34;461537829&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;461537829&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/partition-equal-subset-sum/&#34;
@@ -5091,8 +6366,8 @@ canPartition = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;983426517&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;983426517&#34;&gt;
+    &lt;input id=&#34;978315462&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;978315462&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/unique-paths/&#34;
@@ -5132,8 +6407,8 @@ const uniquePaths = (m, n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;143567289&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;143567289&#34;&gt;
+    &lt;input id=&#34;394527168&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;394527168&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/house-robber/&#34;
@@ -5167,8 +6442,8 @@ const rob = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;594368172&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;594368172&#34;&gt;
+    &lt;input id=&#34;639871542&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;639871542&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/maximum-product-subarray/&#34;
@@ -5204,8 +6479,8 @@ const maxProduct = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;957324186&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;957324186&#34;&gt;
+    &lt;input id=&#34;217869354&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;217869354&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/longest-increasing-subsequence/&#34;
@@ -5246,8 +6521,8 @@ const lengthOfLIS = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;259386147&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;259386147&#34;&gt;
+    &lt;input id=&#34;692375418&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;692375418&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/jump-game/&#34;
@@ -5275,14 +6550,142 @@ const canJump = (nums) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;To find the maximum area of a square all of &amp;ldquo;1&amp;rdquo; inside a 2D input array, you can create a 2D array for dynamic programming with length and width both equal to that of the input array plus 1. Fill all locations with 0. Then loop through the input matrix, and every time you find a &amp;ldquo;1&amp;rdquo;, replace the equivalent location in the dynamic programming array (which should be 1 ahead in both the x and y dimensions) with the minimum of its left, upper, and upper-left location plus 1. This is a candidate for the &lt;code&gt;best&lt;/code&gt; square, so update a &lt;code&gt;best&lt;/code&gt; variable with the value assigned to the dynamic programming array location, if appropriate. At the end of reviewing the input matrix, return the square of &lt;code&gt;best&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;526349871&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;526349871&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/maximal-square/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Maximal Square&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof matrix === &amp;#34;object&amp;#34; (array of arrays of numbers)
+
+const maximalSquare = (matrix) =&amp;gt; {
+    const dp = [...Array(matrix.length&amp;#43;1)].map(_ =&amp;gt; [...Array(matrix[0].length&amp;#43;1)].fill(0))
+    
+    let best = 0
+    for (let i = 0; i &amp;lt; matrix.length; i&amp;#43;&amp;#43;) {
+        for (let j = 0; j &amp;lt; matrix[0].length; j&amp;#43;&amp;#43;) {
+            if (matrix[i][j] === &amp;#34;1&amp;#34;) {
+                const last = Math.min(dp[i][j], dp[i][j&amp;#43;1], dp[i&amp;#43;1][j])
+                dp[i&amp;#43;1][j&amp;#43;1] = last &amp;#43; 1
+                best = Math.max(best, dp[i&amp;#43;1][j&amp;#43;1])
+            }
+        }
+    }
+    
+    return best ** 2
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To determine the number of ways a string of numbers can be decoded as letters, where &amp;ldquo;A&amp;rdquo; is &amp;ldquo;1&amp;rdquo; and so on until &amp;ldquo;Z&amp;rdquo; is &amp;ldquo;26&amp;rdquo;, you can notice that if the string has no length or the first digit is &amp;ldquo;0&amp;rdquo;, there are 0 possible mappings. Otherwise, you can create a small &lt;code&gt;dp&lt;/code&gt; array with length 2, and both digits initially filled with 1. The first 1 gives a hypothetical number of ways for the -1 digit of the string to be decoded (useful for a later loop), while the second 1 gives the number of ways for the 0 index digit of the string to be decoded (since we know it is not 0). Next, loop the string, starting at the 1st index. At every step, create a &lt;code&gt;next&lt;/code&gt; variable starting at 0, and add the value of the 0 index of the &lt;code&gt;dp&lt;/code&gt; array to &lt;code&gt;next&lt;/code&gt; if the last and current indicies of the input array together range from &amp;ldquo;10&amp;rdquo; to &amp;ldquo;26&amp;rdquo;. Because only a single 2-digit number is possible, this means you can add to &lt;code&gt;next&lt;/code&gt; the value/number of combinations from two indicies ago (this is how the hypothetical 1 makes sense). Then, if the current index of the input array is not &amp;ldquo;0&amp;rdquo;, you can add to &lt;code&gt;next&lt;/code&gt; the value/number of combinations from one index ago &amp;ndash; &amp;ldquo;0&amp;rdquo; does not add anything because it is the only digit that must combine with the previous digit to count, so does not add any possibilities that rely on the previous digit being an ending digit. At the end of each step of the loop, change the 0 index of the &lt;code&gt;dp&lt;/code&gt; array to the value in the 1 index, and then use &lt;code&gt;next&lt;/code&gt; to update the 1 index. At the end of the loop, return the value in the 1 index.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;596814237&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;596814237&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/decode-ways/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Decode Ways&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof s === &amp;#34;string&amp;#34;
+
+const numDecodings =(s)=&amp;gt; {
+
+  if (!s.length || s[0] === &amp;#34;0&amp;#34;) return 0
+
+  const dp = [1, 1]
+    
+  for (let i = 1; i &amp;lt; s.length; i&amp;#43;&amp;#43;) {
+      let next = 0
+    if (s[i-1] === &amp;#39;1&amp;#39; || s[i-1] === &amp;#39;2&amp;#39; &amp;amp;&amp;amp; s[i] &amp;lt;= &amp;#39;6&amp;#39;) {
+      next &amp;#43;= dp[0]
+    }
+    if (s[i] !== &amp;#39;0&amp;#39;) {
+      next &amp;#43;= dp[1]
+    }
+    dp[0] = dp[1]
+    dp[1] = next
+  }
+
+  return dp[1]
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To count the number of ways to sum to a target in an array of unique integers, you can create a &lt;code&gt;dp&lt;/code&gt; array, sort the input array from least to greatest, and fill the &lt;code&gt;dp&lt;/code&gt; array with a single count at every location equal to a value in the input array. Then, you can use dynamic programming to loop to every integer from &lt;code&gt;1&lt;/code&gt; to the target value. At each, declare a &lt;code&gt;count&lt;/code&gt; variable started at 0. Then, for each integer being targeted, loop the sorted input array until the loop runs out or the value at the input array location meets or exceeds the integer being targeted in the outer loop. For each of these inner loop steps, add to the &lt;code&gt;count&lt;/code&gt; any value in &lt;code&gt;dp&lt;/code&gt; at an index equal to the target integer less the value indicated at the inner loop. At the end of the inner loop, set &lt;code&gt;dp&lt;/code&gt; at the index pointed to by the outer array equal to its current value, if any, plus &lt;code&gt;count&lt;/code&gt;. At the end of the looping, return the value at the location of the target in &lt;code&gt;dp&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;134762958&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;134762958&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/combination-sum-iv/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Combination Sum IV&lt;/a
+&gt;
+ &amp;ndash; code slightly modified from &lt;a
+  href=&#34;https://leetcode.com/problems/combination-sum-iv/solutions/264274/javascript/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;gnay&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof nums === &amp;#34;object&amp;#34; (array of numbers)
+// typeof target === &amp;#34;number&amp;#34;
+
+const combinationSum4 = (nums, target) =&amp;gt; {
+
+    const dp = []
+    nums.sort((a,b) =&amp;gt; a-b)
+    for (let num of nums){
+        dp[num] = 1
+    }
+    for(let i = 1; i &amp;lt;= target; i&amp;#43;&amp;#43;){
+        let count = 0
+        for(let j = 0; j &amp;lt; nums.length &amp;amp;&amp;amp; nums[j] &amp;lt; i; j&amp;#43;&amp;#43;){
+            count &amp;#43;= dp[i - nums[j]]
+        }
+        dp[i] = dp[i] &amp;#43; count || count
+    }
+    return dp[target]
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;binary&#34;&gt;Binary&lt;/h1&gt;
 &lt;p&gt;To sum two binary strings, set indices to point to the rightmost (lowest) element in both. Set a &lt;code&gt;carry&lt;/code&gt; variable to 0. Loop until both indices have reached the leftmost end of their strings. At each step in the loop, add the numerical sum of valid index values to &lt;code&gt;carry&lt;/code&gt; (ignoring any index that is less than 0). Next, and also in each loop, push &lt;code&gt;carry%2&lt;/code&gt; to a &lt;code&gt;result&lt;/code&gt; array, and reset &lt;code&gt;carry&lt;/code&gt; to its own base 2 overflow. Once both strings have been looped, add any final value in &lt;code&gt;carry&lt;/code&gt; to the &lt;code&gt;result&lt;/code&gt; array, if a final value exists, then reverse the array and join it into the result string.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;863574912&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;863574912&#34;&gt;
+    &lt;input id=&#34;319275684&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;319275684&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/add-binary/&#34;
@@ -5336,8 +6739,8 @@ const addBinary = (a, b) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;695238174&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;695238174&#34;&gt;
+    &lt;input id=&#34;189234675&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;189234675&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/counting-bits/&#34;
@@ -5375,8 +6778,8 @@ const countBits = (n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;632718945&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;632718945&#34;&gt;
+    &lt;input id=&#34;657283194&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;657283194&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/number-of-1-bits/&#34;
@@ -5409,8 +6812,8 @@ const hammingWeight = (n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;789531264&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;789531264&#34;&gt;
+    &lt;input id=&#34;185634792&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;185634792&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/single-number/&#34;
@@ -5434,8 +6837,8 @@ const singleNumber = (nums) =&amp;gt; nums.reduce((a,b)=&amp;gt;a^b)
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;256387419&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;256387419&#34;&gt;
+    &lt;input id=&#34;683419257&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;683419257&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/missing-number/&#34;
@@ -5467,8 +6870,8 @@ const missingNumber = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;763894215&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;763894215&#34;&gt;
+    &lt;input id=&#34;618742593&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;618742593&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/reverse-bits/&#34;
@@ -5503,8 +6906,8 @@ const reverseBits = (n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;654973821&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;654973821&#34;&gt;
+    &lt;input id=&#34;984137562&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;984137562&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/find-the-duplicate-number/&#34;
@@ -5544,8 +6947,8 @@ const findDuplicate = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;139654872&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;139654872&#34;&gt;
+    &lt;input id=&#34;642793815&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;642793815&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/roman-to-integer/&#34;
@@ -5598,8 +7001,8 @@ const romanToInt = (s) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;175948623&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;175948623&#34;&gt;
+    &lt;input id=&#34;519762438&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;519762438&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/palindrome-number/&#34;
@@ -5627,14 +7030,138 @@ const isPalindrome = (x) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;To pick a random index from an input array, weighted by the integer values in the indicies (indicies with greater values have proportionally more share), you can save a pair of variables to &lt;code&gt;this&lt;/code&gt;: the &lt;code&gt;total&lt;/code&gt; of input array, and a &lt;code&gt;runningTotals&lt;/code&gt; array of equal length to the input array. Fill each index of &lt;code&gt;runningTotals&lt;/code&gt; with the sum of every value from that position to the left in the input array. In the selection method, generate a &lt;code&gt;random&lt;/code&gt; integer from 0 up to but not including the &lt;code&gt;total&lt;/code&gt;, then conduct binary search, with a floored &lt;code&gt;mid&lt;/code&gt; index, moving the &lt;code&gt;left&lt;/code&gt; pointer to &lt;code&gt;mid+1&lt;/code&gt; each time the &lt;code&gt;random&lt;/code&gt; value is greater than the value at &lt;code&gt;mid&lt;/code&gt;.  Else you can move &lt;code&gt;right&lt;/code&gt; to &lt;code&gt;mid&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;243586719&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;243586719&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/random-pick-with-weight/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Random Pick with Weight&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof w === &amp;#34;object&amp;#34; (array of numbers)
+
+const Solution = function(w) {
+    this.total = 0
+    this.runningTotals = []
+    for(let value of w) {
+        this.total &amp;#43;= value
+        this.runningTotals.push(this.total)
+    }
+}
+
+Solution.prototype.pickIndex = function() {
+    const random = Math.random() * this.total
+    let left = 0
+    let right = this.runningTotals.length-1
+    while(left &amp;lt; right){
+        const mid = left &amp;#43; Math.floor((right-left)/2)
+        if(random &amp;gt; this.runningTotals[mid]){
+            left = mid &amp;#43; 1
+        } else {
+            right = mid
+        }
+    }
+    return left
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To write a function that raises a number to a power, you can use a recursive algorithm. Notice that any power of 0 returns a 1. Declare a temporary &lt;code&gt;result&lt;/code&gt; as 1 and and an &lt;code&gt;absPower&lt;/code&gt; as the absolute value of the power. If &lt;code&gt;absPower&lt;/code&gt; is odd you can multiply the &lt;code&gt;result&lt;/code&gt; by the number being raised, and reduce the &lt;code&gt;absPower&lt;/code&gt; by 1. Then multiply &lt;code&gt;result&lt;/code&gt; by a recusive call of the function that squares the number being raised and uses half the &lt;code&gt;absPower&lt;/code&gt; as the power. Finally, if the original power was negative, return 1 over the &lt;code&gt;result&lt;/code&gt;, else return the &lt;code&gt;result&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;429786315&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;429786315&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/powx-n/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Pow(x, n)&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof x === &amp;#34;number&amp;#34;
+// typeof n === &amp;#34;number&amp;#34;
+
+const myPow = (x, n) =&amp;gt; {
+
+    if (n===0) return 1
+    
+    let result = 1
+    let absPower = Math.abs(n)
+
+    if(absPower%2){
+        result *= x
+        absPower--
+    }
+
+    result *= myPow(x**2, absPower/2)
+    
+    if (n &amp;lt; 0) return 1/result
+    return result
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To reverse an integer as if it is a signed 32-bit value, you can start a &lt;code&gt;reverse&lt;/code&gt; variable at 0. Declare a &lt;code&gt;clamp&lt;/code&gt; at 2 to the 31 power. Then, while the input value still exists, multiply reverse by 10, add the value of the 0s place of the input value to &lt;code&gt;reverse&lt;/code&gt;, and check if the &lt;code&gt;reverse&lt;/code&gt; value is less than negative &lt;code&gt;clamp&lt;/code&gt; or greater than &lt;code&gt;clamp-1&lt;/code&gt;. Finally, divide the input value by 10 and remove any decimal. Once the input value no longer exists, return &lt;code&gt;reverse&lt;/code&gt;.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;981246375&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;981246375&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/reverse-integer/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Reverse Integer&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof x === &amp;#34;number&amp;#34;
+
+const reverse = (x) =&amp;gt; {
+
+  let reverse = 0
+  const clamp = Math.pow(2, 31)
+
+  while (x) {
+    reverse *= 10
+    reverse &amp;#43;= x % 10
+    if ( reverse &amp;lt; -clamp || reverse &amp;gt; clamp - 1) return 0
+    if (x &amp;gt; 0) x = Math.floor(x/10)
+    else x = Math.ceil(x/10)
+  }
+
+  return reverse
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;heaps&#34;&gt;Heaps&lt;/h1&gt;
 &lt;p&gt;To find the k closest points to the origin, sort the points by the sum of the x distance squared and the y distance squared from the origin. No need to take square root because relative order will be the same either way. Return the k closest points. This algorithm can be done with a priority queue (which could always keep the lowest point on top based on its distance) but this is not a native data struture in JavaScript.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;697453182&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;697453182&#34;&gt;
+    &lt;input id=&#34;536798124&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;536798124&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/k-closest-points-to-origin/description/&#34;
@@ -5659,8 +7186,8 @@ const kClosest=(points,k)=&amp;gt;points.map(p=&amp;gt;[...p,p[0]**2&amp;#43;p[1
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;794856213&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;794856213&#34;&gt;
+    &lt;input id=&#34;234986157&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;234986157&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/task-scheduler/&#34;
@@ -5693,8 +7220,8 @@ const leastInterval = (tasks, cooldown) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;832174956&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;832174956&#34;&gt;
+    &lt;input id=&#34;814729563&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;814729563&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/top-k-frequent-words/&#34;
@@ -5728,8 +7255,8 @@ const topKFrequent = (words, k) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;873612594&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;873612594&#34;&gt;
+    &lt;input id=&#34;753416982&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;753416982&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/find-k-closest-elements/&#34;
@@ -5763,14 +7290,71 @@ const findClosestElements = (arr, k, x) =&amp;gt; {
   &lt;/div&gt;
 
 
+&lt;p&gt;*** Kth Largest Element in an Array goes here ***&lt;/p&gt;
+&lt;p&gt;To find the median from a data stream, you can assign a function to a variable and within the function set an &lt;code&gt;array&lt;/code&gt; under &lt;code&gt;.this&lt;/code&gt;. To add a number, binary search can be conducted to find the insertion point. You can use binary search until the &lt;code&gt;left&lt;/code&gt; and &lt;code&gt;right&lt;/code&gt; pointers cross, and have a condition of the floored &lt;code&gt;mid&lt;/code&gt; value being less than the number to insert leading &lt;code&gt;left&lt;/code&gt; being set to &lt;code&gt;mid+1&lt;/code&gt;, else setting &lt;code&gt;right&lt;/code&gt; to &lt;code&gt;mid-1&lt;/code&gt;. Setting &amp;ldquo;past&amp;rdquo; the mid from both directions is required when the binary search does not resolve until the pointers cross. Finally for insert, you can insert the number with a splice. To actually find a number, if the length of the &lt;code&gt;array&lt;/code&gt; is odd yuu can simply return the floored &lt;code&gt;mid&lt;/code&gt;. Else, sum the value at &lt;code&gt;mid&lt;/code&gt; and &lt;code&gt;mid-1&lt;/code&gt; and return that value divided by 2.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;876942315&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;876942315&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/find-median-from-data-stream/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Find Median from Data Stream&lt;/a
+&gt;
+ &amp;ndash; code adapted from &lt;a
+  href=&#34;https://leetcode.com/problems/find-median-from-data-stream/solutions/122701/javascript-solution-using-binary-search/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;NinjaCod3r&amp;rsquo;s code&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+const MedianFinder = function() {
+    this.array = []
+}
+
+// typeof num === &amp;#34;number&amp;#34;
+MedianFinder.prototype.addNum = function(num) {
+   
+    let left = 0
+    let right = this.array.length-1
+    
+    while(left &amp;lt;= right){
+            const mid = left &amp;#43; Math.floor((right - left)/2)
+            
+            if(this.array[mid] &amp;lt; num) left = mid &amp;#43; 1
+            else right = mid - 1
+    }
+    
+    this.array.splice(left, 0, num)
+    
+}
+
+MedianFinder.prototype.findMedian = function() {
+
+    const mid = Math.floor(this.array.length/2)
+
+    if(this.array.length%2) return this.array[mid]
+    return (this.array[mid] &amp;#43; this.array[mid-1])/ 2
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
 &lt;h1 id=&#34;tries&#34;&gt;Tries&lt;/h1&gt;
 &lt;p&gt;A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter&amp;rsquo;s key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a &lt;code&gt;.end&lt;/code&gt; key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a &lt;code&gt;.end&lt;/code&gt; key is found. Checking if a prefix (&lt;code&gt;startsWith&lt;/code&gt;) is available is a relaxed search from the top that doesn&amp;rsquo;t care about &lt;code&gt;.end&lt;/code&gt;.&lt;/p&gt;
 
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;716489253&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;716489253&#34;&gt;
+    &lt;input id=&#34;489537612&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;489537612&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/implement-trie-prefix-tree/description/&#34;
@@ -5822,8 +7406,8 @@ Trie.prototype.startsWith = function(prefix) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;734691528&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;734691528&#34;&gt;
+    &lt;input id=&#34;498175326&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;498175326&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/word-break/&#34;
@@ -5874,8 +7458,8 @@ const wordBreak = (s, wordDict) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;371248659&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;371248659&#34;&gt;
+    &lt;input id=&#34;251487639&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;251487639&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/design-add-and-search-words-data-structure/&#34;
@@ -5927,8 +7511,8 @@ WordDictionary.prototype.search = function(word) {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;256713948&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;256713948&#34;&gt;
+    &lt;input id=&#34;749826153&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;749826153&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/permutations/&#34;
@@ -5967,8 +7551,8 @@ const permute = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;568397142&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;568397142&#34;&gt;
+    &lt;input id=&#34;215496837&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;215496837&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/subsets/&#34;
@@ -6004,8 +7588,8 @@ const subsets = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;751264389&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;751264389&#34;&gt;
+    &lt;input id=&#34;298746153&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;298746153&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/&#34;
@@ -6054,8 +7638,8 @@ const letterCombinations = (digits) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;429831756&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;429831756&#34;&gt;
+    &lt;input id=&#34;527398641&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;527398641&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/next-permutation/&#34;
@@ -6091,8 +7675,8 @@ const nextPermutation = (nums) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;941825736&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;941825736&#34;&gt;
+    &lt;input id=&#34;752169384&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;752169384&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/generate-parentheses/&#34;
@@ -6130,8 +7714,8 @@ const generateParenthesis = (n) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;945872316&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;945872316&#34;&gt;
+    &lt;input id=&#34;723651984&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;723651984&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/spiral-matrix/&#34;
@@ -6193,8 +7777,8 @@ const spiralOrder = (matrix) =&amp;gt; {
 
 
   &lt;div class=&#34;collapsable-code&#34;&gt;
-    &lt;input id=&#34;351287694&#34; type=&#34;checkbox&#34;  /&gt;
-    &lt;label for=&#34;351287694&#34;&gt;
+    &lt;input id=&#34;213746589&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;213746589&#34;&gt;
       &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
       &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
   href=&#34;https://leetcode.com/problems/valid-sudoku/&#34;
@@ -6229,6 +7813,152 @@ const isValidSudoku = (board) =&amp;gt; {
       }
     }
     return true
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To rotate a 2D square array in-place, 90 degrees to the right, you can notice that points can be moved in sets of four, which means that once a &amp;ldquo;triangle-like&amp;rdquo; quarter of the array starts cycles from all its points, the transformation is complete. To find the &amp;ldquo;triangle-like&amp;rdquo; array, create and inner an outer loop. The outer loop descends through every row of the input matrix (in a standard way), while the inner loop crosses rows by starting at the column index, and ending at 1 less than the column index, minus an additional value equal to the row. To understand why the inner loop starts and ends where it does, consider that the inner loop must end at least one step before the end of row because otherwise there would not be room for the start of the next clockwise side to start at a corner. The &lt;code&gt;-1&lt;/code&gt; to both sides for each step into the matrix then makes sense because each step into the matrix removes the leftmost and the rightmost columns. Finally, for the rotation itself, save the value you find at the given location. Move into this position the value found at the &lt;code&gt;[sideLength-1-column][row]&lt;/code&gt; of itself, and continue this pattern all four-step cycles are completed starting from every place the &amp;ldquo;triangle&amp;rdquo; has. Used the saved value to fill the last of the four positions.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;726154983&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;726154983&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/rotate-image/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Rotate Image&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof matrix === &amp;#34;object&amp;#34; (array of arrays of numbers)
+
+const rotate = (matrix) =&amp;gt; {
+
+    const sideLength = matrix.length
+    for(let row = 0; row &amp;lt; sideLength; row&amp;#43;&amp;#43;){ 
+        for(let column = row; column &amp;lt; sideLength - 1 - row; column&amp;#43;&amp;#43;){
+
+            const startValue = matrix[row][column]
+
+            matrix[row][column] = matrix[sideLength-1-column][row]
+            matrix[sideLength-1-column][row] = matrix[sideLength-1-row][sideLength-1-column]
+            matrix[sideLength-1-row][sideLength-1-column] = matrix[column][sideLength-1-row]
+            matrix[column][sideLength-1-row] = startValue
+
+        }  
+    }
+    
+    return matrix
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;p&gt;To set 0 to all rows and columns in a matrix that contain at least one 0, in-place, parse through every row or column and if a 0 is noted, mark every nonzero element in the row or column with an intermediate value like a &amp;ldquo;c&amp;rdquo;. Then parse though whichever you did not first check, row or column, and if a 0 is noted, mark every nonzero element in the row or column with a 0. Then go through the matrix one final time and update every intermediate value to a 0 (it can no longer confuse the second scan).&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;957261834&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;957261834&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/rotate-image/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Rotate Image&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+// typeof matrix === &amp;#34;object&amp;#34; (array of arrays of numbers)
+
+const setZeroes = (matrix) =&amp;gt; {
+    for (let i = 0; i &amp;lt; matrix.length; i&amp;#43;&amp;#43;){
+        let clear = false
+        for(let j = 0; j &amp;lt; matrix[0].length; j&amp;#43;&amp;#43;){
+            if (!matrix[i][j]){
+                clear = true
+                break
+            }
+        }
+        if (!clear) continue
+        for(let j = 0; j &amp;lt; matrix[0].length; j&amp;#43;&amp;#43;){
+           if(typeof matrix[i][j] === &amp;#34;number&amp;#34; &amp;amp;&amp;amp; matrix[i][j]) matrix[i][j] = &amp;#34;c&amp;#34; 
+        }
+    }
+    
+    for (let j = 0; j &amp;lt; matrix[0].length; j&amp;#43;&amp;#43;){
+        let clear = false
+        for(let i = 0; i &amp;lt; matrix.length; i&amp;#43;&amp;#43;){
+            if (!matrix[i][j]){
+                clear = true
+                break
+            }        
+        }
+        if (!clear) continue
+        for(let i = 0; i &amp;lt; matrix.length; i&amp;#43;&amp;#43;){
+           matrix[i][j] = 0
+        }
+    }
+    
+    
+    for (let i = 0; i &amp;lt; matrix.length; i&amp;#43;&amp;#43;){
+        for(let j = 0; j &amp;lt; matrix[0].length; j&amp;#43;&amp;#43;){
+            if(matrix[i][j] === &amp;#34;c&amp;#34;) matrix[i][j] = 0
+        }
+    }
+    
+    return matrix
+
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+&lt;h1 id=&#34;queues&#34;&gt;Queues&lt;/h1&gt;
+&lt;p&gt;To design a hit counter that counts hits in the last 300 seconds, you can assign a function to a variable that contains a &lt;code&gt;map&lt;/code&gt; under &lt;code&gt;this&lt;/code&gt;. To add a hit, add a count to the second provided in the &lt;code&gt;map&lt;/code&gt;, creating a new entry if that time has not before been seen. To look up hits, check 300 values starting at the second being checked and working backwards.&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;287451369&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;287451369&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;javascript&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;&lt;a
+  href=&#34;https://leetcode.com/problems/design-hit-counter/&#34;
+  
+  target=&#34;_blank&#34;
+  &gt;Design Hit Counter&lt;/a
+&gt;&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-javascript&#34; &gt;&lt;code&gt;
+
+const HitCounter = function () {
+  this.map = new Map()
+}
+
+HitCounter.prototype.hit = function (timestamp) {
+  if (!this.map.has(timestamp)){
+    this.map.set(timestamp,1)
+  } else {
+    this.map.set(timestamp, this.map.get(timestamp)&amp;#43;1)
+  }
+}
+
+HitCounter.prototype.getHits = function (timestamp) {
+  let result = 0
+  for (let i = 0; i &amp;lt; 300; i&amp;#43;&amp;#43;) {
+    if (this.map.has(timestamp-i)){
+      result &amp;#43;= this.map.get(timestamp-i)
+    }
+  }
+  return result
 
 }&lt;/code&gt;&lt;/pre&gt;
   &lt;/div&gt;

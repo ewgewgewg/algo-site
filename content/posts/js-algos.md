@@ -870,7 +870,7 @@ const calculate = (s) => {
 
 Given an array of heights that can be thought to exist at the indicies given in the array, what is the volume of "rain water" falling straight down that can fill this structure without spilling? To solve this problem, you can first compute a `peakIndex` of any maximum value in the array. The amount of "water" added in any index location can never be greater than the value at the `peakIndex`. Next, start a `result` counter at `0`, and a `leftHeight` at `0`, and move through the input array until you reach the `peakIndex`. At every location, if the height at the location is less than `leftHeight`, add the positive difference to `result`. Else, update the `leftHeight` to the value at the current location. Once `peakIndex` is reached, repeat this process from the other end of the array with a `rightHeight`.
 
-{{< code language="javascript" title="[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)" expand="Show" collapse="Hide" isCollapsed="false" >}
+{{< code language="javascript" title="[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof height === "object" (array of numbers)
 
 const trap = (height) => {
@@ -2368,7 +2368,7 @@ To find the maximum profit when given job start times, end times, and the profit
 // typeof profit === "object" (array of numbers)
 
 const jobScheduling = (startTime, endTime, profit) => {
-    
+
     const jobs = []
     for (let i = 0; i < startTime.length; i++) {
         jobs.push([startTime[i], endTime[i], profit[i]])

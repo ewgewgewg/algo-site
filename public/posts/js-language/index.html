@@ -188,6 +188,10 @@ Variables, Types, and Comments JavaScript stores information (called values) wit
         
       
         
+          <li><a href="/posts/js-language#queues">Queues</a></li>
+        
+      
+        
           <li><a href="/posts/js-algos#recursion">Recursion</a></li>
         
       
@@ -320,6 +324,10 @@ Variables, Types, and Comments JavaScript stores information (called values) wit
                   
                 
                   
+                    <li><a href="/posts/js-language#queues">Queues</a></li>
+                  
+                
+                  
                     <li><a href="/posts/js-algos#recursion">Recursion</a></li>
                   
                 
@@ -399,8 +407,8 @@ Variables, Types, and Comments JavaScript stores information (called values) wit
 
 
   <div class="collapsable-code">
-    <input id="432956187" type="checkbox"  />
-    <label for="432956187">
+    <input id="675142938" type="checkbox"  />
+    <label for="675142938">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -431,13 +439,13 @@ let fourthTest
   target="_blank"
   >precedence of operations is respected as described in the MDN Web Docs</a
 >
-. <code>Math.floor</code> can be used like a function to round down, while <code>Math.ceil</code> can be used to round up. <code>Math.max</code> and <code>Math.min</code> find maximums and minimums of input. <code>Math.abs</code> finds absolute value. <code>Math.pow</code> takes a base value and then an exponent and puts the first to the power of the second.</p>
+. <code>Math.floor</code> can be used like a function to round down, while <code>Math.ceil</code> can be used to round up. <code>Math.max</code> and <code>Math.min</code> find maximums and minimums of input. <code>Math.abs</code> finds absolute value. <code>Math.pow</code> takes a base value and then an exponent and puts the first to the power of the second. <code>Math.random</code> creates an approximately random floating point (decimal) number from 0 to just less than 0 with a uniform distribution.</p>
 
 
 
   <div class="collapsable-code">
-    <input id="173954826" type="checkbox"  />
-    <label for="173954826">
+    <input id="467315289" type="checkbox"  />
+    <label for="467315289">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -471,6 +479,7 @@ Math.max(1, 2, 3) // returns 3
 Math.min(1, 2, 3) // returns 1
 Math.abs(-1) // returns 1
 Math.pow(2, 3) // returns 8
+Math.random() // returns some random floating point number
 
 </code></pre>
   </div>
@@ -481,8 +490,8 @@ Math.pow(2, 3) // returns 8
 
 
   <div class="collapsable-code">
-    <input id="814239765" type="checkbox"  />
-    <label for="814239765">
+    <input id="127543698" type="checkbox"  />
+    <label for="127543698">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -507,8 +516,8 @@ const notAnIntegerState = Number.isInteger(&#34;a&#34;) // contains false
 
 
   <div class="collapsable-code">
-    <input id="163492875" type="checkbox"  />
-    <label for="163492875">
+    <input id="651832479" type="checkbox"  />
+    <label for="651832479">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -531,8 +540,8 @@ transform /= 2 // transform now contains 1
 
 
   <div class="collapsable-code">
-    <input id="467532189" type="checkbox"  />
-    <label for="467532189">
+    <input id="451863972" type="checkbox"  />
+    <label for="451863972">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -549,13 +558,13 @@ isFinite(large) // contains false
   </div>
 
 
-<p>You can also check if a value is not a number.</p>
+<p>You can also check if a value is not a number. The function will recognize valid numbers in strings.</p>
 
 
 
   <div class="collapsable-code">
-    <input id="592638471" type="checkbox"  />
-    <label for="592638471">
+    <input id="531742968" type="checkbox"  />
+    <label for="531742968">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -563,6 +572,8 @@ isFinite(large) // contains false
     <pre class="language-javascript" ><code>
 
 isNaN(&#34;a&#34;) // contains true
+isNaN(&#34;-5&#34;) // contains false
+isNaN(-5) // contains false
 
 </code></pre>
   </div>
@@ -573,8 +584,8 @@ isNaN(&#34;a&#34;) // contains true
 
 
   <div class="collapsable-code">
-    <input id="649213587" type="checkbox"  />
-    <label for="649213587">
+    <input id="918362457" type="checkbox"  />
+    <label for="918362457">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -593,8 +604,8 @@ parseInt(&#34;100&#34;, 2) // contains 4
 
 
   <div class="collapsable-code">
-    <input id="691843527" type="checkbox"  />
-    <label for="691843527">
+    <input id="837124965" type="checkbox"  />
+    <label for="837124965">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -617,8 +628,8 @@ add(2,3) // returns 5
 
 
   <div class="collapsable-code">
-    <input id="659283714" type="checkbox"  />
-    <label for="659283714">
+    <input id="891254367" type="checkbox"  />
+    <label for="891254367">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -650,8 +661,8 @@ singleFizzBuzz(6) // returns &#34;Fizz&#34;
 
 
   <div class="collapsable-code">
-    <input id="317596248" type="checkbox"  />
-    <label for="317596248">
+    <input id="712435968" type="checkbox"  />
+    <label for="712435968">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -670,8 +681,8 @@ number %= 3 // stored value in number after this operation is 1
 
 
   <div class="collapsable-code">
-    <input id="249876531" type="checkbox"  />
-    <label for="249876531">
+    <input id="935714268" type="checkbox"  />
+    <label for="935714268">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -692,8 +703,8 @@ const isValueGreen = value === &#34;green&#34; ? &#34;green&#34; : &#34;not gree
 
 
   <div class="collapsable-code">
-    <input id="385169742" type="checkbox"  />
-    <label for="385169742">
+    <input id="986213547" type="checkbox"  />
+    <label for="986213547">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -722,8 +733,8 @@ const typeChangeDemonstrationFalsy = !!(&#34;&#34; || 0 || null || undefined) //
 
 
   <div class="collapsable-code">
-    <input id="419378562" type="checkbox"  />
-    <label for="419378562">
+    <input id="831924756" type="checkbox"  />
+    <label for="831924756">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -750,8 +761,8 @@ false &amp;&amp; (color = &#34;blue&#34;)
 
 
   <div class="collapsable-code">
-    <input id="586214973" type="checkbox"  />
-    <label for="586214973">
+    <input id="342178569" type="checkbox"  />
+    <label for="342178569">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -805,8 +816,8 @@ const stop = --num || 0 // contains 0
 
 
   <div class="collapsable-code">
-    <input id="465832197" type="checkbox"  />
-    <label for="465832197">
+    <input id="954386271" type="checkbox"  />
+    <label for="954386271">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -841,8 +852,8 @@ while(true){
 
 
   <div class="collapsable-code">
-    <input id="984751362" type="checkbox"  />
-    <label for="984751362">
+    <input id="893572614" type="checkbox"  />
+    <label for="893572614">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -879,8 +890,8 @@ console.log(map.get(&#34;tree&#34;)) // prints 4
 
 
   <div class="collapsable-code">
-    <input id="597241638" type="checkbox"  />
-    <label for="597241638">
+    <input id="512487639" type="checkbox"  />
+    <label for="512487639">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -906,21 +917,43 @@ for (let key in sampleObject){
   </div>
 
 
-<p>Maps have additional methods. For example, they have <code>size</code>, and can <code>delete</code> values and also iterate through their keys.</p>
+<p>You can <code>delete</code> keys in objects.</p>
 
 
 
   <div class="collapsable-code">
-    <input id="849217563" type="checkbox"  />
-    <label for="849217563">
+    <input id="746832159" type="checkbox"  />
+    <label for="746832159">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
     </label>
     <pre class="language-javascript" ><code>
 
-const map = new Map()
-map.set(0,1)
+const sampleObject = {color1: &#34;blue&#34;, color2: &#34;red&#34;}
+
+delete sampleObject.color1
+
+console.log(sampleObject) // prints {color2: &#34;red&#34;}
+
+</code></pre>
+  </div>
+
+
+<p>Maps can be initialized with arrays of arrays of pairs, where each pair is converted into a key and value. They also have additional methods. For example, they have <code>size</code>, and can <code>delete</code> values and also iterate through their keys.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="721986354" type="checkbox"  />
+    <label for="721986354">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const map = new Map([[0, 1]])
 map.set(1,2)
 map.set(2,3)
 map.set(3,4)
@@ -943,8 +976,8 @@ console.log(map.has(1)) // prints true
 
 
   <div class="collapsable-code">
-    <input id="687342951" type="checkbox"  />
-    <label for="687342951">
+    <input id="534872691" type="checkbox"  />
+    <label for="534872691">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -964,8 +997,8 @@ console.log(set.size) // prints 0
 
 
   <div class="collapsable-code">
-    <input id="873612549" type="checkbox"  />
-    <label for="873612549">
+    <input id="845623197" type="checkbox"  />
+    <label for="845623197">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -974,7 +1007,7 @@ console.log(set.size) // prints 0
 
 const variable1 = &#34;A&#34;
 const variable2 = &#34;B&#34;
-console.log(\`variable1: ${variable1}, variable2: ${variable2}\`) // prints \`variable1: A, variable2: B\`
+console.log(`variable1: ${variable1}, variable2: ${variable2}`) // prints `variable1: A, variable2: B`
 
 </code></pre>
   </div>
@@ -982,15 +1015,15 @@ console.log(\`variable1: ${variable1}, variable2: ${variable2}\`) // prints \`va
 
 <h1 id="methods-of-arrays">Methods of Arrays<a href="#methods-of-arrays" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>Arrays have <code>length</code>, can <code>push</code> new values to the lowest empty index, <code>pop</code> to unfill the greatest filled index and return the popped value, <code>shift</code> the value at 0 index off and return the shift value (meaning every other value in the array is downshifted one index), or <code>unshift</code> to move in a new 0 index value and rotate every other value up one index. These <code>push</code>, <code>pop</code>, <code>shift</code>, and <code>unshift</code> all act on the array they are run from and do not require assignment to a new array.</p>
-<p>Arrays can also transform or <code>map</code> their values into a new array. The <code>map</code> callback function, a function used as a method argument, itself contains value and index arguments for every array location. Arrays can <code>sort</code> their values in place. Explicitly comparing two arguments in a callback lets you <code>sort</code> numbers, and if the return of the callback is positive the second argument will return first, while if the return of the callback is negative the first argument will return first. A tie leaves original order. Otherwise the default is to sort even numbers as strings. Arrays can also <code>slice</code> to return only the content between certain indexes. Arrays can also test <code>every</code> value for some condition and return a boolean (<code>true</code> or <code>false</code>) depending on if every test is passed.</p>
+<p>Arrays can also transform or <code>map</code> their values into a new array. The <code>map</code> callback function, a function used as a method argument, itself contains value and index arguments for every array location. Arrays can <code>sort</code> their values in place. Explicitly comparing two arguments in a callback lets you <code>sort</code> numbers, and if the return of the callback is positive the second argument will return first, while if the return of the callback is negative the first argument will return first. A tie leaves original order. Otherwise the default is to sort even numbers as strings. Arrays can also <code>slice</code> to return only the content starting at the index matching the first argument and continuing to the end of the array, or just before the index matching the second argument. The <code>slice</code> method will always return a copy even if you slice at the 0 index. Arrays can also test <code>every</code> value for some condition and return a boolean (<code>true</code> or <code>false</code>) depending on if every test is passed.</p>
 <p>The <code>fill</code> method takes an argument that can be used to fill whatever number of items is passed into a <code>new Array</code>, or an existing array. <code>fill</code> acts on the array it is run from and does not need to be assigned to a new variable.</p>
 <p>The <code>reverse</code> method reverses the elements in an array, and <code>join</code>, which takes an argument, merges the elements of the array and places the value of the argument between each, all in a single string. Array methods, like all methods, can be chained when the return of one has the method of the next.</p>
 
 
 
   <div class="collapsable-code">
-    <input id="926475183" type="checkbox"  />
-    <label for="926475183">
+    <input id="964251738" type="checkbox"  />
+    <label for="964251738">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1044,13 +1077,34 @@ const string = array2.reverse().join(&#34;&#34;) // prints &#34;1252&#34;
   </div>
 
 
+<p>The array method <code>indexOf</code> finds the first index of a given value, or returns <code>-1</code>.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="548263791" type="checkbox"  />
+    <label for="548263791">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+const array = [1, 1]
+console.log(array.indexOf(1)) // prints 0
+console.log(array.indexOf(2)) // prints -1
+
+</code></pre>
+  </div>
+
+
 <p>The array method <code>concat</code> can to the parent array an array argument (flattened into one array), or push value arguments into the parent array. Combinations also possible.</p>
 
 
 
   <div class="collapsable-code">
-    <input id="263598174" type="checkbox"  />
-    <label for="263598174">
+    <input id="953784162" type="checkbox"  />
+    <label for="953784162">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1075,8 +1129,8 @@ console.log(array3) // prints [1, 2, 3, 4, 5, 6, 7, 8]
 
 
   <div class="collapsable-code">
-    <input id="163724589" type="checkbox"  />
-    <label for="163724589">
+    <input id="648591327" type="checkbox"  />
+    <label for="648591327">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1109,8 +1163,8 @@ console.log(array) // prints [1, 4, 5]
 
 
   <div class="collapsable-code">
-    <input id="836574192" type="checkbox"  />
-    <label for="836574192">
+    <input id="516724389" type="checkbox"  />
+    <label for="516724389">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1137,8 +1191,8 @@ console.log(arraySumOnKey) // prints { sum: 6 }
 
 
   <div class="collapsable-code">
-    <input id="892531746" type="checkbox"  />
-    <label for="892531746">
+    <input id="912734658" type="checkbox"  />
+    <label for="912734658">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1161,8 +1215,8 @@ console.log(primaryColorsAndShapes) // prints [&#34;red&#34;, &#34;blue&#34;, &#
 
 
   <div class="collapsable-code">
-    <input id="869572314" type="checkbox"  />
-    <label for="869572314">
+    <input id="692137845" type="checkbox"  />
+    <label for="692137845">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1180,8 +1234,8 @@ console.log([&#34;red&#34;,&#34;blue&#34;].includes(&#34;red&#34;)) // prints tr
 
 
   <div class="collapsable-code">
-    <input id="891724653" type="checkbox"  />
-    <label for="891724653">
+    <input id="715638492" type="checkbox"  />
+    <label for="715638492">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1196,14 +1250,33 @@ console.log(filtered) // prints [1, 3]
   </div>
 
 
+<p>The <code>toString</code> method turns an array into a string.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="293674185" type="checkbox"  />
+    <label for="293674185">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+console.log([1, 2].toString()) // prints &#34;1,2&#34;
+
+</code></pre>
+  </div>
+
+
 <h1 id="methods-of-strings">Methods of Strings<a href="#methods-of-strings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>Strings also have <code>length</code>, and can return new strings <code>toLowerCase</code>, <code>toUpperCase</code>, or after running <code>replace</code> on their own values. Strings can also find <code>charCodeAt</code> at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like &lsquo;a&rsquo;, or &lsquo;.&rsquo;.</p>
 
 
 
   <div class="collapsable-code">
-    <input id="287569413" type="checkbox"  />
-    <label for="287569413">
+    <input id="638475129" type="checkbox"  />
+    <label for="638475129">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1244,8 +1317,8 @@ console.log(string) // prints &#34;Hello&#34; as the original string is unmodifi
 
 
   <div class="collapsable-code">
-    <input id="318752964" type="checkbox"  />
-    <label for="318752964">
+    <input id="726498135" type="checkbox"  />
+    <label for="726498135">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1267,17 +1340,17 @@ console.log(substring2) // prints false
 
 
   <div class="collapsable-code">
-    <input id="693718524" type="checkbox"  />
-    <label for="693718524">
+    <input id="962315487" type="checkbox"  />
+    <label for="962315487">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
     </label>
     <pre class="language-javascript" ><code>
 
-console.log(&#34;  a  &#34;.trim()) // prints(&#34;a&#34;)
-console.log(&#34;    &#34;.trim()) // prints(&#34;&#34;)
-console.log(&#34;a&#34;) // prints(&#34;a&#34;)
+console.log(&#34;  a  &#34;.trim()) // prints &#34;a&#34;
+console.log(&#34;    &#34;.trim()) // prints &#34;&#34;
+console.log(&#34;a&#34;) // prints &#34;a&#34;
 
 </code></pre>
   </div>
@@ -1288,15 +1361,34 @@ console.log(&#34;a&#34;) // prints(&#34;a&#34;)
 
 
   <div class="collapsable-code">
-    <input id="196478523" type="checkbox"  />
-    <label for="196478523">
+    <input id="271938645" type="checkbox"  />
+    <label for="271938645">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
     </label>
     <pre class="language-javascript" ><code>
 
-console.log(&#34;abc&#34;.repeat(4)) // prints(&#34;abcabcabcabc&#34;)
+console.log(&#34;abc&#34;.repeat(4)) // prints &#34;abcabcabcabc&#34;
+
+</code></pre>
+  </div>
+
+
+<p><code>String</code> itself has a <code>fromCharCode</code> method where &ldquo;a&rdquo; starts at 97, and the other lowercase letters go from there.</p>
+
+
+
+  <div class="collapsable-code">
+    <input id="815936724" type="checkbox"  />
+    <label for="815936724">
+      <span class="collapsable-code__language">javascript</span>
+      
+      <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
+    </label>
+    <pre class="language-javascript" ><code>
+
+console.log(String.fromCharCode(97)) // prints &#34;a&#34;
 
 </code></pre>
   </div>
@@ -1308,8 +1400,8 @@ console.log(&#34;abc&#34;.repeat(4)) // prints(&#34;abcabcabcabc&#34;)
 
 
   <div class="collapsable-code">
-    <input id="549621837" type="checkbox"  />
-    <label for="549621837">
+    <input id="512897436" type="checkbox"  />
+    <label for="512897436">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1342,8 +1434,8 @@ console.log(noDepth?.test?.test2) // prints undefined
 
 
   <div class="collapsable-code">
-    <input id="456823917" type="checkbox"  />
-    <label for="456823917">
+    <input id="759168342" type="checkbox"  />
+    <label for="759168342">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
@@ -1383,8 +1475,8 @@ console.log(b.lengthPlusOne()) prints 1
 
 
   <div class="collapsable-code">
-    <input id="786245913" type="checkbox"  />
-    <label for="786245913">
+    <input id="278691435" type="checkbox"  />
+    <label for="278691435">
       <span class="collapsable-code__language">javascript</span>
       
       <span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"></span>
