@@ -894,6 +894,59 @@ const trap = (height) => {
 
 }{{< /code >}}
 
+To create a calculator from a string that handles `+`, `-`, and parentheses, you can use recursion. On the outermost call of the main function, create an `endParenthesisLookupFromStart` that gives keys for open parentheses indices, each paired with the value of the linked close parentheis index. This and the input string are passed to every layer, along with `start` and `end` indices that begin in the outermost call as the first and last indices of characters in the input string. Within the body of the main function, create an empty `nums` array, and a `sign` variable intially set to `1`. Then move along characters in the input string from the given `start` index to the `end`. Skip any place spaces. If a `(` is found, run the parent function recursively on the part of the string within that parenthesis and its pair, then push the `sectionResult` times the `sign` to `nums`. If a `+` is found, update the `sign` to the number `1`, and if a `-` is found, update the sign to the number `-1`. If the character being iterated in the loop itself is a number, collect all numbers immediately to the left to get the full number, and then push this `sectionResult` to `nums`. Make sure to update the iterating index. When the loop is done, return the sum of all values in `nums`.
+
+{{< code language="javascript" title="[Basic Calculator](https://leetcode.com/problems/basic-calculator/) -- code modified from [bobwei's code](https://leetcode.com/problems/basic-calculator/solutions/321991/javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const calculate = (s, start = 0, end = s.length - 1, endParenthesisLookupFromStart = findParentheses(s)) => {
+  const nums = []
+  let sign = 1
+  for (let i = start; i <= end; i++) {
+    if (s[i] === " ") continue
+
+    if (s[i] === "(") {
+      const sectionResult = calculate(s, i + 1, endParenthesisLookupFromStart[i] - 1, endParenthesisLookupFromStart)
+      nums.push(sign * sectionResult)
+      i = endParenthesisLookupFromStart[i]
+    } else if (s[i] === "+") {
+      sign = 1;
+    } else if (s[i] === "-") {
+      sign = -1;
+    } else if (!isNaN(s[i])) {
+      const str = parseNum(s, i)
+      const sectionResult = Number(str)
+      nums.push(sign * sectionResult)
+      i += str.length - 1
+    }
+  }
+  return nums.reduce((a, b) => a + b)
+}
+
+const findParentheses = (s) => {
+  const endParenthesisLookupFromStart = {}
+  const stack = []
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "(") {
+      stack.push(i)
+    } else if (s[i] === ')') {
+      const left = stack.pop()
+      endParenthesisLookupFromStart[left] = i
+    }
+  }
+  return endParenthesisLookupFromStart
+}
+
+const parseNum = (s, start) => {
+  let i = start;
+  let numberAsString = ""
+  while (!isNaN(s[i])) {
+    numberAsString += s[i]
+    i += 1
+  }
+  return numberAsString
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
