@@ -2360,6 +2360,46 @@ const findMin = (nums) => {
   
 }{{< /code >}}
 
+To find the maximum profit when given job start times, end times, and the profit for each, one way to start is to organize all of these inputs into an array of arrays with three numbers, and then sort this `jobs` array by end time from least to greatest. Next, a `dp` array can be started as an array with a single value, the profit of the job sorted to end first. Every other location in the `jobs` array can then be iterated. For each step in this loop, first save the `profit` at the current location. Then use binary search on the portion of the `jobs` array to the left of the current location in the iteration. You can stop the binary search when the pointers cross, setting `left` to `mid+1` whenever the end of the job at `mid` is less than or equal to the start of the job being pointed to in the outer loop, and setting `right` to `mid-1` otherwise. This means that the `left` pointer might point to a job that overlaps with the one in the outer iteration, so when the binary search is done, the `right` pointer will be pointing to the leftmost job that does not overlap with the one indicated in the iteration. After the binary search, if `right` is not -1, you can update `profit` by the value in the `dp` location indicated by `right` (the greatest profit counted previously that does not overlap with the profit in the current location). Finally for this step in the loop, update the `dp` location being iterated to the best of either the `profit` or the value in `dp` one index lower. At the end of the iteration, return the rightmost value in `dp`.
+
+{{< code language="javascript" title="[Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof startTime === "object" (array of numbers)
+// typeof endTime === "object" (array of numbers)
+// typeof profit === "object" (array of numbers)
+
+const jobScheduling = (startTime, endTime, profit) => {
+    
+    const jobs = []
+    for (let i = 0; i < startTime.length; i++) {
+        jobs.push([startTime[i], endTime[i], profit[i]])
+    }
+    jobs.sort((a,b)=>a[1]-b[1])
+
+    const dp = [jobs[0][2]]
+
+    for (let i = 1; i < jobs.length; i++) {
+        let profit = jobs[i][2]
+    
+        let left = 0
+        let right = i - 1
+        let mid = left + Math.floor(right-left)
+        while(left <= right){
+            mid = left + Math.floor(right-left)
+            if(jobs[mid][1] <= jobs[i][0]){
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
+        }
+
+        if (right != -1) profit += dp[right]
+        dp[i] = Math.max(profit, dp[i-1])
+    }
+    
+    return dp[jobs.length-1]
+
+}{{< /code >}}
+
 # Graphs
 
 A two-dimensional array can represent a screen of pixels. To represent the "flood fill" tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
