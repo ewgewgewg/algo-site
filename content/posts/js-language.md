@@ -552,6 +552,14 @@ console.log(filtered) // prints [1, 3]
 
 {{< /code >}}
 
+The `toString` method turns an array into a string.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+console.log([1, 2].toString()) // prints "1,2"
+
+{{< /code >}}
+
 # Methods of Strings
 
 Strings also have `length`, and can return new strings `toLowerCase`, `toUpperCase`, or after running `replace` on their own values. Strings can also find `charCodeAt` at an index (leftmost location is the zero index, and character codes are numbers for representing unique characters, like 'a', or '.'.

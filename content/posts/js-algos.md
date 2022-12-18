@@ -2045,6 +2045,9 @@ const pathSum = (root, targetSum, sumsToHere = [], result = 0) => {
 To return an array of nodes that all are a certain distance from a target node in a binary tree, first note that an empty root returns an empty array. Otherwise, you can traverse the array from the root until you find the `targetNode`, adding reverse `.parent` links at every step. Then you can run reursion from the `targetNode`, branching in the `.left`, `.right`, and `.parent` directions until either an end of the tree is reached, or a node of the desired distance from the `targetNode` is found. When such a node is found, you can push it to `results`.
 
 {{< code language="javascript" title="[All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) -- code adapted from [fbecker11's code](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/solutions/843575/javascript-dfs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+// typeof target === "object" (binary tree node)
+// typeof k === "number"
 
 const distanceK = (root, target, k) => {
   if(!root) return []
@@ -2077,6 +2080,42 @@ const distanceK = (root, target, k) => {
   getResults(targetNode, k)
   return results
 
+}{{< /code >}}
+
+To serialize and deserialize a binary tree into and out of a string, you can use helper functions. In the serialize function, you can create a collection `array` and run it with the root of the tree in a recursive helper. In this helper, if given `node` is empty, push a symbol like `#` to the `array` and return, otherwise push the `.val` to the `array` and run the helper on the `.left` and `.right` of the `node`, in that order. Once all helpers resolve, turn the `array` into a string with commas separating the values. To deserialize, you can return `null` if there is no data length, otherwise split the input by `,` and run a helper function. In the helper, whenever there is no `array` length, you can return `null`, and after splicing off the first entry in the array, if this is the `null` symbol `#`, you can also return `null`. Otherwise turn the spliced `value` into a number and add it as the `.val` of a new `node`, and then run the function recursively on the `array`, first assigning its results to `.left` of the `node` and then to `.right`. This works because the splicing means that `.right` will receive the correct array input. At the end of the helper, return the `node` and at the end of all recursive calls return the first helper function.
+
+{{< code language="javascript" title="[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) -- code adapted from [ein3108's code](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/74398/javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+// typeof data === "string"
+
+const serializeHelper = (node, array) => {
+    if (!node) return array.push("#")
+
+    array.push(node.val)
+    serializeHelper(node.left, array)
+    serializeHelper(node.right, array)
+}
+
+const serialize = (root) => {
+    const array = []
+    serializeHelper(root, array)
+    return array.toString()
+}
+
+const deserializeHelper = (array) => {
+    if (!array.length) return null
+    const value = array.splice(0,1)
+    if (value[0] === "#") return null
+
+    const node = new TreeNode(Number(value))
+    node.left = deserializeHelper(array)
+    node.right = deserializeHelper(array)
+    return node
+}
+
+const deserialize = (data) => {
+    if(!data?.length) return null
+    return deserializeHelper(data.split(","))
 }{{< /code >}}
 
 # Binary Search
