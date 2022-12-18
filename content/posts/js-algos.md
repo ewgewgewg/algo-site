@@ -2876,6 +2876,50 @@ const minKnightMoves = (x, y) => {
 
 }{{< /code >}}
 
+*** Cheapest Flights Within K Stops goes here ***
+
+To count how many steps it takes to transform one word into a different word of equal length, given a list of valid intermediate words, you can set a `changes` variable to `1`, a `queue` array to contain the starting word, a `visited` set to contain the starting word, and a `dictionary` to contain all legal intermediates. While `queue` has a length, loop each `word` in the `queue`. For each, if any is the intended end word, return `changes` immediately. Else, for that `word` in the `queue`, test replacing all one-character-changes: every letter with every possible letter. If the new word is already in `visited` or is not in the `dictionary` you can ignore it, else push to a `nextQueue`. If every `word` in the `queue` finishes, replace the `queue` with `nextQueue` and start the next round. If the `queue` is empty without finding a solution you can return `0`.
+
+{{< code language="javascript" title="[Word Ladder](https://leetcode.com/problems/word-ladder/) -- code slightly modified from [linfongi's code](https://leetcode.com/problems/word-ladder/solutions/152214/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof beginWord === "string"
+// typeof endWord === "string"
+// typeof wordList === "object" (array of strings)
+
+const ladderLength = (beginWord, endWord, wordList) => {
+
+  let changes = 1
+  let queue = [beginWord]
+  const visited = new Set(queue)
+  const dictionary = new Set(wordList)
+  
+  while (queue.length) {
+    const nextQueue = []
+    for (let word of queue) {
+      if (word === endWord) {
+        return changes
+      }
+      
+      const wordArrayForChanges = word.split('')
+      for (let i = 0; i < wordArrayForChanges.length; i++) {
+        for (let replacementLetter of "abcdefghijklmnopqrstuvwxyz") {
+          wordArrayForChanges[i] = replacementLetter
+          const newWord = wordArrayForChanges.join('')
+          if (!visited.has(newWord) && dictionary.has(newWord)) {
+            nextQueue.push(newWord)
+            visited.add(newWord)
+          }
+          wordArrayForChanges[i] = word[i]
+        }
+      }
+    }
+    queue = nextQueue
+    changes++
+  }
+  
+  return 0
+  
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
@@ -3665,7 +3709,7 @@ const findClosestElements = (arr, k, x) => {
 
 }{{< /code >}}
 
-*** Insert Kth Largest Element in an Array goes here ***
+*** Kth Largest Element in an Array goes here ***
 
 To find the median from a data stream, you can assign a function to a variable and within the function set an `array` under `.this`. To add a number, binary search can be conducted to find the insertion point. You can use binary search until the `left` and `right` pointers cross, and have a condition of the floored `mid` value being less than the number to insert leading `left` being set to `mid+1`, else setting `right` to `mid-1`. Setting "past" the mid from both directions is required when the binary search does not resolve until the pointers cross. Finally for insert, you can insert the number with a splice. To actually find a number, if the length of the `array` is odd yuu can simply return the floored `mid`. Else, sum the value at `mid` and `mid-1` and return that value divided by 2.
 

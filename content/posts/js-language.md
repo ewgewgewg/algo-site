@@ -609,9 +609,9 @@ The `trim` method removes any whitespace on either side of the string.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
-console.log("  a  ".trim()) // prints("a")
-console.log("    ".trim()) // prints("")
-console.log("a") // prints("a")
+console.log("  a  ".trim()) // prints "a"
+console.log("    ".trim()) // prints ""
+console.log("a") // prints "a"
 
 {{< /code >}}
 
@@ -619,7 +619,15 @@ The `repeat` method returns the string from which the method is called times the
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
-console.log("abc".repeat(4)) // prints("abcabcabcabc")
+console.log("abc".repeat(4)) // prints "abcabcabcabc"
+
+{{< /code >}}
+
+`String` itself has a `fromCharCode` method where "a" starts at 97, and the other lowercase letters go from there.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+console.log(String.fromCharCode(97)) // prints "a"
 
 {{< /code >}}
 
