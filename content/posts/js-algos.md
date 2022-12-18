@@ -3665,6 +3665,42 @@ const findClosestElements = (arr, k, x) => {
 
 }{{< /code >}}
 
+*** Insert Kth Largest Element in an Array goes here ***
+
+To find the median from a data stream, you can assign a function to a variable and within the function set an `array` under `.this`. To add a number, binary search can be conducted to find the insertion point. You can use binary search until the `left` and `right` pointers cross, and have a condition of the floored `mid` value being less than the number to insert leading `left` being set to `mid+1`, else setting `right` to `mid-1`. Setting "past" the mid from both directions is required when the binary search does not resolve until the pointers cross. Finally for insert, you can insert the number with a splice. To actually find a number, if the length of the `array` is odd yuu can simply return the floored `mid`. Else, sum the value at `mid` and `mid-1` and return that value divided by 2.
+
+{{< code language="javascript" title="[Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) -- code adapted from [NinjaCod3r's code](https://leetcode.com/problems/find-median-from-data-stream/solutions/122701/javascript-solution-using-binary-search/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const MedianFinder = function() {
+    this.array = []
+}
+
+// typeof num === "number"
+MedianFinder.prototype.addNum = function(num) {
+   
+    let left = 0
+    let right = this.array.length-1
+    
+    while(left <= right){
+            const mid = left + Math.floor((right - left)/2)
+            
+            if(this.array[mid] < num) left = mid + 1
+            else right = mid - 1
+    }
+    
+    this.array.splice(left, 0, num)
+    
+}
+
+MedianFinder.prototype.findMedian = function() {
+
+    const mid = Math.floor(this.array.length/2)
+
+    if(this.array.length%2) return this.array[mid]
+    return (this.array[mid] + this.array[mid-1])/ 2
+
+}{{< /code >}}
+
 # Tries
 
 A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter's key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a `.end` key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a `.end` key is found. Checking if a prefix (`startsWith`) is available is a relaxed search from the top that doesn't care about `.end`.
