@@ -3838,6 +3838,31 @@ MedianFinder.prototype.findMedian = function() {
 
 }{{< /code >}}
 
+To merge a number of ascending-sorted linked lists into a list that is still sorted, all values can be put into a data structure and then removed in a sorted way and put into a new linked list. A priority queue organizing nodes by value or a heap organizing values can do this by making sure the node or value of the greatest amount is always on top, but because neither is a native JavaScript data structure, a sort can be used after pushing all values to an array.
+
+{{< code language="javascript" title="[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) -- compare also  [282295491's code](https://leetcode.com/problems/merge-k-sorted-lists/solutions/484197/javascript/) and [user6506l's code](https://leetcode.com/problems/merge-k-sorted-lists/solutions/2211516/javascript-beats-90/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// type of lists === "object" (array of linked lists with next and val properties)
+
+const mergeKLists = (lists) => {
+    
+  const sortable = []
+  for (let node of lists){
+      while(typeof node?.val === "number"){
+          sortable.push(node.val)
+          node = node.next
+      }
+  }
+  sortable.sort((a,b) => a-b)
+  const link = new ListNode()
+  let pointer = link
+  for (let value of sortable){
+      pointer.next = new ListNode(value)
+      pointer = pointer.next
+  }
+  return link.next
+
+}{{< /code >}}
+
 # Tries
 
 A trie represents words with as much overlapping prefixes as possible. To insert a word, start with an object, and for every letter of the word, set the letter's key in the outer object (if never seen there before) to a new object, and then go into that object. When the word is over, in the object of the final letter, add a `.end` key. Searching is similar. Descend from the top object without being able to insert anything on misses and return true only if a `.end` key is found. Checking if a prefix (`startsWith`) is available is a relaxed search from the top that doesn't care about `.end`.
