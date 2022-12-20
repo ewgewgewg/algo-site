@@ -976,6 +976,36 @@ const largestRectangleArea = (heights) => {
 
 }{{< /code >}}
 
+To create a data structure that lets you push elements and pop the most frequent element, with ties being broken by most recent element added, you can set a function to a variable and set an empty array under `this`, `elementsByFrequency`, as well as an empty object under `this`, `elementCounts`. For the push method under the `prototype`, increment the input in `elementCounts` by 1, or create an entry as 1. If the count is greater than the length of `elementsByFrequency`, indicating a count not seen, push an array to `elementsByFrequency` containing the only the input. Else, push the input to the location in `elementsByFrequency` equal to the count minus 1 (so that the 0 index of `elementsByFrequency` stores counts of 1). For the pop method under the `prototype`, identify the `mostCommonElements` of `elementsByFrequency` (the rightmost array). Pop a value from this array to return, but before you do, pop `elementsByFrequency` if the `mostCommonElements` location is now empty. Also decrease the count of the element popped by 1 in `elementCounts`.
+
+{{< code language="javascript" title="[Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/) -- code modified from [zengxinhai's code](https://leetcode.com/problems/maximum-frequency-stack/solutions/264189/javascript-multiply-stack-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+const FreqStack = function() {
+    this.elementsByFrequency = []
+    this.elementCounts = {}
+}
+
+FreqStack.prototype.push = function(x) {
+
+    this.elementCounts[x] = (this.elementCounts[x] || 0) + 1
+
+    if (this.elementsByFrequency.length < this.elementCounts[x]){
+        this.elementsByFrequency.push([x])
+    } else {
+        this.elementsByFrequency[this.elementCounts[x]-1].push(x)
+    }
+}
+
+FreqStack.prototype.pop = function() {
+    const mostCommonElements = this.elementsByFrequency[this.elementsByFrequency.length - 1]
+    const result = mostCommonElements.pop()
+    if (!mostCommonElements.length) {
+        this.elementsByFrequency.pop()
+    }
+    this.elementCounts[result]--
+    return result
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
