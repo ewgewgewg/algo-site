@@ -3159,6 +3159,55 @@ const longestIncreasingPath = (matrix) => {
 
 }{{< /code >}}
 
+*** Word Search II and Alien Dictionary go here ***
+
+To determine the minimum number of buses to take when given a number of looping bus routes with stops (each with a unique bus), if the source is not the same as the target (which allows immediate return of `0`), you can create a new route data such that each bus stop points to an array with all possible buses that reach it. Then a `queue` array starting with only the source bus stop can be reviewed in breadth-first search style. At each step, the front `busStop` in the `queue` is shifted off, and all `buses` that reach that `busStop` are collected and iterated. If the `bus` has already been `visited`, continue (preventing loops), else add the bus to a `visited` set and loop all stops the bus reaches (using a location in the original routes input array). If the destination is found, return a `count` tally started at `1`, else push the new stop number into a `nextQueue`. If after reviewing all `buses` that go to the `busStop` currently processed, there are no more stops in the `queue`, increment `count` by 1, replace `queue` with `nextQueue`, and replace `nextQueue` with an empty array. If `queue` is still exhausted, you can return `-1` to indicate it is not possible to reach the target.
+
+{{< code language="javascript" title="[Bus Routes](https://leetcode.com/problems/bus-routes/) -- code slightly modified from [codingbarista's code](https://leetcode.com/problems/bus-routes/solutions/181820/readable-javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof routes === "object" (array of arrays of numbers)
+// typeof source === "number"
+// typeof target === "number"
+
+const numBusesToDestination = (routes, source, target) => {
+    if (source === target) return 0
+
+    const busStops = new Map()
+    for (let i = 0; i < routes.length; i++) {
+        for (let j = 0; j < routes[i].length; j++) {
+            const busStop = routes[i][j]
+            const buses = busStops.get(busStop) || []
+            buses.push(i)
+            busStops.set(busStop, buses)
+        }
+    }
+    
+    const visited = new Set()
+    let count = 1
+    let queue = [source]
+    let nextQueue = []
+    while (queue.length) {
+        const busStop = queue.shift()
+        const buses = busStops.get(busStop)
+        for (let bus of buses) {
+            if (visited.has(bus)) continue
+            visited.add(bus)
+            for (let j = 0; j < routes[bus].length; j++) {
+                const nextBusStop = routes[bus][j]
+                if (nextBusStop === target) return count
+                nextQueue.push(nextBusStop)
+            }
+        }
+        if (!queue.length){
+            count++
+            queue = nextQueue
+            nextQueue = []
+        }
+    }
+    
+    return -1
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
