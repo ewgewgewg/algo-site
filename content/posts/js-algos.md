@@ -555,6 +555,35 @@ const eraseOverlapIntervals = (intervals) => {
 
 }{{< /code >}}
 
+*** Employee Free Time goes here ***
+
+To find the maximum value of each sliding window of a given length in an array, you can start by declaring an empty `result` array, as well as an empty `queue` array, and a `left` pointer at 0. Then iterate through all values in the array, naming the moving index controlling the loop as the `right` pointer. At a given location, while the `queue` has a length and the last value indicated by `queue` is less than or equal to the value indicated by the `right` pointer, you, can pop that last value off the `queue`. Then, push the `right` index into the `queue`. These last two steps guarantee that the leftmost value in the `queue` is at a maximum. To manage the front end of the siding window, if the `left` index is greater than the index at the front of the `queue`, shift off the front element of the `queue`. Finally, if the `right` index has progressed far enough that the sliding window is at its appropriate length, push the value indicated by the index in the first position at the `queue` to `result`, and increase the `left` index by 1.
+
+{{< code language="javascript" title="[Non-overlapping Intervals](https://leetcode.com/problems/sliding-window-maximum/) -- code modified from [shekhar90's code](https://leetcode.com/problems/sliding-window-maximum/solutions/2060046/javascript/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const maxSlidingWindow = (nums, k) => {
+    const result = []
+    const queue = []
+
+    let left = 0
+    for (let right = 0; right < nums.length; right++){
+        while (queue.length && nums[queue[queue.length - 1]] <= nums[right]) {
+            queue.pop()
+        }
+        queue.push(right)
+
+        if (left > queue[0]) queue.shift()
+        if (right + 1 >= k) {
+            result.push(nums[queue[0]])
+            left++
+        }
+    }
+
+    return result
+
+}{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
