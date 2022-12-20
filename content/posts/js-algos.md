@@ -3124,6 +3124,41 @@ const ladderLength = (beginWord, endWord, wordList) => {
   
 }{{< /code >}}
 
+To find the longest increasing path in a matrix of numbers, first note that an empty matrix can return `0`. Otherwise, you can set `best` to `1`, then loop the input matrix. At every step, run a helper function to see if `best` can be updated. The helper function takes the location of the matrix iteration, returns a value in a `cache` if a value is present, and otherwise creates a `localBest` stating at `1` (because a series of 1 is technically increasing). Run the function recursively as many as four times, in the up, down, left, and right directions, as long as the given direction contains a value less than or greater than the current value (choose one direction of comparison for the whole function). Therefore, `localBest` four has chances to update with each helper return `+1` depending on which direction gives the best result. At the end of the recusive calls, update the `cache` with the `localBest` and then return `localBest`. At the end of the original matrix traversal, return `best`.
+
+{{< code language="javascript" title="[Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) -- code slightly modified from [Hongbo-Miao's code](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/solutions/423521/clean-javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof matrix === "object" (array of arrays of numbers)
+
+const longestIncreasingPath = (matrix) => {
+  if (!matrix?.length) return 0
+
+  const directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+  const cache = [...Array(matrix.length)].map(() => Array(matrix[0].length).fill(0))
+
+  const go = (x, y) => {
+    if (cache[x][y]) return cache[x][y]
+    let localBest = 1
+    for (const [dx, dy] of directions) {
+      const i = x + dx
+      const j = y + dy
+      if (i >= 0 && i < matrix.length && j >= 0 && j < matrix[0].length && matrix[i][j] < matrix[x][y]) {
+        localBest = Math.max(localBest, go(i, j) + 1)
+      }
+    }
+    cache[x][y] = localBest
+    return localBest
+  };
+
+  let best = 1
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      best = Math.max(best, go(i, j))
+    }
+  }
+  return best
+
+}{{< /code >}}
+
 # Binary Search Trees
 
 Binary search trees are binary trees that have the property that every node bisects the search space -- you can tell which side of a node to go down for further investigation based on its value. In order to find the lowest common ancestor of two nodes, consider that as you decend the tree, as long as the current value is less than the lower value of the two target nodes, or greater than the upper value of the two target nodes, both target nodes will be on the same side of the next step down of the tree. Decend recursively in the direction of both nodes until you no longer can, and return the stopping value.
