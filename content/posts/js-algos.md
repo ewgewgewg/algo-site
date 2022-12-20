@@ -1006,6 +1006,34 @@ FreqStack.prototype.pop = function() {
     return result
 }{{< /code >}}
 
+To find the longest set of valid parentheses in a string containing only parentheses, you can iterate the input string, and push a 0 to a `stack` starting with a 0 if an `(` is seen. Otherwise, if the `stack` length is greater than 1, pop the back item off the `stack` and add the value of the pop plus 2 to the value of the item before that, then update a `result` starting at 0 to be the best of itself or the value of the item just updated. If the `stack` length is only 1 and you see a `)`, indicating there is no valid `(` in the `stack` to connect to the `)` you are visiting, set the only location in the `stack` to 0 to indicate that a parentheses set ending at this point is misformed and cannot contribute to the maximum length of a parentheses set starting later.
+
+{{< code language="javascript" title="[Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) -- code modified from [rabbitmeow's code](https://leetcode.com/problems/longest-valid-parentheses/solutions/142210/javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof s === "string"
+
+const longestValidParentheses = (s) => {
+    
+	let result = 0
+	const stack = [0]
+    for (let character of s){
+        if (character === '(') {
+			stack.push(0)
+            continue
+		}
+
+        if (stack.length > 1) {
+            stack[stack.length - 2] += stack.pop() + 2
+            result = Math.max(result, stack[stack.length - 1])
+            continue
+        }
+
+        stack[0] = 0
+    }
+
+	return result
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
