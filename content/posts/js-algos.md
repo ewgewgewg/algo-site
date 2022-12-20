@@ -2124,7 +2124,7 @@ const pathSum = (root, targetSum, sumsToHere = [], result = 0) => {
         
 }{{< /code >}}
 
-To return an array of nodes that all are a certain distance from a target node in a binary tree, first note that an empty root returns an empty array. Otherwise, you can traverse the array from the root until you find the `targetNode`, adding reverse `.parent` links at every step. Then you can run reursion from the `targetNode`, branching in the `.left`, `.right`, and `.parent` directions until either an end of the tree is reached, or a node of the desired distance from the `targetNode` is found. When such a node is found, you can push it to `results`.
+To return an array of nodes that all are a certain distance from a target node in a binary tree, first note that an empty root returns an empty array. Otherwise, you can traverse the array from the root until you find the `targetNode`, adding reverse `.parent` links at every step. Then you can run recursion from the `targetNode`, branching in the `.left`, `.right`, and `.parent` directions until either an end of the tree is reached, or a node of the desired distance from the `targetNode` is found. When such a node is found, you can push it to `results`.
 
 {{< code language="javascript" title="[All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) -- code adapted from [fbecker11's code](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/solutions/843575/javascript-dfs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof root === "object" (binary tree node)
@@ -2198,6 +2198,30 @@ const deserializeHelper = (array) => {
 const deserialize = (data) => {
     if(!data?.length) return null
     return deserializeHelper(data.split(","))
+}{{< /code >}}
+
+To find the maximum sum of a path in a binary tree, you can ue a helper function. Set a `best` to negative Infinity and run a recursive helper function with the root. In the recusive function, if the node is empty, return 0 as the base case. Else, find the `bestLeft` as the max of 0 or the helper function run recusively with `.left` of the root, and then find `bestRight` a the max of 0 or the helper function run recursively with `.right` of the root. Then compute a `bestAtNode` with the sum of `bestLeft`, the value at the current node, and `bestRight`. If `bestAtNode` is greater than the `best` outside the helper function, update `best`. Finally, return the maximum of `bestLeft` or `bestRight` plus the value at the current node (since you can only pass up the maximum sum of one path). When all runs of the helper function finish, return `best`.
+
+{{< code language="javascript" title="[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) -- code using a recursive pattern similar to [gany's code](https://leetcode.com/problems/binary-tree-maximum-path-sum/solutions/254281/javascript/) and [jignesh7's code](https://leetcode.com/problems/binary-tree-maximum-path-sum/solutions/191918/javascript-dfs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof root === "object" (binary tree node)
+
+const maxPathSum = (root) => {
+    let best = -Infinity
+    
+    const go = (node) => {
+        if(!node) return 0
+
+        const bestLeft = Math.max(0, go(node.left))
+        const bestRight = Math.max(0, go(node.right))
+        const bestAtNode = bestLeft + node.val + bestRight
+
+        if (bestAtNode > best) best = bestAtNode
+        return Math.max(bestLeft, bestRight) + node.val
+    }
+    
+    go(root)
+    return best
+
 }{{< /code >}}
 
 # Binary Search
