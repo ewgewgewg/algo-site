@@ -947,6 +947,35 @@ const parseNum = (s, start) => {
   return numberAsString
 }{{< /code >}}
 
+To find the largest rectangle in a histogram, with the x-coordinate represented by the index of an input array and the height represented by the value at that index, you can solve the problem with a `stack`. Loop the input array, and at every step consider if the `stack` has a length and, if so, if the the value in the pair on top of the `stack` representing the height at some earlier location is greater than the height at the current location. Meeting this condition means that the maximum height of any rectangle starting at the current location and looking backwards is clamped to the height at the current location, which represents a ceiling. As long as a height stored on top of the `stack` is greater than a height at the current index, pop the top of the `stack`, which should contain a `height` and a `location` from where that `height` begins. Every time a pop happens, update a `result` starting at `0` if the `height` in the popped value times the difference between the index and the popped location is larger than `result`. Then update a `heightStartingLocation` variable started at the original index to the index of the popped value. Once the popping is done (or never started), push to the `stack` a pair of numbers -- the height at the current index, and the `heightStartingLocation`. This indicates where you can pretend the height began from, as all taller heights were popped off the `stack` (and can contribute to a rectangle that is at least as tall as the present height). Finally, after the input array is iterated, pop stack items one by one and update the `result` if any `height` times the difference between the number of heights and the `location` just popped is ever greater than `result`.
+
+{{< code language="javascript" title="[Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof heights === "object" (array of numbers)
+
+const largestRectangleArea = (heights) => {
+
+    const stack = []
+    let result = 0
+    
+    for(let i = 0; i < heights.length; i++){
+        let heightStartingLocation = i
+        while(stack.length && stack[stack.length-1][0] > heights[i]){
+            const [height, location] = stack.pop()
+            const candidateArea = height*(i-location)
+            if (candidateArea > result) result = candidateArea
+            heightStartingLocation = location
+        }
+        stack.push([heights[i], heightStartingLocation])
+    }
+    while(stack.length){
+        const [height, location] = stack.pop()
+        const candidateArea = height*(heights.length-location)
+        if (candidateArea > result) result = candidateArea
+    }
+    return result
+
+}{{< /code >}}
+
 # Linked Lists
 
 LeetCode implements a singly-linked list like this:
@@ -3844,7 +3873,7 @@ To merge a number of ascending-sorted linked lists into a list that is still sor
 // type of lists === "object" (array of linked lists with next and val properties)
 
 const mergeKLists = (lists) => {
-    
+
   const sortable = []
   for (let node of lists){
       while(typeof node?.val === "number"){
