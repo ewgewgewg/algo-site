@@ -1474,6 +1474,40 @@ const rotateRight = (head, k) => {
 
 }{{< /code >}}
 
+To reverse nodes in a link list k at a time, you can implement the change in batches with recursive calls of a parent function. In the parent function, if there is no head node, you can return `null` immediately. Else, you can create a new pointer set to the head for the first `kSegmentTraversal`. Make this traversal, and if you cannot get all the way through return head immediately because you cannot reverse a full segment. Otherwise, assign a `.next` to a `next` variable such that the number of nodes before `next` is k. Then replace the `.next` with null such that the `next` variable contains a list that is "pinched off." [Reverse](/posts/js-algos#reverse-linked-list) the head of the function as normal, and now that the head is the last node, assign its `.next` to the main function run on the `next` variable saved earlier, with the original k. Then return the `kSegmentTraversal` because the node at the end of that has become the new head.
+
+{{< code language="javascript" title="[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) -- code slightly modified from [linfongi's code](https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/11649/javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof head === "object" (linked list)
+// typeof k === "number"
+
+const reverseKGroup = (head, k) => {
+    
+  if (!head) return null
+  let kSegmentTraversal = head
+  for (let i = 1; i < k; i++) {
+    kSegmentTraversal = kSegmentTraversal.next
+    if (!kSegmentTraversal) return head
+  }
+  const next = kSegmentTraversal.next
+  kSegmentTraversal.next = null
+  reverse(head)
+  head.next = reverseKGroup(next, k)
+  return kSegmentTraversal
+}
+
+const reverse = (head) => {
+  let link = null
+  
+  while (head) {
+    const next = head.next
+    head.next = link
+    link = head
+    head = next
+  }
+  
+  return link
+}{{< /code >}}
+
 # Strings
 
 To detect if a string is a palindrome, sanitize the string as appropriate (for example, removing spaces and standardizing capitalization), then initialize string `start` and `end` pointers. While `start` is at a lower index than `end` check to see if the values at each location match, then move each pointer one index closer to the center. Any mismatch allows the function to immediately return `false` while otherwise `true` should be the return.
