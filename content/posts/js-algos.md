@@ -4423,6 +4423,51 @@ const generateParenthesis = (n) => {
 
 }{{< /code >}}
 
+To return all solutions of an input number of chess queen placements on a board of input size such that the queens do not attack each other, a backtracking strategy will help find the correct `reults`. First, fill a `chessboard` such that it represents an empty square grid of length and width equal to the input size. Then, run a recursive `backtrack` function with the input being the staring `row`, 0. If the row ever equals the input size, the function is attempting to review a row that is out of scope, so join a copy of the `chessboard` into the expected output shape, push it to `results`, and return. Else, loop the columns of this row. At every grid position in the row, check the spot `isValidQueenPosition`. If so, place a marker for the queen on the `chessboard` being used for the outer solution function, and run `backtrack` on the next row (since previous rows would have already been reviewed and only one queen per row is possible). When the recursive function series finishes, replace the location with an empty space and continue testing spaces along the row. The only calls that will ever reach past the last row in the `chessboard` will have valid sets of queens. In terms of what the `isValidQueenPosition` function looks like, it has three checks that must pass. First, there must not be a queen earlier on the column. Second, there must not be a queen to the diagonal upper-left. Third, there must not be a queen to the diagonal upper-right. The row does not need to be checked because the helper function guarantees there is only ever one queen on a row, and directions down do not matter because they have not been traversed yet in the outer function, and are guaranteed not to have a queen.
+
+{{< code language="javascript" title="[N-Queens](https://leetcode.com/problems/n-queens/) -- code slightly modified from [zacharyczf's code and explanation](https://leetcode.com/problems/n-queens/solutions/1193774/javascript-backtrack-with-comments/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+
+const solveNQueens = (n) => {
+
+    const chessboard = new Array(n)
+    for(let i = 0; i < n; i++) {
+        chessboard[i] = new Array(n).fill(".")
+    }
+    
+    const results = []
+    
+    const isValidQueenPosition = (row, col) => {
+        for(let i = 0; i < row; i++) {
+            if(chessboard[i][col] === "Q") return false
+        }
+        for(let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+            if(chessboard[i][j] === "Q") return false
+        }
+        for(let i = row - 1, j = col + 1; i >= 0 && j <= n - 1; i--, j++) {
+            if(chessboard[i][j] === "Q") return false
+        }
+        return true
+    }
+    
+    const backtrack = (row) => {
+        if(row === n) {
+            results.push([...chessboard].map(row => row.join('')))
+            return
+        }
+        for(let col = 0; col < n; col++) {
+            if(isValidQueenPosition(row, col)) {
+                chessboard[row][col] = "Q"
+                backtrack(row + 1)
+                chessboard[row][col] = "."
+            }
+        }
+    }
+    backtrack(0)
+    return results
+
+}{{< /code >}}
+
 # Matricies
 
 How to return elements of a matrix in spiral order? (The top row left-to-right, continued by the left side going down, continued by the bottom row right-to-left, continued by the right side going up, continued by the second-to-top row left-to-right, etc.) If the matrix is empty, return an empty matrix. Then, create a `result` matrix, and start four pointers, `left`, `right`, `top`, and `bottom`, which indicate the edges of the matrix, inclusive, that still need to be investigated. While the size of the matrix has not been fully explored, step across, down, back, and up the array by using the pointers, pushing to `result`. Pull each pointer one step closer to the middle of the array after its fourth of the while loop is complete. Be careful not to move pointers in quarters where no elements are left to be pushed.
