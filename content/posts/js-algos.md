@@ -1481,7 +1481,7 @@ To reverse nodes in a link list k at a time, you can implement the change in bat
 // typeof k === "number"
 
 const reverseKGroup = (head, k) => {
-    
+
   if (!head) return null
   let kSegmentTraversal = head
   for (let i = 1; i < k; i++) {
@@ -3493,6 +3493,26 @@ RandomizedSet.prototype.remove = function(val) {
 RandomizedSet.prototype.getRandom = function() {
     const index = Math.floor(Math.random()*this.array.length)
     return this.array[index]
+}{{< /code >}}
+
+How to find the smallest missing positive integer from an array in linear time? You can solve this problem with two array traversals. In the first traversal, while the value being reviewed is positive, the value is less than or equal to the length of the array, and the index location equal to the value minus 1 (so the 0th index would contain 1) does not already contain the value, swap the value at the current location with the value at the index location equal to the value minus 1. What this does is repeatedly place values in the "correct" location from the value at the highlighted index, bring the values that had been at the "correct" location to the highlighted index, and continue as long as this process is productive. After this loop is attempted for every array index, loop the array again and return the index plus 1 the first time an index does not contain itself plus 1. If this loop is finished without returning anything you can return the length of the array plus 1 because the first missing number would then be just greater than the length of the array.
+
+{{< code language="javascript" title="[First Missing Positive](https://leetcode.com/problems/first-missing-positive/) -- code slightly modified from [loctn's code and explanation](https://leetcode.com/problems/first-missing-positive/solutions/17133/simple-javascript-o-n-time-and-o-1-space/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+
+const firstMissingPositive = (nums) => {
+
+    for (let i = 0; i < nums.length; i++){
+        while(nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] !== nums[i]){
+            [nums[nums[i] - 1], nums[i]] = [nums[i], nums[nums[i] - 1]]
+        }
+    }
+    
+    for (i = 0; i < nums.length; i++) {
+        if (nums[i] !== i + 1) return i + 1
+    }
+    return nums.length + 1
+
 }{{< /code >}}
 
 # Dynamic Programming
