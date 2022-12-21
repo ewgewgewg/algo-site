@@ -3188,7 +3188,60 @@ const longestIncreasingPath = (matrix) => {
 
 }{{< /code >}}
 
-*** Word Search II and Alien Dictionary go here ***
+In order to find which words from a list can be spelled through up/down/left/right adjacent characters on a grid of characters, you can begin by creating an empty `results` array. Then construct a [trie](/posts/js-algos#tries) out of the input array of words, but use the word itself as the stop sign so what word has been found will be able to be detected. Loop the board and at every location run a helper function with the location and a copy of the `trie` root. This function will run recusively, so if the trie `node` in the helper indicates reaching the end of a word with a stop sign, add that word to `results` and then remove the stop sign so the word does not get added twice. Otherwise, if the location is off the board or the letter at the location is not found at the current trie `node` return. If the function continues, save the `boardCharacter` at the location, temporarily override it with a nonletter character so it does not get examined again in recursive traversals, and then call the helper recursively in every legal direction with a copy of the trie moved down in the direction of the `boardCharacter`. At the end of the recursive calls, restore the letter at the location so it can be used in a traversal starting at a different location.
+
+{{< code language="javascript" title="[Word Search II](https://leetcode.com/problems/word-search-ii/) -- code slightly modified from [Hongbo-Miao's code](https://leetcode.com/problems/word-search-ii/solutions/138279/clean-javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof board === "object" (array of array of 1 character strings)
+// typeof words === "object" (array of strings)
+
+const findWords = (board, words) => {
+
+  const buildTrie = () => {
+    const root = {}
+    for (const word of words) {
+      let node = root
+      for (const character of word) {
+        if (!node[character]) node[character] = {};
+        node = node[character]
+      }
+      node.word = word
+    }
+    return root
+  }
+
+  const results = []
+  const trie = buildTrie()
+  const directions = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+
+  const go = (node, x, y) => {
+    if (node.word) {
+      results.push(node.word)
+      node.word = null
+    }
+
+    if (x < 0 || x >= board.length || y < 0 || 
+    y >= board[0].length || !node[board[x][y]]) return
+
+    const boardCharacter = board[x][y]
+    board[x][y] = '#'
+    for (const [dx, dy] of directions) {
+      const i = x + dx
+      const j = y + dy
+      go(node[boardCharacter], i, j)
+    }
+    board[x][y] = boardCharacter
+  }
+
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      go(trie, i, j)
+    }
+  }
+  return results
+
+}{{< /code >}}
+
+*** Alien Dictionary goes here ***
 
 To determine the minimum number of buses to take when given a number of looping bus routes with stops (each with a unique bus), if the source is not the same as the target (which allows immediate return of `0`), you can create a new route data such that each bus stop points to an array with all possible buses that reach it. Then a `queue` array starting with only the source bus stop can be reviewed in breadth-first search style. At each step, the front `busStop` in the `queue` is shifted off, and all `buses` that reach that `busStop` are collected and iterated. If the `bus` has already been `visited`, continue (preventing loops), else add the bus to a `visited` set and loop all stops the bus reaches (using a location in the original routes input array). If the destination is found, return a `count` tally started at `1`, else push the new stop number into a `nextQueue`. If after reviewing all `buses` that go to the `busStop` currently processed, there are no more stops in the `queue`, increment `count` by 1, replace `queue` with `nextQueue`, and replace `nextQueue` with an empty array. If `queue` is still exhausted, you can return `-1` to indicate it is not possible to reach the target.
 
