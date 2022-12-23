@@ -359,7 +359,7 @@ console.log(sampleObject) // prints {color2: "red"}
 
 {{< /code >}}
 
-Maps can be initialized with arrays of arrays of pairs, where each pair is converted into a key and value. They also have additional methods. For example, they have `size`, and can `delete` values and also iterate through their keys.
+Maps can be initialized with arrays of arrays of pairs, where each pair is converted into a key and value. They also have additional methods. For example, they have `size`, and can `delete` values and also iterate through their keys. The keys can also be turned into an array.
 
 {{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -368,6 +368,8 @@ map.set(1,2)
 map.set(2,3)
 map.set(3,4)
 map.set(4,5)
+
+console.log(Array.from(map.keys())) // prints [1, 2, 3, 4]
 
 map.delete(4)
 map.delete(map.keys().next().value)

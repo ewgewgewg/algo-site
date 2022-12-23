@@ -3275,7 +3275,62 @@ const findWords = (board, words) => {
 
 }{{< /code >}}
 
-*** Alien Dictionary goes here ***
+Given a list of words, how to return a an alphabetized list of their letters as if the words were in a sorted dictionary? You can start by creating an `indegree` map that sets every unique `character` in every word to have an `indegree` of 0 as a start. Then you can loop the input list of words, comparing every adjacent pair. At every adjacent pair, find the minimum length of the two words, and loop this number of characters, starting at the beginning of both words. Proceed until the first time these characters no longer match, then add the character of the prior word to a key in an `adjacencyList` with value of an empty set if this has not already been done. Then, in this set, if the letter in the second word cannot be found, add it to the first word's letter's set, and raise the `indegree` of the second word's letter by 1 (as it has at least that many letters ahead of it in the dictionary). Since only one pair of letters can be compared per pair of words, next break the character loop. For the last phase of the algorithm, start a `queue` with all of the keys in the `indegree` map. Then, while the `queue` has a length, shift off the front item, push its value to a `result` array (the very first item by definition has no precursors), and reduce the `indegree` by 1 of every letter found when looking up the original letter in the `adjacencyList`. If one of these "next" letters has an `indegree` of 0 after this action, push it to the `queue`. When the `queue` is fully processed, the `result` can be returned.
+
+{{< code language="javascript" title="[Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) -- code developed with human review and modification of ChatGPT output" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof words === "object" (array of words)
+
+const alienOrder = (words) => {
+
+  const indegree = new Map()
+  for (let word of words) {
+    for (let character of word) {
+      if (!indegree.has(character)) {
+        indegree.set(character, 0)
+      }
+    }
+  }
+
+  const adjacencyList = new Map()
+
+  for (let i = 0; i < words.length - 1; i++) {
+    const word1 = words[i]
+    const word2 = words[i + 1]
+    const minLength = Math.min(word1.length, word2.length)
+    for (let j = 0; j < minLength; j++) {
+      if (word1[j] !== word2[j]) {
+        const character1 = word1[j]
+        const character2 = word2[j]
+        if (!adjacencyList.has(character1)) {
+          adjacencyList.set(character1, new Set())
+        }
+        if (!adjacencyList.get(character1).has(character2)) {
+          adjacencyList.get(character1).add(character2)
+          indegree.set(character2, indegree.get(character2) + 1);
+        }
+        break
+      }
+    }
+  }
+
+  const result = []
+  const queue = Array.from(indegree.keys()).filter(c => indegree.get(c) === 0)
+  while (queue.length > 0) {
+    const c = queue.shift()
+    result.push(c)
+    if (adjacencyList.has(c)) {
+      for (const neighbor of adjacencyList.get(c)) {
+        indegree.set(neighbor, indegree.get(neighbor) - 1)
+        if (indegree.get(neighbor) === 0) {
+          queue.push(neighbor)
+        }
+      }
+    }
+  }
+
+  return result
+
+}{{< /code >}}
 
 To determine the minimum number of buses to take when given a number of looping bus routes with stops (each with a unique bus), if the source is not the same as the target (which allows immediate return of `0`), you can create a new route data such that each bus stop points to an array with all possible buses that reach it. Then a `queue` array starting with only the source bus stop can be reviewed in breadth-first search style. At each step, the front `busStop` in the `queue` is shifted off, and all `buses` that reach that `busStop` are collected and iterated. If the `bus` has already been `visited`, continue (preventing loops), else add the bus to a `visited` set and loop all stops the bus reaches (using a location in the original routes input array). If the destination is found, return a `count` tally started at `1`, else push the new stop number into a `nextQueue`. If after reviewing all `buses` that go to the `busStop` currently processed, there are no more stops in the `queue`, increment `count` by 1, replace `queue` with `nextQueue`, and replace `nextQueue` with an empty array. If `queue` is still exhausted, you can return `-1` to indicate it is not possible to reach the target.
 
