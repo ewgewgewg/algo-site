@@ -4617,6 +4617,63 @@ const setZeroes = (matrix) => {
 
 }{{< /code >}}
 
+To solve a Sudoku board with some numbers already filled out, in-place, loop the input board. At each location, compute a unique indentifier for which 3x3 square the location is in. Sudoku boards are 9x9, and every row, column, and 3x3 square (of which there are 9) must contain the numbers 1 through 9. At each location, using a storage for `rows`, `columns`, and `squares` outside the loop, add a set if it does not already exist to each of the three with a key corresponding to the `row`, `column`, and `square` being reviewed. Within each set, add the value at the location if is not empty (empty is indicated by "." in LeetCode). If the space is empty, add an array with the `row` and `column` to a `visit` array outside the loop. After finishing the original traversal, you can run a depth-first search using a helper function. In this depth-first search helper, you can immediately return true if the `visit` array is empty (meaning there are no empty spaces where values need to be planted). Else note the `row` and `column` of the 0 index item in `visit` and compute the associated `square`. Loop the numbers 1 through 9, and if any can be planted at the given `row` and `column` (check `rows`, `columns`, and `squares` to see what is available), add the value at the location on the board and add the value also to `rows`, `columns`, and `squares` in the appropriate set as a note. Shift off the item from `visit` that was just processed, and run the depth-first search recurisvely. If this returns true you can return true, else restore the location to being empty and remove the note of the tested value from `rows`, `columns`, and `squares`, then unshift an array with `row` and `column` back to the front of the `visit` array. At the end of this process the board should be filled correctly. 
+
+{{< code language="javascript" title="[Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) -- code slightly modified from [cenkay's code](https://leetcode.com/problems/sudoku-solver/solutions/140863/simple-javascript-solution/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof board === "object" (array of arrays of 1 character strings)
+
+const solveSudoku = (board) => {
+
+    const rows = {}
+    const cols = {}
+    const squares = {}
+    const visit = []
+    for (let row = 0; row < 9; row++) {
+        for (let column = 0; column < 9; column++) {
+            const square = Math.floor(row / 3) + "+" + Math.floor(column / 3)
+            rows[row] = rows[row] || new Set()
+            cols[column] = cols[column] || new Set()
+            squares[square] = squares[square] || new Set()
+            if (board[row][column] != ".") {
+                rows[row].add(board[row][column])
+                cols[column].add(board[row][column])
+                squares[square].add(board[row][column])
+            } else{
+                visit.push([row, column])
+            }
+        }
+    }
+    const dfs = () => {
+       if (!visit[0]) {
+           return true
+       }
+        const [row, column] = visit[0]
+        const square = Math.floor(row / 3) + "+" + Math.floor(column / 3)
+        for (let dig = 1; dig < 10; dig++) {
+            dig = String(dig)
+            if (!(rows[row].has(dig)) && !(cols[column].has(dig)) && !(squares[square].has(dig))) {
+                board[row][column] = dig
+                rows[row].add(dig)
+                cols[column].add(dig)
+                squares[square].add(dig)
+                visit.shift()
+                if (dfs()) {
+                    return true
+                } else {
+                    board[row][column] = "."
+                    rows[row].delete(dig)
+                    cols[column].delete(dig)
+                    squares[square].delete(dig)
+                    visit.unshift([row, column])
+                }
+            }
+        }
+        return false
+    }
+    dfs()
+
+}{{< /code >}}
+
 # Queues
 
 To design a hit counter that counts hits in the last 300 seconds, you can assign a function to a variable that contains a `map` under `this`. To add a hit, add a count to the second provided in the `map`, creating a new entry if that time has not before been seen. To look up hits, check 300 values starting at the second being checked and working backwards.
