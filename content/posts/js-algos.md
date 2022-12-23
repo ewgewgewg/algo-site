@@ -3143,7 +3143,54 @@ const minKnightMoves = (x, y) => {
 
 }{{< /code >}}
 
-*** Cheapest Flights Within K Stops goes here ***
+To find the cheapest cost between two cities within a certain number of intermediate stops and the help of an array providing flight sources, destinations, and costs, you can first note that you can immediately return `0` if the source city is the same as the destination city. Otherwise, you can create an `adjacencyList` storing a set of arrays of `destination` and `cost` pairs under each source city. You can then create a `destinationPrices` array with length equal to the number of cities, and start each value as Infinity. This creates conditions for work on a `queue`. Declare a `queue` array with an array containing the source `location` and a `cost` of 0, and declare an empty `nextQueue` array. While the `queue` has a length and the number of stops plus 2 is greater than 0 (this counts the source and destination), pop an item from the `queue` and check if the cost in `destinationPrices` for the `location` is greater than the cost that was popped. If so, update the cost in `destinationPrices` to the smaller number, and if the `adjacencyList` can look up the `location`, loop all `neighbors` the `adjacencyList` can find and push an array of two values to `nextQueue`. This small array includes the `destination` location, and then `cost` at the current `location` plus the `destinationPrice` as the second value in the array. Regardless of if `destinationPrices` count be updated, before checking if the `queue` has length again, and if the `queue` has no length, reduce the allowed number of stops by 1, update `queue` to `nextQueue`, and assign an empty array to `nextQueue`. When the outer loop finally ends, you can return `-1` if the `destinationPrices` array still has the goal location value as Infinity. Otherwise, return whatever value is there.
+
+{{< code language="javascript" title="[Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) -- code adapted from [Rahul-2020's code](https://leetcode.com/problems/cheapest-flights-within-k-stops/solutions/687814/javascript-bfs/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof n === "number"
+// typeof flights === "object" (array of arrays of 3 numbers)
+// typeof src === "number"
+// typeof dst === "number"
+// typeof k === "number"
+
+const findCheapestPrice = (n, flights, src, dst, k) => {
+    
+    if (src === dst) return 0
+    
+    const adjacencyList = new Map()
+    for (let [source, destination, cost] of flights) {
+        const newSet = (adjacencyList.get(source) || new Set()).add([destination, cost])
+        adjacencyList.set(source, newSet)
+    }
+
+    const destinationPrices = new Array(n).fill(Infinity)
+    let queue = [[src, 0]]
+    let nextQueue = []
+        
+    while(queue.length && k + 2 > 0) {
+    const [location, cost] = queue.pop()
+    
+        if (destinationPrices[location] > cost) {
+            destinationPrices[location] = cost
+
+            if (adjacencyList.has(location)) {
+                for (let neighbor of adjacencyList.get(location)) {
+                    const [destination, destinationPrice] = neighbor
+                    nextQueue.push([destination, cost+destinationPrice])
+                }                
+            }
+        }
+
+        if(!queue.length){
+            k--
+            queue = nextQueue
+            nextQueue = []
+        }
+
+    }
+    
+    return isFinite(destinationPrices[dst]) ? destinationPrices[dst] : -1
+
+}{{< /code >}}
 
 To count how many steps it takes to transform one word into a different word of equal length, given a list of valid intermediate words, you can set a `changes` variable to `1`, a `queue` array to contain the starting word, a `visited` set to contain the starting word, and a `dictionary` to contain all legal intermediates. While `queue` has a length, loop each `word` in the `queue`. For each, if any is the intended end word, return `changes` immediately. Else, for that `word` in the `queue`, test replacing all one-character-changes: every letter with every possible letter. If the new word is already in `visited` or is not in the `dictionary` you can ignore it, else push to a `nextQueue`. If every `word` in the `queue` finishes, replace the `queue` with `nextQueue` and start the next round. If the `queue` is empty without finding a solution you can return `0`.
 
@@ -4277,7 +4324,7 @@ const findKthLargest = (nums, k) => {
     }
 
     return heap.extractMax()
-    
+
 }{{< /code >}}
 
 To find the median from a data stream, you can assign a function to a variable and within the function set an `array` under `.this`. To add a number, binary search can be conducted to find the insertion point. You can use binary search until the `left` and `right` pointers cross, and have a condition of the floored `mid` value being less than the number to insert leading `left` being set to `mid+1`, else setting `right` to `mid-1`. Setting "past" the mid from both directions is required when the binary search does not resolve until the pointers cross. Finally for insert, you can insert the number with a splice. To actually find a number, if the length of the `array` is odd yuu can simply return the floored `mid`. Else, sum the value at `mid` and `mid-1` and return that value divided by 2.
