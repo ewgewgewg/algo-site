@@ -4235,7 +4235,7 @@ const findClosestElements = (arr, k, x) => {
 
 }{{< /code >}}
 
-{{< anchor "MaxHeap" >}} At this point it is worth reviewing heap syntax. The MaxHeap below can be used in future problems. Its constructor sets an empty array as `this.heap`. Other simple component methods include `isEmpty`, which checks if `this.heap` is empty, `peekMax`, which returns the top item in the heap if available, and `swap`, meant as a helper to swap two values in `this.heap`. Two more methods that are also simple, but are critical, and sit atop more complciate methods, are `insert` and `extractMax`. The `insert` method pushes a value to `this.heap` and then uses a `siftUp` method called with the final location in the array to place the new value correctly. The `extractMax` method notes that any first value in the heap is the maximum value and saves it, and to continue extraction, pops the last value in the heap, overwrites it to the earliest location in the heap, uses a `siftDown` method to place this override value back in its proper location, and then returns the saved maximum value. The `siftUp` method runs a loop such that while the input `index` is greater than 0, the floor is repeatedly found of half of `index-1`, and if the value at the original `index` is greater than the value at this `parentIndex`, swap is called and the loop moves to point the `index` at the `parentIndex`. Otherwise the method can stop. The `siftDown` method is more complicated but follows a similar process -- in a loop, while the input index is less than the length of `this.heap`, a `leftIndex` and a `rightIndex` are set at the doubled initial `index` plus 1 and the doubled initial `index` plus 2, respectively. A `maxIndex` is found among values in `leftIndex` if it is valid in the heap, `rightIndex` if it is valid in the heap, and the initial `index`. If the largest value is at the initial index, the loop breaks, otherwise a `swap` takes place between the `maxIndex` and the value at the top.
+{{< anchor "MaxHeap" >}} At this point it is worth reviewing heap syntax. The MaxHeap below can be used in future problems. Its constructor sets an empty array as `this.heap`. Other simple component methods include `isEmpty`, which checks if `this.heap` is empty, `length`, which checks the length of the heap, `peekMax`, which returns the top item in the heap if available, and `swap`, meant as a helper to swap two values in `this.heap`. Two more methods that are also simple, but are critical, and sit atop more complciate methods, are `insert` and `extractMax`. The `insert` method pushes a value to `this.heap` and then uses a `siftUp` method called with the final location in the array to place the new value correctly. The `extractMax` method notes that any first value in the heap is the maximum value and saves it, and to continue extraction, pops the last value in the heap, overwrites it to the earliest location in the heap if the length is greater than 1, uses a `siftDown` method to place this override value back in its proper location, and then returns the saved maximum value. The `siftUp` method runs a loop such that while the input `index` is greater than 0, the floor is repeatedly found of half of `index-1`, and if the value at the original `index` is greater than the value at this `parentIndex`, swap is called and the loop moves to point the `index` at the `parentIndex`. Otherwise the method can stop. The `siftDown` method is more complicated but follows a similar process -- in a loop, a `leftIndex` and a `rightIndex` are repeatedly set at the doubled initial `index` plus 1 and the doubled initial `index` plus 2, respectively. A `maxIndex` is found among values in `leftIndex` if it is valid in the heap, `rightIndex` if it is valid in the heap, and the initial `index`. If the largest value is at the initial index, the loop breaks, otherwise a `swap` takes place between the `maxIndex` and the value at the top.
 
 {{< code language="javascript" title="MaxHeap -- code developed with human review and modification of ChatGPT output" expand="Show" collapse="Hide" isCollapsed="false" >}}
 
@@ -4252,8 +4252,13 @@ class MaxHeap {
   extractMax() {
     if (this.isEmpty()) return null
     const max = this.heap[0]
-    this.heap[0] = this.heap.pop()
-    this.siftDown(0)
+    if (this.heap.length > 1){
+        this.heap[0] = this.heap.pop()
+        this.siftDown(0)
+    } else {
+        this.heap.pop()
+    }
+
     return max
   }
 
@@ -4278,14 +4283,14 @@ class MaxHeap {
   }
 
   siftDown(index) {
-    while (index < this.heap.length) {
+    while (true) {
       const leftIndex = index * 2 + 1
       const rightIndex = index * 2 + 2
       let maxIndex = index
-      if (leftIndex < this.heap.length && this.heap[leftIndex] > this.heap[minIndex]) {
+      if (leftIndex < this.heap.length && this.heap[leftIndex] > this.heap[maxIndex]) {
         maxIndex = leftIndex
       }
-      if (rightIndex < this.heap.length && this.heap[rightIndex] > this.heap[minIndex]) {
+      if (rightIndex < this.heap.length && this.heap[rightIndex] > this.heap[maxIndex]) {
         maxIndex = rightIndex
       }
       if (maxIndex !== index) {
@@ -4384,6 +4389,118 @@ const mergeKLists = (lists) => {
   }
   return link.next
 
+}{{< /code >}}
+
+To find the smallest range of elements covering numbers from a number of arrays that are sorted non-decreasingly, you can use a solution that involves a priority queue implemented as a heap. This priority queue stores multiple values but only sorts one value. The implementation of the heap is similar to that given in [MaxHeap](/posts/js-algos#maxheap), with two modifications: the comparators in `siftUp` and `siftDown` are reversed so that minimums end up on top, and only compare the zeroth element at the value instead of the value itself. The main algorithm begins by instantiating a minimum priority queue, and then to the priority queue adds triples of the first number in a given array, its `index` of 0, and a pointer at the array itself. The `maximumSeen` number of these firsts is also stored. A `rangeStart` is instantiated to 0, and a `rangeEnd` is instantiated to Infinity. While the priority queue is not empty, it can be popped. if `rangeEnd` less `rangeStart` is greater than the maximum number seen less the first number in the popped triple, update `rangeStart` to that number and `rangeEnd` to the `maximum` number. If the array length which can be found through the last location of the popped triple is greater than one more than the `index` stored in the middle of the triple, this means the next `index` in the array from the triple can be viewed. Insert into the priority queue a triple of the array value at this next `index`, the next `index` itself, and the array from the last popped location. Then update the `maximum` if the value added to the priority queue is the new `maximum`. The loop ends when this insertion can no longer be done on at least on of the arrays being reviewed. At that point, you can return `rangeStart` and `rangeEnd`. This math works because at any given point the priority queue contains one item for each array being reviewed, and will stop when this is no longer the case. It will review every number in every array starting with the minimum number regardless of what array it is from, and since the `maximum` of the lowest values was already collected in the set-up loop, and is always updated when new items are added to the priority queue, at every step in the loop, a valid minimum and `maximum` are being considered to see if they have smaller range than the current best pair.
+
+{{< code language="javascript" title="[Smallest Range Covering Elements from K Lists](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) -- code adapted from [mohammadameerabdallah's code and explaination](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/solutions/1407345/javascript-solution-using-heap/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of arrays of numbers)
+
+const smallestRange = (nums) => {
+    const minPQ = new minPriorityQueue()
+
+    let maximum = -Infinity
+	
+    for (let num of nums) {
+        minPQ.insert([num[0], 0, num])
+        maximum = Math.max(maximum, num[0])
+    }
+
+    let rangeStart = 0
+    let rangeEnd = Infinity
+	
+    while (minPQ.length() === nums.length) {
+        const [value, index, list] = minPQ.extractMin()
+
+        if (rangeEnd - rangeStart > maximum - value) {
+            rangeStart = value
+            rangeEnd = maximum
+        }
+
+        
+        if (list.length > index + 1) {
+            minPQ.insert([list[index + 1], index + 1, list])
+            maximum = Math.max(maximum, list[index + 1])
+        }
+
+    }
+    
+    return [rangeStart, rangeEnd]
+}
+
+
+class minPriorityQueue {
+  constructor() {
+    this.heap = []
+  }
+
+  insert(val) {
+    this.heap.push(val)
+    this.siftUp(this.heap.length - 1)
+  }
+
+  extractMin() {
+    if (this.isEmpty()) return null
+    const min = this.heap[0]
+    if (this.heap.length > 1){
+        this.heap[0] = this.heap.pop()
+        this.siftDown(0)
+    } else {
+        this.heap.pop()
+    }
+
+    return min
+  }
+
+  peekMin() {
+    return this.isEmpty() ? null : this.heap[0]
+  }
+
+  isEmpty() {
+    return this.heap.length === 0
+  }
+
+  length() {
+      return this.heap.length
+  }
+
+  siftUp(index) {
+    while (index > 0) {
+      const parentIndex = Math.floor((index - 1) / 2);
+      if (this.heap[index][0] < this.heap[parentIndex][0]) {
+        this.swap(index, parentIndex)
+        index = parentIndex
+      } else {
+        break
+      }
+    }
+  }
+
+  siftDown(index) {
+    while (true) {
+      const leftIndex = index * 2 + 1
+      const rightIndex = index * 2 + 2
+      let minIndex = index
+      if (leftIndex < this.heap.length && this.heap[leftIndex][0] < this.heap[minIndex][0]) {
+        minIndex = leftIndex
+      }
+      if (rightIndex < this.heap.length && this.heap[rightIndex][0] < this.heap[minIndex][0]) {
+        minIndex = rightIndex
+      }
+      if (minIndex !== index) {
+        this.swap(index, minIndex)
+        index = minIndex
+      } else {
+        break
+      }
+    }
+  }
+
+  swap(i, j) {
+    const temp = this.heap[i]
+    this.heap[i] = this.heap[j]
+    this.heap[j] = temp
+  }
 }{{< /code >}}
 
 # Tries
