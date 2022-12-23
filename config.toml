@@ -178,3 +178,7 @@ paginate = 5
         identifier = "binary operators"
         name = "Binary Operators"
         url = "/posts/js-language#Binary Operators"
+      [[languages.en.menu.main]]
+        identifier = "classes"
+        name = "Classes"
+        url = "/posts/js-language#Classes"

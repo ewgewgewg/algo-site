@@ -713,3 +713,25 @@ binaryF &= 1
 console.log(binaryF) // prints 1
 
 {{< /code >}}
+
+# Classes
+
+Classes can be used to wrap various functions (that do not require the keyword `function`). Functions inside a class are called methods. A special method, the `constructor`, initializes variables within the function that must be stored under `this`. Classes can be instantiated with the `new` keyword and variables passed into the instantiation to be available in the `constructor`.
+
+{{< code language="javascript" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+class Basic {
+    constructor(array) {
+        this.array = array
+    }
+    
+    getArray () {
+        return this.array
+    }
+}
+
+const firstBasic = new Basic([1,2])
+
+console.log(firstBasic.getArray()) // prints [1, 2]
+
+{{< /code >}}

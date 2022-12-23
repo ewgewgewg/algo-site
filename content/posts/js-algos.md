@@ -4188,7 +4188,97 @@ const findClosestElements = (arr, k, x) => {
 
 }{{< /code >}}
 
-*** Kth Largest Element in an Array goes here ***
+{{< anchor "MaxHeap" >}} At this point it is worth reviewing heap syntax. The MaxHeap below can be used in future problems. Its constructor sets an empty array as `this.heap`. Other simple component methods include `isEmpty`, which checks if `this.heap` is empty, `peekMax`, which returns the top item in the heap if available, and `swap`, meant as a helper to swap two values in `this.heap`. Two more methods that are also simple, but are critical, and sit atop more complciate methods, are `insert` and `extractMax`. The `insert` method pushes a value to `this.heap` and then uses a `siftUp` method called with the final location in the array to place the new value correctly. The `extractMax` method notes that any first value in the heap is the maximum value and saves it, and to continue extraction, pops the last value in the heap, overwrites it to the earliest location in the heap, uses a `siftDown` method to place this override value back in its proper location, and then returns the saved maximum value. The `siftUp` method runs a loop such that while the input `index` is greater than 0, the floor is repeatedly found of half of `index-1`, and if the value at the original `index` is greater than the value at this `parentIndex`, swap is called and the loop moves to point the `index` at the `parentIndex`. Otherwise the method can stop. The `siftDown` method is more complicated but follows a similar process -- in a loop, while the input index is less than the length of `this.heap`, a `leftIndex` and a `rightIndex` are set at the doubled initial `index` plus 1 and the doubled initial `index` plus 2, respectively. A `maxIndex` is found among values in `leftIndex` if it is valid in the heap, `rightIndex` if it is valid in the heap, and the initial `index`. If the largest value is at the initial index, the loop breaks, otherwise a `swap` takes place between the `maxIndex` and the value at the top.
+
+{{< code language="javascript" title="MaxHeap -- code developed with human review and modification of ChatGPT output" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+class MaxHeap {
+  constructor() {
+    this.heap = []
+  }
+
+  insert(val) {
+    this.heap.push(val)
+    this.siftUp(this.heap.length - 1)
+  }
+
+  extractMax() {
+    if (this.isEmpty()) return null
+    const max = this.heap[0]
+    this.heap[0] = this.heap.pop()
+    this.siftDown(0)
+    return max
+  }
+
+  peekMax() {
+    return this.isEmpty() ? null : this.heap[0]
+  }
+
+  isEmpty() {
+    return this.heap.length === 0
+  }
+
+  siftUp(index) {
+    while (index > 0) {
+      const parentIndex = Math.floor((index - 1) / 2);
+      if (this.heap[index] > this.heap[parentIndex]) {
+        this.swap(index, parentIndex)
+        index = parentIndex
+      } else {
+        break
+      }
+    }
+  }
+
+  siftDown(index) {
+    while (index < this.heap.length) {
+      const leftIndex = index * 2 + 1
+      const rightIndex = index * 2 + 2
+      let maxIndex = index
+      if (leftIndex < this.heap.length && this.heap[leftIndex] > this.heap[minIndex]) {
+        maxIndex = leftIndex
+      }
+      if (rightIndex < this.heap.length && this.heap[rightIndex] > this.heap[minIndex]) {
+        maxIndex = rightIndex
+      }
+      if (maxIndex !== index) {
+        this.swap(index, maxIndex)
+        index = maxIndex
+      } else {
+        break
+      }
+    }
+  }
+
+  swap(i, j) {
+    const temp = this.heap[i]
+    this.heap[i] = this.heap[j]
+    this.heap[j] = temp
+  }
+}
+
+{{< /code >}}
+
+Finding the kth largest element in an array in less than quadratic time is simple with a [MaxHeap](/posts/js-algos#maxheap). Add all values to the heap, then pop until you reach the kth, which should be returned.
+
+{{< code language="javascript" title="[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums === "object" (array of numbers)
+// typeof k === "number"
+
+const findKthLargest = (nums, k) => {
+    
+    const heap = new MaxHeap()
+    for(let i=0; i < nums.length; i++){
+        heap.insert(nums[i])
+    }
+
+    for(let i = 1; i < k; i++){
+        heap.extractMax()
+    }
+
+    return heap.extractMax()
+    
+}{{< /code >}}
 
 To find the median from a data stream, you can assign a function to a variable and within the function set an `array` under `.this`. To add a number, binary search can be conducted to find the insertion point. You can use binary search until the `left` and `right` pointers cross, and have a condition of the floored `mid` value being less than the number to insert leading `left` being set to `mid+1`, else setting `right` to `mid-1`. Setting "past" the mid from both directions is required when the binary search does not resolve until the pointers cross. Finally for insert, you can insert the number with a splice. To actually find a number, if the length of the `array` is odd yuu can simply return the floored `mid`. Else, sum the value at `mid` and `mid-1` and return that value divided by 2.
 
