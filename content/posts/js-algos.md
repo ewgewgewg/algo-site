@@ -1884,6 +1884,95 @@ const minWindow = (s, t) => {
 
 }{{< /code >}}
 
+To find all pairs of strings in an array of unique strings such that the joining of the strings makes a palindrome (order matters), you can start by looping the strings and creating a [trie](/posts/js-algos#tries) where the words will be stored backwards, and an`.index` flag will also be stored at the level as a `.end` flag. Next, to handle a the case where there is a string with no characters, simply add an array of length 2 with the empty string's index and the index of every word with a palindrome to a `results` array (the palindrome with the string indicies in the other direction will be handled later). Now the main looping of the input word list can take place. For each string, first, run a new helper function such that the string is reviewed up to just under its length (not including the last character), and if any `.end` is found along the way, check to see if the remainder of the parent string `isPalindrome`, and if so, push the index of the string in the loop and then the string being found to `results`. In this helper, return the node that would contain the `.end` after the full length of the word if it exists, otherwise return nothing. Back in the main looping of the string list, if it was found that some string at least the full length of the string being iterated exists, run a final `findPalindromes` helper. If the node returned in the earlier helper has a `.end`, the index here does not match the index of the string being reviewed, and a `suffix` started at an empty string `isPalindrome`, add the index of the string being reviewed followed by the index of the found word to `results`. Then iterate through the characters in the node and for each call `findPalindromes` recursively, building up a suffix string from various found characters. At the end return `results`
+
+{{< code language="javascript" title="[Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs/) -- code slightly modified from [qkrrbtjd90's code and explaination](https://leetcode.com/problems/palindrome-pairs/solutions/1921780/simple-javascript-solution-w-comments-trie/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof words === "object" (array of strings)
+
+const palindromePairs = (words) => {
+    
+	const trie = {}
+	const results = []
+
+	const insertReversed = (words) => {
+		for (let i = 0; i < words.length; i++) {
+			const word = words[i]
+			let node = trie
+			for (let j = word.length - 1; j >= 0; j--) {
+				const character = word[j]
+
+				if (!node[character]) node[character] = {}
+
+				node = node[character]
+			}
+			node.end = true
+			node.index = i
+		}
+	}
+    insertReversed(words)
+
+    const isPalindrome = (word) => {
+        for (let i = 0; i < word.length / 2; i++){
+            if (word[i] !== word[word.length-1-i]) return false
+        }
+		return true
+	}
+
+	const handleEmptyString = (root) => {
+        if (!root.end) return
+
+        for (let i = 0; i < words.length; i++) {
+            const validPalindrome = isPalindrome(words[i])
+
+            if (root.index === i) continue
+            if (validPalindrome) results.push([i, root.index])
+        }
+	}
+    handleEmptyString(trie)
+
+	const getLastPrefixNode = (word, i) => {
+		let node = trie
+
+		for (let j = 0; j < word.length; j++) {
+			const character = word[j]
+			const child = node[character]
+
+			if (!child) return
+			if (child.end && j < word.length - 1) {
+				const suffix = word.slice(j + 1)
+				const validSuffix = isPalindrome(suffix)
+
+				if (validSuffix) results.push([i, child.index])
+			}
+
+			node = node[character]
+		}
+
+		return node
+	}
+
+	const findPalindromes = (node, suffix, i) => {
+		if (node.end && node.index !== i) {
+			const validSuffix = isPalindrome(suffix)
+
+			if (validSuffix) results.push([i, node.index])
+		}
+
+		for (const char in node) {
+			findPalindromes(node[char], suffix + char, i)
+		}
+	}
+
+
+	for (let i = 0; i < words.length; i++) {
+		const lastPrefixNode = getLastPrefixNode(words[i], i)
+		if (lastPrefixNode) findPalindromes(lastPrefixNode, "", i)
+	}
+
+	return results
+    
+}{{< /code >}}
+
 # Binary Trees
 
 One of the ways LeetCode has implemented a binary tree node is like this:
