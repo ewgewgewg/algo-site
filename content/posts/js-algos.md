@@ -584,6 +584,34 @@ const maxSlidingWindow = (nums, k) => {
 
 }{{< /code >}}
 
+Given lists of employee start and end working times, how to consolidate all of these into a similar list of start and end times when all employees are off work? First all start and end times can be consolidated into a `singleSchedule`, which can then be sorted by start times. The first item in this can be highlighted as `current`, and then the `singleSchedule` can be reviewed. If the `.end` working time in `current` is less than the `.start` in the item being iterated, this means there is a gap between the `.start` and the `.end`. This is guaranteed to be real because for the `.start` of the iterated item to be greater than the `.end` of the `current`, all items with earlier `.start` values must have already been iterated. Therefore, push a new `Interval` with the `.end` of `current` and the `.start` of the iterated item to `results`,  and update `current` to the iterated item. Otherwise, there is overlap between `current` and the iterated item, so update `current`'s `.end` to that of the iterated item if it is greater.
+
+{{< code language="javascript" title="[Employee Free Time](https://leetcode.com/problems/employee-free-time/) -- code adapted from [CNoodle's code](https://www.cnblogs.com/cnoodle/p/12673290.html)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof schedule === "object" (array of arrays of Interval classes containing .start and .end values that can be filled by a constructor)
+
+const employeeFreeTime = (schedule) => {
+    
+    const result = []
+
+    const singleSchedule = schedule.reduce((accumulator, value)=>{
+        return [...accumulator, value]
+    },[]).sort((a,b) => a.start - b.start)
+
+    let current = singleSchedule[0]
+
+    for (let interval of singleSchedule){
+        if (current.end < interval.start){
+            result.push(new Interval(current.end, interval.start))
+        } else {
+            current.end = Math.max(current.end, interval.end)
+        }
+    }
+
+    return result
+}
+
+{{< /code >}}
+
 # Stacks
 
 To see if a string containing only `(){}[]` characters closes validly, create a dictionary where closing brackets point to opening brackets, and instantiate a stack. Then, iterate over the string, pushing opening brackets to the stack and popping the stack if a closing bracket is found which can close the stack's top item. If a closing bracket is found that does not close the stack's top item, or the stack is empty when a closing bracket is found, or the stack still has length when the string is fully iterated, return `false` -- otherwise `true` should be returned.
@@ -1970,7 +1998,7 @@ const palindromePairs = (words) => {
 	}
 
 	return results
-    
+
 }{{< /code >}}
 
 # Binary Trees
