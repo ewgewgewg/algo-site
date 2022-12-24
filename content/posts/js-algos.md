@@ -555,11 +555,9 @@ const eraseOverlapIntervals = (intervals) => {
 
 }{{< /code >}}
 
-*** Employee Free Time goes here ***
-
 To find the maximum value of each sliding window of a given length in an array, you can start by declaring an empty `result` array, as well as an empty `queue` array, and a `left` pointer at 0. Then iterate through all values in the array, naming the moving index controlling the loop as the `right` pointer. At a given location, while the `queue` has a length and the last value indicated by `queue` is less than or equal to the value indicated by the `right` pointer, you, can pop that last value off the `queue`. Then, push the `right` index into the `queue`. These last two steps guarantee that the leftmost value in the `queue` is at a maximum. To manage the front end of the siding window, if the `left` index is greater than the index at the front of the `queue`, shift off the front element of the `queue`. Finally, if the `right` index has progressed far enough that the sliding window is at its appropriate length, push the value indicated by the index in the first position at the `queue` to `result`, and increase the `left` index by 1.
 
-{{< code language="javascript" title="[Non-overlapping Intervals](https://leetcode.com/problems/sliding-window-maximum/) -- code modified from [shekhar90's code](https://leetcode.com/problems/sliding-window-maximum/solutions/2060046/javascript/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+{{< code language="javascript" title="[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) -- code modified from [shekhar90's code](https://leetcode.com/problems/sliding-window-maximum/solutions/2060046/javascript/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
 
 const maxSlidingWindow = (nums, k) => {
@@ -4723,6 +4721,77 @@ WordDictionary.prototype.search = function(word) {
     
     return go(this.trie, 0)
 
+}{{< /code >}}
+
+To design an in-memory file system with `ls`, `mkdir`, `addContentToFile`, and `readContentFromFile` methods, you can use a `FileSystem` class and set at its `this.root` a new instance of a `File` class. To find `ls`, you can split an input path by `/`, and proceed until the second-to-last step, traversing down through `.files` on the active location. If the goal `isFile` you can return the folder structure at the current level, sorted, otherwise go down a level and do the same. The `mkdir` method is simpler and simply traverses downwards from the root, create new `File` class instances as needed. In `addContentToFile`, another similar traversal can take place, creating `File`s as needed, and finally adding some input `content` to the ending location while adding a `isFile` flag to help with the `ls` command. Finally, in `readContentFromFile`, a traversal takes place downwards and the `content` is output.
+
+{{< code language="javascript" title="[Design In-Memory File System](https://leetcode.com/problems/design-in-memory-file-system/) -- code adapted from [Wentao Shao's Java code and explanation, Approach #2](https://wentao-shao.gitbook.io/leetcode/data-structure/588.design-in-memory-file-system)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+class File {
+    constructor () {
+      this.isFile = false
+      this.files = {}
+      this.content = ""
+    }
+}
+
+class FileSystem {
+
+    constructor () {
+      this.root = new File()
+    }
+
+    ls(path) {
+        let location = this.root
+        let files = []
+        if (path !== "/") {
+            const segments = path.split("/")
+            for (let i = 1; i < segments.length; i++) {
+                location = location.files[segments[i]]
+            }
+            if (location.isfile) {
+                files.push(segments[segments.length - 1])
+                return files.sort()
+            }
+        }
+        files = Object.keys(location.files)
+        files.sort()
+        return files
+    }
+
+    mkdir(path) {
+        let location = this.root
+        const segments = path.split("/")
+        for (let i = 1; i < segments.length; i++) {
+            if (!location.files[segments[i]]){
+              location.files[segments[i]] = new File()
+            }
+            location = location.files[segments[i]]
+        }
+    }
+
+    addContentToFile(filePath, content) {
+        let location = this.root
+        const segments = filePath.split("/")
+        for (let i = 1; i < segments.length - 1; i++) {
+            location = location.files[segments[i]]
+        }
+        if (!location.files[segments[segments.length - 1]]){
+          location.files[segments[segments.length - 1]] = new File()
+        }
+        location = location.files[segments[segments.length - 1]]
+        location.isfile = true
+        location.content = location.content + content
+    }
+
+    readContentFromFile(filePath) {
+        let location = this.root
+        const segments = filePath.split("/")
+        for (let i = 1; i < segments.length - 1; i++) {
+            location = location.files[segments[i]]
+        }
+        return location.files[segments[segments.length - 1]].content
+    }
 }{{< /code >}}
 
 # Recursion
