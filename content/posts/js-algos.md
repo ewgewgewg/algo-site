@@ -2689,6 +2689,48 @@ const jobScheduling = (startTime, endTime, profit) => {
 
 }{{< /code >}}
 
+To find the median of two sorted arrays in logarithmic time, you can first note two cases, one where the sum of the array lengths is odd, and the other where the sum of the array lengths is even. If the lengths are odd, you can run a helper using a `centralJoinedIndex` of the floored sum of the lengths divided by 2, and return it directly. If the lengths are even, you can run the same helper twice, targeting a `centralJoinedIndex` computed the same and another with a `centralJoinedIndex` of one less, returning a value halfway between the two values. In the helper, parameters are available for the left and right indices of both arrays being considered, as well as the arrays themselves, and the given `centralJoinedIndex`. If the left of either array has crossed over its right, this is a sign that the result in that helper function is in the other array at a location equal to the `centralJoinedIndex` minus the left index that crossed over. Otherwise, compute floored middle indicies and values for both arrays, and handle four cases for four possible recursive calls. If the sum of both middle indicies is less than the target index, the next recursive call can remove the front half of whichever array has a smaller middle value, replacing its starting index with its middle index plus 1. Left is only moved if we are sure we can eliminate a whole section, because of its role in returning a result. However, if the sum of both middle indicies is greater or equal to the `centralJoinedIndex`, a similar pattern can be followed for the final two cases. The right index of whichever array's middle value is greater is overridden with its middle index minus 1. This is the full algorithm. The reason the end result is in a location in the array without crossed pointers at the `centralJoinedIndex` minus a displacement equal to the left of the removed part of the other array is because, firstly, the crossed array has been eliminated from consideration. Secondly, the target must be the `centralJoinedIndex` less some value because that much of the "pre-mid" has already been found in the eliminated array. Edge cases of an array with no length should be handled gracefully by the existing algorithm with the moving of a right pointer backwards.
+
+{{< code language="javascript" title="[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) -- code adapted from [stephenweixu's Python code and explanation written as a comment on clue's Python code and explanation](https://leetcode.com/problems/median-of-two-sorted-arrays/solutions/2511/intuitive-python-o-log-m-n-solution-by-kth-smallest-in-the-two-sorted-arrays-252ms/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// typeof nums1 === "object" (array of numbers)
+// typeof nums2 === "object" (array of numbers)
+
+const findMedianSortedArrays = (nums1, nums2) =>{
+
+        const len1 = nums1.length
+        const len2 = nums2.length
+
+        if ((len1 + len2) % 2){
+            return get_kth(nums1, nums2, 0, len1-1, 0, len2-1, Math.floor((len1+len2)/2))
+        }
+
+        const mid1 = get_kth(nums1, nums2, 0, len1-1, 0, len2-1, Math.floor((len1+len2)/2))
+        const mid2 = get_kth(nums1, nums2, 0, len1-1, 0, len2-1, Math.floor((len1+len2)/2)-1)
+
+        return (mid1 + mid2) / 2
+}
+
+const get_kth = (nums1, nums2, start1, end1, start2, end2, centralJoinedIndex) => {
+        if (start2 > end2) return nums1[centralJoinedIndex-start2]
+        if (start1 > end1) return nums2[centralJoinedIndex-start1]
+        
+        const mid1 = Math.floor((start1 + end1)/2)
+        const mid2 = Math.floor((start2 + end2)/2)
+        const mid1Value = nums1[mid1]
+        const mid2Value = nums2[mid2]
+        
+        if ((mid1 + mid2) < centralJoinedIndex) {
+            if(mid1Value > mid2Value) return get_kth(nums1, nums2, start1, end1, mid2+1, end2, centralJoinedIndex)
+            return get_kth(nums1, nums2, mid1+1, end1, start2, end2, centralJoinedIndex)
+        }
+
+
+        if (mid1Value > mid2Value) return get_kth(nums1, nums2, start1, mid1-1, start2, end2, centralJoinedIndex)
+        
+        return get_kth(nums1, nums2, start1, end1, start2, mid2-1, centralJoinedIndex)
+
+}{{< /code >}}
+
 # Graphs
 
 A two-dimensional array can represent a screen of pixels. To represent the "flood fill" tool in a paint editor, identify the coordinates at which you wish to begin flood fill. If that location is already the desired color, stop the process. Otherwise, you can begin a depth-first search at that location, replacing its color with the target color, and generating recursive calls up, down, left, and right. In each of these recursive calls, if the coordinates are out of bounds or the color is not the color being overwritten, handle this base case by not recursing further from that point. Otherwise, change the color at the location and generate more recursive calls up, down, left, and right.
