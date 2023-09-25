@@ -136,7 +136,7 @@ const canAttendMeetings = (intervals) =>
 
 }{{< /code >}}
 
-To move all zeros to the end of an array while preserving the order of nonzero elements, create a `nextNonzeroLocation` and assign the 0 index of the array, then iterate through the array with a different pointer. When this second pointer finds a nonzero, swap the value with the value at the `nextNonzeroLocation` and increment `nextNonzeroLocation` by 1. This will ensure that only 0 numbers will be "behind" the leading pointer, so steadily adding nonzeroes to the `nextNonzeroLocation` will never displace a value that needs its relative order preserved.
+To move all zeros to the end of an array while preserving the order of nonzero elements, create a `nextNonzeroLocation` and assign the 0 index of the array, then iterate through the array with a different pointer. When this second pointer finds a nonzero, swap the value with the value at the `nextNonzeroLocation` and increment `nextNonzeroLocation` by 1. This will ensure that only 0 numbers will be "behind" the leading pointer but at or ahead of `nextNonzeroLocation`, so steadily adding nonzeroes to the `nextNonzeroLocation` will never displace a value that needs its relative order preserved.
 
 {{< code language="javascript" title="[Move Zeroes](https://leetcode.com/problems/move-zeroes/)" expand="Show" collapse="Hide" isCollapsed="false" >}}
 // typeof nums === "object" (array of numbers)
