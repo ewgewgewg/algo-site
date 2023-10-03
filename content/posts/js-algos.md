@@ -3788,7 +3788,7 @@ const climbStairs = (n) => {
 
     while(count < n){
         let next0 = steps[1] + steps[0]
-        let next1 = steps[2] + steps[0]
+        let next1 = steps[0]
         
         steps = [next0, next1, 0]
         count++
